@@ -1,12 +1,7 @@
 @import "tailwindcss";
 
-
-/* @custom-variant dark (&:is(.dark *));     */
-
 .container{
     max-width: 1320px;  
-    /* margin:auto; */
-
 }
 
 :root{
@@ -54,7 +49,7 @@
     --color-isecondary:#003A78;
     --color-disabled:#F8FAFB;
     --color-text-light:#4A4C56;
-    --color-gray-bold:#1D1F2C
+    --color-gray-bold:#1D1F2C;
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
@@ -129,13 +124,11 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-
+    * {
+      @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
-
+    body {
+      @apply bg-background text-foreground;
     }
-
-}
+  }
+  
