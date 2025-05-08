@@ -1,7 +1,9 @@
-export default function Home() {
+ import Home from "./_components/Home";
+
+export default function HomePages() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1>Hello World</h1>
-    </div>
+    <>
+    <Home/>
+    </>
   );
 }

@@ -2,11 +2,11 @@
 import Image from "next/image";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import aboutImg from "../../public/about.jpg";
+import aboutImg from "../../../public/about.jpg";
 
 export default function About() {
   return (
-    <section className="container pt-24">
+    <section className="container pt-24 mx-auto">
       <div className="flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-16 p-7">
         {/* Image Section */}
         <div className="relative w-full lg:w-1/3">

@@ -2,14 +2,14 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import logo from "../../public/logo.png";
+import logo from "../../../public/logo.png";
 import { Menu, X } from "lucide-react"; // Install lucide-react or use any icon lib
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="container flex justify-between items-center py-6 relative p-5 ">
+    <nav className="container flex justify-between items-center py-6 relative p-5 mx-auto">
       {/* Logo */}
       <div>
         <Image src={logo} alt="logo" />
