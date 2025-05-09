@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
 import { Menu, X } from "lucide-react"; // Install lucide-react or use any icon lib
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,12 +18,13 @@ export default function Navbar() {
 
       {/* Desktop Nav */}
       <ul className="hidden md:flex gap-10">
-        <li className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Home</li>
-        <li className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">About</li>
-        <li className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Membership</li>
-        <li className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Privecy Policy</li>
-        <li className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">FAQ</li>
-        <li className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Contact</li>
+        <Link href="/" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Home</Link>
+        <Link href="/about" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">About</Link>
+        <Link href="#" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Membership</Link>
+        <Link href="#" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Privecy Policy</Link>
+        <Link href="#" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">FAQs</Link>
+        <Link href="#" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Contact</Link>
+        
       </ul>
 
       {/* Buttons - hidden on mobile */}

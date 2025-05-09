@@ -9,13 +9,14 @@ import Membership from './sections/Membership'
 import Insurance from './sections/Insurance'
 import Contact from './sections/Contact'
 import Investor from './sections/Investor'
-import Footer from './sections/Footer'
+ 
+import AboutSlider from './sections/AboutSlider'
 
 export default function Home() {
   return (
     <>
     
-    <Navbar/>
+     
     <Hero/>
     <About/>
     <ChooseUs/>
@@ -23,9 +24,10 @@ export default function Home() {
     <Service/>
     <Membership/>
     <Insurance/>
-    {/* <Contact/> */}
+    <Contact/>
+    <AboutSlider/>
     <Investor/>
-    <Footer/>
+    
     </>
   )
 }
