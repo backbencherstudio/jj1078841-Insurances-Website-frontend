@@ -26,7 +26,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-white font-medium mt-6 md:mt-8 mb-6 md:mb-12 text-lg md:text-2xl lg:text-3xl">
-          Doesn’t have to deal with her insurance company
+          So the homeowner doesn’t have to deal with the <br /> insurance company
         </p>
 
         <button className="py-3 px-6 md:py-4 md:px-10 bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
