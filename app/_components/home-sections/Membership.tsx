@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import memberImg from "../../../public/member.png";
+import memberImg from "@/public/home-membership.png";
 import { Button } from "@/components/ui/button";
 import MessageIcon from "@/public/membershipIcons/MessageIcon";
 import ProfileIcon from "@/public/membershipIcons/ProfileIcon";
@@ -33,12 +33,12 @@ export default function Membership() {
 
   return (
     <section className="container mx-auto py-24 px-4">
-      <div className="flex flex-col lg:flex-row justify-center gap-8">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
         <div className="flex justify-center">
           <Image
             src={memberImg}
             alt="membership-img"
-            className="max-w-full h-auto"
+            className="max-w-11/12 h-11/12"
           />
         </div>
         <div className=" ">

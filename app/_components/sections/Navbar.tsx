@@ -20,21 +20,21 @@ export default function Navbar() {
       <ul className="hidden md:flex gap-10">
         <Link href="/" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Home</Link>
         <Link href="/about" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">About</Link>
-        <Link href="#" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Membership</Link>
-        <Link href="#" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Privecy Policy</Link>
-        <Link href="#" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">FAQs</Link>
-        <Link href="#" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Contact</Link>
+        <Link href="/membership_plans" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Membership</Link>
+        <Link href="/privacy-policy" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Privecy Policy</Link>
+        <Link href="/faq" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">FAQs</Link>
+        <Link href="/contact" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Contact</Link>
         
       </ul>
 
       {/* Buttons - hidden on mobile */}
       <div className="hidden md:flex justify-between gap-6">
-        <button className="py-3.5 px-10 bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]">
+        <Link href="/login" className="py-3.5 px-10 bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]">
           Log in
-        </button>
-        <button className="py-3.5 px-10 bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]">
+        </Link>
+        <Link href="/signUp" className="py-3.5 px-10 bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]">
           Sign Up
-        </button>
+        </Link>
       </div>
 
       {/* Hamburger Icon (Mobile only) */}
@@ -47,21 +47,22 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-md   flex flex-col items-start px-6 py-4 space-y-4 md:hidden z-50">
-          <ul className="flex flex-col gap-4 w-full">
-            <li className="hover:text-[var(--primary-dark)] font-medium">Home</li>
-            <li className="hover:text-[var(--primary-dark)] font-medium">About</li>
-            <li className="hover:text-[var(--primary-dark)] font-medium">Membership</li>
-            <li className="hover:text-[var(--primary-dark)] font-medium">Privecy Policy</li>
-            <li className="hover:text-[var(--primary-dark)] font-medium">FAQ</li>
-            <li className="hover:text-[var(--primary-dark)] font-medium">Contact</li>
-          </ul>
+          <div className="flex flex-col gap-4 w-full">
+            <Link href='/' className="hover:text-[var(--primary-dark)] font-medium">Home</Link>
+            <Link href='/about' className="hover:text-[var(--primary-dark)] font-medium">About</Link>
+            <Link href='/membership_plans' className="hover:text-[var(--primary-dark)] font-medium">Membership</Link>
+            <Link href='/privacy-policy' className="hover:text-[var(--primary-dark)] font-medium">Privacy Policy</Link>
+            <Link href='/faq' className="hover:text-[var(--primary-dark)] font-medium">FAQ</Link>
+            <Link href='/contact' className="hover:text-[var(--primary-dark)] font-medium">Contact</Link>
+        
+          </div>
           <div className="flex flex-col gap-3 w-full">
-            <button className="py-3.5 w-full bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]">
+            <Link href='/login' className="py-3.5 w-full bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]">
               Log in
-            </button>
-            <button className="py-3.5 w-full bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]">
+            </Link>
+            <Link href='/signUp' className="py-3.5 w-full bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]">
               Sign Up
-            </button>
+            </Link>
           </div>
         </div>
       )}

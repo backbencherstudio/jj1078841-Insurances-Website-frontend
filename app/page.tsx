@@ -1,9 +1,9 @@
- import Home from "./_components/Home";
+ import Home from "./(home)/Home";
 
 export default function HomePages() {
   return (
     <>
-    <Home/>
+     <Home/>
     </>
   );
 }
