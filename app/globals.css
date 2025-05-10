@@ -46,8 +46,9 @@
 
 @theme inline {
     --color-primary-color: #2EB0E4;
+    /* 1D1F2C */
     --color-isecondary:#003A78;
-    --color-disabled:#F8FAFB;
+    --color-disabled:#F8FAFB;  
     --color-text-light:#4A4C56;
     --color-gray-bold:#1D1F2C;
     --radius-sm: calc(var(--radius) - 4px);
@@ -90,7 +91,7 @@
 
 /* // ... existing code ... */
 
-/* Testimonials Swiper Styles */
+/* Testimonials Swiper Styles ======================================Start */
 .testimonials-swiper .swiper-pagination {
   position: relative;
   margin-top: 2rem;
@@ -106,6 +107,9 @@
 .testimonials-swiper .swiper-pagination-bullet-active {
   background: #06b6d4;
 }
+/* Testimonials Swiper Styles ======================================Start */
+
+ 
 
 .dark {
     --background: oklch(0.145 0 0);

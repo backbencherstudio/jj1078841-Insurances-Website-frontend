@@ -2,7 +2,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import aboutQoute from  "../../../public/about-qoute.png";
 import profile1 from "@/public/profile-1.png"
 import profile2 from "@/public/profile-2.png"
@@ -16,7 +16,7 @@ interface Testimonial {
   id: number;
   name: string;
   role: string;
-  image: any;
+  image: StaticImageData;
   content: string;
 }
 
@@ -83,6 +83,7 @@ export default function AboutSlider() {
           pagination={{
             clickable: true,
             bulletActiveClass: "swiper-pagination-bullet-active bg-cyan-500",
+            
           }}
           autoplay={{
             delay: 5000,

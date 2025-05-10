@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AppConfig } from "@/config/app.config";
 import Navbar from "./_components/sections/Navbar";
-import Footer from "./_components/sections/Footer";
+import Footer from "./_components/reusable/Footer";
 
 export const metadata: Metadata = {
   title: AppConfig().app.name,
