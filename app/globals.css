@@ -47,6 +47,7 @@
 @theme inline {
     --color-primary-color: #2EB0E4;
     /* 1D1F2C */
+    --color-primary-dark:#003A78;
     --color-isecondary:#003A78;
     --color-disabled:#F8FAFB;  
     --color-text-light:#4A4C56;
