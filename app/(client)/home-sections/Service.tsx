@@ -9,7 +9,7 @@ import DocumentIcon from "@/public/services/DocumentIcon";
 import HandIcon from '@/public/services/HandIcon';
 import PageIcon from '@/public/services/PageIcon';
 import ReviewIcon from '@/public/services/ReviewIcon';
-import CustomCard from '../reusable/CustomCard';
+import CustomCard from '../../_components/reusable/CustomCard';
 
 export default function Service() {
   const paginationRef = useRef(null);

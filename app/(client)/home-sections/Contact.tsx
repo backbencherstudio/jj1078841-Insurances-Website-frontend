@@ -2,10 +2,12 @@
 import React from 'react';
 import PhoneIcon from '@/public/Contact/PhoneIcon';
 import MessageIcon from '@/public/membershipIcons/MessageIcon';
+import ContactForm from '@/app/_components/reusable/ContactForm';
 
 export default function Contact() {
   return (
     <section className="container mx-auto px-4 py-12">
+      
       <div className="flex flex-col lg:flex-row gap-12 justify-between items-start">
         {/* Left Section */}
         <div className="flex-1">

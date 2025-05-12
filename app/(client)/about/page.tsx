@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
-import About from '../_components/home-sections/About';
-import AboutSlider from '../_components/reusable/Testimonial';
-import BreadCrump from '../_components/reusable/BreadCrump';
-import Team from '../_components/sections/Team';
+import About from '../../_components/reusable/About';
+import BreadCrump from '../../_components/reusable/BreadCrump';
+import Team from '../../_components/Team';
+import Testimonial from '../../_components/reusable/Testimonial';
 
 
 export default function page() {
@@ -15,7 +15,7 @@ export default function page() {
         <About />
       </div>
 
-      <AboutSlider />
+      <Testimonial/>
       <Team/>
     </section>
   );

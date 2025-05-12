@@ -2,7 +2,7 @@ import React from 'react'
 import SettingsIcon from '@/public/insurance/SettingsIcon'
 import Hand from '@/public/insurance/Hand'
 import Like from '@/public/insurance/Like'
-import CustomCard from '../reusable/CustomCard'
+import CustomCard from '../../_components/reusable/CustomCard'
 
 export default function Investor() {
   const items = [

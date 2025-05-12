@@ -1,6 +1,6 @@
 import React from 'react'
-import BreadCrump from '../_components/reusable/BreadCrump'
-import FAQ from '../_components/sections/FAQ'
+import BreadCrump from '../../_components/reusable/BreadCrump'
+import FAQ from '../../_components/FAQ'
 
 export default function page() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import BreadCrump from '../_components/reusable/BreadCrump'
+import BreadCrump from '../../_components/reusable/BreadCrump'
 import { FaCheckCircle } from "react-icons/fa";
 import Image, { StaticImageData } from 'next/image';
 import BusinessPlan from "@/public/business_plan.png";

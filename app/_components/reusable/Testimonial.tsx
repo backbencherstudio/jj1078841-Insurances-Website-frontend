@@ -65,7 +65,7 @@ const testimonials: Testimonial[] = [
    
 ];
 
-export default function AboutSlider() {
+export default function Testimonial() {
   return (
     <section className="  bg-disabled  relative z-30 py-24">
       <div className="container mx-auto px-4">

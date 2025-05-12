@@ -35,7 +35,7 @@ const INSURANCE_COMPANIES = [
   "Liberty Mutual",
 ];
 
-export default function MultiStepForm() {
+export default function MyClaim() {
   const [currentStep, setCurrentStep] = useState(1); // Tracks active form input step (1, 2, 
   const [formData, setFormData] = useState<FormData>({
     propertyAddress: "",

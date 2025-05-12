@@ -1,7 +1,7 @@
 import React from 'react'
-import BreadCrump from '../_components/reusable/BreadCrump'
-import ContactForm from '../_components/reusable/ContactForm'
-import Map from '../_components/Map'
+import BreadCrump from '../../_components/reusable/BreadCrump'
+import ContactForm from '../../_components/reusable/ContactForm'
+import Map from '../../_components/Map'
 
 export default function page() {
   return (
