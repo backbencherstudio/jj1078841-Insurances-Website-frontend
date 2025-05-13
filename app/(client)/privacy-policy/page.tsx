@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import BreadCrump from '../_components/reusable/BreadCrump';
+import BreadCrump from '../../_components/reusable/BreadCrump';
 import { FaCheckCircle } from "react-icons/fa";
 
 interface PolicySection {

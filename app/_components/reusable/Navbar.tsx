@@ -1,5 +1,5 @@
-
 "use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
@@ -62,31 +62,24 @@ export default function Navbar() {
           isProfileViewActive ? (
             // Profile View Active (e.g., on /profile page): Show Profile and Notification Icons
             <div className="flex items-center gap-4">
-              <Link href="/profile">
-                <button
+              
+                <Link href="/dashboard"
                   className="w-10 h-10 rounded-full bg-[var(--primary-dark)] text-white flex items-center justify-center hover:bg-opacity-90"
                   aria-label="Profile"
                 >
                   <User size={24} />
-                </button>
-              </Link>
-              <button
-                className="w-10 h-10 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center hover:bg-gray-300"
-                aria-label="Notifications"
-              >
-                <Bell size={24} />
-              </button>
+                </Link>
             </div>
           ) : (
             // Standard Logged In View (not on /profile page): Profile Icon with Dropdown
             <div className="relative group">
-              <Link href="/profile"
+              <button  
                 onClick={handleProfileIconClick} // Handles mobile menu close & optimistic UI update for right-side icons
                 className="w-10 h-10 rounded-full bg-[var(--primary-dark)] text-white flex items-center justify-center hover:bg-opacity-90"
                 aria-label="Open profile menu"
               >
                 <User size={24} />
-              </Link>
+              </button>
               <div className="absolute right-0 top-12 bg-white shadow-lg rounded-lg py-2 w-48 hidden group-hover:block">
                 <Link href="/profile" className="block px-4 py-2 hover:bg-gray-100" onClick={handleProfileIconClick}>Profile</Link>
                 <Link href="/settings" className="block px-4 py-2 hover:bg-gray-100">Settings</Link>
@@ -125,18 +118,13 @@ export default function Navbar() {
         {/* Mobile specific icons for profile view - shown on /profile page */}
         {isLoggedIn && isProfileViewActive && (
           <div className="flex items-center gap-3">
-            <Link href="/profile"
+            <button  
               className="w-9 h-9 rounded-full bg-[var(--primary-dark)] text-white flex items-center justify-center hover:bg-opacity-90"
               aria-label="Profile"
             >
               <User size={20} />
-            </Link>
-            <button
-              className="w-9 h-9 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center hover:bg-gray-300"
-              aria-label="Notifications"
-            >
-              <Bell size={20} />
             </button>
+           
           </div>
         )}
       </div>
@@ -158,7 +146,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-3 w-full">
             {isLoggedIn ? (
               <>
-                <Link href="/profile"
+                <Link href="/dashboard"
                   onClick={() => {
                     handleProfileIconClick(); // Ensure mobile menu closes, handles profile view active state for right-side icons
                   }}

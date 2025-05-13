@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import BreadCrump from '../_components/reusable/BreadCrump'
+import BreadCrump from '../../_components/reusable/BreadCrump'
 import Link from 'next/link'
 
 interface SignupFormData {
