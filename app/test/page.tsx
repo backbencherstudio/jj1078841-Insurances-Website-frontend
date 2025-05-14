@@ -1,12 +1,16 @@
  import React from 'react'
-import FAQ from '../_components/sections/FAQ'
-import PricingPlans from '../_components/sections/PricingPlans'
-import Membership from '../_components/home-sections/Membership'
+import FAQ from '../_components/FAQ'
+// import PricingPlans from '../_components/PricingPlans'
+import Membership from '../(client)/home-sections/Membership'
+import MultiStepForm from '../_components/sections/MyClaim'
+import PaymentForm from '../_components/sections/PaymentForm'
  
  export default function page() {
    return (
      <div className=' h-screen'>
-      <Membership/>
+     {/* <PricingPlans/> */}
+     {/* <MultiStepForm/> */}
+     <PaymentForm/>
      </div>
    )
  }
