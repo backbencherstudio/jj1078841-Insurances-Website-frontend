@@ -2,28 +2,22 @@ import React from 'react';
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { IoMdClose } from "react-icons/io";
-import { RiDashboardLine, RiUserLine, RiSettingsLine } from "react-icons/ri";
-import { IoDocumentTextOutline } from "react-icons/io5";
-import { AiOutlineMessage } from "react-icons/ai";
-import { GrDocumentUpload } from "react-icons/gr";
-import logo from "@/public/logo.png"
 import Image from 'next/image';
+import logo from "@/public/logo.png";
 
-const menuItems = [
-  { title: "Dashboard", icon: RiDashboardLine, href: "/dashboard" },
-  { title: "My Claims", icon: IoDocumentTextOutline, href: "/dashboard/my_claims" },
-  { title: "Upload Documents", icon: GrDocumentUpload, href: "/dashboard/upload_documents" },
-  { title: "Messages", icon: AiOutlineMessage, href: "/dashboard/messages" },
-  { title: "Profile", icon: RiUserLine, href: "/dashboard/profile" },
-   
-];
+interface MenuItem {
+  title: string;
+  icon: React.ElementType;
+  href: string;
+}
 
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  menuItems: MenuItem[]; // Added menuItems as a prop
 }
 
-export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose, menuItems }: SidebarProps) {
   const pathname = usePathname();
 
   return (

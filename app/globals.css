@@ -52,6 +52,7 @@
     --color-text-light:#4A4C56;
     --color-gray-bold:#1D1F2C;
     --color-border-light:#E9E9EA;
+    --color-title-text:#141D2A;
     /* ================================================================== */
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);

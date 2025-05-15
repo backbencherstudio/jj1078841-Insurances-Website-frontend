@@ -1,12 +1,13 @@
 import React from 'react'
-import Dashboard from './_components/Dashboard';
+import AdminDashboard from './_components/AdminDashboard';
+ 
  
  
 
 export default function DashboardHome() {
   return (
    
-      <Dashboard/>
+    <AdminDashboard/>
 
    
       
