@@ -17,7 +17,7 @@ interface TimelineStep {
   // Add 'active' or 'completed' if styling needs to differ based on state
 }
 
-export default function DashboardHome() {
+export default function Dashboard() {
   // Removed unused constants: primaryHeaderColor, darkBlueButtonColor
 
   const paymentItems: PaymentItem[] = [
