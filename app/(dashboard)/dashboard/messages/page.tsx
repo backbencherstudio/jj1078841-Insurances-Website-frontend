@@ -10,10 +10,7 @@ import avatar2 from "@/public/avatar-1 (2).png"
 import avatar3 from "@/public/avatar-1 (3).png"
 import avatar4 from "@/public/avatar-1 (4).png"
 import avatar5 from "@/public/avatar-1 (5).png"
-import avatar6 from "@/public/avatar-1 (6).png"
-import avatar7 from "@/public/avatar-1 (7).png"
-import avatar8 from "@/public/avatar-1 (8).png"
-import avatar9 from "@/public/avatar-1 (9).png"
+ 
 
 interface Message {
   id: string;

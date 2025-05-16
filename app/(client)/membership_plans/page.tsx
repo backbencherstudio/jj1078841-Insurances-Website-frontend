@@ -5,7 +5,7 @@ import Image, { StaticImageData } from 'next/image';
 import BusinessPlan from "@/public/business_plan.png";
 import VehiclePlan from "@/public/vehicle_plan.png";
 import PropertyPlan from "@/public/property_plan.png";
-
+import Link from 'next/link';
 
 
 interface PlanFeature {
@@ -104,12 +104,14 @@ export default function page() {
                   </li>
                 ))}
               </ul>
+<Link href="/membership_plans/payment">
 
-              <button
+              <button  
                 className="w-full py-3 rounded-full transition-all duration-300 border bg-[#2EB0E4] text-white hover:bg-white hover:text-[#2EB0E4] hover:border-[#2EB0E4]"
               >
                 Get Started
               </button>
+</Link>
             </div>
           ))}
         </div>
