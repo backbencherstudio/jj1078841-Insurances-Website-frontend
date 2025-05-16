@@ -11,6 +11,7 @@ import {
   Filler,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { RevenueChart } from './reusable/RevenueChart';
 
 // Register ChartJS components
 ChartJS.register(
@@ -48,68 +49,7 @@ export default function AdminDashboard() {
   ];
 
   // Chart data
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   
-  const chartData = {
-    labels: months,
-    datasets: [
-      {
-        fill: true,
-        label: 'Revenue',
-        data: [500, 800, 1200, 1000, 1500, 2200, 2500, 1800, 1200, 2000, 1500, 2500],
-        borderColor: '#0EA5E9',
-        backgroundColor: 'rgba(14, 165, 233, 0.1)',
-        tension: 0.4,
-        pointRadius: 0,
-        borderWidth: 2,
-      },
-    ],
-  };
-
-  const chartOptions = {
-    responsive: true,
-    plugins: {
-      tooltip: {
-        backgroundColor: 'white',
-        titleColor: '#334155',
-        bodyColor: '#334155',
-        borderColor: '#E2E8F0',
-        borderWidth: 1,
-        padding: 12,
-        boxPadding: 6,
-        usePointStyle: true,
-        callbacks: {
-          label: function(context: any) {
-            return `$${context.parsed.y}`;
-          },
-        },
-      },
-    },
-    scales: {
-      x: {
-        grid: {
-          display: false,
-        },
-        ticks: {
-          color: '#64748B',
-        },
-      },
-      y: {
-        min: 0,
-        max: 3000,
-        ticks: {
-          stepSize: 500,
-          callback: function(value: number) {
-            return '$' + value;
-          },
-          color: '#64748B',
-        },
-        grid: {
-          color: '#E2E8F0',
-        },
-      },
-    },
-  };
 
   // Add this interface and array before the AdminDashboard component
   interface TableHeader {
@@ -164,7 +104,7 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="">
+    <div className=" flex flex-col  r gap-6">
       {/* Overview Section */}
       <div>
         <h2 className="text-2xl font-semibold text-title-text mt-6 mb-4">Overview</h2>
@@ -178,22 +118,9 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      {/* Revenue Chart Section */}
-      {/* <div className="bg-white p-6 rounded-lg shadow-sm w-full">
-        <div className="flex justify-between items-center mb-6">
-          <h3 className="text-lg font-semibold text-gray-800">Total Revenue</h3>
-          <select className="px-3 py-1.5 bg-white border border-gray-200 rounded-md text-sm text-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500">
-            <option>Yearly</option>
-            <option>Monthly</option>
-            <option>Weekly</option>
-          </select>
-        </div>
-        <div className="h-[300px]">
-          <Line data={chartData} options={chartOptions} />
-        </div>
-      </div> */}
+      <RevenueChart/>
 
-      {/* Recent Claims Section */}
+     
       <div className="bg-white rounded-lg overflow-hidden mt-6 p-4 sm:p-6">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-semibold text-gray-bold">Recent Claims</h3>

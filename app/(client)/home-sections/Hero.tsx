@@ -1,6 +1,7 @@
 import React from 'react';
 import heroImg from "../../../public/hero.png";
 import Image from 'next/image';
+import { Link } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -29,9 +30,14 @@ export default function Hero() {
           So the homeowner doesn’t have to deal with the <br /> insurance company
         </p>
 
-        <button className="py-3 px-6 md:py-4 md:px-10 bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
+ 
+ 
+
+        <button className="py-3 px-6 md:py-4 md:px-10 hover:bg-transparent  border border-transparent hover:border-white hover:text-white cursor-pointer bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
           Become a Member
         </button>
+        
+        
 
         <p className="text-white font-normal mt-4 md:mt-5 text-base md:text-xl lg:text-2xl">
           Join a movement to reform insurance

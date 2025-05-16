@@ -81,31 +81,31 @@ export default function MyClaim() {
           </h1>
 
           {/* Progress Steps - Always Visible, 4 steps */}
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex w-full">
+          <div className="flex justify-center items-center mb-8">
+            <div className="flex w-full max-w-md">
               {[1, 2, 3, 4].map((step) => (
                 <div key={step} className="flex items-center flex-1">
                   <div
                     className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm sm:text-base ${
-                      formData.submitted // If submitted, all 4 steps are visually completed
+                      formData.submitted
                         ? "bg-[#2EB0E4] text-white"
-                        : step === currentStep // Current active input step
+                        : step === currentStep
                         ? "bg-[#2EB0E4] text-white"
-                        : step < currentStep // Previous completed input steps
+                        : step < currentStep
                         ? "bg-[#2EB0E4] text-white"
-                        : "bg-gray-200 text-gray-500" // Future steps
+                        : "bg-gray-200 text-gray-500"
                     }`}
                   >
-                    {step} {/* Always show the step number */}
+                    {step}
                   </div>
-                  {step < 4 && ( // Connecting lines for steps 1-2, 2-3, 3-4
+                  {step < 4 && (
                     <div
                       className={`flex-1 h-1 ${
-                        formData.submitted // If submitted, all lines are visually completed
+                        formData.submitted
                           ? "bg-[#2EB0E4]"
-                          : step < currentStep // Line before a completed or active step
+                          : step < currentStep
                           ? "bg-[#2EB0E4]"
-                          : "bg-gray-200" // Line before a future step
+                          : "bg-gray-200"
                       }`}
                     />
                   )}

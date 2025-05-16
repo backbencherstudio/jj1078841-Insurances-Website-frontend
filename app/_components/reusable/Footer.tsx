@@ -7,7 +7,7 @@ import Phone from '@/public/footerIcons/Phone'
 
 export default function Footer() {
   return (
-    <section className="bg-disabled pt-16 pb-6">
+    <section className="bg-disabled pt-16 pb-6 px-3">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 items-start justify-between border-b border-[#D2D2D5] py-10">
         <div>
           <Image src={logo} alt="logo" />

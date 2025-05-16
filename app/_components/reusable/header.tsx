@@ -31,8 +31,8 @@ export default function Header({ onMenuClick }: HeaderProps) {
         
         </div>
 
-        <div className="flex items-center gap-8">
-          <button className="p-2  rounded-lg bg-[#ffa1a1] hover:bg-gray-100 transition-colors duration-200">
+        <div className="flex items-center gap-4 px-3">
+          <button className="p-2  rounded-lg   hover:bg-gray-100 transition-colors duration-200">
             <IoNotificationsOutline className="w-6 h-6" />
           </button>
           <div className="relative"> {/* Removed ref={dropdownRef} */}

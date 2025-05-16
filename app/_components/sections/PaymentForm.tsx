@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { CreditCard, CheckCircle2 } from "lucide-react"; // Using Lucide icons
-
+import Link from "next/link";
 // A simple Mastercard SVG icon (you can replace this with a higher quality one or an <img> tag)
 const MastercardIcon = () => (
   <svg width="32" height="20" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@ interface FormErrors {
 
 export default function PaymentForm() {
   const [paymentMethod, setPaymentMethod] = useState<"card" | "paypal" | "ach">("card");
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false); // Changed initial state to false
   const [saveCardDetails, setSaveCardDetails] = useState(false);
 
   // Form field states
@@ -84,17 +84,17 @@ export default function PaymentForm() {
     }
     // Add your payment processing logic here
     console.log("Payment submitted:", { paymentMethod, cardNumber, expirationDate, cvv, saveCardDetails });
-    setIsSubmitted(true);
+    setIsSubmitted(true); // Set to true only after successful submission
   };
 
-  const handleMyClaim = () => {
-    setIsSubmitted(false);
-    setCardNumber("");
-    setExpirationDate("");
-    setCvv("");
-    setSaveCardDetails(false);
-    setErrors({});
-  }
+  // const handleMyClaim = () => {
+  //   setIsSubmitted(false);
+  //   setCardNumber("");
+  //   setExpirationDate("");
+  //   setCvv("");
+  //   setSaveCardDetails(false);
+  //   setErrors({});
+  // }
 
   const handleInputChange = (setter: React.Dispatch<React.SetStateAction<string>>, field: keyof FormErrors) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setter(e.target.value);
@@ -104,7 +104,7 @@ export default function PaymentForm() {
   }
 
   return (
-    <div className="max-w-[955px] mx-auto bg-white rounded-lg overflow-hidden  border border-border-light mt-20  ">
+    <div className="max-w-[955px] mx-auto px-6 bg-white rounded-lg overflow-hidden  border border-border-light mt-20  ">
       {/* Header */}
       <div className="bg-primary-dark  text-white p-6">
         <h2 className="text-5xl font-semibold text-center">Payment</h2>
@@ -242,12 +242,12 @@ export default function PaymentForm() {
             <p className="text-lg text-text-light font-normal mb-8 mt-4">
             Welcome to Insurances Ally. Let's get started on your insurance claim journey.
             </p>
-            <button
-              onClick={handleMyClaim}
+            <Link href="/membership_plans/claim"
+               
               className="w-full sm:w-auto inline-flex justify-center py-4 px-12 border border-transparent rounded-md shadow-sm text-base  font-normal text-white bg-[#2EB0E4] hover:bg-[#2599c7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2EB0E4] transition-colors"
             >
               My Claim
-            </button>
+            </Link>
           </div>
         </div>
       )}
