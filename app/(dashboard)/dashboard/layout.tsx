@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const menuItems = [
     { title: "Dashboard", icon: RiDashboardLine, href: "/dashboard" },
     { title: "My Claims", icon: IoDocumentTextOutline, href: "/dashboard/my_claims" },
-    { title: "Upload Documents", icon: GrDocumentUpload, href: "/dashboard/upload_documents" },
+    // { title: "Upload Documents", icon: GrDocumentUpload, href: "/dashboard/upload_documents" },
     { title: "Messages", icon: AiOutlineMessage, href: "/dashboard/messages" },
     { title: "Profile", icon: RiUserLine, href: "/dashboard/profile" },
      

@@ -9,7 +9,7 @@ interface ClaimData {
   typeOfDamage: string;
   insuranceCompany: string;
   dateOfLoss: string;
-  amount: string;
+  // amount: string;
   status: "Pending" | "New" | "Completed";
 }
 
@@ -20,14 +20,14 @@ interface TableHeader {
 }
 
 const tableHeaders: TableHeader[] = [
-  { id: "claimId", label: "Claim ID", width: "w-[12%]" },
-  { id: "policyNumber", label: "Policy Number", width: "w-[12%]" },
-  { id: "typeOfDamage", label: "Type of Damage", width: "w-[12%]" },
-  { id: "insuranceCompany", label: "Insurance Company", width: "w-[15%]" },
-  { id: "dateOfLoss", label: "Date of Loss", width: "w-[12%]" },
-  { id: "amount", label: "Amount", width: "w-[12%]" },
-  { id: "status", label: "Status", width: "w-[12%]" },
-  { id: "action", label: "Action", width: "w-[13%]" },
+  { id: "claimId", label: "Claim ID", width: "w-[13%]" },
+  { id: "policyNumber", label: "Policy Number", width: "w-[13%]" },
+  { id: "typeOfDamage", label: "Type of Damage", width: "w-[13%]" },
+  { id: "insuranceCompany", label: "Insurance Company", width: "w-[18%]" },
+  { id: "dateOfLoss", label: "Date of Loss", width: "w-[15%]" },
+  // { id: "amount", label: "Amount", width: "w-[12%]" },
+  { id: "status", label: "Status", width: "w-[13%]" },
+  { id: "action", label: "Action", width: "w-[14%]" },
 ];
 
 const mockData: ClaimData[] = [
@@ -37,7 +37,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Roof",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "Pending",
   },
   {
@@ -46,7 +46,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   {
@@ -55,7 +55,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   {
@@ -64,7 +64,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   {
@@ -73,7 +73,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   {
@@ -82,7 +82,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   {
@@ -91,7 +91,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   {
@@ -100,7 +100,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
 
@@ -110,7 +110,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   {
@@ -119,7 +119,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   {
@@ -128,7 +128,7 @@ const mockData: ClaimData[] = [
     typeOfDamage: "Water",
     insuranceCompany: "Company Name",
     dateOfLoss: "12 Jan, 2025",
-    amount: "$2680.09",
+    // amount: "$2680.09",
     status: "New",
   },
   // ... Add more mock data as needed
@@ -170,8 +170,7 @@ export default function ClaimsHistory() {
   };
 
   return (
-    <div className="mx-auto max-w-[95%]">
-      
+    <div className="mx-auto  w-[95%]">
       {/* title */}
       <h1 className="text-[40px] font-semibold text-primary-dark my-5">
         Claims History
@@ -188,6 +187,7 @@ export default function ClaimsHistory() {
           />
           <IoSearchOutline className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
         </div>
+
         {/* Header */}
         <div className="bg-[#e6ecf2] flex rounded-t-2xl">
           {tableHeaders.map((header) => (
@@ -229,7 +229,10 @@ export default function ClaimsHistory() {
             </div>
           ))}
         </div>
+
+         
       </div>
+
       {/* Pagination */}
       <div className="flex items-center justify-end px-4 py-3 sm:px-6 mt-8">
         <div className="flex items-center space-x-2">
