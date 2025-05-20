@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import aboutImg from "../../../public/about.jpg";
+import aboutImg from "@/public/about-main.png";
 
 export default function About() {
   return (

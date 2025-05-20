@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import logo from "@/public/logo.png"
+import logo from "@/public/original-logo-removebg-preview.png"
 import Link from 'next/link'
 import Mail from "../../../public/footerIcons/Mail"
 import Phone from '@/public/footerIcons/Phone'
@@ -10,7 +10,7 @@ export default function Footer() {
     <section className="bg-disabled pt-16 pb-6 px-3">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 items-start justify-between border-b border-[#D2D2D5] py-10">
         <div>
-          <Image src={logo} alt="logo" />
+          <Image src={logo} alt="logo" width={150} height={50} />
           <p className="text-base text-text-light font-normal mt-5">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
