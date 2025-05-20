@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { title: "Dashboard", icon: RiDashboardLine, href: "/admin_dashboard" },
     { title: "Claims", icon: IoDocumentTextOutline, href: "/admin_dashboard/claims_history" },
     { title: "User Management", icon:GrDocumentText, href: "/admin_dashboard/user_management" },
-    { title: "payment", icon:MdPayments, href:"/admin_dashboard/payment" },
+    // { title: "payment", icon:MdPayments, href:"/admin_dashboard/payment" },
     { title: "Membership Plan", icon:FaUsers, href:"/admin_dashboard/membership_plan" },
   
 
@@ -27,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="flex h-screen bg-disabled overflow-hidden">
+    <div className="flex h-screen bg-disabled ">
       <Sidebar 
         isOpen={isSidebarOpen} 
         onClose={() => setIsSidebarOpen(false)} 

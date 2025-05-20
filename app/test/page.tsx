@@ -8,13 +8,15 @@ import { RevenueChart } from '../(admin)/admin_dashboard/_components/reusable/Re
  
  
  
+ 
  export default function page() {
    return (
      <div className=' h-screen'>
      {/* <PricingPlans/> */}
      {/* <MultiStepForm/> */}
      {/* <PaymentForm/> */}
-     <RevenueChart/>
+     {/* <ShadcnTable/> */}
+     {/* <RevenueChart/> */}
      
      
      

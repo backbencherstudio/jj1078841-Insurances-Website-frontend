@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import logo from "../../../public/logo.png";
+import logo from "@/public/original-logo-removebg-preview.png";
 import { Menu, X, User, Bell } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Assuming user is logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Assuming user is logged in
   const [isProfileViewActive, setIsProfileViewActive] = useState(false);
   const pathname = usePathname(); // Get current pathname
 
@@ -42,7 +42,7 @@ export default function Navbar() {
     <nav className="container flex justify-between items-center py-6 relative p-5 mx-auto">
       {/* Logo */}
       <div>
-        <Image src={logo} alt="logo" />
+        <Image src={logo} width={150} height={50} alt="logo" />
       </div>
 
       {/* Desktop Nav - Main navigation items. Now always visible on desktop when component renders. */}
