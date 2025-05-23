@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import BreadCrump from '../../_components/reusable/BreadCrump'
 import { FaCheckCircle } from "react-icons/fa";
@@ -22,8 +23,8 @@ interface Plan {
 const plans: Plan[] = [
   {
     icon: BusinessPlan,
-    name: "Business Plan",
-    price: "14.99",
+    name: "Rental",
+    price: "9.99",
     features: [
       "Invoices/Estimates",
       "Online Payments",
@@ -34,7 +35,19 @@ const plans: Plan[] = [
   },
   {
     icon: VehiclePlan,
-    name: "Vehicle Plan",
+    name: "Residential",
+    price: "19.99",
+    features: [
+      "Invoices/Estimates",
+      "Online Payments",
+      "No Hidden Fees",
+      "Cancel Anytime",
+      "100% Secure"
+    ]
+  },
+  {
+    icon: PropertyPlan,
+    name: "Commercial",
     price: "14.99",
     features: [
       "Invoices/Estimates",
@@ -46,7 +59,7 @@ const plans: Plan[] = [
   },
   {
     icon: PropertyPlan,
-    name: "Property Plan",
+    name: "Enterprise",
     price: "14.99",
     features: [
       "Invoices/Estimates",
@@ -71,7 +84,7 @@ export default function page() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-14 p-6">
           {plans.map((plan, index) => (
             <div
               key={index}
