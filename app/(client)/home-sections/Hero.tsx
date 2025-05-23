@@ -32,10 +32,12 @@ export default function Hero() {
 
  
  
+   
 
-        <button className="py-3 px-6 md:py-4 md:px-10 hover:bg-transparent  border border-transparent hover:border-white hover:text-white cursor-pointer bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
+        <button  className=" py-3 px-6 md:py-4 md:px-10 hover:bg-transparent  border border-transparent hover:border-white hover:text-white cursor-pointer bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
           Become a Member
-        </button>
+        </button >
+  
         
         
 
