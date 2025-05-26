@@ -35,7 +35,7 @@ export const authApi = baseApi.injectEndpoints({
           url: "/auth/register",
           method: "POST",
           body: userData,
-          // credentials: 'include',
+          // credentials: 'include',.
         };
       },
       async onQueryStarted(arg, { queryFulfilled }) {

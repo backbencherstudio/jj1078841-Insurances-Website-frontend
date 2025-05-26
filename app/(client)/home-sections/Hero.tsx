@@ -1,7 +1,7 @@
 import React from 'react';
 import heroImg from "../../../public/hero.png";
 import Image from 'next/image';
-import { Link } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -34,9 +34,10 @@ export default function Hero() {
  
    
 
-        <button  className=" py-3 px-6 md:py-4 md:px-10 hover:bg-transparent  border border-transparent hover:border-white hover:text-white cursor-pointer bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
+        <Link  href='/membership_plans' className=" py-3 px-6 md:py-4 md:px-10 hover:bg-transparent  border border-transparent hover:border-white hover:text-white cursor-pointer bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
           Become a Member
-        </button >
+        </Link >
+         
   
         
         
