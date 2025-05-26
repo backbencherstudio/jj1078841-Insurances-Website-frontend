@@ -33,7 +33,7 @@ export default function Contact() {
             {/* Name Fields */}
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="w-full">
-                <label className="block text-sm mb-1 font-semibold text-white">Fast Name</label>
+                <label className="block text-sm mb-1 font-semibold text-white">First Name</label>
                 <input
                   type="text"
                   placeholder="Enter your fast name"

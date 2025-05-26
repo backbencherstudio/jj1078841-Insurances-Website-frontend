@@ -39,23 +39,22 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="container flex justify-between items-center py-6 relative p-5 mx-auto">
+    <nav className="   bg-white sticky top-0 left-0 z-50 shadow-sm">
+      <div className="container flex justify-between items-center py-6  p-5 mx-auto ">
       {/* Logo */}
-      <div>
+      <div  >
         <Image src={logo} width={150} height={50} alt="logo" />
       </div>
-
       {/* Desktop Nav - Main navigation items. Now always visible on desktop when component renders. */}
       {/* The conditional rendering based on !isProfileViewActive has been removed here. */}
       <ul className="hidden md:flex gap-10">
-        <Link href="/" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Home</Link>
-        <Link href="/about" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">About</Link>
-        <Link href="/membership_plans" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Membership</Link>
-        <Link href="/privacy-policy" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Privecy Policy</Link>
-        <Link href="/faq" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">FAQs</Link>
-        <Link href="/contact" className="hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base">Contact</Link>
+        <Link href="/" className={`hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base ${pathname==="/"?'text-[var(--primary-dark)]':''}`}>Home</Link>
+        <Link href="/about" className={`hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base ${pathname==="/about"?'text-[var(--primary-dark)]':''}`}>About</Link>
+        <Link href="/membership_plans" className={`hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base ${pathname==="/membership_plans"?'text-[var(--primary-dark)]':''}`}>Membership</Link>
+        <Link href="/privacy-policy" className={`hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base ${pathname==="/privacy-policy"?'text-[var(--primary-dark)]':''}`}>Privecy Policy</Link>
+        <Link href="/faq" className={`hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base ${pathname==="/faq"?'text-[var(--primary-dark)]':''}`}>FAQs</Link>
+        <Link href="/contact" className={`hover:text-[var(--primary-dark)] cursor-pointer font-medium text-base ${pathname==="/contact"?'text-[var(--primary-dark)]':''}`}>Contact</Link>
       </ul>
-
       {/* Right side icons/buttons - hidden on mobile */}
       <div className="hidden md:flex justify-between gap-6 items-center">
         {isLoggedIn ? (
@@ -107,7 +106,6 @@ export default function Navbar() {
           </>
         )}
       </div>
-
       {/* Hamburger Icon (Mobile only) - Conditionally hide if profile view is active (on /profile page) */}
       <div className="md:hidden">
         {!(isLoggedIn && isProfileViewActive) && (
@@ -129,54 +127,95 @@ export default function Navbar() {
         )}
       </div>
 
-      {/* Mobile Menu - Conditionally Rendered Content. Still hidden if on /profile page (isProfileViewActive is true) */}
-      {isMobileMenuOpen && !isProfileViewActive && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-start px-6 py-4 space-y-4 md:hidden z-50">
-          {/* Nav Links for Mobile */}
-          <div className="flex flex-col gap-4 w-full">
-            <Link href='/' className="hover:text-[var(--primary-dark)] font-medium" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-            <Link href='/about' className="hover:text-[var(--primary-dark)] font-medium" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-            <Link href='/membership_plans' className="hover:text-[var(--primary-dark)] font-medium" onClick={() => setIsMobileMenuOpen(false)}>Membership</Link>
-            <Link href='/privacy-policy' className="hover:text-[var(--primary-dark)] font-medium" onClick={() => setIsMobileMenuOpen(false)}>Privacy Policy</Link>
-            <Link href='/faq' className="hover:text-[var(--primary-dark)] font-medium" onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
-            <Link href='/contact' className="hover:text-[var(--primary-dark)] font-medium" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
-          </div>
-
-          {/* Auth Links for Mobile */}
-          <div className="flex flex-col gap-3 w-full">
-            {isLoggedIn ? (
-              <>
-                <Link href="/dashboard"
-                  onClick={() => {
-                    handleProfileIconClick(); // Ensure mobile menu closes, handles profile view active state for right-side icons
-                  }}
-                  className="py-3.5 w-full text-center bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]"
-                >
-                  Profile
-                </Link>
-                <button
-                  onClick={() => {
-                    setIsLoggedIn(false);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="py-3.5 w-full text-center bg-transparent text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link href="/login" className="py-3.5 w-full text-center bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]" onClick={() => setIsMobileMenuOpen(false)}>
-                  Log in
-                </Link>
-                <Link href="/signUp" className="py-3.5 w-full text-center bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]" onClick={() => setIsMobileMenuOpen(false)}>
-                  Sign Up
-                </Link>
-              </>
-            )}
-          </div>
+      {/* Mobile Menu - Conditionally Rendered Content */}
+      <div 
+        className={`absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-start px-6 py-4 md:hidden z-50 transform transition-all duration-300 ease-in-out ${isMobileMenuOpen && !isProfileViewActive ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
+      >
+        {/* Nav Links for Mobile */}
+        <div className="flex flex-col gap-4 w-full transform transition-all duration-300 delay-100">
+          <Link 
+            href='/' 
+            className={`hover:text-[var(--primary-dark)] font-medium transform transition-all duration-200 ${pathname === "/" ? "text-[var(--primary-dark)]" : ""}`} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link 
+            href='/about' 
+            className={`hover:text-[var(--primary-dark)] font-medium transform transition-all duration-200 ${pathname === "/about" ? "text-[var(--primary-dark)]" : ""}`} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            About
+          </Link>
+          <Link 
+            href='/membership_plans' 
+            className={`hover:text-[var(--primary-dark)] font-medium transform transition-all duration-200 ${pathname === "/membership_plans" ? "text-[var(--primary-dark)]" : ""}`} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Membership
+          </Link>
+          <Link 
+            href='/privacy-policy' 
+            className={`hover:text-[var(--primary-dark)] font-medium transform transition-all duration-200 ${pathname === "/privacy-policy" ? "text-[var(--primary-dark)]" : ""}`} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Privacy Policy
+          </Link>
+          <Link 
+            href='/faq' 
+            className={`hover:text-[var(--primary-dark)] font-medium transform transition-all duration-200 ${pathname === "/faq" ? "text-[var(--primary-dark)]" : ""}`} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            FAQ
+          </Link>
+          <Link 
+            href='/contact' 
+            className={`hover:text-[var(--primary-dark)] font-medium transform transition-all duration-200 ${pathname === "/contact" ? "text-[var(--primary-dark)]" : ""}`} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
         </div>
-      )}
+
+        {/* Auth Links for Mobile */}
+        <div className="flex flex-col gap-3 w-full transform transition-all duration-300 delay-200">
+          {isLoggedIn ? (
+            <>
+              <Link href="/dashboard"
+                onClick={() => {
+                  handleProfileIconClick(); // Ensure mobile menu closes, handles profile view active state for right-side icons
+                }}
+                className="py-3.5 w-full text-center bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]"
+              >
+                Profile
+              </Link>
+              <button
+                onClick={() => {
+                  setIsLoggedIn(false);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="py-3.5 w-full text-center bg-transparent text-red-600 rounded-lg border border-red-600 hover:bg-red-600 hover:text-white"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="py-3.5 w-full text-center bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]" onClick={() => setIsMobileMenuOpen(false)}>
+                Log in
+              </Link>
+              <Link href="/signUp" className="py-3.5 w-full text-center bg-[var(--primary-dark)] text-white rounded-lg border border-transparent hover:bg-transparent hover:text-[var(--primary-dark)] hover:border-[var(--primary-dark)]" onClick={() => setIsMobileMenuOpen(false)}>
+                Sign Up
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+      </div>
+
+
+
+
     </nav>
   );
 }
