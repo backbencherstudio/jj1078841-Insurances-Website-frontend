@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import BreadCrump from '../../_components/reusable/BreadCrump'
 import Link from 'next/link'
+import toast, { Toaster } from 'react-hot-toast';
 
 interface LoginFormData {
   email: string;
@@ -30,15 +31,19 @@ export default function LoginPage() {
     // Email validation
     if (!formData.email) {
       newErrors.email = 'Email is required';
+      toast.error('Email is required');
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
       newErrors.email = 'Invalid email address';
+      toast.error('Invalid email address');
     }
 
     // Password validation
     if (!formData.password) {
       newErrors.password = 'Password is required';
+      toast.error('Password is required');
     } else if (formData.password.length < 8) {
       newErrors.password = 'Password must be at least 8 characters';
+      toast.error('Password must be at least 8 characters');
     }
 
     setErrors(newErrors);
@@ -55,8 +60,20 @@ export default function LoginPage() {
     setLoading(true);
     try {
       // Add your login API call here
-      console.log('Form submitted:', formData);
-      
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+
       // Reset form after successful submission
       setFormData({
         email: '',
@@ -64,7 +81,10 @@ export default function LoginPage() {
         rememberMe: false
       });
       setErrors({});
+      toast.success('Login successful!');
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Login failed';
+      toast.error(errorMessage);
       setErrors({
         ...errors,
         password: 'Invalid email or password'
@@ -76,6 +96,7 @@ export default function LoginPage() {
 
   return (
     <div className='min-h-screen'>
+      <Toaster position="top-right" />
       <BreadCrump title="Log in" BreadCrump="Home > Login"/>
       
       <div className="max-w-[700px] mx-auto px-4 py-16">

@@ -2,7 +2,7 @@ import { baseApi } from "../../api/baseApi";
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    loginUser: builder.mutation({
+    signinUser: builder.mutation({
       query: (credentials) => ({
         url: "/auth/login",
         method: "POST",
@@ -19,31 +19,23 @@ export const authApi = baseApi.injectEndpoints({
       invalidatesTags: ["User"],
     }),
 
-    // createUser: builder.mutation({
-    //   query: (userData) => ({
-    //     url: "/auth/register"	,
-    //     method: "POST",
-    //     body: userData,
-    //   }),
-    //   invalidatesTags: ["User"],
-    // }),
-
     createUser: builder.mutation({
-      query: (userData) => {
-        console.log('Request payload:', userData);
-        return {
-          url: "/auth/register",
-          method: "POST",
-          body: userData,
-          // credentials: 'include',.
-        };
-      },
+      query: (userData) => ({
+        url: "/auth/register",
+        method: "POST",
+        body: userData,
+        credentials: "include"
+      }),
       async onQueryStarted(arg, { queryFulfilled }) {
         try {
           const result = await queryFulfilled;
           console.log('API Response:', result);
         } catch (error) {
-          console.error('API Error:', error);
+          console.error('API Error:', {
+            message: error.error?.message || 'Network error occurred',
+            status: error.error?.status,
+            data: error.error?.data
+          });
         }
       },
       invalidatesTags: ["User"],
@@ -51,7 +43,7 @@ export const authApi = baseApi.injectEndpoints({
 
     verifyOTP: builder.mutation({
       query: (data) => ({
-        url: "/auth/verifyOTP",
+        url: "/auth/verify-email",
         method: "POST",
         body: data,
         credentials: "include",
@@ -105,11 +97,13 @@ export const authApi = baseApi.injectEndpoints({
   }),
 });
 
+
+
 export const {
   useCreateUserMutation,
   useVerifyOTPMutation,
   useVerifyOTPForResetPasswordMutation,
-  useLoginUserMutation,
+  useSigninUserMutation,
   useResetPasswordMutation,
   useGetAllExchangeDataQuery,
 } = authApi;

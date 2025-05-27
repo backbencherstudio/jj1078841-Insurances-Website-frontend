@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import { useCreateUserMutation } from "@/src/redux/features/auth/authApi";
 import BreadCrump from "../../_components/reusable/BreadCrump";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
-import toast, { Toaster } from 'react-hot-toast';
-const notify = () => toast('sent otp, check your email');
+import { Toaster, toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface SignupFormData {
   firstName: string;
@@ -17,25 +17,10 @@ interface SignupFormData {
   agreeToTerms: boolean;
 }
 
-interface ValidationErrors {
-  firstName?: string;
-  lastName?: string;
-  phone?: string;
-  email?: string;
-  password?: string;
-}
-
-// http://localhost:4000/api/auth/verify-email
-// {
-// 	"email" : "string",
-// 	"token" : number
-// }
-
 export default function SignupPage() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
-  const [sucsess, setSuccess] = useState("");
-  const [errors, setErrors] = useState<ValidationErrors>({});
+
+  const [createUser, { isLoading }] = useCreateUserMutation();
   const [formData, setFormData] = useState<SignupFormData>({
     firstName: "",
     lastName: "",
@@ -45,98 +30,113 @@ export default function SignupPage() {
     rememberMe: false,
     agreeToTerms: false,
   });
-  const validateForm = (): boolean => {
-    const newErrors: ValidationErrors = {};
-    
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "First name is required";
-    }
+  console.log("formData", formData);
 
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last name is required";
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!/^\d{11}$/.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid 11-digit phone number";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-
-    if (!formData.password) {
-      newErrors.password = "Password is required";
-    } else if (formData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters long";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, type, checked, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
+
+  // Add error state
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    password: "",
+    agreeToTerms: "",
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
+
+    // Validate fields
+    let hasError = false;
+    const newErrors = {
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      password: "",
+      agreeToTerms: "",
+    };
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+      hasError = true;
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "last name is required";
+      hasError = true;
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "phone number required";
+      hasError = true;
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Valid email required";
+      hasError = true;
+    }
+
+    if (!formData.password) {
+      newErrors.password = "Password is required"; // Fix this line
+      hasError = true;
+    }
+
+    if (hasError) {
+      setErrors(newErrors);
       return;
     }
 
     if (!formData.agreeToTerms) {
-      alert("Please agree to the terms and conditions");
+      toast.error("Please accept the Terms and Conditions");
       return;
     }
 
-    const transformedData = {
+    // Change this part in handleSubmit
+    const userData = {
       first_name: formData.firstName,
       last_name: formData.lastName,
       phone_number: formData.phone,
       email: formData.email,
-      password: formData.password
+      password: formData.password,
     };
 
     try {
-      setIsLoading(true);
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(transformedData),
-        // credentials: 'include'
-      });
+      // Remove the extra object wrapping
+      const response = await createUser(userData).unwrap();
+      localStorage.setItem("email", formData.email);
 
-      const data = await response.json();
-      console.log(data.message);
-      setSuccess(notify());
-      // console.log("success data:",data.message);
-      
-      if (!response.ok) {
-        throw new Error(data.message || 'Something went wrong');
-        
+      // Handle the response dat
+      console.log("signup response", response);
+
+      if (response.success) {
+        toast.success(response.message);
+        router.push(`/verify-otp?email=${encodeURIComponent(formData.email)}`);
       }
-
-      if (formData.rememberMe) {
-        localStorage.setItem('email', formData.email);
-      }
-
-      // router.push('/verify-otp');
-      
-    } catch (error) {
-      console.error('Registration error:', error);
-      alert(error instanceof Error ? error.message : 'Failed to register');
-    } finally {
-      setIsLoading(false);
+    } catch (error: any) {
+      console.error("Signup Error:", error);
+      toast.error(error?.data?.message || "Something went wrong");
     }
+
+    //  if (!formData.confirmInfo) {
+    //    toast.error("Please confirm that your information is accurate");
+    //    return;
+    //  }
+
+    //  if (form.password !== form.confirmPassword) {
+    //    toast.error("Passwords do not match");
+    //    return;
+    //  }
   };
 
-  // Update the input fields to show validation errors
   return (
     <div className="min-h-screen">
-      <Toaster />
       <BreadCrump title="Sign Up" BreadCrump="Home > Sign Up" />
 
       <div className="max-w-[700px] mx-auto px-4 py-16">
@@ -155,18 +155,14 @@ export default function SignupPage() {
                 </label>
                 <input
                   type="text"
+                  name="firstName"
                   id="firstName"
                   placeholder="Enter your first name"
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-primary-color focus:border-transparent`}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
                   value={formData.firstName}
-                  onChange={(e) =>
-                    setFormData({ ...formData, firstName: e.target.value })
-                  }
+                  onChange={handleChange}
                   required
                 />
-                {errors.firstName && (
-                  <p className="mt-1 text-sm text-red-500">{errors.firstName}</p>
-                )}
               </div>
               <div>
                 <label
@@ -177,18 +173,14 @@ export default function SignupPage() {
                 </label>
                 <input
                   type="text"
+                  name="lastName"
                   id="lastName"
                   placeholder="Enter your last name"
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-primary-color focus:border-transparent`}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
                   value={formData.lastName}
-                  onChange={(e) =>
-                    setFormData({ ...formData, lastName: e.target.value })
-                  }
+                  onChange={handleChange}
                   required
                 />
-                {errors.lastName && (
-                  <p className="mt-1 text-sm text-red-500">{errors.lastName}</p>
-                )}
               </div>
             </div>
             <div>
@@ -200,18 +192,14 @@ export default function SignupPage() {
               </label>
               <input
                 type="tel"
+                name="phone"
                 id="phone"
                 placeholder="Enter your number"
-                className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-primary-color focus:border-transparent`}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
                 value={formData.phone}
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
+                onChange={handleChange}
                 required
               />
-              {errors.phone && (
-                <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
-              )}
             </div>
             <div>
               <label
@@ -222,18 +210,14 @@ export default function SignupPage() {
               </label>
               <input
                 type="email"
+                name="email"
                 id="email"
                 placeholder="Enter your email"
-                className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-primary-color focus:border-transparent`}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
                 value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
+                onChange={handleChange}
                 required
               />
-              {errors.email && (
-                <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-              )}
             </div>
             <div>
               <label
@@ -244,29 +228,24 @@ export default function SignupPage() {
               </label>
               <input
                 type="password"
+                name="password"
                 id="password"
                 placeholder="••••••••••"
-                className={`w-full px-4 py-3 rounded-lg border ${errors.password ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-primary-color focus:border-transparent`}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
                 value={formData.password}
-                onChange={(e) =>
-                  setFormData({ ...formData, password: e.target.value })
-                }
+                onChange={handleChange}
                 required
               />
-              {errors.password && (
-                <p className="mt-1 text-sm text-red-500">{errors.password}</p>
-              )}
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input
                   type="checkbox"
+                  name="rememberMe"
                   id="remember"
                   className="h-4 w-4 text-primary-color rounded border-gray-300"
                   checked={formData.rememberMe}
-                  onChange={(e) =>
-                    setFormData({ ...formData, rememberMe: e.target.checked })
-                  }
+                  onChange={handleChange}
                 />
                 <label
                   htmlFor="remember"
@@ -285,12 +264,11 @@ export default function SignupPage() {
             <div className="flex items-center">
               <input
                 type="checkbox"
+                name="agreeToTerms"
                 id="terms"
                 className="h-4 w-4 text-primary-color rounded border-gray-300"
                 checked={formData.agreeToTerms}
-                onChange={(e) =>
-                  setFormData({ ...formData, agreeToTerms: e.target.checked })
-                }
+                onChange={handleChange}
               />
               <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
                 I agree to all the{" "}
@@ -310,11 +288,11 @@ export default function SignupPage() {
               </label>
             </div>
             <button
-              type="submit"
-              className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer disabled:opacity-50"
               disabled={isLoading}
+              type="submit"
+              className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer"
             >
-              {isLoading ? 'Signing up...' : 'Sign Up'}
+              {isLoading ? "Signning Up..." : "Sign Up"}
             </button>
           </form>
         </div>
