@@ -4,9 +4,9 @@ console.log("process.env.NEXT_PUBLIC_API_URL", process.env.NEXT_PUBLIC_API_URL);
 
 export const baseApi = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({
+  baseQuery: fetchBaseQuery ({
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
-    // credentials: "include",
+    credentials: "include",
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as any).auth.token;
       if (token) {
