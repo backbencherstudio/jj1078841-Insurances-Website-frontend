@@ -9,9 +9,13 @@ export const baseApi = createApi({
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as any).auth.token;
+      // if (token) {
+      //   headers.set("authorization", token);
+      // }
       if (token) {
-        headers.set("authorization", token);
+        headers.set('Authorization', `Bearer ${token}`);
       }
+  
       return headers;
     },
   }),

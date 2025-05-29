@@ -10,9 +10,11 @@ export const authApi = baseApi.injectEndpoints({
         credentials: "include",
       }),
       transformResponse: (response) => {
-        if (response.data?.accessToken) {
-          localStorage.setItem("accessToken", response.data.accessToken);
-          document.cookie = `accessToken=${response.data.accessToken}; path=/; secure; samesite=strict`;
+        const token = response?.authorization?.token;
+        if (token) {
+          localStorage.setItem("accessToken", token);
+          document.cookie = `accessToken=${token}; path=/; secure; samesite=strict`;
+          
         }
         return response;
       },
@@ -40,6 +42,32 @@ export const authApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["User"],
     }),
+
+
+
+
+    // sendEmail: builder.mutation({
+    //   query: (emailData) => ({
+    //     url: "/send-email",
+    //     method: "POST",
+    //     body: emailData,
+    //     credentials: "include",
+    //   }),
+    //   async onQueryStarted(arg, { queryFulfilled }) {
+    //     try {
+    //       const result = await queryFulfilled;
+    //       console.log('Email Sent Successfully:', result);
+    //     } catch (error) {
+    //       console.error('Email Sending Error:', {
+    //         message: error.error?.message || 'Network error occurred',
+    //         status: error.error?.status,
+    //         data: error.error?.data,
+    //       });
+    //     }
+    //   },
+    //   invalidatesTags: ["User"],
+    // }),
+    
 
     verifyOTP: builder.mutation({
       query: (data) => ({
@@ -106,4 +134,5 @@ export const {
   useSigninUserMutation,
   useResetPasswordMutation,
   useGetAllExchangeDataQuery,
+  // useSendEmailMutation
 } = authApi;

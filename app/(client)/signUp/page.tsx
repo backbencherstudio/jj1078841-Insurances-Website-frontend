@@ -80,6 +80,7 @@ export default function SignupPage() {
     }
     if (!formData.email.trim()) {
       newErrors.email = "Valid email required";
+      toast.error("Valid email required");
       hasError = true;
     }
 
@@ -117,7 +118,8 @@ export default function SignupPage() {
 
       if (response.success) {
         toast.success(response.message);
-        router.push(`/verify-otp?email=${encodeURIComponent(formData.email)}`);
+        // router.push(`/verify-otp?email=${encodeURIComponent(formData.email)}`);
+        router.push(`/login`);
       }
     } catch (error: any) {
       console.error("Signup Error:", error);

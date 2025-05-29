@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import BreadCrump from '../../_components/reusable/BreadCrump'
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast';
+import { useSigninUserMutation } from '@/src/redux/features/auth/authApi';
+import { useRouter } from 'next/navigation';
 
 interface LoginFormData {
   email: string;
@@ -17,7 +19,8 @@ interface ValidationErrors {
 }
 
 export default function LoginPage() {
-  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const [signinUser, { isLoading }] = useSigninUserMutation();
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [formData, setFormData] = useState<LoginFormData>({
     email: '',
@@ -57,23 +60,22 @@ export default function LoginPage() {
       return;
     }
 
-    setLoading(true);
     try {
-      // Add your login API call here
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+      const response = await signinUser({
+        email: formData.email,
+        password: formData.password
+      }).unwrap();
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
+      if (formData.rememberMe) {
+        localStorage.setItem("email", formData.email);
       }
 
+      if(response.success){
+        toast.success('Login successful!');
+        router.push('/')
+        
+      }
+      
       // Reset form after successful submission
       setFormData({
         email: '',
@@ -81,16 +83,14 @@ export default function LoginPage() {
         rememberMe: false
       });
       setErrors({});
-      toast.success('Login successful!');
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Login failed';
+      
+    } catch (error: any) {
+      const errorMessage = error?.data?.message || 'Login failed';
       toast.error(errorMessage);
       setErrors({
         ...errors,
         password: 'Invalid email or password'
       });
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -164,10 +164,10 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={isLoading}
             className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer disabled:opacity-50"
           >
-            {loading ? 'Logging in...' : 'Login'}
+            {isLoading ? 'Logging in...' : 'Login'}
           </button>
 
           <p className="text-center text-sm text-gray-600">
