@@ -1,4 +1,6 @@
+"use client";
 import React from 'react';
+
 
 // Icons (simple SVGs for demonstration)
 const PlusIcon = ({ className }: { className?: string }) => (
@@ -40,6 +42,8 @@ interface FormFieldProps {
   containerClassName?: string;
 }
 
+
+
 const FormField: React.FC<FormFieldProps> = ({
   label,
   id,
@@ -51,6 +55,9 @@ const FormField: React.FC<FormFieldProps> = ({
   icon,
   containerClassName = '',
 }) => {
+  // const { data: user, error, isLoading } = useGetLoggedInUserQuery();
+  // if (isLoading) return <p>Loading...</p>;
+  // if (error) return <p>Error fetching user data</p>;
   return (
     <div className={containerClassName}>
       <label htmlFor={id} className="block text-xs font-medium text-slate-600 mb-1">

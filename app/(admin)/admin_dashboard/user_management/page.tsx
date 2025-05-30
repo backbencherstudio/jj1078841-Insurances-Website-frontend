@@ -12,6 +12,7 @@ import avatar6 from "@/public/avatar-1 (6).png";
 import avatar7 from "@/public/avatar-1 (7).png";
 import avatar8 from "@/public/avatar-1 (8).png";
 import avatar9 from "@/public/avatar-1 (9).png";
+// import { useGetUsersQuery } from "@/src/redux/features/users/userApi";
 
 interface UserData {
   name: string;
@@ -182,6 +183,10 @@ export default function UserManagement() {
   const itemsPerPage = 9;
 
   const [users, setUsers] = useState<UserData[]>(userData);
+
+  // const {data } = useGetUsersQuery({})
+  // console.log("data", data	);
+  
 
   // Filter users based on search term and status filter
   const filteredUsers = users.filter((user) => {

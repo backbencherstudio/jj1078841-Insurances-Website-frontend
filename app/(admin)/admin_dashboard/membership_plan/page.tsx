@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
 import { TfiTrash } from "react-icons/tfi";
 import {SquarePen} from "lucide-react"
+import EditMembershipModal from "./_components/EditMembershipModal";
 
 interface MembershipPlan {
   plan: string;
@@ -13,6 +14,8 @@ interface MembershipPlan {
 }
 
 export default function MembershipPlan() {
+const [isModalOpen, setIsModalOpen] = useState(false);
+  
   const [plans, setPlans] = useState<MembershipPlan[]>([
     {
       plan: "Business",
@@ -36,6 +39,19 @@ export default function MembershipPlan() {
       status: "Active",
     },
   ]);
+
+  // Initial plan data
+  const [membership, setMembership] = useState({
+    planName: "Starter Plan",
+    price: "9.99",
+    billingCycle: "Monthly",
+    features: "Support,Dashboard Access,Reports"
+  });
+
+  const handleUpdate = (updatedData: typeof membership) => {
+    setMembership(updatedData); // update local state
+    console.log("Updated membership plan:", updatedData); // optional: send to API
+  };
 
   const getStatusStyle = (status: MembershipPlan["status"]) => {
     switch (status) {
@@ -104,7 +120,7 @@ export default function MembershipPlan() {
                       {plan.status}
                     </span>
                     <div className="flex gap-2 justify-between items-center">
-                      <button className="p-3 rounded-lg    text-primary-dark hover:bg-blue-100 border border-primary-dark">
+                      <button  onClick={() => setIsModalOpen(true)} className="p-3 rounded-lg    text-primary-dark hover:bg-blue-100 border border-primary-dark">
                       <SquarePen size={18}/>
                       </button>
 
@@ -118,6 +134,12 @@ export default function MembershipPlan() {
                   </div>
                 </div>
               ))}
+                <EditMembershipModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onUpdate={handleUpdate}
+        initialData={membership}
+      />
             </div>
           </div>
         </div>
@@ -128,6 +150,8 @@ export default function MembershipPlan() {
           </div>
         )}
       </div>
+
+       
     </div>
   );
 }

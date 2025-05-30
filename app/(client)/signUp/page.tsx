@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCreateUserMutation } from "@/src/redux/features/auth/authApi";
 import BreadCrump from "../../_components/reusable/BreadCrump";
 import Link from "next/link";
 import { Toaster, toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useAppSelector } from "@/src/redux/hooks";
 
 interface SignupFormData {
   firstName: string;
@@ -19,6 +20,13 @@ interface SignupFormData {
 
 export default function SignupPage() {
   const router = useRouter();
+  const token = useAppSelector((state) => state.auth.token);
+
+  useEffect(() => {
+    if (token) {
+      router.replace("/");
+    }
+  }, [token, router]);
 
   const [createUser, { isLoading }] = useCreateUserMutation();
   const [formData, setFormData] = useState<SignupFormData>({
@@ -30,7 +38,6 @@ export default function SignupPage() {
     rememberMe: false,
     agreeToTerms: false,
   });
-  console.log("formData", formData);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, type, checked, value } = e.target;
@@ -40,7 +47,6 @@ export default function SignupPage() {
     }));
   };
 
-  // Add error state
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
@@ -53,7 +59,6 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate fields
     let hasError = false;
     const newErrors = {
       firstName: "",
@@ -66,18 +71,22 @@ export default function SignupPage() {
 
     if (!formData.firstName.trim()) {
       newErrors.firstName = "First name is required";
+      toast.error("First name is required");
       hasError = true;
     }
 
     if (!formData.lastName.trim()) {
-      newErrors.lastName = "last name is required";
+      newErrors.lastName = "Last name is required";
+      toast.error("Last name is required");
       hasError = true;
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = "phone number required";
+      newErrors.phone = "Phone number is required";
+      toast.error("Phone number is required");
       hasError = true;
     }
+
     if (!formData.email.trim()) {
       newErrors.email = "Valid email required";
       toast.error("Valid email required");
@@ -85,7 +94,14 @@ export default function SignupPage() {
     }
 
     if (!formData.password) {
-      newErrors.password = "Password is required"; // Fix this line
+      newErrors.password = "Password is required";
+      toast.error("Password is required");
+      hasError = true;
+    }
+
+    if (!formData.agreeToTerms) {
+      newErrors.agreeToTerms = "Please accept the Terms and Conditions";
+      toast.error("Please accept the Terms and Conditions");
       hasError = true;
     }
 
@@ -94,12 +110,6 @@ export default function SignupPage() {
       return;
     }
 
-    if (!formData.agreeToTerms) {
-      toast.error("Please accept the Terms and Conditions");
-      return;
-    }
-
-    // Change this part in handleSubmit
     const userData = {
       first_name: formData.firstName,
       last_name: formData.lastName,
@@ -109,191 +119,67 @@ export default function SignupPage() {
     };
 
     try {
-      // Remove the extra object wrapping
+      toast.loading("Signing you up...");
       const response = await createUser(userData).unwrap();
+      toast.dismiss();
       localStorage.setItem("email", formData.email);
 
-      // Handle the response dat
-      console.log("signup response", response);
-
       if (response.success) {
-        toast.success(response.message);
-        // router.push(`/verify-otp?email=${encodeURIComponent(formData.email)}`);
+        toast.success(response.message || "Signup successful!");
         router.push(`/login`);
+      } else {
+        toast.error(response.message || "Signup failed");
       }
     } catch (error: any) {
-      console.error("Signup Error:", error);
-      toast.error(error?.data?.message || "Something went wrong");
+      toast.dismiss();
+      const errorMessage = error?.data?.message || "Something went wrong";
+      toast.error(`Signup failed: ${errorMessage}`);
     }
-
-    //  if (!formData.confirmInfo) {
-    //    toast.error("Please confirm that your information is accurate");
-    //    return;
-    //  }
-
-    //  if (form.password !== form.confirmPassword) {
-    //    toast.error("Passwords do not match");
-    //    return;
-    //  }
   };
 
   return (
     <div className="min-h-screen">
       <BreadCrump title="Sign Up" BreadCrump="Home > Sign Up" />
-
       <div className="max-w-[700px] mx-auto px-4 py-16">
-        <h1 className="text-5xl font-semibold text-center mb-8">
-          Create account
-        </h1>
+        <h1 className="text-5xl font-semibold text-center mb-8">Create account</h1>
         <div className="border border-[#E9E9EA] rounded-2xl p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-base font-medium text-gray-700 mb-1"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  placeholder="Enter your first name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  required
-                />
+                <label htmlFor="firstName" className="block text-base font-medium text-gray-700 mb-1">First Name</label>
+                <input type="text" name="firstName" id="firstName" placeholder="Enter your first name" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent" value={formData.firstName} onChange={handleChange} required />
               </div>
               <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-base font-medium text-gray-700 mb-1"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  placeholder="Enter your last name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  required
-                />
+                <label htmlFor="lastName" className="block text-base font-medium text-gray-700 mb-1">Last Name</label>
+                <input type="text" name="lastName" id="lastName" placeholder="Enter your last name" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent" value={formData.lastName} onChange={handleChange} required />
               </div>
             </div>
             <div>
-              <label
-                htmlFor="phone"
-                className="block text-base font-medium text-gray-700 mb-1"
-              >
-                Phone
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                placeholder="Enter your number"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
+              <label htmlFor="phone" className="block text-base font-medium text-gray-700 mb-1">Phone</label>
+              <input type="tel" name="phone" id="phone" placeholder="Enter your number" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent" value={formData.phone} onChange={handleChange} required />
             </div>
             <div>
-              <label
-                htmlFor="email"
-                className="block text-base font-medium text-gray-700 mb-1"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+              <label htmlFor="email" className="block text-base font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" name="email" id="email" placeholder="Enter your email" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent" value={formData.email} onChange={handleChange} required />
             </div>
             <div>
-              <label
-                htmlFor="password"
-                className="block text-base font-medium text-gray-700 mb-1"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="••••••••••"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
+              <label htmlFor="password" className="block text-base font-medium text-gray-700 mb-1">Password</label>
+              <input type="password" name="password" id="password" placeholder="••••••••••" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent" value={formData.password} onChange={handleChange} required />
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  name="rememberMe"
-                  id="remember"
-                  className="h-4 w-4 text-primary-color rounded border-gray-300"
-                  checked={formData.rememberMe}
-                  onChange={handleChange}
-                />
-                <label
-                  htmlFor="remember"
-                  className="ml-2 text-sm text-gray-600"
-                >
-                  Remember me
-                </label>
+                <input type="checkbox" name="rememberMe" id="remember" className="h-4 w-4 text-primary-color rounded border-gray-300" checked={formData.rememberMe} onChange={handleChange} />
+                <label htmlFor="remember" className="ml-2 text-sm text-gray-600">Remember me</label>
               </div>
-              <Link
-                href="/forgot-password"
-                className="text-sm text-primary-color hover:underline"
-              >
-                Forgot Password?
-              </Link>
+              <Link href="/forgot-password" className="text-sm text-primary-color hover:underline">Forgot Password?</Link>
             </div>
             <div className="flex items-center">
-              <input
-                type="checkbox"
-                name="agreeToTerms"
-                id="terms"
-                className="h-4 w-4 text-primary-color rounded border-gray-300"
-                checked={formData.agreeToTerms}
-                onChange={handleChange}
-              />
+              <input type="checkbox" name="agreeToTerms" id="terms" className="h-4 w-4 text-primary-color rounded border-gray-300" checked={formData.agreeToTerms} onChange={handleChange} />
               <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
-                I agree to all the{" "}
-                <Link
-                  href="/terms"
-                  className="text-primary-color hover:underline"
-                >
-                  Terms
-                </Link>{" "}
-                and{" "}
-                <Link
-                  href="/privacy-policy"
-                  className="text-primary-color hover:underline"
-                >
-                  Privacy policy
-                </Link>
+                I agree to all the <Link href="/terms" className="text-primary-color hover:underline">Terms</Link> and <Link href="/privacy-policy" className="text-primary-color hover:underline">Privacy policy</Link>
               </label>
             </div>
-            <button
-              disabled={isLoading}
-              type="submit"
-              className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer"
-            >
+            <button disabled={isLoading} type="submit" className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer">
               {isLoading ? "Signning Up..." : "Sign Up"}
             </button>
           </form>
