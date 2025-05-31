@@ -31,18 +31,14 @@ const tableHeaders: TableHeader[] = [
 ];
 
 export default function UserManagement() {
-  const [page, setPage] = useState<any>(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1); // Track current page
+  const [currentPage, setCurrentPage] = useState(1);
   const [filter, setFilter] = useState<"All" | "Active" | "Pending">("All");
   const [users, setUsers] = useState<UserData[]>([]);
   const [token, setToken] = useState<string | null>(null);
-  const [totalPages, setTotalPages] = useState(1); // Track total pages
   const [showModal, setShowModal] = useState(false);
-  const [dataCount, setDataCount] = useState<any>();
   const [userToDelete, setUserToDelete] = useState<UserData | null>(null);
-  const itemsPerPage = 20;
-console.log("total", totalPages);
+  const itemsPerPage = 9;
 
   useEffect(() => {
     const storedToken = localStorage.getItem("accessToken");
@@ -51,28 +47,25 @@ console.log("total", totalPages);
 
   useEffect(() => {
     if (!token) return; // Wait for token to be available
-  
-    const fetchUsers = async (page: number) => {
+
+    const fetchUsers = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/admin/user-management?page=${page}&limit=${itemsPerPage}`, {
+        const response = await fetch("http://localhost:4000/api/admin/user-management", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         });
-  
+console.log("get data",response);
+
         if (!response.ok) {
           throw new Error("Authorization failed, status code: " + response.status);
         }
-  
+
         const data = await response.json();
         console.log("User Management Data ===>", data);
-        const total = data?.total || 0;
-        console.log(total);
-        setDataCount(total);
-        const totalPages = Math.ceil(total / itemsPerPage); // Update total pages from API response
-        setTotalPages(totalPages); // Ensure this state gets updated
+
         const mappedUsers = data.data.map((user: any) => ({
           id: user.id,
           name: user.name,
@@ -82,15 +75,15 @@ console.log("total", totalPages);
           status: user.status,
           avatar: avatar1, // Placeholder avatar for now
         }));
-  
+
         setUsers(mappedUsers);
       } catch (error) {
         console.error("Error fetching users:", error);
       }
     };
-  
-    fetchUsers(currentPage);
-  }, [token, currentPage])
+
+    fetchUsers();
+  }, [token]);
 
   // Filter users based on search term and status filter
   const filteredUsers = users.filter((user) => {
@@ -101,8 +94,15 @@ console.log("total", totalPages);
     return matchesSearch && matchesFilter;
   });
 
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredUsers.length / itemsPerPage);
+  const paginatedUsers = filteredUsers.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
-
+  // Generate page numbers array
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const getStatusStyle = (status: UserData["status"]) => {
     switch (status) {
@@ -116,6 +116,7 @@ console.log("total", totalPages);
   };
 
   const handleDeleteUser = async (userToDelete: UserData) => {
+    // Set the user to be deleted and show the modal
     setUserToDelete(userToDelete);
     setShowModal(true);
   };
@@ -129,9 +130,12 @@ console.log("total", totalPages);
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
+          
         });
+console.log("response=============================================>",response);
 
         if (response.ok) {
+          // If deletion is successful, remove the user from local state
           setUsers(users.filter((user) => user.id !== userToDelete.id));
           setShowModal(false); // Close the modal after successful deletion
         } else {
@@ -187,7 +191,7 @@ console.log("total", totalPages);
 
         {/* User Rows */}
         <div className="divide-y divide-[#E2E8F0]">
-          {filteredUsers.map((user, index) => (
+          {paginatedUsers.map((user, index) => (
             <div key={index} className="grid grid-cols-6 px-6 py-4 hover:bg-gray-50 items-center">
               <div className="flex items-center gap-3">
                 <Image src={user.avatar} alt={user.name} width={32} height={32} className="rounded-full" />
@@ -212,39 +216,37 @@ console.log("total", totalPages);
       </div>
 
       {/* Pagination */}
-      <div className="w-full flex justify-between items-center mt-6 text-sm text-gray-600">
-  <span>
-    {(page - 1) * itemsPerPage + 1} -{" "}
-    {Math.min(page * itemsPerPage, dataCount)} Result Showing Out of{" "}
-    {dataCount}
-  </span>
-  <div className="flex items-center gap-2">
-    <button
-      onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-      disabled={page === 1}
-      className={`px-2 py-1 rounded border ${page === 1 ? "opacity-50 bg-gray-300 cursor-not-allowed" : ""}`}
-    >
-      &#x276E;
-    </button>
-    {Array.from({ length: totalPages }, (_, i) => (
-      <button
-        key={i}
-        onClick={() => setPage(i + 1)}
-        className={`px-3 py-1 rounded border ${page === i + 1 ? "bg-black text-white" : "bg-white text-black"}`}
-      >
-        {i + 1}
-      </button>
-    ))}
-    <button
-      onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
-      disabled={page === totalPages}
-      className={`px-2 py-1 rounded border ${page === totalPages ? "opacity-50 bg-gray-300 cursor-not-allowed" : ""}`}
-    >
-      &#x276F;
-    </button>
-  </div>
-</div>
-
+      <div className="flex items-center justify-end px-4 py-3 sm:px-6 mt-8">
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="px-3 py-1 text-base font-medium text-primary-dark hover:text-primary-dark disabled:text-gray-400"
+          >
+            Prev
+          </button>
+          {pageNumbers.map((number) => (
+            <button
+              key={number}
+              onClick={() => setCurrentPage(number)}
+              className={`text-base font-medium size-12 rounded-md ${
+                currentPage === number
+                  ? "bg-primary-dark text-white"
+                  : "text-gray-600 hover:bg-gray-100"
+              }`}
+            >
+              {number}
+            </button>
+          ))}
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="px-3 py-1 text-base font-medium text-primary-dark hover:text-primary-dark disabled:text-gray-400"
+          >
+            Next
+          </button>
+        </div>
+      </div>
 
       {/* Confirmation Modal */}
       {showModal && (
