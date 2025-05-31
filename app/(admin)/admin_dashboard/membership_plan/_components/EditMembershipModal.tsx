@@ -34,7 +34,7 @@ export default function EditMembershipModal({ isOpen, onClose, onUpdate, initial
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black opacity-90 flex items-center justify-center z-50">
       <div className="bg-white rounded-xl w-full max-w-[600px] mx-4">
         <div className="flex justify-between items-center p-6 border-b border-[#E2E8F0]">
           <h2 className="text-xl font-semibold text-[#0B1C39]">Edit Membership Plan</h2>
@@ -100,7 +100,7 @@ export default function EditMembershipModal({ isOpen, onClose, onUpdate, initial
             </div>
           </div>
 
-          <div className="flex justify-end pt-4">
+          <div className="flex   pt-4">
             <button
               type="submit"
               className="px-6 py-2 bg-[#2EB0E4] text-white rounded-lg hover:bg-opacity-90 transition-all"

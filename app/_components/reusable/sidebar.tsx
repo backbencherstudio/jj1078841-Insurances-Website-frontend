@@ -30,9 +30,9 @@ export default function Sidebar({ isOpen, onClose, menuItems }: SidebarProps) {
       `}
     >
       <div className="flex items-center justify-between p-4 pb-9 ">
-        <div className="flex items-center gap-3 pl-5 ">
+        <Link href='/' className="flex items-center gap-3 pl-5 ">
           <Image src={logo} alt='logo'/>
-        </div>
+        </Link>
         <button 
           className="p-2 rounded-lg hover:bg-gray-100 md:hidden"
           onClick={onClose}

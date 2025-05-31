@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { TfiTrash } from "react-icons/tfi";
 
@@ -9,7 +9,6 @@ interface ClaimData {
   typeOfDamage: string;
   insuranceCompany: string;
   dateOfLoss: string;
-  // amount: string;
   status: "Pending" | "New" | "Completed";
 }
 
@@ -25,122 +24,63 @@ const tableHeaders: TableHeader[] = [
   { id: "typeOfDamage", label: "Type of Damage", width: "w-[13%]" },
   { id: "insuranceCompany", label: "Insurance Company", width: "w-[18%]" },
   { id: "dateOfLoss", label: "Date of Loss", width: "w-[15%]" },
-  // { id: "amount", label: "Amount", width: "w-[12%]" },
   { id: "status", label: "Status", width: "w-[13%]" },
   { id: "action", label: "Action", width: "w-[14%]" },
-];
-
-const mockData: ClaimData[] = [
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Roof",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "Pending",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  {
-    claimId: "#1245",
-    policyNumber: "#1523654",
-    typeOfDamage: "Water",
-    insuranceCompany: "Company Name",
-    dateOfLoss: "12 Jan, 2025",
-    // amount: "$2680.09",
-    status: "New",
-  },
-  // ... Add more mock data as needed
 ];
 
 export default function ClaimsHistory() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [claims, setClaims] = useState<ClaimData[]>([]);
+  const [token, setToken] = useState<string | null>(null);
   const itemsPerPage = 10;
 
+  useEffect(() => {
+    const storedToken = localStorage.getItem("accessToken");
+    setToken(storedToken);
+  }, []);
+
+  useEffect(() => {
+    if (!token) return; // Wait for token to be available
+
+    const fetchClaims = async () => {
+      try {
+        const response = await fetch("http://localhost:4000/api/admin/claims-history", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+
+        if (!response.ok) {
+          throw new Error("Authorization failed, status code: " + response.status);
+        }
+
+        const data = await response.json();
+        console.log("Claims History Data ===>", data);
+
+        const mappedClaims = data.data.map((claim: any) => ({
+          claimId: claim.claim_number,
+          policyNumber: claim.policy_number,
+          typeOfDamage: claim.type_of_damage,
+          insuranceCompany: claim.insurance_company,
+          dateOfLoss: new Date(claim.date_of_loss).toLocaleDateString(),
+          status: claim.status,
+        }));
+
+        setClaims(mappedClaims);
+      } catch (error) {
+        console.error("Error fetching claims:", error);
+      }
+    };
+
+    fetchClaims();
+  }, [token]);
+
   // Filter claims based on search term
-  const filteredClaims = mockData.filter((claim) =>
+  const filteredClaims = claims.filter((claim) =>
     Object.values(claim).some((value) =>
       value.toString().toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -170,12 +110,10 @@ export default function ClaimsHistory() {
   };
 
   return (
-    <div className="mx-auto  w-[95%]">
+    <div className="mx-auto w-[95%]">
       {/* title */}
-      <h1 className="text-[40px] font-semibold text-primary-dark my-5">
-        Claims History
-      </h1>
-      <div className=" p-6 border border-border-light rounded-2xl bg-white">
+      <h1 className="text-[40px] font-semibold text-primary-dark my-5">Claims History</h1>
+      <div className="p-6 border border-border-light rounded-2xl bg-white">
         {/* Search Bar */}
         <div className="mb-4">
           <input
@@ -211,7 +149,7 @@ export default function ClaimsHistory() {
                 >
                   {header.id === "action" ? (
                     <button className="text-white bg-[#EB3D4D] p-3 rounded-xl">
-                      <TfiTrash  size={18} />  
+                      <TfiTrash size={18} />
                     </button>
                   ) : header.id === "status" ? (
                     <span
@@ -229,8 +167,6 @@ export default function ClaimsHistory() {
             </div>
           ))}
         </div>
-
-         
       </div>
 
       {/* Pagination */}

@@ -1,6 +1,10 @@
-import React from 'react';
+'use client';
 
-// Icons (simple SVGs for demonstration)
+import React from "react";
+import toast from "react-hot-toast";
+import { useAppSelector } from "@/src/redux/hooks";
+import { useRouter } from "next/navigation";
+
 const PlusIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className={className}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -26,8 +30,6 @@ const EyeIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// const EyeSlashIcon = ({ className }: { className?: string }) => ( ... ); // Add if needed for toggle
-
 interface FormFieldProps {
   label: string;
   id: string;
@@ -43,13 +45,13 @@ interface FormFieldProps {
 const FormField: React.FC<FormFieldProps> = ({
   label,
   id,
-  type = 'text',
+  type = "text",
   placeholder,
   defaultValue,
   isSelect = false,
   options = [],
   icon,
-  containerClassName = '',
+  containerClassName = "",
 }) => {
   return (
     <div className={containerClassName}>
@@ -90,112 +92,90 @@ const FormField: React.FC<FormFieldProps> = ({
   );
 };
 
-
 export default function ProfilePage() {
-  // State for password visibility can be added here
-  // const [showPassword, setShowPassword] = React.useState(false);
-  // const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
+  const router = useRouter();
+  const token = useAppSelector((state) => state.auth.token);
+
+  React.useEffect(() => {
+    if (!token) {
+      router.replace("/login");
+    }
+  }, [token, router]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget as HTMLFormElement);
+
+    try {
+      toast.loading("Updating profile...");
+      // Send the PATCH request to update the profile
+      const response = await fetch('http://localhost:4000/api/dashboard/user-profile', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(Object.fromEntries(form)),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update profile');
+      }
+
+      const result = await response.json();
+      toast.dismiss();
+      toast.success("Profile updated successfully!");
+    } catch (error: any) {
+      toast.dismiss();
+      const message = error?.message || "Update failed";
+      toast.error(message);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 p-4 sm:p-6 md:p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-slate-800 mb-8">
-          Profile
-        </h1>
+        <h1 className="text-3xl font-bold text-slate-800 mb-8">Profile</h1>
 
         <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-          <div className="flex flex-col items-center sm:items-start mb-8">
-            <div className="relative mb-2">
-              <img
-                src="https://via.placeholder.com/100/E0E7FF/4F46E5?text=User" // Replace with actual image or placeholder component
-                alt="Profile"
-                className="w-24 h-24 rounded-full object-cover border-2 border-slate-200"
-              />
-              <button
-                type="button"
-                className="absolute -bottom-1 -right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md"
-                aria-label="Change profile picture"
-              >
-                <PlusIcon className="w-4 h-4" />
-              </button>
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <div className="flex flex-col items-center sm:items-start mb-8">
+              <div className="relative mb-2">
+                <img
+                  src="https://via.placeholder.com/100/E0E7FF/4F46E5?text=User"
+                  alt="Profile"
+                  className="w-24 h-24 rounded-full object-cover border-2 border-slate-200"
+                />
+                <input
+                  type="file"
+                  name="avatar"
+                  accept="image/*"
+                  className="absolute -bottom-1 -right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md cursor-pointer opacity-0 w-8 h-8"
+                />
+                <div className="absolute -bottom-1 -right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md pointer-events-none">
+                  <PlusIcon className="w-4 h-4" />
+                </div>
+              </div>
             </div>
-          </div>
 
-          <form action="#" method="POST">
             <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
               <FormField label="Full Name" id="full_name" defaultValue="Jacob Jones" />
               <FormField label="Email" id="email" type="email" defaultValue="info@insurancesally.com" />
-              <FormField label="Phone No" id="phone_no" defaultValue="+012 3456 789" />
-              <FormField
-                label="Date of Birth"
-                id="date_of_birth"
-                defaultValue="02 February 1997"
-                icon={<CalendarIcon className="w-4 h-4 text-slate-400" />}
-              />
-              <FormField
-                label="Country"
-                id="country"
-                isSelect
-                defaultValue="USA"
-                options={['USA', 'Canada', 'UK']}
-              />
-              <FormField
-                label="State"
-                id="state"
-                isSelect
-                defaultValue="New York"
-                options={['New York', 'California', 'Texas']}
-              />
+              <FormField label="Phone No" id="phone_number" defaultValue="+012 3456 789" />
+              <FormField label="Date of Birth" id="date_of_birth" defaultValue="1997-02-02" icon={<CalendarIcon className="w-4 h-4 text-slate-400" />} />
+              <FormField label="Country" id="country" isSelect defaultValue="USA" options={["USA", "Canada", "UK"]} />
+              <FormField label="State" id="state" isSelect defaultValue="New York" options={["New York", "California", "Texas"]} />
             </div>
 
             <div className="grid grid-cols-1 gap-x-6 gap-y-6 mt-6 md:grid-cols-5">
-              <FormField
-                label="City"
-                id="city"
-                isSelect
-                defaultValue="New York"
-                options={['New York City', 'Los Angeles', 'Chicago']}
-                containerClassName="md:col-span-1"
-              />
-              <FormField
-                label="Address"
-                id="address"
-                defaultValue="4140 Parker Rd. Allentown, New Mexico"
-                containerClassName="md:col-span-3"
-              />
-              <FormField
-                label="Zip Code"
-                id="zip_code"
-                defaultValue="1234"
-                containerClassName="md:col-span-1"
-              />
+              <FormField label="City" id="city" isSelect defaultValue="New York" options={["New York City", "Los Angeles", "Chicago"]} containerClassName="md:col-span-1" />
+              <FormField label="Address" id="address" defaultValue="4140 Parker Rd. Allentown, New Mexico" containerClassName="md:col-span-3" />
+              <FormField label="Zip Code" id="zip_code" defaultValue="1234" containerClassName="md:col-span-1" />
             </div>
-            
+
             <div className="grid grid-cols-1 gap-x-6 gap-y-6 mt-6 sm:grid-cols-2">
-              <FormField
-                label="Password"
-                id="password"
-                type="password" // Change to 'text' when showPassword is true
-                defaultValue="**********"
-                icon={
-                  <button type="button" /* onClick={() => setShowPassword(!showPassword)} */ className="focus:outline-none p-1">
-                    <EyeIcon className="w-4 h-4 text-slate-400 hover:text-slate-500" />
-                    {/* {showPassword ? <EyeSlashIcon /> : <EyeIcon />} */}
-                  </button>
-                }
-              />
-              <FormField
-                label="Confirm Password"
-                id="confirm_password"
-                type="password" // Change to 'text' when showConfirmPassword is true
-                defaultValue="**********"
-                icon={
-                  <button type="button" /* onClick={() => setShowConfirmPassword(!showConfirmPassword)} */ className="focus:outline-none p-1">
-                     <EyeIcon className="w-4 h-4 text-slate-400 hover:text-slate-500" />
-                    {/* {showConfirmPassword ? <EyeSlashIcon /> : <EyeIcon />} */}
-                  </button>
-                }
-              />
+              <FormField label="Password" id="password" type="password" defaultValue="" icon={<EyeIcon className="w-4 h-4 text-slate-400 hover:text-slate-500" />} />
+              <FormField label="Confirm Password" id="confirm_password" type="password" defaultValue="" icon={<EyeIcon className="w-4 h-4 text-slate-400 hover:text-slate-500" />} />
             </div>
 
             <div className="mt-8">
