@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Upload, FileImage, FileText } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -33,6 +33,14 @@ export default function MyClaim() {
     submitted: false,
   });
 
+  const [token, setToken] = useState<string | null>(null);
+
+  // Retrieve token from localStorage
+  useEffect(() => {
+    const storedToken = localStorage.getItem("accessToken");
+    setToken(storedToken);
+  }, []);
+
   const validateStep = () => {
     if (currentStep === 1) {
       return (
@@ -61,7 +69,7 @@ export default function MyClaim() {
     if (currentStep < 3) {
       setCurrentStep((prev) => prev + 1);
     } else {
-      setFormData((prev) => ({ ...prev, submitted: true }));
+      handleSubmit();
     }
   };
 
@@ -76,6 +84,56 @@ export default function MyClaim() {
         }));
       }
     };
+
+  const handleSubmit = async () => {
+    if (!token) {
+      toast.error("No token found. Please log in again.");
+      return;
+    }
+
+    const form = new FormData();
+    form.append("propertyAddress", formData.propertyAddress);
+    form.append("dateOfLoss", formData.dateOfLoss);
+    form.append("damageType", formData.damageType);
+    form.append("insuranceCompany", formData.insuranceCompany);
+    form.append("policyNumber", formData.policyNumber);
+    
+    formData.damagePhotos.forEach((file) => {
+      form.append("damagePhotos", file);
+    });
+    
+    formData.insurancePolicy.forEach((file) => {
+      form.append("insurancePolicy", file);
+    });
+    
+    if (formData.signature) {
+      form.append("signature", formData.signature);
+    }
+
+    try {
+      toast.loading("Submitting claim...");
+      const response = await fetch("http://localhost:4000/api/new-claim-insurance", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        },
+        body: form,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit the claim.");
+      }
+
+      const result = await response.json();
+      toast.dismiss();
+      toast.success("Claim submitted successfully!");
+      setFormData((prev) => ({ ...prev, submitted: true }));
+    } catch (error: any) {
+      toast.dismiss();
+      const message = error?.message || "Submission failed";
+      toast.error(message);
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,29 +150,11 @@ export default function MyClaim() {
               {[1, 2, 3, 4].map((step) => (
                 <div key={step} className="flex items-center flex-1">
                   <div
-                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm sm:text-base ${
-                      formData.submitted
-                        ? "bg-[#2EB0E4] text-white"
-                        : step === currentStep
-                        ? "bg-[#2EB0E4] text-white"
-                        : step < currentStep
-                        ? "bg-[#2EB0E4] text-white"
-                        : "bg-gray-200 text-gray-500"
-                    }`}
+                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm sm:text-base ${step === currentStep ? "bg-[#2EB0E4] text-white" : "bg-gray-200 text-gray-500"}`}
                   >
                     {step}
                   </div>
-                  {step < 4 && (
-                    <div
-                      className={`flex-1 h-1 ${
-                        formData.submitted
-                          ? "bg-[#2EB0E4]"
-                          : step < currentStep
-                          ? "bg-[#2EB0E4]"
-                          : "bg-gray-200"
-                      }`}
-                    />
-                  )}
+                  {step < 4 && <div className={`flex-1 h-1 ${step < currentStep ? "bg-[#2EB0E4]" : "bg-gray-200"}`} />}
                 </div>
               ))}
             </div>
@@ -205,9 +245,7 @@ export default function MyClaim() {
                     onChange={handleFileUpload("signature")}
                     files={formData.signature ? [formData.signature] : []}
                   />
-                  <p className="text-xs text-gray-600 mt-4">
-                    I authorize Insurance Ally to act as my Public Adjuster
-                  </p>
+                  <p className="text-xs text-gray-600 mt-4">I authorize Insurance Ally to act as my Public Adjuster</p>
                 </div>
               )}
 
@@ -229,7 +267,6 @@ export default function MyClaim() {
 }
 
 // --- Reusable Components ---
-
 const InputField = ({
   label,
   value,

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import BreadCrump from "../../_components/reusable/BreadCrump";
 import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
@@ -22,6 +22,8 @@ interface ValidationErrors {
 
 export default function LoginPage() {
   const token = useAppSelector((state) => state.auth.token);
+  console.log(token);
+
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [signinUser, { isLoading }] = useSigninUserMutation();
@@ -34,7 +36,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (token) {
-      router.replace("/");
+      router.replace("/"); // If already logged in, redirect to home
     }
   }, [token, router]);
 
@@ -61,108 +63,66 @@ export default function LoginPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   if (!validateForm()) return;
-
-  //   try {
-  //     toast.loading("Logging in...");
-
-  //     const response = await signinUser({
-  //       email: formData.email,
-  //       password: formData.password,
-  //     }).unwrap();
-
- 
-
-  //     const token = response?.authorization?.token;
-
-  //     if (token) {
-  //       localStorage.setItem("accessToken", token);
-  //       document.cookie = `accessToken=${token}; path=/; secure; samesite=strict`;
-  //       dispatch(setToken(token));
-
-  //       if (formData.rememberMe) {
-  //         localStorage.setItem("rememberedEmail", formData.email);
-  //       } else {
-  //         localStorage.removeItem("rememberedEmail");
-  //       }
-
-  //       toast.success("Login successful!");
-  //       router.push("/");
-  //     } else {
-  //       // throw new Error("No token received");
-  //       toast.error( response?.message || "Login failed");
-  //     }
-
-  //     setFormData({ email: "", password: "", rememberMe: false });
-  //     setErrors({});
-  //   } catch (error: any) {
-  //     // toast.dismiss();
-  //     const errorMessage = error?.data?.message || "Login failed";
-  //     toast.error(errorMessage);
-  //     setErrors({
-  //       ...errors,
-  //       password: "Invalid email or password",
-  //     });
-  //   }
-  // };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-  
+
     try {
-      // toast.loading("Logging in...");
-  
+      // Call the login API to sign in
       const response = await signinUser({
         email: formData.email,
         password: formData.password,
       }).unwrap();
-  
-      // toast.dismiss();
-  
+
       const token = response?.authorization?.token;
-  
+
       if (token) {
         localStorage.setItem("accessToken", token);
         document.cookie = `accessToken=${token}; path=/; secure; samesite=strict`;
         dispatch(setToken(token));
-  
+
         if (formData.rememberMe) {
           localStorage.setItem("rememberedEmail", formData.email);
         } else {
           localStorage.removeItem("rememberedEmail");
         }
-  
-        toast.success(response?.message );
+
+        toast.success(response?.message);
         router.push("/");
+
+        // Fetch user data after successful login
+        fetchUserData(token);
       } else {
-        // const msg = typeof response?.message === "string" ? response.message : "Login failed";
-        toast.error( response?.message );
+        toast.error(response?.message);
       }
-  
+
       setFormData({ email: "", password: "", rememberMe: false });
       setErrors({});
     } catch (error: any) {
-      toast.error( error?.message);
-      // toast.dismiss();
-  
-      // let errorMessage = "Login failed";
-      // if (typeof error?.data?.message === "string") {
-      //   errorMessage = error.data.message;
-      // } else if (typeof error?.message === "string") {
-      //   errorMessage = error.message;
-      // }
-  
-      // toast.error(errorMessage);
-      // setErrors({
-      //   ...errors,
-      //   password: "Invalid email or password",
-      // });
+      toast.error(error?.message);
     }
   };
-  
+
+  const fetchUserData = async (token: string) => {
+    try {
+      const response = await fetch("http://localhost:4000/api/auth/me", {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+
+      const userData = await response.json();
+      console.log("User Data:", userData); // Log the user data
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      toast.error("Failed to fetch user data");
+    }
+  };
 
   useEffect(() => {
     const rememberedEmail = localStorage.getItem("rememberedEmail");
@@ -172,7 +132,7 @@ export default function LoginPage() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div   className="min-h-screen">
       <Toaster position="top-right" />
       <BreadCrump title="Log in" BreadCrump="Home > Login" />
       <div className="max-w-[700px] mx-auto px-4 py-16">

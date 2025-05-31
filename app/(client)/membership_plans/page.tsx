@@ -1,11 +1,13 @@
-import React from "react";
+'use client';
+
+import React, { useState, useEffect } from "react";
 import BreadCrump from "../../_components/reusable/BreadCrump";
 import { FaCheckCircle } from "react-icons/fa";
 import Image, { StaticImageData } from "next/image";
 import BusinessPlan from "@/public/business_plan.png";
 import VehiclePlan from "@/public/vehicle_plan.png";
 import PropertyPlan from "@/public/property_plan.png";
-import Link from "next/link";
+import toast from "react-hot-toast";
 
 interface Plan {
   icon: StaticImageData;
@@ -79,6 +81,46 @@ const plans: Plan[] = [
 ];
 
 export default function page() {
+  const [token, setToken] = useState<string | null>(null);
+
+  // Retrieve token from localStorage
+  useEffect(() => {
+    const storedToken = localStorage.getItem("accessToken");
+    setToken(storedToken);
+  }, []);
+
+  // Function to redirect to the Stripe URL
+  const handleRedirect = async (plan: string) => {
+    if (!token) {
+      toast.error("Please log in first.");
+      return;
+    }
+
+    try {
+      // Make the GET request to the backend to fetch the Stripe checkout URL
+      const response = await fetch(`http://localhost:4000/api/payment/subscribe?plan=monthly`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`, // Pass the token in the Authorization header
+        },
+      });
+
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error("Failed to fetch subscription URL");
+      }
+
+      // Get the response data
+      const data = await response.json();
+
+      // Redirect the user to the Stripe checkout URL
+      window.location.href = data.url;
+    } catch (error) {
+      toast.error("An error occurred while redirecting to Stripe");
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <section className="min-h-screen">
       <BreadCrump title="Membership Plans" BreadCrump="Home > Membership" />
@@ -89,7 +131,7 @@ export default function page() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold">
             Choose the best plans for
             <br />
-            your self
+            yourself
           </h2>
         </div>
 
@@ -114,7 +156,7 @@ export default function page() {
                 <h3 className="text-2xl font-semibold mb-4">{plan.name}</h3>
 
                 <div className="flex items-baseline">
-                  <span className="text-3xl font-semibold  mb-5">
+                  <span className="text-3xl font-semibold mb-5">
                     ${plan.price}
                   </span>
                   <span className="text-base ml-1 text-text-light group-hover:text-white">
@@ -128,10 +170,10 @@ export default function page() {
                   </p>
                 )}
 
-                <div className="  border-b border-[#E9E9EA] group-hover:border-white"></div>
+                <div className="border-b border-[#E9E9EA] group-hover:border-white"></div>
 
                 <div className="">
-                  <p className="text-lg font-semibold   group-hover:text-white  my-4">
+                  <p className="text-lg font-semibold   group-hover:text-white my-4">
                     {plan.achiPrice}
                   </p>
                 </div>
@@ -146,11 +188,13 @@ export default function page() {
                 </ul>
               </div>
 
-              <Link href="/membership_plans/payment">
-                <button className="w-full py-3 rounded-full transition-all duration-300 border bg-[#2EB0E4] text-white hover:bg-white hover:text-[#2EB0E4] hover:border-[#2EB0E4] mt-auto">
-                  Get Started
-                </button>
-              </Link>
+              {/* Button that triggers the redirect */}
+              <button
+                onClick={() => handleRedirect(plan.name.toLowerCase())} // Trigger redirect when the button is clicked
+                className="w-full py-3 rounded-full transition-all duration-300 border bg-[#2EB0E4] text-white hover:bg-white hover:text-[#2EB0E4] hover:border-[#2EB0E4] mt-auto"
+              >
+                Get Started
+              </button>
             </div>
           ))}
         </div>

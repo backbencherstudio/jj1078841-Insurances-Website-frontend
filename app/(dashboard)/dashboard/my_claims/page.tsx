@@ -26,29 +26,52 @@ export default function MyClaims() {
   const [claims, setClaims] = useState<ClaimItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
+    // Retrieve token from localStorage
+    const storedToken = localStorage.getItem('accessToken');
+    setToken(storedToken);
+
+    // If no token, return early
+    if (!storedToken) {
+      setError('Authorization failed');
+      setLoading(false);
+      return;
+    }
+
+    // Fetch claims data
     const fetchClaims = async () => {
       try {
-        const res = await fetch('http://localhost:4000/api/dashboard/my-claims', {
+        const response = await fetch('http://localhost:4000/api/dashboard/my-claims', {
           method: 'GET',
-          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${storedToken}`,
+          },
         });
 
-        if (!res.ok) throw new Error('Failed to fetch claims');
+        if (!response.ok) {
+          throw new Error(`Error fetching claims: ${response.statusText}`);
+        }
 
-        const data = await res.json();
-
-        // Optional: map status to Tailwind colors if not provided by API
-        const enrichedData = data.map((item: any) => ({
-          ...item,
-          statusBgColor: item.status === 'Active' ? 'bg-green-100' : 'bg-gray-100',
-          statusTextColor: item.status === 'Active' ? 'text-green-700' : 'text-gray-700',
+        const data = await response.json();
+        // Map data to match ClaimItem structure
+        const mappedClaims = data.map((claim: any) => ({
+          claimId: claim.claimId,
+          policyNumber: claim.policyNumber,
+          typeOfDamage: claim.typeOfDamage,
+          insuranceCompany: claim.insuranceCompany,
+          dateOfLoss: new Date(claim.dateOfLoss).toLocaleDateString(),
+          status: claim.status,
+          statusBgColor: claim.status === 'Active' ? 'bg-[#E8FFE5]' : 'bg-[#FFF3E5]',
+          statusTextColor: claim.status === 'Active' ? 'text-[#4CD440]' : 'text-[#FF9C37]',
         }));
 
-        setClaims(enrichedData);
-      } catch (err: any) {
-        setError(err.message);
+        setClaims(mappedClaims);
+      } catch (error) {
+        setError('Failed to load claims');
+        console.error('Error fetching claims:', error);
       } finally {
         setLoading(false);
       }
@@ -57,14 +80,17 @@ export default function MyClaims() {
     fetchClaims();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500">{error}</div>;
+  }
 
   return (
     <div className="min-h-screen">
-      <h1 className="text-[40px] sm:text-3xl font-semibold text-primary-dark my-5">
-        My Claim
-      </h1>
+      <h1 className="text-[40px] sm:text-3xl font-semibold text-primary-dark my-5">My Claim</h1>
       <div className="bg-white border border-border-light p-6 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <div className="min-w-full">

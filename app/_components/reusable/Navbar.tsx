@@ -8,8 +8,15 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useAppSelector, useAppDispatch } from "@/src/redux/hooks";
 import { logout as logoutAction, setToken } from "@/src/redux/features/auth/authSlice";
+ 
+
+
 
 export default function Navbar() {
+
+ 
+  
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isProfileViewActive, setIsProfileViewActive] = useState(false);

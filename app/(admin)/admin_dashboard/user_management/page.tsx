@@ -1,25 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { TfiTrash } from "react-icons/tfi";
-import { IoSearchOutline, IoChevronDownOutline } from "react-icons/io5";
+import { IoSearchOutline } from "react-icons/io5";
 import avatar1 from "@/public/avatar-1 (1).png";
-import avatar2 from "@/public/avatar-1 (2).png";
-import avatar3 from "@/public/avatar-1 (3).png";
-import avatar4 from "@/public/avatar-1 (4).png";
-import avatar5 from "@/public/avatar-1 (5).png";
-import avatar6 from "@/public/avatar-1 (6).png";
-import avatar7 from "@/public/avatar-1 (7).png";
-import avatar8 from "@/public/avatar-1 (8).png";
-import avatar9 from "@/public/avatar-1 (9).png";
-// import { useGetUsersQuery } from "@/src/redux/features/users/userApi";
 
+// Types for user data and table headers
 interface UserData {
+  id: string;
   name: string;
   email: string;
   date: string;
-  plan: "Business" | "Vehicle" | "Property";
-  status: "Active" | "Pending";
+  plan: string;
+  status: string;
   avatar: any;
 }
 
@@ -37,156 +30,67 @@ const tableHeaders: TableHeader[] = [
   { id: "action", label: "Action" },
 ];
 
-const userData: UserData[] = [
-  {
-    name: "Jane Cooper",
-    email: "curtis.weaver@example.com",
-    date: "12 Jan, 2025",
-    plan: "Business",
-    status: "Pending",
-    avatar: avatar1,
-  },
-  {
-    name: "Floyd Miles",
-    email: "michelle.rivera@example.com",
-    date: "12 Jan, 2025",
-    plan: "Vehicle",
-    status: "Active",
-    avatar: avatar2,
-  },
-  {
-    name: "Courtney Henry",
-    email: "michael.mitc@example.com",
-    date: "12 Jan, 2025",
-    plan: "Business",
-    status: "Active",
-    avatar: avatar3,
-  },
-  {
-    name: "Theresa Webb",
-    email: "sara.cruz@example.com",
-    date: "12 Jan, 2025",
-    plan: "Property",
-    status: "Pending",
-    avatar: avatar4,
-  },
-  {
-    name: "Annette Black",
-    email: "dolores.chambers@example.com",
-    date: "12 Jan, 2025",
-    plan: "Vehicle",
-    status: "Active",
-    avatar: avatar5,
-  },
-  {
-    name: "Annette Black",
-    email: "dolores.chambers@example.com",
-    date: "12 Jan, 2025",
-    plan: "Vehicle",
-    status: "Active",
-    avatar: avatar5,
-  },
-  {
-    name: "Annette Black",
-    email: "dolores.chambers@example.com",
-    date: "12 Jan, 2025",
-    plan: "Vehicle",
-    status: "Active",
-    avatar: avatar5,
-  },
-  {
-    name: "Annette Black",
-    email: "dolores.chambers@example.com",
-    date: "12 Jan, 2025",
-    plan: "Vehicle",
-    status: "Active",
-    avatar: avatar5,
-  },
-  {
-    name: "Annette Black",
-    email: "dolores.chambers@example.com",
-    date: "12 Jan, 2025",
-    plan: "Vehicle",
-    status: "Active",
-    avatar: avatar5,
-  },
-  {
-    name: "Marvin McKinney",
-    email: "jackson.graham@example.com",
-    date: "12 Jan, 2025",
-    plan: "Business",
-    status: "Active",
-    avatar: avatar6,
-  },
-  {
-    name: "Dianne Russell",
-    email: "kenzi.lawson@example.com",
-    date: "12 Jan, 2025",
-    plan: "Property",
-    status: "Active",
-    avatar: avatar7,
-  },
-  {
-    name: "Dianne Russell",
-    email: "kenzi.lawson@example.com",
-    date: "12 Jan, 2025",
-    plan: "Property",
-    status: "Active",
-    avatar: avatar7,
-  },
-  {
-    name: "Dianne Russell",
-    email: "kenzi.lawson@example.com",
-    date: "12 Jan, 2025",
-    plan: "Property",
-    status: "Active",
-    avatar: avatar7,
-  },
-  {
-    name: "Dianne Russell",
-    email: "kenzi.lawson@example.com",
-    date: "12 Jan, 2025",
-    plan: "Property",
-    status: "Active",
-    avatar: avatar7,
-  },
-  {
-    name: "Dianne Russell",
-    email: "kenzi.lawson@example.com",
-    date: "12 Jan, 2025",
-    plan: "Property",
-    status: "Active",
-    avatar: avatar7,
-  },
-  {
-    name: "Kathryn Murphy",
-    email: "willie.jennings@example.com",
-    date: "12 Jan, 2025",
-    plan: "Business",
-    status: "Active",
-    avatar: avatar8,
-  },
-  {
-    name: "Darlene Robertson",
-    email: "bill.sanders@example.com",
-    date: "12 Jan, 2025",
-    plan: "Business",
-    status: "Active",
-    avatar: avatar9,
-  },
-];
-
 export default function UserManagement() {
+  const [page, setPage] = useState<any>(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1); // Track current page
   const [filter, setFilter] = useState<"All" | "Active" | "Pending">("All");
-  const itemsPerPage = 9;
+  const [users, setUsers] = useState<UserData[]>([]);
+  const [token, setToken] = useState<string | null>(null);
+  const [totalPages, setTotalPages] = useState(1); // Track total pages
+  const [showModal, setShowModal] = useState(false);
+  const [dataCount, setDataCount] = useState<any>();
+  const [userToDelete, setUserToDelete] = useState<UserData | null>(null);
+  const itemsPerPage = 20;
+console.log("total", totalPages);
 
-  const [users, setUsers] = useState<UserData[]>(userData);
+  useEffect(() => {
+    const storedToken = localStorage.getItem("accessToken");
+    setToken(storedToken);
+  }, []);
 
-  // const {data } = useGetUsersQuery({})
-  // console.log("data", data	);
+  useEffect(() => {
+    if (!token) return; // Wait for token to be available
   
+    const fetchUsers = async (page: number) => {
+      try {
+        const response = await fetch(`http://localhost:4000/api/admin/user-management?page=${page}&limit=${itemsPerPage}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error("Authorization failed, status code: " + response.status);
+        }
+  
+        const data = await response.json();
+        console.log("User Management Data ===>", data);
+        const total = data?.total || 0;
+        console.log(total);
+        setDataCount(total);
+        const totalPages = Math.ceil(total / itemsPerPage); // Update total pages from API response
+        setTotalPages(totalPages); // Ensure this state gets updated
+        const mappedUsers = data.data.map((user: any) => ({
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          date: new Date(user.date).toLocaleDateString(),
+          plan: user.plan || "No Plan",
+          status: user.status,
+          avatar: avatar1, // Placeholder avatar for now
+        }));
+  
+        setUsers(mappedUsers);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+  
+    fetchUsers(currentPage);
+  }, [token, currentPage])
 
   // Filter users based on search term and status filter
   const filteredUsers = users.filter((user) => {
@@ -197,19 +101,8 @@ export default function UserManagement() {
     return matchesSearch && matchesFilter;
   });
 
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredUsers.length / itemsPerPage);
-  const paginatedUsers = filteredUsers.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
 
-    // Generate page numbers array
-    const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
-  const handleDeleteUser = (userToDelete: UserData) => {
-    setUsers(users.filter((user) => user.email !== userToDelete.email));
-  };
 
   const getStatusStyle = (status: UserData["status"]) => {
     switch (status) {
@@ -222,17 +115,47 @@ export default function UserManagement() {
     }
   };
 
-  return (
-    <div className=" max-w-[95%] mx-auto">
-      {/* title */}
-      <h1 className="text-[40px] font-semibold text-primary-dark my-5">
-        User Management
-      </h1>
+  const handleDeleteUser = async (userToDelete: UserData) => {
+    setUserToDelete(userToDelete);
+    setShowModal(true);
+  };
 
-      <div className=" p-6 border border-border-light rounded-2xl bg-white">
+  const confirmDelete = async () => {
+    if (userToDelete) {
+      try {
+        const response = await fetch(`http://localhost:4000/api/admin/user-management/${userToDelete.id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          setUsers(users.filter((user) => user.id !== userToDelete.id));
+          setShowModal(false); // Close the modal after successful deletion
+        } else {
+          throw new Error("Failed to delete user");
+        }
+      } catch (error) {
+        console.error("Error deleting user:", error);
+      }
+    }
+  };
+
+  const cancelDelete = () => {
+    setShowModal(false); // Close the modal without deleting
+  };
+
+  return (
+    <div className="max-w-[95%] mx-auto">
+      {/* title */}
+      <h1 className="text-[40px] font-semibold text-primary-dark my-5">User Management</h1>
+
+      <div className="p-6 border border-border-light rounded-2xl bg-white">
         {/* Search and Filter Section */}
-        <div className=" mb-4  flex justify-between items-center">
-          <div className=" ">
+        <div className="mb-4 flex justify-between items-center">
+          <div className="relative">
             <input
               type="text"
               placeholder="Search"
@@ -252,53 +175,34 @@ export default function UserManagement() {
             <option>Pending</option>
           </select>
         </div>
+
         {/* Headers */}
         <div className="grid grid-cols-6 bg-[#e6ecf2] rounded-t-xl">
           {tableHeaders.map((header) => (
-            <div
-              key={header.id}
-              className="text-xs font-semibold text-primary-dark p-3 sm:p-4"
-            >
+            <div key={header.id} className="text-xs font-semibold text-primary-dark p-3 sm:p-4">
               {header.label}
             </div>
           ))}
         </div>
+
         {/* User Rows */}
         <div className="divide-y divide-[#E2E8F0]">
-          {paginatedUsers.map((user, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-6 px-6 py-4 hover:bg-gray-50 items-center"
-            >
+          {filteredUsers.map((user, index) => (
+            <div key={index} className="grid grid-cols-6 px-6 py-4 hover:bg-gray-50 items-center">
               <div className="flex items-center gap-3">
-                <Image
-                  src={user.avatar}
-                  alt={user.name}
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-                <span className="text-sm font-medium text-[#0B1C39]">
-                  {user.name}
-                </span>
+                <Image src={user.avatar} alt={user.name} width={32} height={32} className="rounded-full" />
+                <span className="text-sm font-medium text-[#0B1C39]">{user.name}</span>
               </div>
               <div className="text-sm font-medium text-[#0B1C39]">{user.email}</div>
               <div className="text-sm font-medium text-[#0B1C39]">{user.date}</div>
               <div className="text-sm font-medium text-[#0B1C39]">{user.plan}</div>
               <div>
-                <span
-                  className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(
-                    user.status
-                  )}`}
-                >
+                <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(user.status)}`}>
                   {user.status}
                 </span>
               </div>
               <div>
-                <button
-                  className="text-white bg-[#EB3D4D] p-3 rounded-xl"
-                  onClick={() => handleDeleteUser(user)}
-                >
+                <button className="text-white bg-[#EB3D4D] p-3 rounded-xl" onClick={() => handleDeleteUser(user)}>
                   <TfiTrash size={18} />
                 </button>
               </div>
@@ -308,40 +212,62 @@ export default function UserManagement() {
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-end px-4 py-3 sm:px-6 mt-8">
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-            className="px-3 py-1 text-base font-medium text-isecondary hover:text-isecondary disabled:text-gray-400"
-          >
-            Prev
-          </button>
-          {pageNumbers.map((number) => (
-            <button
-              key={number}
-              onClick={() => setCurrentPage(number)}
-              className={`  text-base font-medium size-12 rounded-md ${
-                currentPage === number
-                  ? "bg-isecondary text-white"
-                  : "text-gray-600 hover:bg-gray-100"
-              }`}
-            >
-              {number}
-            </button>
-          ))}
-          <button
-            onClick={() =>
-              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-            }
-            disabled={currentPage === totalPages}
-            className="px-3 py-1 text-base font-medium text-isecondary hover:text-isecondary disabled:text-gray-400"
-          >
-            Next
-          </button>
+      <div className="w-full flex justify-between items-center mt-6 text-sm text-gray-600">
+  <span>
+    {(page - 1) * itemsPerPage + 1} -{" "}
+    {Math.min(page * itemsPerPage, dataCount)} Result Showing Out of{" "}
+    {dataCount}
+  </span>
+  <div className="flex items-center gap-2">
+    <button
+      onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+      disabled={page === 1}
+      className={`px-2 py-1 rounded border ${page === 1 ? "opacity-50 bg-gray-300 cursor-not-allowed" : ""}`}
+    >
+      &#x276E;
+    </button>
+    {Array.from({ length: totalPages }, (_, i) => (
+      <button
+        key={i}
+        onClick={() => setPage(i + 1)}
+        className={`px-3 py-1 rounded border ${page === i + 1 ? "bg-black text-white" : "bg-white text-black"}`}
+      >
+        {i + 1}
+      </button>
+    ))}
+    <button
+      onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
+      disabled={page === totalPages}
+      className={`px-2 py-1 rounded border ${page === totalPages ? "opacity-50 bg-gray-300 cursor-not-allowed" : ""}`}
+    >
+      &#x276F;
+    </button>
+  </div>
+</div>
+
+
+      {/* Confirmation Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg max-w-md w-full">
+            <h3 className="text-xl font-semibold">Are you sure you want to delete this user?</h3>
+            <div className="flex justify-end gap-4 mt-4">
+              <button
+                className="bg-gray-300 px-4 py-2 rounded-lg"
+                onClick={cancelDelete}
+              >
+                Cancel
+              </button>
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                onClick={confirmDelete}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      {/* </div> */}
+      )}
     </div>
   );
 }
