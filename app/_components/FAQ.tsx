@@ -10,45 +10,50 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "Do I have to pay upfront to become a member?",
-    answer: "No, our membership is completely free. You only pay when you use our services."
+    question: "What exactly does Insurances Ally do?",
+    answer: ` We guide homeowners through the property insurance claims process—helping document 
+damage, interpret policy coverage, communicate with the insurance company, and advocate for 
+the best possible outcome`
   },
   {
-    question: "What does InsuranceSally do?",
-    answer: "InsuranceSally helps homeowners navigate insurance claims—from filing paperwork to negotiating settlements. We take the stress out of the process so you can focus on recovery."
+    question: "How much does it cost, and what’s included?",
+    answer: ` Our membership starts at $14.99/month for homeowners. It includes expert guidance, claims 
+documentation support, strategy, and access to a vetted network of professionals (like public 
+adjusters, contractors, engineers, and attorneys) at no additional charge`
   },
   {
-    question: "Can I use your service if I've already started a claim?",
-    answer: "Yes, we can assist you at any stage of the claims process."
+    question: "Can you help even if I already filed a claim?",
+    answer:  `Yes. Whether you’re just starting, already filed, or were denied or underpaid, we can step in at 
+any point to help guide or escalate the claim`
   },
   {
-    question: "What if my insurance company has already denied my claim?",
-    answer: "We can help review your case and explore options for appeal or reconsideration."
+    question: "Will you communicate with the insurance company for me??",
+    answer:  ` Yes. We take over communication with your insurance company, including adjusters and desk 
+reviewers, and handle all the back-and-forth to reduce stress and ensure nothing is missed.`
   },
   {
-    question: "Are your services available 24/7?",
-    answer: "Yes, our support team is available 24/7 to assist you with your insurance needs."
+    question: "What happens if I don’t end up filing a claim?",
+    answer:  ` That’s okay. Part of our service is helping you decide whether or not it makes sense to file. 
+We’ll assess your situation, deductible, and policy to help you make an informed decision—
+ usually within 48 hours`
   },
   {
-    question: "How do I access your trusted contractor network?",
-    answer: "Once you're registered, you'll have access to our vetted network of contractors."
+    question: " Can you help if my claim was denied or underpaid?",
+    answer:  `Absolutely. We specialize in reviewing denied or underpaid claims, identifying missed damages 
+or errors, and building a strong case for supplement or appeal`
   },
   {
-    question: "What's included in a typical video project?",
-    answer: "Our video projects include professional filming, editing, and final delivery."
+    question: " Do I need to hire a public adjuster separately?",
+    answer:  `Not necessarily. While our base membership provides expert support, if your case requires a 
+licensed public adjuster, we’ll connect you with one from our network—and their fees are 
+covered as part of your membership`
   },
   {
-    question: "Do you work with small businesses or startups?",
-    answer: "Yes, we work with businesses of all sizes, including startups and small businesses."
+    question: " Can I cancel anytime?",
+    answer:  ` Yes. Our service is contract-free. You can cancel your membership at any time with no penalties 
+or long-term commitment`
   },
-  {
-    question: "How long does it take to deliver a finished video?",
-    answer: "Delivery times vary by project scope, typically ranging from 2-4 weeks."
-  },
-  {
-    question: "Will I own the content after it's produced?",
-    answer: "Yes, you'll have full ownership rights to all content we produce for you."
-  }
+   
 ];
 
 export default function FAQ() {

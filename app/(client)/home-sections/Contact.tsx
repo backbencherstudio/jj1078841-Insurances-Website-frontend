@@ -1,37 +1,39 @@
-"use client"
-import { useSendContactEmailMutation } from '@/src/redux/features/contact/contactApi';
-import React from 'react';
+"use client";
+import { useSendContactEmailMutation } from "@/src/redux/features/contact/contactApi";
+import React from "react";
 // import PhoneIcon from '@/public/Contact/PhoneIcon';
 // import MessageIcon from '@/public/membershipIcons/MessageIcon';
 // import ContactForm from '@/app/_components/reusable/ContactForm';
-import { toast } from 'sonner';
+import { toast } from "sonner";
+import { SiGooglemaps } from "react-icons/si";
 
+import { MapPin } from "lucide-react";
 
 interface SignupFormData {
   firstName: string;
   lastName: string;
   email: string;
- insurance: string;
+  insurance: string;
 }
 
-
-
 export default function Contact() {
-
   const [formData, setFormData] = React.useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    insurance: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    insurance: "",
   });
 
-  const [sendEmail, { isLoading, isSuccess, error }] = useSendContactEmailMutation();
+  const [sendEmail, { isLoading, isSuccess, error }] =
+    useSendContactEmailMutation();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -39,18 +41,17 @@ export default function Contact() {
     e.preventDefault();
     try {
       await sendEmail(formData).unwrap();
-      toast.success('Message sent successfully!');
+      toast.success("Message sent successfully!");
       setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        insurance: ''
+        firstName: "",
+        lastName: "",
+        email: "",
+        insurance: "",
       });
-      console.log('Message sent successfully!',formData);
-      
+      console.log("Message sent successfully!", formData);
     } catch (err) {
-      toast.error('Failed to send message. Please try again.');
-      console.error('Failed to send message:', err);
+      toast.error("Failed to send message. Please try again.");
+      console.error("Failed to send message:", err);
     }
   };
 
@@ -63,6 +64,21 @@ export default function Contact() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-normal mt-2">
             We’re Here to Help— <br /> Reach Out Anytime
           </h2>
+          <div className=" flex items-center   gap-3 ">
+            <div>
+              <SiGooglemaps
+                className=" bg-primary-color text-white p-1.5 rounded-full"
+                size={35}
+              />
+            </div>
+
+            <div>
+              <p className=" text-lg text-text-light mt-8">
+                Office Address: 9375 East Shea Boulevard, <br /> Scottsdale,
+                Arizona 85260, United States
+              </p>
+            </div>
+          </div>
 
           {/* Optional Icon Row */}
           {/* <div className="flex gap-4 mt-6">
@@ -81,7 +97,9 @@ export default function Contact() {
             {/* Name Fields */}
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="w-full">
-                <label className="block text-sm mb-1 font-semibold text-white">First Name</label>
+                <label className="block text-sm mb-1 font-semibold text-white">
+                  First Name
+                </label>
                 <input
                   type="text"
                   name="firstName"
@@ -93,7 +111,9 @@ export default function Contact() {
                 />
               </div>
               <div className="w-full">
-                <label className="block text-sm mb-1 font-semibold text-white">Last Name</label>
+                <label className="block text-sm mb-1 font-semibold text-white">
+                  Last Name
+                </label>
                 <input
                   type="text"
                   name="lastName"
@@ -108,7 +128,9 @@ export default function Contact() {
 
             {/* Email */}
             <div>
-              <label className="block text-sm mb-1 font-semibold text-white">Email</label>
+              <label className="block text-sm mb-1 font-semibold text-white">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -122,7 +144,9 @@ export default function Contact() {
 
             {/* Insurance Dropdown */}
             <div>
-              <label className="block text-sm mb-1 font-semibold text-white">Insurance</label>
+              <label className="block text-sm mb-1 font-semibold text-white">
+                Insurance
+              </label>
               <select
                 name="insurance"
                 value={formData.insurance}
@@ -145,7 +169,7 @@ export default function Contact() {
               disabled={isLoading}
               className="w-full bg-white text-[#14b7e2] font-semibold py-3 rounded-md hover:opacity-90 transition disabled:opacity-50"
             >
-              {isLoading ? 'Sending...' : 'Send Message'}
+              {isLoading ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
@@ -153,18 +177,6 @@ export default function Contact() {
     </section>
   );
 }
-  
-
-
-
-
-  
-
-
-
-
-
-
 
 // import React from 'react'
 // import PhoneIcon from '@/public/Contact/PhoneIcon'
