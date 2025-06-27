@@ -16,22 +16,28 @@ export const UserService = {
     return await Fetch.post("/auth/login", data, config);
   },
 
-  register: async ({
-    username,
+register: async ({
+  first_name,
+  last_name,
+  phone_number,
+  email,
+  password,
+}: {
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  email: string;
+  password: string;
+}) => {
+  const data = {
+    first_name,
+    last_name,
+    phone_number,
     email,
     password,
-  }: {
-    username: string;
-    email: string;
-    password: string;
-  }) => {
-    const data = {
-      username: username,
-      email: email,
-      password: password,
-    };
-    return await Fetch.post("/auth/register", data, config);
-  },
+  };
+  return await Fetch.post("/auth/register", data, config);
+},
 
   logout: (context = null) => {
     CookieHelper.destroy({ key: "token", context });
@@ -48,7 +54,7 @@ export const UserService = {
       },
     };
 
-    return await Fetch.get(`/user/me`, _config);
+    return await Fetch.get(`auth/me`, _config);
   },
 
   findAll: async (context = null) => {

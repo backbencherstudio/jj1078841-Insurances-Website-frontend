@@ -4,10 +4,9 @@ import React, { useState, useEffect } from "react";
 import BreadCrump from "../../_components/reusable/BreadCrump";
 import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
-import { useSigninUserMutation } from "@/src/redux/features/auth/authApi";
 import { useRouter } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import { setToken } from "@/src/redux/features/auth/authSlice";
+import { UserService } from "@/service/user/user.service";
+import { CookieHelper } from "@/helper/cookie.helper";  // Import CookieHelper
 
 interface LoginFormData {
   email: string;
@@ -21,12 +20,9 @@ interface ValidationErrors {
 }
 
 export default function LoginPage() {
-  const token = useAppSelector((state) => state.auth.token);
-  console.log(token);
-
   const router = useRouter();
-  const dispatch = useAppDispatch();
-  const [signinUser, { isLoading }] = useSigninUserMutation();
+
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
@@ -35,10 +31,20 @@ export default function LoginPage() {
   });
 
   useEffect(() => {
-    if (token) {
-      router.replace("/"); // If already logged in, redirect to home
+    const rememberedEmail = localStorage.getItem("rememberedEmail");
+    if (rememberedEmail) {
+      setFormData((prev) => ({
+        ...prev,
+        email: rememberedEmail,
+        rememberMe: true,
+      }));
     }
-  }, [token, router]);
+
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.replace("/");  // Redirect if user is already logged in
+    }
+  }, [router]);
 
   const validateForm = (): boolean => {
     const newErrors: ValidationErrors = {};
@@ -46,9 +52,9 @@ export default function LoginPage() {
     if (!formData.email) {
       newErrors.email = "Email is required";
       toast.error("Email is required");
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
-      newErrors.email = "Invalid email address";
-      toast.error("Invalid email address");
+    } else if (!/^[\w.%+-]+@[\w.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+      toast.error("Invalid email format");
     }
 
     if (!formData.password) {
@@ -68,71 +74,57 @@ export default function LoginPage() {
     if (!validateForm()) return;
 
     try {
-      // Call the login API to sign in
-      const response = await signinUser({
+      setIsLoading(true);
+      toast.loading("Logging in...");
+
+      // Use the UserService to call the login API
+      const res = await UserService.login({
         email: formData.email,
         password: formData.password,
-      }).unwrap();
+      });
 
-      const token = response?.authorization?.token;
+      toast.dismiss();
+
+      const token = res?.data?.authorization?.token;  // Token is inside authorization
+      const user = res?.data?.user;
+
+      console.log("Login Response Data: ", res?.data); // Log the login data here
 
       if (token) {
-        localStorage.setItem("accessToken", token);
-        document.cookie = `accessToken=${token}; path=/; secure; samesite=strict`;
-        dispatch(setToken(token));
+        // If token is returned, store it in localStorage & cookie using CookieHelper
+        localStorage.setItem("token", token);  // Store token in localStorage
+        CookieHelper.set({ key: "token", value: token, expires: 30 * 24 * 60 * 60 });  // Set token in cookie
 
+        // Store user data in localStorage
+        localStorage.setItem("user", JSON.stringify(user));
+
+        // Handle "Remember Me"
         if (formData.rememberMe) {
           localStorage.setItem("rememberedEmail", formData.email);
         } else {
           localStorage.removeItem("rememberedEmail");
         }
 
-        toast.success(response?.message);
-        router.push("/");
+        toast.success(res?.message || "Login successful!");
+        router.push("/");  // Redirect to home after successful login
 
-        // Fetch user data after successful login
-        fetchUserData(token);
       } else {
-        toast.error(response?.message);
+        toast.error(res?.message || "Login failed");
       }
 
-      setFormData({ email: "", password: "", rememberMe: false });
-      setErrors({});
     } catch (error: any) {
-      toast.error(error?.message);
+      toast.dismiss();
+
+      // Ensure that we only show string error messages, not object
+      const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong!";
+      toast.error(errorMessage);  // Only a string is passed here
+    } finally {
+      setIsLoading(false);
     }
   };
-
-  const fetchUserData = async (token: string) => {
-    try {
-      const response = await fetch("http://localhost:4000/api/auth/me", {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${token}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch user data");
-      }
-
-      const userData = await response.json();
-      console.log("User Data:", userData); // Log the user data
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      toast.error("Failed to fetch user data");
-    }
-  };
-
-  useEffect(() => {
-    const rememberedEmail = localStorage.getItem("rememberedEmail");
-    if (rememberedEmail) {
-      setFormData((prev) => ({ ...prev, email: rememberedEmail, rememberMe: true }));
-    }
-  }, []);
 
   return (
-    <div   className="min-h-screen">
+    <div className="min-h-screen">
       <Toaster position="top-right" />
       <BreadCrump title="Log in" BreadCrump="Home > Login" />
       <div className="max-w-[700px] mx-auto px-4 py-16">
@@ -140,7 +132,9 @@ export default function LoginPage() {
         <div className="border border-[#E9E9EA] rounded-2xl p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-base font-medium text-gray-700 mb-1">Email</label>
+              <label htmlFor="email" className="block text-base font-medium text-gray-700 mb-1">
+                Email
+              </label>
               <input
                 type="email"
                 id="email"
@@ -155,7 +149,9 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-base font-medium text-gray-700 mb-1">Password</label>
+              <label htmlFor="password" className="block text-base font-medium text-gray-700 mb-1">
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
@@ -178,7 +174,9 @@ export default function LoginPage() {
                   checked={formData.rememberMe}
                   onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
                 />
-                <label htmlFor="remember" className="ml-2 text-sm text-gray-600">Remember me</label>
+                <label htmlFor="remember" className="ml-2 text-sm text-gray-600">
+                  Remember me
+                </label>
               </div>
               <Link href="/forgot-password" className="text-sm text-primary-color hover:underline">
                 Forgot Password?
@@ -195,7 +193,9 @@ export default function LoginPage() {
 
             <p className="text-center text-sm text-gray-600">
               Don't have an account?{" "}
-              <Link href="/signup" className="text-primary-color hover:underline">Sign Up</Link>
+              <Link href="/signUp" className="text-primary-color hover:underline">
+                Sign Up
+              </Link>
             </p>
           </form>
         </div>
