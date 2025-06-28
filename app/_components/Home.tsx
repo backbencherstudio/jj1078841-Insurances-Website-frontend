@@ -1,22 +1,25 @@
 import React from 'react'
-import Navbar from './sections/Navbar'
-import Hero from './sections/'
-import About from './sections/About'
-import ChooseUs from './sections/ChooseUs'
-import Info from './sections/Info'
-import Service from './sections/Service'
-import Membership from './sections/Membership'
-import Insurance from './sections/Insurance'
+// import Navbar from './sections/Navbar'
+import Hero from '../(client)/home-sections/Hero'
+ 
+import ChooseUs from '../(client)/home-sections/ChooseUs'
+import Info from '../(client)/home-sections/Info'
+import Service from '../(client)/home-sections/Service'
+import Membership from '../(client)/home-sections/Membership'
+import Insurance from '../(client)/home-sections/Insurance'
 import Contact from './sections/Contact'
-import Investor from './sections/Investor'
-import Footer from './sections/Footer'
+import Investor from '../(client)/home-sections/Investor'
+import Footer from '../_components/reusable/Footer'
+import Navbar from './reusable/Navbar'
+import About from './reusable/About'
 
 export default function Home() {
   return (
     <>
     
-    <Navbar/>
+     <Navbar/>
     <Hero/>
+    {/* <About/> */}
     <About/>
     <ChooseUs/>
     <Info/>

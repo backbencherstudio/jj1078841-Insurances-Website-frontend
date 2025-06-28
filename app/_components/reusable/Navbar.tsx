@@ -45,7 +45,7 @@ export default function Navbar() {
     // Remove token from cookies using nookies
     nookies.destroy(null, "token");
     // Remove token from localStorage
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem("token");
     setIsLoggedIn(false); // Update state to reflect logout
     setIsMobileMenuOpen(false);
     setIsDropdownOpen(false);

@@ -2,8 +2,8 @@
 
 import React from "react";
 import toast from "react-hot-toast";
-import { useAppSelector } from "@/src/redux/hooks";
 import { useRouter } from "next/navigation";
+import nookies from 'nookies'; // Import nookies to manage cookies
 
 const PlusIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className={className}>
@@ -94,7 +94,7 @@ const FormField: React.FC<FormFieldProps> = ({
 
 export default function ProfilePage() {
   const router = useRouter();
-  const token = useAppSelector((state) => state.auth.token);
+  const token = nookies.get(null).token; // Get token from cookies
 
   React.useEffect(() => {
     if (!token) {

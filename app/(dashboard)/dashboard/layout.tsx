@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   // Auth check
   useEffect(() => {
-    const localToken = localStorage.getItem("accessToken");
+    const localToken = localStorage.getItem("token");
 
     if (!token && !localToken) {
       router.replace("/login");
