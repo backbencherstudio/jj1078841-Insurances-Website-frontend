@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useCreateUserMutation } from "@/src/redux/features/auth/authApi";
+import React, { useState } from "react";
 import BreadCrump from "../../_components/reusable/BreadCrump";
 import Link from "next/link";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { useAppSelector } from "@/src/redux/hooks";
+import { UserService } from "@/service/user/user.service";
 
 interface SignupFormData {
   firstName: string;
@@ -20,15 +19,7 @@ interface SignupFormData {
 
 export default function SignupPage() {
   const router = useRouter();
-  const token = useAppSelector((state) => state.auth.token);
 
-  useEffect(() => {
-    if (token) {
-      router.replace("/");
-    }
-  }, [token, router]);
-
-  const [createUser, { isLoading }] = useCreateUserMutation();
   const [formData, setFormData] = useState<SignupFormData>({
     firstName: "",
     lastName: "",
@@ -38,6 +29,8 @@ export default function SignupPage() {
     rememberMe: false,
     agreeToTerms: false,
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, type, checked, value } = e.target;
@@ -119,21 +112,28 @@ export default function SignupPage() {
     };
 
     try {
+      setIsLoading(true);
       toast.loading("Signing you up...");
-      const response = await createUser(userData).unwrap();
-      toast.dismiss();
-      localStorage.setItem("email", formData.email);
 
-      if (response.success) {
-        toast.success(response.message || "Signup successful!");
-        router.push(`/login`);
+      const response = await UserService.register(userData);
+      const data = response?.data;
+      console.log("Signup Response:", data);
+
+      toast.dismiss();
+
+      if (data?.success) {
+        toast.success(data.message || "Signup successful!");
+        localStorage.setItem("email", formData.email);
+        router.push("/login");
       } else {
-        toast.error(response.message || "Signup failed");
+        toast.error(data?.message || "Signup failed");
       }
     } catch (error: any) {
       toast.dismiss();
       const errorMessage = error?.data?.message || "Something went wrong";
       toast.error(`Signup failed: ${errorMessage}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -180,9 +180,13 @@ export default function SignupPage() {
               </label>
             </div>
             <button disabled={isLoading} type="submit" className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer">
-              {isLoading ? "Signning Up..." : "Sign Up"}
+              {isLoading ? "Signing Up..." : "Sign Up"}
             </button>
           </form>
+          <div className=" flex justify-center mt-5">
+
+          <Link href='/login'  >Don’t have an account? <span className=" text-primary-color hover:underline">Login</span> </Link>
+          </div>
         </div>
       </div>
     </div>
