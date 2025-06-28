@@ -1,66 +1,140 @@
-import React from 'react';
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import logo from "@/public/original-logo-removebg-preview.png";
+import { Menu, X, User, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from 'next/navigation';
-import { IoMdClose } from "react-icons/io";
-import Image from 'next/image';
-import logo from "@/public/logo.png";
+import { usePathname, useRouter } from "next/navigation";
+import { CookieHelper } from "@/helper/cookie.helper"; // Import CookieHelper
 
-interface MenuItem {
-  title: string;
-  icon: React.ElementType;
-  href: string;
-}
-
-interface SidebarProps {
-  isOpen: boolean;
-  onClose: () => void;
-  menuItems: MenuItem[]; // Added menuItems as a prop
-}
-
-export default function Sidebar({ isOpen, onClose, menuItems }: SidebarProps) {
+export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isProfileViewActive, setIsProfileViewActive] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
   const pathname = usePathname();
+  const router = useRouter();
+
+  const token = CookieHelper.get({ key: "token" }); // Get the token from cookies
+
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if (pathname === "/profile") {
+      setIsProfileViewActive(true);
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    } else {
+      setIsProfileViewActive(false);
+    }
+  }, [pathname, isMobileMenuOpen]);
+
+  const handleProfileIconClick = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  const handleLogout = () => {
+    CookieHelper.destroy({ key: "token" }); // Remove token from cookies
+    setIsLoggedIn(false); // Update login state
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
+    router.push("/login"); // Redirect to login page
+  };
 
   return (
-    <aside 
-      className={`
-        fixed top-0 left-0 z-40 h-screen transition-all duration-300 ease-in-out
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-        md:relative md:translate-x-0
-        w-64 bg-white  
-      `}
-    >
-      <div className="flex items-center justify-between p-4 pb-9 ">
-        <Link href='/' className="flex items-center gap-3 pl-5 ">
-          <Image src={logo} alt='logo'/>
-        </Link>
-        <button 
-          className="p-2 rounded-lg hover:bg-gray-100 md:hidden"
-          onClick={onClose}
-        >
-          <IoMdClose className="w-6 h-6" />
-        </button>
+    <nav className="bg-white sticky top-0 left-0 z-50 shadow-sm">
+      <div className="container flex justify-between items-center py-6 p-5 mx-auto">
+        <div>
+          <Image src={logo} width={150} height={50} alt="logo" />
+        </div>
+
+        <ul className="hidden md:flex gap-10">
+          <Link href="/" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/" ? "text-[var(--primary-dark)]" : ""}`}>Home</Link>
+          <Link href="/about" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/about" ? "text-[var(--primary-dark)]" : ""}`}>About</Link>
+          <Link href="/membership_plans" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/membership_plans" ? "text-[var(--primary-dark)]" : ""}`}>Membership</Link>
+          <Link href="/privacy-policy" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/privacy-policy" ? "text-[var(--primary-dark)]" : ""}`}>Privacy Policy</Link>
+          <Link href="/faq" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/faq" ? "text-[var(--primary-dark)]" : ""}`}>FAQs</Link>
+          <Link href="/contact" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/contact" ? "text-[var(--primary-dark)]" : ""}`}>Contact</Link>
+        </ul>
+
+        <div className="hidden md:flex gap-6 items-center">
+          {isLoggedIn ? (
+            <div className="relative">
+              <button
+                onClick={handleProfileIconClick}
+                className="flex items-center gap-2 px-3 py-2 rounded-full bg-[var(--primary-dark)] text-white hover:bg-opacity-90"
+              >
+                <User size={20} />
+                <ChevronDown size={20} />
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-lg py-2 w-48">
+                  <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
+                  <Link href="/settings" className="block px-4 py-2 hover:bg-gray-100">Settings</Link>
+                  <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100">Logout</button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <Link href="/login" className="py-3.5 px-10 bg-[var(--primary-dark)] text-white rounded-lg hover:bg-transparent hover:text-[var(--primary-dark)] border border-transparent hover:border-[var(--primary-dark)]">Log in</Link>
+              <Link href="/signUp" className="py-3.5 px-10 bg-[var(--primary-dark)] text-white rounded-lg hover:bg-transparent hover:text-[var(--primary-dark)] border border-transparent hover:border-[var(--primary-dark)]">Sign Up</Link>
+            </>
+          )}
+        </div>
+
+        {/* Mobile view avatar + hamburger */}
+        <div className="md:hidden flex items-center gap-4">
+          {isLoggedIn && (
+            <div className="relative">
+              <button
+                onClick={handleProfileIconClick}
+                className="w-9 h-9 rounded-full bg-[var(--primary-dark)] text-white flex items-center justify-center hover:bg-opacity-90"
+              >
+                <User size={20} />
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg py-2 w-44">
+                  <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
+                  <Link href="/settings" className="block px-4 py-2 hover:bg-gray-100">Settings</Link>
+                  <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100">Logout</button>
+                </div>
+              )}
+            </div>
+          )}
+
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle mobile menu">
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
-      
-      <nav className="p-4 space-y-2">
-        {menuItems.map((item, index) => {
-          const isActive = pathname === item.href;
-          return (
-            <Link
-              key={index}
-              href={item.href}
-              className={`
-                flex items-center gap-3 p-3 rounded-lg transition-all duration-200
-                ${isActive 
-                  ? 'bg-[#ebf8fd] text-primary-color' 
-                  : 'text-text-light hover:bg-gray-100'}
-              `}
-            >
-              <item.icon className={`w-5 h-5 ${isActive ? 'text-primary-color' : 'text-gray-500'}`} />
-              <span className={`${isActive ? 'font-medium' : ''}`}>{item.title}</span>
-            </Link>
-          );
-        })}
-      </nav>
-    </aside>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white shadow-md flex flex-col items-start px-6 py-4 z-50">
+          <Link href="/" className="hover:text-[var(--primary-dark)] font-medium py-2" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+          <Link href="/about" className="hover:text-[var(--primary-dark)] font-medium py-2" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+          <Link href="/membership_plans" className="hover:text-[var(--primary-dark)] font-medium py-2" onClick={() => setIsMobileMenuOpen(false)}>Membership</Link>
+          <Link href="/privacy-policy" className="hover:text-[var(--primary-dark)] font-medium py-2" onClick={() => setIsMobileMenuOpen(false)}>Privacy Policy</Link>
+          <Link href="/faq" className="hover:text-[var(--primary-dark)] font-medium py-2" onClick={() => setIsMobileMenuOpen(false)}>FAQs</Link>
+          <Link href="/contact" className="hover:text-[var(--primary-dark)] font-medium py-2" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+
+          {!isLoggedIn && (
+            <>
+              <Link href="/login" className="w-full text-center py-3 mt-4 rounded-lg bg-[var(--primary-dark)] text-white" onClick={() => setIsMobileMenuOpen(false)}>Log in</Link>
+              <Link href="/signUp" className="w-full text-center py-3 mt-2 rounded-lg bg-[var(--primary-dark)] text-white" onClick={() => setIsMobileMenuOpen(false)}>Sign Up</Link>
+            </>
+          )}
+        </div>
+      )}
+    </nav>
   );
 }

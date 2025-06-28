@@ -6,33 +6,25 @@ import logo from "@/public/original-logo-removebg-preview.png";
 import { Menu, X, User, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useAppSelector, useAppDispatch } from "@/src/redux/hooks";
-import { logout as logoutAction, setToken } from "@/src/redux/features/auth/authSlice";
- 
-
-
+import nookies from "nookies"; // Import nookies to manage cookies
 
 export default function Navbar() {
-
- 
-  
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isProfileViewActive, setIsProfileViewActive] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
   const pathname = usePathname();
   const router = useRouter();
-  const dispatch = useAppDispatch();
-
-  const token = useAppSelector((state) => state.auth.token);
-  const isLoggedIn = !!token;
 
   useEffect(() => {
-    const savedToken = localStorage.getItem("accessToken");
-    if (savedToken && !token) {
-      dispatch(setToken(savedToken));
+    // Check for the token in cookies on component mount
+    const token = nookies.get(null).token; // Get the token from cookies
+    if (token) {
+      setIsLoggedIn(true); // User is logged in if token exists
+    } else {
+      setIsLoggedIn(false); // User is not logged in if no token
     }
-  }, [dispatch, token]);
+  }, []); // Only runs once when the component mounts
 
   useEffect(() => {
     if (pathname === "/profile") {
@@ -50,11 +42,14 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
-    dispatch(logoutAction());
+    // Remove token from cookies using nookies
+    nookies.destroy(null, "token");
+    // Remove token from localStorage
     localStorage.removeItem("accessToken");
+    setIsLoggedIn(false); // Update state to reflect logout
     setIsMobileMenuOpen(false);
     setIsDropdownOpen(false);
-    router.push("/login");
+    router.push("/login"); // Redirect to login page
   };
 
   return (
