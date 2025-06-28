@@ -1,0 +1,2975 @@
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push([typeof document === "object" ? document.currentScript : undefined, {
+
+"[project]/public/hero.png (static in ecmascript)": ((__turbopack_context__) => {
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.v("/_next/static/media/hero.5a0fd545.png");}}),
+"[project]/public/hero.png.mjs { IMAGE => \"[project]/public/hero.png (static in ecmascript)\" } [app-client] (structured image object, ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$hero$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/public/hero.png (static in ecmascript)");
+;
+const __TURBOPACK__default__export__ = {
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$hero$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 1380,
+    height: 629,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAIAAAA8r+mnAAAAb0lEQVR42gFkAJv/AOTazu3q5c3LyKuknIuBdnRqX2pnYVZRTQDm4t3i4Nza1tK9tKaCfmlraFSPg3JkWFAA1czDzsS7yMfH0tHQnZuVXFNKmZWQkYyLALespruto8jEw9vX1Y58cWJJOYOCioKChAHuO3uhQ27+AAAAAElFTkSuQmCC",
+    blurWidth: 8,
+    blurHeight: 4
+};
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/home-sections/Hero.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Hero)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$hero$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$hero$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/public/hero.png.mjs { IMAGE => "[project]/public/hero.png (static in ecmascript)" } [app-client] (structured image object, ecmascript)');
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+;
+;
+;
+;
+function Hero() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: "relative w-full min-h-screen overflow-hidden",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute inset-0 z-10",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                    src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$hero$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$hero$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+                    alt: "hero-img",
+                    fill: true,
+                    className: "object-cover w-full h-full",
+                    priority: true
+                }, void 0, false, {
+                    fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                    lineNumber: 11,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                lineNumber: 10,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute inset-0 bg-gradient-to-r from-[#00378f] to-[#00378f00] z-20"
+            }, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                lineNumber: 21,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "relative z-30 flex flex-col justify-center items-start h-full w-full px-4 sm:px-6 md:px-16 max-w-screen-xl mx-auto py-24 sm:py-32",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "text-white font-bold leading-normal text-3xl md:text-5xl lg:text-7xl",
+                        children: [
+                            "Covered by public ",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                                lineNumber: 26,
+                                columnNumber: 29
+                            }, this),
+                            " insurance adjusters"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                        lineNumber: 25,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-white font-medium mt-6 md:mt-8 mb-6 md:mb-12 text-lg md:text-2xl lg:text-3xl",
+                        children: [
+                            "So the homeowner doesn’t have to deal with the ",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                                lineNumber: 30,
+                                columnNumber: 58
+                            }, this),
+                            " insurance company"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                        href: "/membership_plans",
+                        className: " py-3 px-6 md:py-4 md:px-10 hover:bg-transparent  border border-transparent hover:border-white hover:text-white cursor-pointer bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base",
+                        children: "Become a Member"
+                    }, void 0, false, {
+                        fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                        lineNumber: 37,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-white font-normal mt-4 md:mt-5 text-base md:text-xl lg:text-2xl",
+                        children: "Join a movement to reform insurance"
+                    }, void 0, false, {
+                        fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                        lineNumber: 45,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+                lineNumber: 24,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/(client)/home-sections/Hero.tsx",
+        lineNumber: 8,
+        columnNumber: 5
+    }, this);
+} // import React from 'react'
+ // import heroImg from "../../public/hero.png"
+ // import Image  from 'next/image'
+ // export default function Hero() {
+ //   return (
+ //    <section className=' relative   '>
+ //         <Image src={heroImg} alt='hero-img' className=' w-full h-full z-20'/>
+ //      <div className=' absolute  top-0 left-0 bg-gradient-to-r from-[#00378f] to-[#00378f00]   z-30 w-full h-full'>
+ //      </div>
+ //      <div className=' absolute top-40  left-44 z-40'>
+ //      <h1 className=' text-7xl font-bold text-white leading-normal '>Covered by public <br /> insurance adjusters</h1>
+ //         <p className=' text-3xl font-medium text-white mt-8 mb-12'>Doesn’t have to deal with her insurance company</p>
+ //         <button className=' py-5 px-10 bg-white rounded-lg text-[var(--primary-dark)]'>Become a Member</button>
+ //         <p className=' text-white text-2xl font-normal mt-5'>Join a movement to reform insurance</p>
+ //      </div>
+ //    </section>
+ //   )
+ // }
+_c = Hero;
+var _c;
+__turbopack_context__.k.register(_c, "Hero");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/lib/utils.ts [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "cn": (()=>cn)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-client] (ecmascript)");
+;
+;
+function cn(...inputs) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clsx"])(inputs));
+}
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/components/ui/tabs.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "Tabs": (()=>Tabs),
+    "TabsContent": (()=>TabsContent),
+    "TabsList": (()=>TabsList),
+    "TabsTrigger": (()=>TabsTrigger)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-tabs/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+"use client";
+;
+;
+;
+function Tabs({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
+        "data-slot": "tabs",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col gap-2", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/tabs.tsx",
+        lineNumber: 13,
+        columnNumber: 5
+    }, this);
+}
+_c = Tabs;
+function TabsList({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["List"], {
+        "data-slot": "tabs-list",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/tabs.tsx",
+        lineNumber: 26,
+        columnNumber: 5
+    }, this);
+}
+_c1 = TabsList;
+function TabsTrigger({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Trigger"], {
+        "data-slot": "tabs-trigger",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/tabs.tsx",
+        lineNumber: 42,
+        columnNumber: 5
+    }, this);
+}
+_c2 = TabsTrigger;
+function TabsContent({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
+        "data-slot": "tabs-content",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex-1 outline-none", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/tabs.tsx",
+        lineNumber: 58,
+        columnNumber: 5
+    }, this);
+}
+_c3 = TabsContent;
+;
+var _c, _c1, _c2, _c3;
+__turbopack_context__.k.register(_c, "Tabs");
+__turbopack_context__.k.register(_c1, "TabsList");
+__turbopack_context__.k.register(_c2, "TabsTrigger");
+__turbopack_context__.k.register(_c3, "TabsContent");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/components/ui/button.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "Button": (()=>Button),
+    "buttonVariants": (()=>buttonVariants)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/class-variance-authority/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+;
+;
+;
+;
+const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cva"])("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive", {
+    variants: {
+        variant: {
+            default: "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+            destructive: "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+            outline: "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+            secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+            ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+            link: "text-primary underline-offset-4 hover:underline"
+        },
+        size: {
+            default: "h-9 px-4 py-2 has-[>svg]:px-3",
+            sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
+            lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+            icon: "size-9"
+        }
+    },
+    defaultVariants: {
+        variant: "default",
+        size: "default"
+    }
+});
+function Button({ className, variant, size, asChild = false, ...props }) {
+    const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : "button";
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
+        "data-slot": "button",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])(buttonVariants({
+            variant,
+            size,
+            className
+        })),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/button.tsx",
+        lineNumber: 51,
+        columnNumber: 5
+    }, this);
+}
+_c = Button;
+;
+var _c;
+__turbopack_context__.k.register(_c, "Button");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/about-main.png (static in ecmascript)": ((__turbopack_context__) => {
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.v("/_next/static/media/about-main.658ad78a.png");}}),
+"[project]/public/about-main.png.mjs { IMAGE => \"[project]/public/about-main.png (static in ecmascript)\" } [app-client] (structured image object, ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$about$2d$main$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/public/about-main.png (static in ecmascript)");
+;
+const __TURBOPACK__default__export__ = {
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$about$2d$main$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 418,
+    height: 551,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAYAAADaxo44AAAA00lEQVR42gHIADf/AOTd0//m39X/6eHY/+vk3P/t5t7/7uff/wDj3NL/4tvR/8i0ov/QvKz/6eLa/+3m3v8A3tfN/9PKvv+tgmb/v5V6/+Paz//r5Nz/ANPMwP+/t6n/l3Ra/7eSef/a08n/6OHY/wCvqp7/S09L/1RPSP9lYFr/V11e/8fDu/8AeHdt/xcgI/9bZGj/TVZc/x4oLv+UlJD/AFNUTP8NFRb/UFlc/zdBRv8VHiL/dHVz/wA+QTv/CxIS/0RNT/8tNjr/Ehoc/2dpZ/91+H94+i7R4QAAAABJRU5ErkJggg==",
+    blurWidth: 6,
+    blurHeight: 8
+};
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/_components/reusable/About.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>About)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/tabs.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$about$2d$main$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$about$2d$main$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/public/about-main.png.mjs { IMAGE => "[project]/public/about-main.png (static in ecmascript)" } [app-client] (structured image object, ecmascript)');
+;
+;
+;
+;
+;
+function About() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: "container  py-0  lg:py-24 mx-auto",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-16 p-7",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "relative w-full lg:w-1/3",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "p-1",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$about$2d$main$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$about$2d$main$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+                                alt: "Team member",
+                                width: 418,
+                                height: 500,
+                                className: "object-cover w-full h-auto"
+                            }, void 0, false, {
+                                fileName: "[project]/app/_components/reusable/About.tsx",
+                                lineNumber: 14,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/app/_components/reusable/About.tsx",
+                            lineNumber: 13,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "absolute left-2 sm:-left-6 lg:-left-11 bottom-0 bg-[var(--primary-color)] text-white px-4 py-8 sm:px-6 sm:py-12 shadow-lg",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-4xl sm:text-5xl font-bold block",
+                                    children: "20+"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/_components/reusable/About.tsx",
+                                    lineNumber: 23,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-base sm:text-lg font-medium",
+                                    children: "Years Experience"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/_components/reusable/About.tsx",
+                                    lineNumber: 24,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/_components/reusable/About.tsx",
+                            lineNumber: 22,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/_components/reusable/About.tsx",
+                    lineNumber: 12,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "w-full lg:w-2/3",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-[var(--primary-color)] text-sm sm:text-base font-medium mb-1",
+                            children: "About Us"
+                        }, void 0, false, {
+                            fileName: "[project]/app/_components/reusable/About.tsx",
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-3xl sm:text-4xl lg:text-5xl font-semibold text-[var(--gray-black-500)] leading-snug lg:leading-normal mt-3 mb-6",
+                            children: [
+                                "Who We Are and Why We’re ",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
+                                    className: "hidden sm:block"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/_components/reusable/About.tsx",
+                                    lineNumber: 32,
+                                    columnNumber: 38
+                                }, this),
+                                " Here to Help"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/_components/reusable/About.tsx",
+                            lineNumber: 31,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-[var(--gray-black-400)] text-base sm:text-lg font-normal mb-10",
+                            children: "We’re a team of experts dedicated to simplifying the claims process and putting homeowners first. With deep industry knowledge and a passion for fairness, we make sure you're never alone when it matters most."
+                        }, void 0, false, {
+                            fileName: "[project]/app/_components/reusable/About.tsx",
+                            lineNumber: 34,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
+                            defaultValue: "mission",
+                            className: "mb-10",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsList"], {
+                                    className: "grid   grid-cols-3 bg-muted p-1 rounded-md text-[var] text-base font-medium",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
+                                            value: "mission",
+                                            className: "w-full",
+                                            children: "Our Mission"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/_components/reusable/About.tsx",
+                                            lineNumber: 40,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
+                                            value: "team",
+                                            className: "w-full",
+                                            children: "Our Team"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/_components/reusable/About.tsx",
+                                            lineNumber: 41,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
+                                            value: "story",
+                                            className: "w-full",
+                                            children: "Our Story"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/_components/reusable/About.tsx",
+                                            lineNumber: 42,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/_components/reusable/About.tsx",
+                                    lineNumber: 39,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
+                                    value: "mission",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-muted-foreground mt-4",
+                                        children: "Simplifying insurance claims and empowering homeowners to get the settlements they deserve."
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/_components/reusable/About.tsx",
+                                        lineNumber: 45,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/_components/reusable/About.tsx",
+                                    lineNumber: 44,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
+                                    value: "team",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-muted-foreground mt-4",
+                                        children: "Our team consists of seasoned professionals with years of experience in insurance claims, customer service, and legal support."
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/_components/reusable/About.tsx",
+                                        lineNumber: 50,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/_components/reusable/About.tsx",
+                                    lineNumber: 49,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
+                                    value: "story",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-muted-foreground mt-4",
+                                        children: "Founded with the goal of transparency and fairness, our story is one of perseverance and dedication to our clients."
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/_components/reusable/About.tsx",
+                                        lineNumber: 55,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/_components/reusable/About.tsx",
+                                    lineNumber: 54,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/_components/reusable/About.tsx",
+                            lineNumber: 38,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                            size: "lg",
+                            className: "bg-[var(--primary-color)] py-4 px-8 sm:px-10",
+                            children: "Discover More →"
+                        }, void 0, false, {
+                            fileName: "[project]/app/_components/reusable/About.tsx",
+                            lineNumber: 61,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/_components/reusable/About.tsx",
+                    lineNumber: 29,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/_components/reusable/About.tsx",
+            lineNumber: 10,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/_components/reusable/About.tsx",
+        lineNumber: 9,
+        columnNumber: 5
+    }, this);
+}
+_c = About;
+var _c;
+__turbopack_context__.k.register(_c, "About");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/choose-us/Headphone.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Headphone)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function Headphone() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "40",
+        height: "40",
+        viewBox: "0 0 40 40",
+        fill: "none",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M28.5938 30.9375C28.1625 30.9375 27.8125 31.2875 27.8125 31.7188C27.8125 32.15 28.1625 32.5 28.5938 32.5C29.025 32.5 29.375 32.15 29.375 31.7188C29.375 31.2875 29.025 30.9375 28.5938 30.9375Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Headphone.tsx",
+                lineNumber: 6,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M30.5173 28.4112L26.8041 27.1737L25.471 24.5075C26.672 23.2852 27.5058 21.6678 27.787 19.9809L27.9532 18.9844H29.375C30.6673 18.9844 31.7188 17.933 31.7188 16.6406V11.7188C31.7188 5.25703 26.4617 0 20 0C13.5217 0 8.28125 5.24195 8.28125 11.7188V16.6406C8.28125 17.6591 8.93445 18.5275 9.84375 18.85V19.7656C9.84375 21.058 10.8952 22.1094 12.1875 22.1094H12.8736C13.2113 22.8449 13.6526 23.5282 14.1841 24.1386C14.2949 24.2656 14.4097 24.3891 14.5283 24.509L13.1959 27.1737L9.48258 28.4113C5.165 29.8509 2.03125 34.3962 2.03125 39.2188C2.03125 39.6502 2.38102 40 2.8125 40H37.1875C37.6189 40 37.9688 39.6502 37.9688 39.2188C37.9688 34.3962 34.8351 29.8509 30.5173 28.4112ZM30.1562 16.6406C30.1562 17.0714 29.8058 17.4219 29.375 17.4219H28.1827C28.3813 15.8836 28.5136 14.2466 28.5668 12.6344C28.5684 12.5889 28.5696 12.5447 28.571 12.5H30.1562V16.6406ZM10.625 17.4219C10.1942 17.4219 9.84375 17.0714 9.84375 16.6406V12.5H11.4295C11.4321 12.5815 11.4348 12.6634 11.4379 12.7458L11.4382 12.7541V12.7548C11.4929 14.323 11.6235 15.9174 11.8176 17.4218H10.625V17.4219ZM12.1875 20.5469C11.7567 20.5469 11.4062 20.1964 11.4062 19.7656V18.9844H12.0467L12.213 19.9812C12.2449 20.171 12.2836 20.3597 12.3287 20.5469H12.1875ZM11.4076 10.9375H9.87344C10.2691 5.70148 14.6388 1.5625 20 1.5625C25.3373 1.5625 29.7262 5.70094 30.1265 10.9375H28.5925C28.5363 6.62289 25.0227 3.125 20.6993 3.125H19.3009C14.9775 3.125 11.4637 6.62289 11.4076 10.9375ZM19.3008 4.6875H20.6992C24.1999 4.6875 27.0333 7.55086 27.0312 11.0477C27.0312 11.2935 27.0293 11.5076 27.0252 11.7023L27.0251 11.71L26.0479 11.5704C23.3932 11.1913 20.8866 9.93805 18.9899 8.04133C18.8434 7.89484 18.6447 7.81253 18.4375 7.8125C16.3394 7.8125 14.3309 8.76844 13.0033 10.3834C13.3305 7.20227 16.0198 4.6875 19.3008 4.6875ZM13.9484 20.5469C13.5573 19.2459 13.1098 15.4177 13.0109 12.9646L14.0624 11.5626C15.0281 10.2754 16.5305 9.47563 18.1287 9.38383C20.2316 11.3851 22.9521 12.7066 25.827 13.1171L26.9771 13.2815C26.9002 14.9131 26.7431 16.5505 26.518 18.0563L26.5178 18.0579C26.4463 18.542 26.3898 18.8536 26.2458 19.7238C25.832 22.2055 23.9803 24.4496 21.5359 25.0608C20.5275 25.3119 19.4729 25.3119 18.4645 25.0608C16.9382 24.6792 15.5387 23.6231 14.6355 22.1094H16.2281C16.5506 23.0187 17.419 23.6719 18.4375 23.6719H20C21.2949 23.6719 22.3438 22.6231 22.3438 21.3281C22.3438 20.0358 21.2923 18.9844 20 18.9844H18.4375C17.3963 18.9844 16.5408 19.6569 16.2268 20.5469H13.9484ZM18.3718 26.6419C18.9072 26.755 19.4528 26.8121 20 26.8125C20.4274 26.8125 20.8549 26.7767 21.2776 26.7073L19.8971 28.1673L18.3718 26.6419ZM18.823 29.303L16.3451 31.9235C15.6624 30.6167 15.0777 29.261 14.5959 27.8675L15.5265 26.0064L18.823 29.303ZM24.3411 25.7417L25.4039 27.8674C24.9221 29.2613 24.3374 30.6175 23.6545 31.9247L21.0023 29.2725L24.3411 25.7417ZM17.6562 21.3281C17.6562 20.8968 18.0061 20.5469 18.4375 20.5469H20C20.4308 20.5469 20.7812 20.8973 20.7812 21.3281C20.7812 21.7595 20.4313 22.1094 20 22.1094H18.4375C18.0067 22.1094 17.6562 21.7589 17.6562 21.3281ZM3.625 38.4375C3.93461 34.5673 6.51031 31.0495 9.97672 29.8935L13.2653 28.7976C13.8686 30.4655 14.6125 32.0791 15.489 33.621L15.4934 33.6289L15.4934 33.6291C16.1377 34.761 16.8519 35.8516 17.6319 36.8946L18.593 38.4375H3.625ZM20 37.7411L18.9405 36.0401C18.9286 36.021 18.9159 36.0025 18.9025 35.9845C18.2695 35.1397 17.6819 34.2619 17.1422 33.3547L19.9284 30.4083L22.8641 33.3441C22.3227 34.255 21.7331 35.1364 21.0977 35.9844C21.0594 36.0354 21.1137 35.955 20 37.7411ZM21.407 38.4375L22.368 36.8947C23.1541 35.8437 23.8734 34.7444 24.5215 33.6031C24.5254 33.5962 24.5291 33.5892 24.533 33.5823L24.5344 33.5798C25.4008 32.0504 26.1369 30.4506 26.7347 28.7976L30.0232 29.8935C33.4897 31.0495 36.0654 34.5673 36.375 38.4375H21.407Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Headphone.tsx",
+                lineNumber: 7,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M34.0279 35.2758C33.5058 34.2307 32.741 33.3023 31.8162 32.5909C31.4742 32.3277 30.9837 32.3916 30.7207 32.7337C30.4576 33.0757 30.5215 33.5662 30.8635 33.8293C31.6021 34.3975 32.2129 35.1391 32.63 35.9741C32.8232 36.3607 33.2927 36.5163 33.678 36.3238C34.064 36.131 34.2206 35.6618 34.0279 35.2758Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Headphone.tsx",
+                lineNumber: 8,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/public/choose-us/Headphone.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = Headphone;
+var _c;
+__turbopack_context__.k.register(_c, "Headphone");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/choose-us/Documents.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Documents)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function Documents() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "32",
+        height: "32",
+        viewBox: "0 0 32 32",
+        fill: "none",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M10.6664 22.9333H9.59974C9.45829 22.9333 9.32263 22.9895 9.22262 23.0895C9.1226 23.1895 9.06641 23.3252 9.06641 23.4666C9.06641 23.6081 9.1226 23.7437 9.22262 23.8438C9.32263 23.9438 9.45829 24 9.59974 24H10.6664C10.8079 24 10.9435 23.9438 11.0435 23.8438C11.1435 23.7437 11.1997 23.6081 11.1997 23.4666C11.1997 23.3252 11.1435 23.1895 11.0435 23.0895C10.9435 22.9895 10.8079 22.9333 10.6664 22.9333ZM25.5997 22.9333H12.7997C12.6583 22.9333 12.5226 22.9895 12.4226 23.0895C12.3226 23.1895 12.2664 23.3252 12.2664 23.4666C12.2664 23.6081 12.3226 23.7437 12.4226 23.8438C12.5226 23.9438 12.6583 24 12.7997 24H25.5997C25.7412 24 25.8768 23.9438 25.9769 23.8438C26.0769 23.7437 26.1331 23.6081 26.1331 23.4666C26.1331 23.3252 26.0769 23.1895 25.9769 23.0895C25.8768 22.9895 25.7412 22.9333 25.5997 22.9333ZM10.6664 19.7333H9.59974C9.45829 19.7333 9.32263 19.7895 9.22262 19.8895C9.1226 19.9895 9.06641 20.1252 9.06641 20.2666C9.06641 20.4081 9.1226 20.5437 9.22262 20.6438C9.32263 20.7438 9.45829 20.8 9.59974 20.8H10.6664C10.8079 20.8 10.9435 20.7438 11.0435 20.6438C11.1435 20.5437 11.1997 20.4081 11.1997 20.2666C11.1997 20.1252 11.1435 19.9895 11.0435 19.8895C10.9435 19.7895 10.8079 19.7333 10.6664 19.7333ZM25.5997 19.7333H12.7997C12.6583 19.7333 12.5226 19.7895 12.4226 19.8895C12.3226 19.9895 12.2664 20.1252 12.2664 20.2666C12.2664 20.4081 12.3226 20.5437 12.4226 20.6438C12.5226 20.7438 12.6583 20.8 12.7997 20.8H25.5997C25.7412 20.8 25.8768 20.7438 25.9769 20.6438C26.0769 20.5437 26.1331 20.4081 26.1331 20.2666C26.1331 20.1252 26.0769 19.9895 25.9769 19.8895C25.8768 19.7895 25.7412 19.7333 25.5997 19.7333ZM10.6664 16.5333H9.59974C9.45829 16.5333 9.32263 16.5895 9.22262 16.6895C9.1226 16.7895 9.06641 16.9252 9.06641 17.0666C9.06641 17.2081 9.1226 17.3437 9.22262 17.4438C9.32263 17.5438 9.45829 17.6 9.59974 17.6H10.6664C10.8079 17.6 10.9435 17.5438 11.0435 17.4438C11.1435 17.3437 11.1997 17.2081 11.1997 17.0666C11.1997 16.9252 11.1435 16.7895 11.0435 16.6895C10.9435 16.5895 10.8079 16.5333 10.6664 16.5333ZM25.5997 16.5333H12.7997C12.6583 16.5333 12.5226 16.5895 12.4226 16.6895C12.3226 16.7895 12.2664 16.9252 12.2664 17.0666C12.2664 17.2081 12.3226 17.3437 12.4226 17.4438C12.5226 17.5438 12.6583 17.6 12.7997 17.6H25.5997C25.7412 17.6 25.8768 17.5438 25.9769 17.4438C26.0769 17.3437 26.1331 17.2081 26.1331 17.0666C26.1331 16.9252 26.0769 16.7895 25.9769 16.6895C25.8768 16.5895 25.7412 16.5333 25.5997 16.5333ZM10.6664 13.3333H9.59974C9.45829 13.3333 9.32263 13.3895 9.22262 13.4895C9.1226 13.5895 9.06641 13.7252 9.06641 13.8666C9.06641 14.0081 9.1226 14.1437 9.22262 14.2438C9.32263 14.3438 9.45829 14.4 9.59974 14.4H10.6664C10.8079 14.4 10.9435 14.3438 11.0435 14.2438C11.1435 14.1437 11.1997 14.0081 11.1997 13.8666C11.1997 13.7252 11.1435 13.5895 11.0435 13.4895C10.9435 13.3895 10.8079 13.3333 10.6664 13.3333ZM25.5997 13.3333H12.7997C12.6583 13.3333 12.5226 13.3895 12.4226 13.4895C12.3226 13.5895 12.2664 13.7252 12.2664 13.8666C12.2664 14.0081 12.3226 14.1437 12.4226 14.2438C12.5226 14.3438 12.6583 14.4 12.7997 14.4H25.5997C25.7412 14.4 25.8768 14.3438 25.9769 14.2438C26.0769 14.1437 26.1331 14.0081 26.1331 13.8666C26.1331 13.7252 26.0769 13.5895 25.9769 13.4895C25.8768 13.3895 25.7412 13.3333 25.5997 13.3333ZM10.6664 10.1333H9.59974C9.45829 10.1333 9.32263 10.1895 9.22262 10.2895C9.1226 10.3895 9.06641 10.5252 9.06641 10.6666C9.06641 10.8081 9.1226 10.9437 9.22262 11.0438C9.32263 11.1438 9.45829 11.2 9.59974 11.2H10.6664C10.8079 11.2 10.9435 11.1438 11.0435 11.0438C11.1435 10.9437 11.1997 10.8081 11.1997 10.6666C11.1997 10.5252 11.1435 10.3895 11.0435 10.2895C10.9435 10.1895 10.8079 10.1333 10.6664 10.1333ZM25.5997 10.1333H12.7997C12.6583 10.1333 12.5226 10.1895 12.4226 10.2895C12.3226 10.3895 12.2664 10.5252 12.2664 10.6666C12.2664 10.8081 12.3226 10.9437 12.4226 11.0438C12.5226 11.1438 12.6583 11.2 12.7997 11.2H25.5997C25.7412 11.2 25.8768 11.1438 25.9769 11.0438C26.0769 10.9437 26.1331 10.8081 26.1331 10.6666C26.1331 10.5252 26.0769 10.3895 25.9769 10.2895C25.8768 10.1895 25.7412 10.1333 25.5997 10.1333Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Documents.tsx",
+                lineNumber: 6,
+                columnNumber: 3
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M29.3257 7.9664C29.3231 7.91967 29.3139 7.87354 29.2985 7.82933C29.2927 7.81227 29.2884 7.79573 29.2809 7.7792C29.255 7.72117 29.2189 7.66825 29.1743 7.62293L21.7076 0.156267C21.6623 0.11168 21.6094 0.0755557 21.5513 0.0496C21.5348 0.0421333 21.5183 0.0378667 21.5017 0.032C21.4571 0.0166625 21.4107 0.00733606 21.3636 0.00426667C21.3545 0.00586667 21.3444 0 21.3327 0H6.39935C6.2579 0 6.12224 0.0561903 6.02223 0.15621C5.92221 0.256229 5.86602 0.391885 5.86602 0.533333V2.13333H3.19935C3.0579 2.13333 2.92224 2.18952 2.82223 2.28954C2.72221 2.38956 2.66602 2.52522 2.66602 2.66667V31.4667C2.66602 31.6081 2.72221 31.7438 2.82223 31.8438C2.92224 31.9438 3.0579 32 3.19935 32H25.5993C25.7408 32 25.8765 31.9438 25.9765 31.8438C26.0765 31.7438 26.1327 31.6081 26.1327 31.4667V28.8H28.7993C28.9408 28.8 29.0765 28.7438 29.1765 28.6438C29.2765 28.5438 29.3327 28.4081 29.3327 28.2667V8C29.3327 7.98827 29.3268 7.97813 29.3257 7.9664ZM21.866 1.8208L27.5119 7.46667H21.866V1.8208ZM25.066 30.9333H3.73268V3.2H5.86602V28.2667C5.86602 28.4081 5.92221 28.5438 6.02223 28.6438C6.12224 28.7438 6.2579 28.8 6.39935 28.8H25.066V30.9333ZM28.266 27.7333H6.93268V1.06667H20.7993V8C20.7993 8.14145 20.8555 8.2771 20.9556 8.37712C21.0556 8.47714 21.1912 8.53333 21.3327 8.53333H28.266V27.7333Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Documents.tsx",
+                lineNumber: 7,
+                columnNumber: 3
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M12.7997 4.80005H9.59974C9.45829 4.80005 9.32263 4.85624 9.22262 4.95626C9.1226 5.05628 9.06641 5.19193 9.06641 5.33338V8.53338C9.06641 8.67483 9.1226 8.81049 9.22262 8.91051C9.32263 9.01053 9.45829 9.06672 9.59974 9.06672H12.7997C12.9412 9.06672 13.0768 9.01053 13.1769 8.91051C13.2769 8.81049 13.3331 8.67483 13.3331 8.53338V5.33338C13.3331 5.19193 13.2769 5.05628 13.1769 4.95626C13.0768 4.85624 12.9412 4.80005 12.7997 4.80005ZM12.2664 8.00005H10.1331V5.86672H12.2664V8.00005Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Documents.tsx",
+                lineNumber: 8,
+                columnNumber: 3
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/public/choose-us/Documents.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = Documents;
+var _c;
+__turbopack_context__.k.register(_c, "Documents");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/choose-us/Like.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Like)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function Like() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "32",
+        height: "32",
+        viewBox: "0 0 32 32",
+        fill: "none",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M10.6664 22.9333H9.59974C9.45829 22.9333 9.32263 22.9895 9.22262 23.0895C9.1226 23.1895 9.06641 23.3252 9.06641 23.4666C9.06641 23.6081 9.1226 23.7437 9.22262 23.8438C9.32263 23.9438 9.45829 24 9.59974 24H10.6664C10.8079 24 10.9435 23.9438 11.0435 23.8438C11.1435 23.7437 11.1997 23.6081 11.1997 23.4666C11.1997 23.3252 11.1435 23.1895 11.0435 23.0895C10.9435 22.9895 10.8079 22.9333 10.6664 22.9333ZM25.5997 22.9333H12.7997C12.6583 22.9333 12.5226 22.9895 12.4226 23.0895C12.3226 23.1895 12.2664 23.3252 12.2664 23.4666C12.2664 23.6081 12.3226 23.7437 12.4226 23.8438C12.5226 23.9438 12.6583 24 12.7997 24H25.5997C25.7412 24 25.8768 23.9438 25.9769 23.8438C26.0769 23.7437 26.1331 23.6081 26.1331 23.4666C26.1331 23.3252 26.0769 23.1895 25.9769 23.0895C25.8768 22.9895 25.7412 22.9333 25.5997 22.9333ZM10.6664 19.7333H9.59974C9.45829 19.7333 9.32263 19.7895 9.22262 19.8895C9.1226 19.9895 9.06641 20.1252 9.06641 20.2666C9.06641 20.4081 9.1226 20.5437 9.22262 20.6438C9.32263 20.7438 9.45829 20.8 9.59974 20.8H10.6664C10.8079 20.8 10.9435 20.7438 11.0435 20.6438C11.1435 20.5437 11.1997 20.4081 11.1997 20.2666C11.1997 20.1252 11.1435 19.9895 11.0435 19.8895C10.9435 19.7895 10.8079 19.7333 10.6664 19.7333ZM25.5997 19.7333H12.7997C12.6583 19.7333 12.5226 19.7895 12.4226 19.8895C12.3226 19.9895 12.2664 20.1252 12.2664 20.2666C12.2664 20.4081 12.3226 20.5437 12.4226 20.6438C12.5226 20.7438 12.6583 20.8 12.7997 20.8H25.5997C25.7412 20.8 25.8768 20.7438 25.9769 20.6438C26.0769 20.5437 26.1331 20.4081 26.1331 20.2666C26.1331 20.1252 26.0769 19.9895 25.9769 19.8895C25.8768 19.7895 25.7412 19.7333 25.5997 19.7333ZM10.6664 16.5333H9.59974C9.45829 16.5333 9.32263 16.5895 9.22262 16.6895C9.1226 16.7895 9.06641 16.9252 9.06641 17.0666C9.06641 17.2081 9.1226 17.3437 9.22262 17.4438C9.32263 17.5438 9.45829 17.6 9.59974 17.6H10.6664C10.8079 17.6 10.9435 17.5438 11.0435 17.4438C11.1435 17.3437 11.1997 17.2081 11.1997 17.0666C11.1997 16.9252 11.1435 16.7895 11.0435 16.6895C10.9435 16.5895 10.8079 16.5333 10.6664 16.5333ZM25.5997 16.5333H12.7997C12.6583 16.5333 12.5226 16.5895 12.4226 16.6895C12.3226 16.7895 12.2664 16.9252 12.2664 17.0666C12.2664 17.2081 12.3226 17.3437 12.4226 17.4438C12.5226 17.5438 12.6583 17.6 12.7997 17.6H25.5997C25.7412 17.6 25.8768 17.5438 25.9769 17.4438C26.0769 17.3437 26.1331 17.2081 26.1331 17.0666C26.1331 16.9252 26.0769 16.7895 25.9769 16.6895C25.8768 16.5895 25.7412 16.5333 25.5997 16.5333ZM10.6664 13.3333H9.59974C9.45829 13.3333 9.32263 13.3895 9.22262 13.4895C9.1226 13.5895 9.06641 13.7252 9.06641 13.8666C9.06641 14.0081 9.1226 14.1437 9.22262 14.2438C9.32263 14.3438 9.45829 14.4 9.59974 14.4H10.6664C10.8079 14.4 10.9435 14.3438 11.0435 14.2438C11.1435 14.1437 11.1997 14.0081 11.1997 13.8666C11.1997 13.7252 11.1435 13.5895 11.0435 13.4895C10.9435 13.3895 10.8079 13.3333 10.6664 13.3333ZM25.5997 13.3333H12.7997C12.6583 13.3333 12.5226 13.3895 12.4226 13.4895C12.3226 13.5895 12.2664 13.7252 12.2664 13.8666C12.2664 14.0081 12.3226 14.1437 12.4226 14.2438C12.5226 14.3438 12.6583 14.4 12.7997 14.4H25.5997C25.7412 14.4 25.8768 14.3438 25.9769 14.2438C26.0769 14.1437 26.1331 14.0081 26.1331 13.8666C26.1331 13.7252 26.0769 13.5895 25.9769 13.4895C25.8768 13.3895 25.7412 13.3333 25.5997 13.3333ZM10.6664 10.1333H9.59974C9.45829 10.1333 9.32263 10.1895 9.22262 10.2895C9.1226 10.3895 9.06641 10.5252 9.06641 10.6666C9.06641 10.8081 9.1226 10.9437 9.22262 11.0438C9.32263 11.1438 9.45829 11.2 9.59974 11.2H10.6664C10.8079 11.2 10.9435 11.1438 11.0435 11.0438C11.1435 10.9437 11.1997 10.8081 11.1997 10.6666C11.1997 10.5252 11.1435 10.3895 11.0435 10.2895C10.9435 10.1895 10.8079 10.1333 10.6664 10.1333ZM25.5997 10.1333H12.7997C12.6583 10.1333 12.5226 10.1895 12.4226 10.2895C12.3226 10.3895 12.2664 10.5252 12.2664 10.6666C12.2664 10.8081 12.3226 10.9437 12.4226 11.0438C12.5226 11.1438 12.6583 11.2 12.7997 11.2H25.5997C25.7412 11.2 25.8768 11.1438 25.9769 11.0438C26.0769 10.9437 26.1331 10.8081 26.1331 10.6666C26.1331 10.5252 26.0769 10.3895 25.9769 10.2895C25.8768 10.1895 25.7412 10.1333 25.5997 10.1333Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Like.tsx",
+                lineNumber: 6,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M29.3257 7.9664C29.3231 7.91967 29.3139 7.87354 29.2985 7.82933C29.2927 7.81227 29.2884 7.79573 29.2809 7.7792C29.255 7.72117 29.2189 7.66825 29.1743 7.62293L21.7076 0.156267C21.6623 0.11168 21.6094 0.0755557 21.5513 0.0496C21.5348 0.0421333 21.5183 0.0378667 21.5017 0.032C21.4571 0.0166625 21.4107 0.00733606 21.3636 0.00426667C21.3545 0.00586667 21.3444 0 21.3327 0H6.39935C6.2579 0 6.12224 0.0561903 6.02223 0.15621C5.92221 0.256229 5.86602 0.391885 5.86602 0.533333V2.13333H3.19935C3.0579 2.13333 2.92224 2.18952 2.82223 2.28954C2.72221 2.38956 2.66602 2.52522 2.66602 2.66667V31.4667C2.66602 31.6081 2.72221 31.7438 2.82223 31.8438C2.92224 31.9438 3.0579 32 3.19935 32H25.5993C25.7408 32 25.8765 31.9438 25.9765 31.8438C26.0765 31.7438 26.1327 31.6081 26.1327 31.4667V28.8H28.7993C28.9408 28.8 29.0765 28.7438 29.1765 28.6438C29.2765 28.5438 29.3327 28.4081 29.3327 28.2667V8C29.3327 7.98827 29.3268 7.97813 29.3257 7.9664ZM21.866 1.8208L27.5119 7.46667H21.866V1.8208ZM25.066 30.9333H3.73268V3.2H5.86602V28.2667C5.86602 28.4081 5.92221 28.5438 6.02223 28.6438C6.12224 28.7438 6.2579 28.8 6.39935 28.8H25.066V30.9333ZM28.266 27.7333H6.93268V1.06667H20.7993V8C20.7993 8.14145 20.8555 8.2771 20.9556 8.37712C21.0556 8.47714 21.1912 8.53333 21.3327 8.53333H28.266V27.7333Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Like.tsx",
+                lineNumber: 7,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M12.7997 4.80005H9.59974C9.45829 4.80005 9.32263 4.85624 9.22262 4.95626C9.1226 5.05628 9.06641 5.19193 9.06641 5.33338V8.53338C9.06641 8.67483 9.1226 8.81049 9.22262 8.91051C9.32263 9.01053 9.45829 9.06672 9.59974 9.06672H12.7997C12.9412 9.06672 13.0768 9.01053 13.1769 8.91051C13.2769 8.81049 13.3331 8.67483 13.3331 8.53338V5.33338C13.3331 5.19193 13.2769 5.05628 13.1769 4.95626C13.0768 4.85624 12.9412 4.80005 12.7997 4.80005ZM12.2664 8.00005H10.1331V5.86672H12.2664V8.00005Z",
+                fill: "#2EB0E4"
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Like.tsx",
+                lineNumber: 8,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/public/choose-us/Like.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = Like;
+var _c;
+__turbopack_context__.k.register(_c, "Like");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/choose-us/Customer.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Customer)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function Customer() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "40",
+        height: "40",
+        viewBox: "0 0 40 40",
+        fill: "none",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                clipPath: "url(#clip0_3256_699)",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M7.51516 7.51516C10.85 4.18031 15.2838 2.34375 20 2.34375C23.6066 2.34375 27.0934 3.44086 30.0259 5.46617L27.762 5.69836L28.0012 8.02984L34.0949 7.40484L33.4699 1.31109L31.1384 1.55023L31.341 3.52609C28.0224 1.23883 24.0788 0 20 0C14.6578 0 9.63539 2.08039 5.85789 5.85789C2.08039 9.63539 0 14.6578 0 20C0 23.9994 1.17687 27.8598 3.40336 31.1637L5.34695 29.8539C5.32 29.8138 5.29383 29.7734 5.26719 29.7332C3.35453 26.8445 2.34375 23.4825 2.34375 20C2.34375 15.2839 4.18031 10.85 7.51516 7.51516ZM36.5967 8.83633L34.653 10.1461C34.68 10.1861 34.7062 10.2266 34.7328 10.2668C36.6454 13.1555 37.6562 16.5175 37.6562 20C37.6562 24.7162 35.8197 29.15 32.4848 32.4848C29.1501 35.8197 24.7162 37.6562 20 37.6562C16.3934 37.6562 12.9066 36.5591 9.97414 34.5338L12.238 34.3016L11.9988 31.9702L5.90508 32.5952L6.53008 38.6889L8.86164 38.4498L8.65898 36.4739C11.9777 38.7612 15.9213 40 20 40C25.3422 40 30.3646 37.9196 34.1422 34.1421C37.9197 30.3646 40 25.3422 40 20C40 16.0006 38.8232 12.1402 36.5967 8.83633Z",
+                        fill: "#2EB0E4"
+                    }, void 0, false, {
+                        fileName: "[project]/public/choose-us/Customer.tsx",
+                        lineNumber: 7,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M9.76398 22.4597L11.2812 21.0574C12.4305 20 12.649 19.2874 12.649 18.5058C12.649 17.0116 11.3731 16.0576 9.52266 16.0576C7.93648 16.0576 6.79859 16.7242 6.18945 17.7357L7.87906 18.6782C8.20086 18.161 8.72961 17.8967 9.31578 17.8967C10.0054 17.8967 10.3502 18.207 10.3502 18.7242C10.3502 19.0576 10.2583 19.4254 9.61461 20.0231L6.6032 22.8391V24.2643H12.8673V22.4598L9.76398 22.4597ZM20.0975 22.7241H21.2928V20.9196H20.0975V19.5518H17.9481V20.9196H16.316L19.5917 16.2185H17.2355L13.6264 21.2413V22.7241H17.8791V24.2642H20.0975V22.7241ZM23.362 25.4136L27.1549 14.5864H25.2125L21.4195 25.4136H23.362ZM29.086 19.2644V18.0231H31.2009L28.4884 24.2642H30.971L33.81 17.6438V16.2185H27.1435V19.2644H29.086Z",
+                        fill: "#2EB0E4"
+                    }, void 0, false, {
+                        fileName: "[project]/public/choose-us/Customer.tsx",
+                        lineNumber: 8,
+                        columnNumber: 7
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/public/choose-us/Customer.tsx",
+                lineNumber: 6,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("clipPath", {
+                    id: "clip0_3256_699",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                        width: "40",
+                        height: "40",
+                        fill: "white"
+                    }, void 0, false, {
+                        fileName: "[project]/public/choose-us/Customer.tsx",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/public/choose-us/Customer.tsx",
+                    lineNumber: 11,
+                    columnNumber: 7
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/public/choose-us/Customer.tsx",
+                lineNumber: 10,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/public/choose-us/Customer.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = Customer;
+var _c;
+__turbopack_context__.k.register(_c, "Customer");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/home-sections/ChooseUs.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>ChooseUs)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$choose$2d$us$2f$Headphone$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/choose-us/Headphone.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$choose$2d$us$2f$Documents$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/choose-us/Documents.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$choose$2d$us$2f$Like$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/choose-us/Like.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$choose$2d$us$2f$Customer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/choose-us/Customer.tsx [app-client] (ecmascript)");
+;
+;
+;
+;
+;
+function ChooseUs() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: "bg-[#F8FAFB] px-4 sm:px-6 md:px-12 py-16 md:py-24 mb-24",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "container mx-auto flex flex-col md:flex-row justify-between gap-8 items-start",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "md:w-1/2",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-[var(--primary-color)] text-sm sm:text-base font-medium mb-1",
+                            children: "Why Choose Us"
+                        }, void 0, false, {
+                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                            lineNumber: 17,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-3xl sm:text-4xl lg:text-5xl font-semibold text-[var(--gray-black-500)] leading-snug lg:leading-normal",
+                            children: "Why Homeowners Trust InsurancesAlly"
+                        }, void 0, false, {
+                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                            lineNumber: 18,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-[var(--gray-black-400)] text-base sm:text-lg font-normal mb-10",
+                            children: "We’re more than a claims service—we’re your dedicated partner through the entire process."
+                        }, void 0, false, {
+                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                            lineNumber: 21,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                    lineNumber: 16,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex flex-col sm:flex-row md:w-1/2",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "sm:pr-6 md:pr-12 sm:border-r md:border-r border-[var(--primary-color)]  mt-16 ",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "border-b border-[var(--primary-color)] py-5",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$choose$2d$us$2f$Headphone$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 32,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                            className: "text-base font-semibold mt-6 mb-3",
+                                            children: "Consultation on Any Property Claim   (Limited to Car Claims)"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 33,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-base font-normal text-[var(--gray-black-400)]",
+                                            children: "Get expert advice on property claims, including limited consultation for car claims, to ensure the best outcomes."
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 36,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                    lineNumber: 31,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "py-5",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$choose$2d$us$2f$Documents$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 42,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                            className: "text-base font-semibold mt-6 mb-3",
+                                            children: "Request and Review of Property Damage Documents"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 43,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-base font-normal text-text-light",
+                                            children: "Strengthen your claims with a comprehensive evaluation of your damage documentation."
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 46,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                    lineNumber: 41,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "sm:pl-6 md:pl-12   ",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "border-b border-[var(--primary-color)] py-5",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$choose$2d$us$2f$Like$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 55,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                            className: "text-base font-semibold mt-6 mb-3",
+                                            children: "Request for a Policy Review"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 56,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-base font-normal text-text-light",
+                                            children: "Gain a clear understanding of your coverage with a thorough analysis of your policy by our experts."
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 57,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                    lineNumber: 54,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "py-5",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$choose$2d$us$2f$Customer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 62,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                            className: "text-base font-semibold mt-6 mb-3",
+                                            children: "24/7/365 Emergency Access"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 63,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-base font-normal text-text-light",
+                                            children: "Access immediate and reliable support whenever you need it, any time of the day or year."
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                            lineNumber: 64,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                                    lineNumber: 61,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                            lineNumber: 53,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+                    lineNumber: 28,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+            lineNumber: 14,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/(client)/home-sections/ChooseUs.tsx",
+        lineNumber: 13,
+        columnNumber: 5
+    }, this);
+} // import React from 'react'
+ // import Headphone from "../../../public/choose-us/Headphone"
+ // import Document from "../../../public/choose-us/Documents"
+ // import Like from "../../../public/choose-us/Like"
+ // import Customer from "../../../public/choose-us/Customer"
+ // export default function ChooseUs() {
+ //   return (
+ //     <section className="  bg-[#F8FAFB] p-12 mb-24 py-24">
+ //       <div className='container flex justify-between gap-8
+ //       '>
+ //         <div>
+ //           <p className=' text-[var(--primary-color)] text-sm sm:text-base font-medium mb-1'>Why Choose Us </p>
+ //           <h2 className=' "text-3xl sm:text-4xl lg:text-5xl font-semibold text-[var(--gray-black-500)] leading-snug lg:leading-normal  '>Why Homeowners Trust InsuranceSally</h2>
+ //           <p className='  text-[var(--gray-black-400)] text-base sm:text-lg font-normal mb-10'>
+ //             We’re more than a claims service—we’re your dedicated partner
+ //             through the entire process.
+ //           </p>
+ //         </div>
+ //         <div className=' flex'>
+ //           <div className=' pr-12 border-r border-primary-color mt-16'>
+ //             <div className=' border-b border-primary-color py-5'>
+ // <Headphone/>
+ //               <h4 className='text-base font-semibold mt-6 mb-3'>Consultation on Any Property Claim <br /> (Limited to Car Claims)</h4>
+ //               <p className=' text-base font-normal text-[var(--gray-black-400)] '>Get expert advice on property <br />claims, including limited consultation for car claims, to ensure the best outcomes.</p>
+ //             </div>
+ //             <div className=' py-5'>
+ //               <Document/>
+ //               <h4 className=' text-base font-semibold mt-6 mb-3'>Request and Review of Property Damage Documents</h4>
+ //               <p className='  text-base font-normal text-text-light '>Strengthen your claims with a comprehensive evaluation of your damage documentation.</p>
+ //             </div>
+ //           </div>
+ //           <div className=' pl-12'>
+ //             <div className=' border-b border-primary-color py-5'>
+ //               <Like/>
+ //               <h4 className='text-base font-semibold mt-6 mb-3'>Request for a Policy Review</h4>
+ //               <p className='  text-base font-normal text-text-light'>Gain a clear understanding of your coverage with a thorough analysis of your policy by our experts.</p>
+ //             </div>
+ //             <div className=' py-5'>
+ //               <Customer/>
+ //               <h4 className='text-base font-semibold mt-6 mb-3'>24/7/365 Emergency Access</h4>
+ //               <p className='  text-base font-normal text-text-light'>Access immediate and reliable support whenever you need it, any time of the day or year.</p>
+ //             </div>
+ //           </div>
+ //         </div>
+ //       </div>
+ //     </section>
+ //   );
+ // }
+_c = ChooseUs;
+var _c;
+__turbopack_context__.k.register(_c, "ChooseUs");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/home-sections/Info.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Info)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function Info() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: " container text-center bg-gradient-to-r from-[#003A78] to-[#2EB0E4] rounded-2xl py-20 px-2.5 mx-auto mb-24",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                className: " text-white text-5xl font-semibold",
+                children: "Let Us Handle Your Claim—Start to Finish"
+            }, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Info.tsx",
+                lineNumber: 6,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: " text-2xl font-normals text-white mt-4 mb-10",
+                children: "At InsurancesAlly.com, we take care of everything—from filing to final payout—so you don’t have to. No stress. No confusion. Just results."
+            }, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Info.tsx",
+                lineNumber: 7,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                className: " text-[40px] font-normal text-white",
+                children: "Call Now: (866) 330-6012"
+            }, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Info.tsx",
+                lineNumber: 8,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/(client)/home-sections/Info.tsx",
+        lineNumber: 5,
+        columnNumber: 4
+    }, this);
+}
+_c = Info;
+var _c;
+__turbopack_context__.k.register(_c, "Info");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/home-sections/Service.tsx [app-client] (ecmascript)": (function(__turbopack_context__) {
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module, e: exports } = __turbopack_context__;
+{
+const e = new Error(`Could not parse module '[project]/app/(client)/home-sections/Service.tsx'
+
+Merge conflict marker encountered.`);
+e.code = 'MODULE_UNPARSEABLE';
+throw e;}}),
+"[project]/public/home-membership.png (static in ecmascript)": ((__turbopack_context__) => {
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.v("/_next/static/media/home-membership.1a5e1079.png");}}),
+"[project]/public/home-membership.png.mjs { IMAGE => \"[project]/public/home-membership.png (static in ecmascript)\" } [app-client] (structured image object, ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$home$2d$membership$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/public/home-membership.png (static in ecmascript)");
+;
+const __TURBOPACK__default__export__ = {
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$home$2d$membership$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 554,
+    height: 766,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAYAAADaxo44AAAAzElEQVR42hXIScsBcQAH4P/HfN8TZctByFLSGGTNEjUYxjKjERmSJSLJmFJSlhjEB5Ecfjg8l4eEuAHakxWkyeotdXv7VrOh0JSXIb983NWv69cNF/UIocbJhO+MoZ4PEGtFKIsp1NMefLUkk2iGee62a+Q8Biw7VRx2G7BsbkNiEd921uXAuP4wZCmMpDL0dseT+Bx6hQ8bwYdNKNMa1BNWuKgACGX5VzhaC9GvQz/rxFyMoyI0QOxmTTzltw3TQbfM5NlXoVKHOyngA0vnhOg2YnFGAAAAAElFTkSuQmCC",
+    blurWidth: 6,
+    blurHeight: 8
+};
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/membershipIcons/MessageIcon.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>MessageIcon)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function MessageIcon() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "24",
+        height: "24",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M12.0007 1.00002C10.0891 0.997191 8.20979 1.49333 6.54864 2.43939C4.88749 3.38544 3.50201 4.74866 2.52917 6.39427C1.55633 8.03987 1.02982 9.91089 1.00168 11.8223C0.973542 13.7338 1.44476 15.6195 2.36874 17.293L1.04274 21.713C0.998005 21.8623 0.988793 22.02 1.01584 22.1735C1.04288 22.327 1.10544 22.4721 1.19851 22.5971C1.29157 22.7222 1.41258 22.8237 1.55187 22.8937C1.69116 22.9636 1.84487 23 2.00074 23C2.09825 22.9999 2.19524 22.9857 2.28874 22.958L6.70874 21.632C8.17898 22.4429 9.81536 22.9065 11.4925 22.9873C13.1696 23.068 14.8429 22.7637 16.3843 22.0978C17.9256 21.4318 19.294 20.4219 20.3847 19.1453C21.4754 17.8687 22.2593 16.3594 22.6765 14.733C23.0936 13.1066 23.1329 11.4062 22.7914 9.7623C22.4498 8.11836 21.7364 6.57442 20.7059 5.2488C19.6754 3.92318 18.3551 2.85106 16.8462 2.1146C15.3373 1.37813 13.6798 0.996868 12.0007 1.00002ZM12.0007 21C10.3611 20.9979 8.75352 20.5462 7.35274 19.694C7.196 19.5998 7.0166 19.5501 6.83374 19.55C6.73651 19.5496 6.63977 19.5638 6.54674 19.592L3.49274 20.509L4.40874 17.454C4.4485 17.321 4.46015 17.1812 4.44293 17.0435C4.42572 16.9058 4.38002 16.7731 4.30874 16.654C3.28199 14.9526 2.84777 12.959 3.0739 10.9848C3.30004 9.01048 4.1738 7.16671 5.55866 5.74155C6.94352 4.31639 8.76147 3.39011 10.7285 3.10745C12.6954 2.82479 14.7007 3.20167 16.4308 4.1792C18.1609 5.15673 19.5185 6.67985 20.2914 8.51056C21.0644 10.3413 21.2091 12.3765 20.703 14.2981C20.1969 16.2198 19.0685 17.9197 17.4941 19.1322C15.9196 20.3447 13.9879 21.0015 12.0007 21Z",
+            fill: "white"
+        }, void 0, false, {
+            fileName: "[project]/public/membershipIcons/MessageIcon.tsx",
+            lineNumber: 6,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/public/membershipIcons/MessageIcon.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = MessageIcon;
+var _c;
+__turbopack_context__.k.register(_c, "MessageIcon");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/membershipIcons/ProfileIcon.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>ProfileIcon)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function ProfileIcon() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "32",
+        height: "32",
+        viewBox: "0 0 32 32",
+        fill: "none",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M12.7505 16C8.19299 16 4.50049 19.6925 4.50049 24.25V27.25C4.50049 28.4835 5.51699 29.5 6.75049 29.5H15.7505C15.9494 29.5 16.1402 29.421 16.2808 29.2803C16.4215 29.1397 16.5005 28.9489 16.5005 28.75C16.5005 28.5511 16.4215 28.3603 16.2808 28.2197C16.1402 28.079 15.9494 28 15.7505 28H6.75049C6.32199 28 6.00049 27.6785 6.00049 27.25V24.25C6.00049 20.4975 8.99799 17.5 12.7505 17.5H19.2505C19.923 17.5 20.5695 17.597 21.179 17.7775C21.2736 17.8061 21.373 17.8158 21.4714 17.8058C21.5698 17.7959 21.6653 17.7666 21.7523 17.7196C21.8394 17.6727 21.9162 17.6089 21.9785 17.5321C22.0408 17.4553 22.0874 17.367 22.1154 17.2721C22.1434 17.1773 22.1524 17.0778 22.1418 16.9795C22.1313 16.8812 22.1013 16.7859 22.0538 16.6992C22.0063 16.6124 21.9421 16.536 21.8649 16.4742C21.7877 16.4123 21.699 16.3664 21.604 16.339C20.8398 16.1136 20.0472 15.9994 19.2505 16H12.7505ZM16.0005 2.5C12.6955 2.5 10.0005 5.195 10.0005 8.5C10.0005 11.805 12.6955 14.5 16.0005 14.5C19.3055 14.5 22.0005 11.805 22.0005 8.5C22.0005 5.195 19.3055 2.5 16.0005 2.5ZM16.0005 4C18.4945 4 20.5005 6.006 20.5005 8.5C20.5005 10.994 18.4945 13 16.0005 13C13.5065 13 11.5005 10.994 11.5005 8.5C11.5005 6.006 13.5065 4 16.0005 4Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/membershipIcons/ProfileIcon.tsx",
+                lineNumber: 6,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M22.5005 18.5C19.1955 18.5 16.5005 21.195 16.5005 24.5C16.5005 27.805 19.1955 30.5 22.5005 30.5C23.5968 30.5002 24.6723 30.2 25.61 29.632C25.7802 29.5289 25.9025 29.3624 25.9499 29.1691C25.9974 28.9759 25.9661 28.7717 25.863 28.6015C25.7599 28.4313 25.5934 28.309 25.4001 28.2616C25.2069 28.2141 25.0027 28.2454 24.8325 28.3485C24.1293 28.7746 23.3227 29 22.5005 29C20.0065 29 18.0005 26.994 18.0005 24.5C18.0005 22.006 20.0065 20 22.5005 20C24.9945 20 27.0005 22.006 27.0005 24.5C27.0005 25.322 26.7755 26.129 26.349 26.832C26.2459 27.0022 26.2146 27.2064 26.2621 27.3996C26.3095 27.5929 26.4318 27.7594 26.602 27.8625C26.7722 27.9656 26.9764 27.9969 27.1696 27.9494C27.3629 27.902 27.5294 27.7797 27.6325 27.6095C28.2004 26.6717 28.5006 25.5963 28.5005 24.5C28.5005 21.195 25.8055 18.5 22.5005 18.5Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/membershipIcons/ProfileIcon.tsx",
+                lineNumber: 7,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M22.5005 22C22.085 22 21.7505 22.3345 21.7505 22.75V23.75H20.7505C20.335 23.75 20.0005 24.0845 20.0005 24.5C20.0005 24.9155 20.335 25.25 20.7505 25.25H21.7505V26.25C21.7505 26.665 22.085 27 22.5005 27C22.916 27 23.2505 26.665 23.2505 26.25V25.25H24.2505C24.666 25.25 25.0005 24.915 25.0005 24.5C25.0005 24.085 24.666 23.75 24.2505 23.75H23.2505V22.75C23.2505 22.3345 22.916 22 22.5005 22Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/membershipIcons/ProfileIcon.tsx",
+                lineNumber: 8,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/public/membershipIcons/ProfileIcon.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = ProfileIcon;
+var _c;
+__turbopack_context__.k.register(_c, "ProfileIcon");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/membershipIcons/PricingIcon.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>PricingIcon)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function PricingIcon() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "32",
+        height: "32",
+        viewBox: "0 0 32 32",
+        fill: "none",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            fillRule: "evenodd",
+            clipRule: "evenodd",
+            d: "M15.9998 2C15.8484 1.99993 15.7014 2.05142 15.5832 2.146L8.9165 7.47933C8.83846 7.54182 8.77547 7.62106 8.73219 7.71119C8.68892 7.80131 8.66647 7.90002 8.6665 8V29.3333C8.6665 29.5101 8.73674 29.6797 8.86177 29.8047C8.98679 29.9298 9.15636 30 9.33317 30H22.6665C22.8433 30 23.0129 29.9298 23.1379 29.8047C23.2629 29.6797 23.3332 29.5101 23.3332 29.3333V8C23.3332 7.90002 23.3108 7.80131 23.2675 7.71119C23.2242 7.62106 23.1612 7.54182 23.0832 7.47933L16.4165 2.146C16.2982 2.05142 16.1513 1.99993 15.9998 2ZM15.9998 3.52067L21.9998 8.32V28.6667H9.99984V8.32L15.9998 3.52067ZM15.9998 6C14.5278 6 13.3332 7.19467 13.3332 8.66667C13.3332 10.1387 14.5278 11.3333 15.9998 11.3333C17.4718 11.3333 18.6665 10.1387 18.6665 8.66667C18.6665 7.19467 17.4718 6 15.9998 6ZM15.9998 7.33333C16.175 7.33338 16.3484 7.36792 16.5102 7.43498C16.672 7.50204 16.819 7.60032 16.9428 7.72419C17.0666 7.84806 17.1648 7.99511 17.2318 8.15694C17.2988 8.31876 17.3332 8.49219 17.3332 8.66733C17.3331 8.84247 17.2986 9.01589 17.2315 9.17768C17.1645 9.33947 17.0662 9.48647 16.9423 9.61028C16.8184 9.73409 16.6714 9.83229 16.5096 9.89927C16.3477 9.96626 16.1743 10.0007 15.9992 10.0007C15.6455 10.0006 15.3063 9.85998 15.0562 9.60981C14.8062 9.35964 14.6657 9.02038 14.6658 8.66667C14.6659 8.31296 14.8065 7.97377 15.0567 7.72372C15.3069 7.47367 15.6461 7.33325 15.9998 7.33333ZM13.6665 15.3333C13.145 15.3468 12.6494 15.5634 12.2853 15.937C11.9212 16.3106 11.7175 16.8117 11.7175 17.3333C11.7175 17.855 11.9212 18.356 12.2853 18.7296C12.6494 19.1032 13.145 19.3199 13.6665 19.3333C14.188 19.3199 14.6836 19.1032 15.0477 18.7296C15.4118 18.356 15.6155 17.855 15.6155 17.3333C15.6155 16.8117 15.4118 16.3106 15.0477 15.937C14.6836 15.5634 14.188 15.3468 13.6665 15.3333ZM13.6665 16.6667C13.8433 16.6667 14.0129 16.7369 14.1379 16.8619C14.2629 16.987 14.3332 17.1565 14.3332 17.3333C14.3332 17.5101 14.2629 17.6797 14.1379 17.8047C14.0129 17.9298 13.8433 18 13.6665 18C13.4897 18 13.3201 17.9298 13.1951 17.8047C13.0701 17.6797 12.9998 17.5101 12.9998 17.3333C12.9998 17.1565 13.0701 16.987 13.1951 16.8619C13.3201 16.7369 13.4897 16.6667 13.6665 16.6667ZM18.9752 16.6667C18.8205 16.6721 18.6726 16.7315 18.5572 16.8347L12.5558 22.168C12.4238 22.2856 12.3438 22.4508 12.3335 22.6273C12.3233 22.8039 12.3836 22.9773 12.5012 23.1093C12.6188 23.2414 12.784 23.3214 12.9605 23.3316C13.137 23.3419 13.3104 23.2816 13.4425 23.164L19.4425 17.8307C19.5449 17.7394 19.6167 17.6188 19.648 17.4853C19.6794 17.3518 19.6688 17.2118 19.6177 17.0845C19.5666 16.9572 19.4775 16.8488 19.3625 16.774C19.2475 16.6993 19.1122 16.6618 18.9752 16.6667ZM18.3332 20.6667C17.8117 20.6801 17.3161 20.8968 16.952 21.2704C16.5879 21.644 16.3841 22.145 16.3841 22.6667C16.3841 23.1883 16.5879 23.6894 16.952 24.063C17.3161 24.4366 17.8117 24.6532 18.3332 24.6667C18.8547 24.6532 19.3503 24.4366 19.7144 24.063C20.0784 23.6894 20.2822 23.1883 20.2822 22.6667C20.2822 22.145 20.0784 21.644 19.7144 21.2704C19.3503 20.8968 18.8547 20.6801 18.3332 20.6667ZM18.3332 22C18.51 22 18.6796 22.0702 18.8046 22.1953C18.9296 22.3203 18.9998 22.4899 18.9998 22.6667C18.9998 22.8435 18.9296 23.013 18.8046 23.1381C18.6796 23.2631 18.51 23.3333 18.3332 23.3333C18.1564 23.3333 17.9868 23.2631 17.8618 23.1381C17.7367 23.013 17.6665 22.8435 17.6665 22.6667C17.6665 22.4899 17.7367 22.3203 17.8618 22.1953C17.9868 22.0702 18.1564 22 18.3332 22Z",
+            fill: "white"
+        }, void 0, false, {
+            fileName: "[project]/public/membershipIcons/PricingIcon.tsx",
+            lineNumber: 6,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/public/membershipIcons/PricingIcon.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = PricingIcon;
+var _c;
+__turbopack_context__.k.register(_c, "PricingIcon");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/membershipIcons/FaqIcon.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>FaqIcon)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function FaqIcon() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "32",
+        height: "32",
+        viewBox: "0 0 32 32",
+        fill: "none",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M15.9997 4.2666C8.94371 4.2666 3.19971 9.0506 3.19971 14.9333C3.19971 17.9626 4.74104 20.8319 7.43437 22.8533L6.93837 27.1359C6.91704 27.3279 6.99704 27.5146 7.15704 27.6319C7.24771 27.7013 7.35437 27.7333 7.46637 27.7333C7.54104 27.7333 7.62104 27.7173 7.69037 27.6853L12.869 25.2746C13.8877 25.4879 14.9384 25.5999 15.9997 25.5999C23.0557 25.5999 28.7997 20.8159 28.7997 14.9333C28.7997 9.0506 23.0557 4.2666 15.9997 4.2666ZM15.9997 24.5333C14.9544 24.5333 13.9144 24.4213 12.917 24.1919C12.8957 24.1866 12.8744 24.1919 12.853 24.1919C12.8157 24.1866 12.7837 24.1866 12.7464 24.1919C12.709 24.1973 12.677 24.2079 12.6397 24.2186C12.6184 24.2239 12.597 24.2239 12.5757 24.2346L8.10637 26.3146L8.52771 22.6773C8.53304 22.6506 8.52237 22.6293 8.52237 22.6079C8.52237 22.5706 8.52237 22.5333 8.51171 22.4959C8.50637 22.4639 8.49037 22.4319 8.47437 22.3999C8.45837 22.3679 8.44771 22.3413 8.42637 22.3093C8.40504 22.2773 8.37837 22.2559 8.35171 22.2293C8.33571 22.2133 8.32504 22.1919 8.30371 22.1759C5.73837 20.3466 4.26637 17.7066 4.26637 14.9333C4.26637 9.6426 9.53037 5.33327 15.9997 5.33327C22.469 5.33327 27.733 9.6426 27.733 14.9333C27.733 20.2239 22.469 24.5333 15.9997 24.5333Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/membershipIcons/FaqIcon.tsx",
+                lineNumber: 6,
+                columnNumber: 3
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M15.9991 12.8001C14.8204 12.8001 13.8657 13.7548 13.8657 14.9335V21.8668C13.8657 22.1601 14.1057 22.4001 14.3991 22.4001H17.5991C17.8924 22.4001 18.1324 22.1601 18.1324 21.8668V14.9335C18.1324 13.7548 17.1777 12.8001 15.9991 12.8001ZM17.0657 21.3335H14.9324V14.9335C14.9324 14.3468 15.4124 13.8668 15.9991 13.8668C16.5857 13.8668 17.0657 14.3468 17.0657 14.9335V21.3335ZM15.9991 7.4668C14.8204 7.4668 13.8657 8.42146 13.8657 9.60013C13.8657 10.7788 14.8204 11.7335 15.9991 11.7335C17.1777 11.7335 18.1324 10.7788 18.1324 9.60013C18.1324 8.42146 17.1777 7.4668 15.9991 7.4668ZM15.9991 10.6668C15.4124 10.6668 14.9324 10.1868 14.9324 9.60013C14.9324 9.01346 15.4124 8.53346 15.9991 8.53346C16.5857 8.53346 17.0657 9.01346 17.0657 9.60013C17.0657 10.1868 16.5857 10.6668 15.9991 10.6668Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/membershipIcons/FaqIcon.tsx",
+                lineNumber: 7,
+                columnNumber: 3
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/public/membershipIcons/FaqIcon.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = FaqIcon;
+var _c;
+__turbopack_context__.k.register(_c, "FaqIcon");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/home-sections/Membership.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Membership)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$home$2d$membership$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$home$2d$membership$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/public/home-membership.png.mjs { IMAGE => "[project]/public/home-membership.png (static in ecmascript)" } [app-client] (structured image object, ecmascript)');
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$membershipIcons$2f$MessageIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/membershipIcons/MessageIcon.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$membershipIcons$2f$ProfileIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/membershipIcons/ProfileIcon.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$membershipIcons$2f$PricingIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/membershipIcons/PricingIcon.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$membershipIcons$2f$FaqIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/membershipIcons/FaqIcon.tsx [app-client] (ecmascript)");
+;
+;
+;
+;
+;
+;
+;
+;
+function Membership() {
+    const items = [
+        {
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$membershipIcons$2f$MessageIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                lineNumber: 13,
+                columnNumber: 13
+            }, this),
+            title: "Convenience at Your Fingertips",
+            details: "Personalized support and tools to make your claims effortless"
+        },
+        {
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$membershipIcons$2f$PricingIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                lineNumber: 18,
+                columnNumber: 13
+            }, this),
+            title: "Transparent Pricing",
+            details: "Affordable plans with no hidden fees."
+        },
+        {
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$membershipIcons$2f$ProfileIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                lineNumber: 23,
+                columnNumber: 13
+            }, this),
+            title: "Join Today",
+            details: "Personalized support and tools to make your claims effortless"
+        },
+        {
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$membershipIcons$2f$FaqIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                lineNumber: 28,
+                columnNumber: 13
+            }, this),
+            title: "FAQs",
+            details: "Answers to all your questions about membership and our offerings."
+        }
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: "container mx-auto py-24 px-4",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "flex flex-col lg:flex-row justify-center items-center gap-8",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex justify-center",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                        src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$home$2d$membership$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$home$2d$membership$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+                        alt: "membership-img",
+                        className: "max-w-11/12 h-11/12"
+                    }, void 0, false, {
+                        fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                        lineNumber: 38,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                    lineNumber: 37,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: " ",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mb-8 text-center lg:text-left",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-primary-color text-base",
+                                    children: "Membership Plans"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                    lineNumber: 47,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "text-3xl sm:text-4xl lg:text-5xl font-semibold leading-normal",
+                                    children: [
+                                        "Exclusive Access to Stress-Free ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {
+                                            className: "hidden sm:block"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                            lineNumber: 49,
+                                            columnNumber: 47
+                                        }, this),
+                                        " Claims"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                    lineNumber: 48,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                            lineNumber: 46,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            children: items.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "bg-disabled my-2 p-5 rounded-lg flex items-start gap-4",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-primary-color inline-block p-3 rounded-full",
+                                            children: item.icon
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                            lineNumber: 60,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "text-isecondary text-xl sm:text-2xl font-semibold",
+                                                    children: item.title
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                                    lineNumber: 64,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-base font-normal text-text-light",
+                                                    children: item.details
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                                    lineNumber: 67,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                            lineNumber: 63,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, index, true, {
+                                    fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                    lineNumber: 56,
+                                    columnNumber: 15
+                                }, this))
+                        }, void 0, false, {
+                            fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                            lineNumber: 54,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mt-10 text-center lg:text-left",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                size: "lg",
+                                className: "bg-[var(--primary-color)] py-4 px-8 sm:px-10",
+                                children: "Discover More →"
+                            }, void 0, false, {
+                                fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                                lineNumber: 77,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                            lineNumber: 76,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+                    lineNumber: 44,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+            lineNumber: 36,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/(client)/home-sections/Membership.tsx",
+        lineNumber: 35,
+        columnNumber: 5
+    }, this);
+}
+_c = Membership;
+var _c;
+__turbopack_context__.k.register(_c, "Membership");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/insurance/SettingsIcon.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>SettingsIcon)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function SettingsIcon() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "32",
+        height: "32",
+        viewBox: "0 0 32 32",
+        fill: "none",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M3.7343 11.4327C3.7343 11.3169 3.78031 11.2058 3.86222 11.1239C3.94412 11.042 4.05521 10.9959 4.17105 10.9959H6.24161C6.35744 10.9959 6.46853 11.042 6.55044 11.1239C6.63234 11.2058 6.67836 11.3169 6.67836 11.4327C6.67836 11.5485 6.63234 11.6596 6.55044 11.7415C6.46853 11.8234 6.35744 11.8694 6.24161 11.8694H4.17105C4.11369 11.8694 4.05689 11.8582 4.0039 11.8362C3.95091 11.8143 3.90276 11.7821 3.8622 11.7415C3.82164 11.701 3.78947 11.6528 3.76753 11.5998C3.74558 11.5468 3.73429 11.49 3.7343 11.4327ZM4.17105 10.1543H8.05048C8.16632 10.1543 8.27741 10.1083 8.35931 10.0264C8.44122 9.94448 8.48723 9.8334 8.48723 9.71756C8.48723 9.60173 8.44122 9.49064 8.35931 9.40873C8.27741 9.32683 8.16632 9.28081 8.05048 9.28081H4.17105C4.05521 9.28081 3.94412 9.32683 3.86222 9.40873C3.78031 9.49064 3.7343 9.60173 3.7343 9.71756C3.7343 9.8334 3.78031 9.94448 3.86222 10.0264C3.94412 10.1083 4.05521 10.1543 4.17105 10.1543ZM4.17105 8.43913H8.05048C8.16632 8.43913 8.27741 8.39311 8.35931 8.3112C8.44122 8.2293 8.48723 8.11821 8.48723 8.00237C8.48723 7.88654 8.44122 7.77545 8.35931 7.69355C8.27741 7.61164 8.16632 7.56563 8.05048 7.56563H4.17105C4.05521 7.56563 3.94412 7.61164 3.86222 7.69355C3.78031 7.77545 3.7343 7.88654 3.7343 8.00237C3.7343 8.11821 3.78031 8.2293 3.86222 8.3112C3.94412 8.39311 4.05521 8.43913 4.17105 8.43913ZM24.6417 25.8189V30.8972C24.6417 31.4881 24.161 31.9688 23.5701 31.9688H2.79011C2.1983 31.9688 1.7168 31.4881 1.7168 30.8972V4.85669C1.7168 4.26587 2.1983 3.78519 2.79011 3.78519H7.71817V3.71625C7.71817 2.98406 8.31386 2.38825 9.04611 2.38825H10.4205C10.6307 1.0545 11.7882 0.03125 13.1801 0.03125C14.572 0.03125 15.7295 1.0545 15.9398 2.38825H17.3124C18.0446 2.38825 18.6404 2.984 18.6404 3.71625V3.78519H23.5701C24.1609 3.78519 24.6417 4.26587 24.6417 4.85669V12.598C24.6417 12.7138 24.5957 12.8249 24.5138 12.9068C24.4318 12.9887 24.3208 13.0347 24.2049 13.0347C24.0891 13.0347 23.978 12.9887 23.8961 12.9068C23.8142 12.8249 23.7682 12.7138 23.7682 12.598V4.85669C23.7681 4.80418 23.7472 4.75385 23.7101 4.71673C23.673 4.67961 23.6226 4.65874 23.5701 4.65869H18.6404V5.09013C18.6404 5.82137 18.0447 6.41625 17.3124 6.41625H9.04605C8.31386 6.41625 7.71811 5.82131 7.71811 5.09013V4.65875H2.79011C2.67992 4.65875 2.5903 4.74756 2.5903 4.85675V30.8972C2.5903 31.0046 2.6818 31.0952 2.79011 31.0952H23.5702C23.6775 31.0952 23.7682 31.0046 23.7682 30.8972V25.8189C23.7675 25.7611 23.7783 25.7037 23.8 25.6501C23.8216 25.5965 23.8537 25.5478 23.8943 25.5067C23.9349 25.4656 23.9833 25.4329 24.0366 25.4106C24.0899 25.3884 24.1472 25.3769 24.205 25.3769C24.2627 25.3769 24.32 25.3884 24.3733 25.4106C24.4266 25.4329 24.475 25.4656 24.5156 25.5067C24.5562 25.5478 24.5883 25.5965 24.6099 25.6501C24.6316 25.7037 24.6424 25.7611 24.6417 25.8189ZM8.59161 5.09013C8.59161 5.33969 8.79548 5.54275 9.04605 5.54275H17.3124C17.563 5.54275 17.7669 5.33969 17.7669 5.09013V3.71619C17.7669 3.46556 17.563 3.26175 17.3124 3.26175H15.5371C15.4213 3.26175 15.3102 3.21574 15.2283 3.13383C15.1464 3.05192 15.1004 2.94083 15.1004 2.825C15.1004 1.76619 14.2389 0.904813 13.1801 0.904813C12.1213 0.904813 11.2598 1.76619 11.2598 2.825C11.2598 2.94083 11.2138 3.05192 11.1319 3.13383C11.05 3.21574 10.9389 3.26175 10.823 3.26175H9.04605C8.79548 3.26175 8.59161 3.46556 8.59161 3.71619V5.09013ZM13.1798 3.61281H13.1824C13.3931 3.61206 13.5905 3.52925 13.7345 3.38337C13.8087 3.31057 13.8675 3.22366 13.9076 3.12777C13.9476 3.03187 13.9681 2.92893 13.9678 2.825C13.9678 2.6145 13.8857 2.417 13.7364 2.26863C13.6639 2.19536 13.5776 2.1372 13.4825 2.09748C13.3874 2.05777 13.2854 2.0373 13.1824 2.03725H13.1797C13.0761 2.037 12.9734 2.05732 12.8776 2.09704C12.7819 2.13676 12.695 2.19508 12.6219 2.26863C12.3152 2.57538 12.3152 3.07463 12.6219 3.38138C12.695 3.45493 12.7819 3.51326 12.8777 3.55299C12.9734 3.59272 13.0761 3.61305 13.1798 3.61281ZM16.5786 16.5252C16.5786 18.3455 15.0977 19.8264 13.2774 19.8264C11.457 19.8264 9.97611 18.3455 9.97611 16.5252C9.97611 14.7049 11.457 13.2239 13.2774 13.2239C15.0977 13.2239 16.5786 14.7049 16.5786 16.5252ZM15.7051 16.5252C15.7051 15.1865 14.616 14.0974 13.2774 14.0974C11.9387 14.0974 10.8496 15.1865 10.8496 16.5252C10.8496 17.8638 11.9387 18.9529 13.2774 18.9529C14.616 18.9529 15.7051 17.8638 15.7051 16.5252ZM17.7765 18.2346C17.7423 18.3237 17.7055 18.4117 17.6662 18.4986L18.412 19.6799C18.4649 19.7636 18.4877 19.8629 18.4768 19.9613C18.4658 20.0598 18.4217 20.1516 18.3517 20.2217L16.9743 21.6009C16.9042 21.671 16.8124 21.7153 16.7138 21.7263C16.6153 21.7373 16.5159 21.7145 16.4321 21.6616L15.2504 20.9155C15.1631 20.9547 15.0746 20.9912 14.9851 21.0251L14.6777 22.3874C14.6559 22.4841 14.6018 22.5705 14.5244 22.6324C14.4469 22.6943 14.3507 22.728 14.2516 22.728H12.3013C12.2022 22.728 12.106 22.6943 12.0286 22.6324C11.9512 22.5705 11.8971 22.4841 11.8753 22.3874L11.5677 21.0246C11.4789 20.9908 11.391 20.9544 11.3044 20.9154L10.1227 21.6615C10.0389 21.7144 9.93958 21.7373 9.84107 21.7263C9.74257 21.7153 9.65074 21.6712 9.58067 21.6011L8.20148 20.2219C8.13141 20.1518 8.08724 20.0599 8.07625 19.9614C8.06526 19.8629 8.08808 19.7636 8.14098 19.6798L8.88711 18.4981C8.84812 18.4113 8.81169 18.3234 8.77786 18.2344L7.41467 17.9254C7.31807 17.9035 7.23179 17.8494 7.16997 17.772C7.10816 17.6946 7.07448 17.5985 7.07448 17.4994V16.9619H6.28411C5.65623 16.9619 5.14536 17.4727 5.14536 18.1006V25.1452C5.14536 25.7731 5.65623 26.2838 6.28411 26.2838H17.689C17.8049 26.2838 17.916 26.3298 17.9979 26.4117C18.0798 26.4936 18.1258 26.6047 18.1258 26.7206C18.1258 26.8364 18.0798 26.9475 17.9979 27.0294C17.916 27.1113 17.8049 27.1573 17.689 27.1573H6.28411C5.17455 27.1573 4.27186 26.2546 4.27186 25.1451V18.1006C4.27186 16.9911 5.17455 16.0884 6.28411 16.0884H7.07448V15.5509C7.07447 15.4518 7.10814 15.3557 7.16996 15.2783C7.23177 15.2009 7.31807 15.1468 7.41467 15.1249L8.77786 14.8159C8.81165 14.7269 8.84808 14.639 8.88711 14.5522L8.14098 13.3704C8.08806 13.2866 8.06522 13.1873 8.07622 13.0888C8.08721 12.9903 8.13139 12.8985 8.20148 12.8284L9.58067 11.4493C9.65075 11.3792 9.74259 11.335 9.84108 11.324C9.93957 11.3131 10.0389 11.3359 10.1227 11.3888L11.3044 12.1349C11.3911 12.0959 11.4789 12.0595 11.5677 12.0258L11.8753 10.6629C11.8971 10.5662 11.9512 10.4799 12.0286 10.4179C12.106 10.356 12.2022 10.3223 12.3013 10.3223H14.2516C14.3507 10.3223 14.4469 10.356 14.5243 10.4179C14.6018 10.4798 14.6558 10.5662 14.6777 10.6629L14.9851 12.0253C15.0746 12.0591 15.1631 12.0957 15.2504 12.1348L16.4321 11.3888C16.516 11.3358 16.6153 11.313 16.7138 11.324C16.8124 11.335 16.9042 11.3792 16.9743 11.4494L18.3517 12.8285C18.4217 12.8986 18.4658 12.9904 18.4768 13.0889C18.4877 13.1873 18.4649 13.2866 18.412 13.3703L17.6662 14.5517C17.7055 14.6386 17.7423 14.7266 17.7765 14.8157L19.1401 15.1249C19.2367 15.1468 19.323 15.2009 19.3848 15.2783C19.4466 15.3557 19.4803 15.4518 19.4803 15.5508V17.4994C19.4803 17.5985 19.4466 17.6946 19.3848 17.772C19.323 17.8494 19.2367 17.9035 19.1401 17.9254L17.7765 18.2346ZM16.7794 18.3263C16.879 18.1339 16.9626 17.9337 17.0294 17.7277C17.0527 17.6556 17.0944 17.5908 17.1503 17.5396C17.2062 17.4885 17.2745 17.4528 17.3484 17.436L18.6067 17.1507V15.8997L17.3484 15.6144C17.2745 15.5976 17.2062 15.5619 17.1503 15.5108C17.0944 15.4596 17.0527 15.3948 17.0294 15.3227C16.9626 15.1166 16.879 14.9164 16.7794 14.7241C16.7445 14.6564 16.7278 14.5808 16.7311 14.5048C16.7344 14.4287 16.7575 14.3548 16.7981 14.2904L17.4871 13.1991L16.603 12.3139L15.512 13.0026C15.4477 13.0433 15.3738 13.0664 15.2977 13.0697C15.2216 13.073 15.146 13.0563 15.0784 13.0213C14.8858 12.9222 14.6853 12.8393 14.4789 12.7734C14.4065 12.7502 14.3414 12.7085 14.2901 12.6524C14.2388 12.5963 14.203 12.5278 14.1862 12.4536L13.9024 11.1958H12.6504L12.3665 12.4536C12.3498 12.5276 12.3142 12.596 12.263 12.652C12.2118 12.708 12.1469 12.7498 12.0747 12.7731C11.8687 12.8393 11.6685 12.9224 11.4761 13.0214C11.4084 13.0563 11.3328 13.0729 11.2568 13.0696C11.1807 13.0663 11.1068 13.0432 11.0424 13.0026L9.9513 12.3138L9.06573 13.1993L9.75467 14.2904C9.79532 14.3548 9.81842 14.4287 9.8217 14.5048C9.82498 14.5809 9.80831 14.6565 9.77336 14.7242C9.67439 14.9166 9.59136 15.1168 9.52511 15.3228C9.50181 15.3949 9.46015 15.4597 9.40422 15.5108C9.34829 15.562 9.28002 15.5977 9.20611 15.6144L7.9478 15.8997V17.1507L9.20611 17.4361C9.28002 17.4528 9.34829 17.4885 9.40422 17.5397C9.46015 17.5908 9.50181 17.6556 9.52511 17.7278C9.59134 17.9337 9.67436 18.1339 9.77336 18.3263C9.80831 18.394 9.82497 18.4696 9.82169 18.5457C9.81841 18.6218 9.79531 18.6957 9.75467 18.7601L9.06573 19.8511L9.9513 20.7367L11.0424 20.0478C11.1068 20.0072 11.1807 19.984 11.2568 19.9808C11.3328 19.9775 11.4085 19.9941 11.4761 20.0291C11.6685 20.1281 11.8687 20.2111 12.0747 20.2774C12.1469 20.3007 12.2118 20.3424 12.263 20.3984C12.3142 20.4544 12.3498 20.5228 12.3665 20.5968L12.6504 21.8546H13.9024L14.1862 20.5968C14.203 20.5226 14.2388 20.4541 14.2901 20.3981C14.3414 20.342 14.4065 20.3003 14.4789 20.2771C14.6853 20.2112 14.8858 20.1282 15.0784 20.0291C15.146 19.9942 15.2216 19.9775 15.2977 19.9808C15.3738 19.984 15.4477 20.0072 15.512 20.0478L16.603 20.7366L17.4871 19.8513L16.7981 18.7601C16.7575 18.6957 16.7344 18.6218 16.7311 18.5457C16.7278 18.4696 16.7445 18.394 16.7794 18.3263ZM30.0664 14.0735L29.4531 15.1357C29.4524 15.137 29.4519 15.1384 29.4511 15.1396C29.4505 15.1406 29.4499 15.1414 29.4493 15.1424L24.0103 24.5626C23.9764 24.6213 23.9293 24.6713 23.8727 24.7086L20.2744 27.0851C20.2067 27.1298 20.1279 27.1548 20.0469 27.1572C19.9658 27.1597 19.8857 27.1395 19.8154 27.0989C19.7452 27.0584 19.6876 26.999 19.6492 26.9276C19.6108 26.8562 19.593 26.7755 19.5979 26.6945L19.856 22.3907C19.8601 22.323 19.8798 22.2572 19.9137 22.1985L25.9698 11.7077C26.4145 10.9396 27.4014 10.6754 28.1698 11.1179L29.4769 11.8731C29.8483 12.0872 30.1143 12.4342 30.226 12.8506C30.3379 13.2671 30.2812 13.7015 30.0664 14.0735ZM22.8012 24.3695L20.6855 23.1478L20.522 25.8748L22.8012 24.3695ZM28.4759 15.0812L25.8917 13.5901L20.8887 22.2564L23.4719 23.7481L28.4759 15.0812ZM29.3824 13.077C29.3311 12.8861 29.2097 12.7273 29.0405 12.6299C29.0403 12.6297 29.0402 12.6296 29.04 12.6296L27.7332 11.8746C27.3817 11.6721 26.9296 11.7933 26.7259 12.1449L26.3284 12.8336L28.9127 14.3247L29.3099 13.6368C29.4079 13.4669 29.4337 13.2681 29.3824 13.077Z",
+            fill: "white"
+        }, void 0, false, {
+            fileName: "[project]/public/insurance/SettingsIcon.tsx",
+            lineNumber: 6,
+            columnNumber: 3
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/public/insurance/SettingsIcon.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = SettingsIcon;
+var _c;
+__turbopack_context__.k.register(_c, "SettingsIcon");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/insurance/Hand.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Hand)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function Hand() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "32",
+        height: "32",
+        viewBox: "0 0 32 32",
+        fill: "none",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M26.375 23.8499L23 16.9999L26.5 15.3199L26.065 14.4199L22.13 16.3199C22.0708 16.3487 22.0179 16.3889 21.9743 16.4382C21.9307 16.4875 21.8972 16.5449 21.8758 16.6072C21.8545 16.6694 21.8456 16.7353 21.8497 16.8009C21.8539 16.8666 21.8709 16.9308 21.9 16.9899L22.155 17.4899C21.435 17.5549 20.195 17.4249 18.155 16.5999C17.4069 16.268 16.5863 16.1332 15.7714 16.2085C14.9565 16.2838 14.1745 16.5666 13.5 17.0299C12.8491 17.4844 12.278 18.0437 11.81 18.6849C11.326 18.5449 10.8646 18.3361 10.44 18.0649L10.56 17.8599C10.5929 17.803 10.6142 17.7401 10.6228 17.6749C10.6314 17.6097 10.627 17.5434 10.61 17.4799C10.5929 17.4161 10.5633 17.3562 10.523 17.3039C10.4827 17.2515 10.4323 17.2077 10.375 17.1749L6.68996 15.0699L6.18996 15.9349L9.44496 17.7949L5.58496 24.4249L2.32996 22.5649L1.82996 23.4299L5.49996 25.5399C5.61476 25.6051 5.75069 25.6222 5.87809 25.5876C6.00548 25.5529 6.114 25.4693 6.17996 25.3549L6.29996 25.1499L7.25496 25.8549L7.14996 26.0099C7.05014 26.1543 6.97978 26.3169 6.94289 26.4885C6.90599 26.6601 6.9033 26.8373 6.93496 27.0099C6.96587 27.1868 7.03177 27.3557 7.12879 27.5069C7.2258 27.658 7.35199 27.7882 7.49996 27.8899L7.73496 28.0499C7.95991 28.2053 8.22658 28.2889 8.49996 28.2899C8.53825 28.2924 8.57666 28.2924 8.61496 28.2899C8.6886 28.5881 8.86582 28.8503 9.11496 29.0299L9.34996 29.1949C9.57352 29.3487 9.83863 29.4306 10.11 29.4299C10.1931 29.4375 10.2768 29.4375 10.36 29.4299C10.4564 29.4105 10.5503 29.3803 10.64 29.3399C10.7401 29.5093 10.8746 29.6558 11.035 29.7699L11.27 29.9299C11.4931 30.0852 11.7581 30.1689 12.03 30.1699H12.15C12.2319 30.4696 12.418 30.7302 12.675 30.9049L12.905 31.0649C13.1285 31.2187 13.3936 31.3006 13.665 31.2999C13.885 31.3003 14.1019 31.2473 14.297 31.1454C14.4921 31.0435 14.6595 30.8958 14.785 30.7149L14.925 30.5099L16.275 31.3249C16.506 31.4641 16.7703 31.5383 17.04 31.5399C17.2985 31.54 17.5526 31.4734 17.7778 31.3463C18.0029 31.2193 18.1914 31.0363 18.325 30.8149C18.4173 30.6613 18.4801 30.4917 18.51 30.3149C18.6431 30.3544 18.7811 30.3746 18.92 30.3749C19.1785 30.375 19.4326 30.3084 19.6578 30.1813C19.8829 30.0543 20.0714 29.8713 20.205 29.6499C20.2997 29.488 20.3641 29.31 20.395 29.1249C20.5262 29.1651 20.6627 29.1853 20.8 29.1849C21.0576 29.1842 21.3107 29.1171 21.5349 28.9901C21.7591 28.8631 21.9468 28.6805 22.08 28.4599C22.1668 28.3149 22.2277 28.1559 22.26 27.9899L22.335 28.0349C22.5674 28.1749 22.8336 28.2492 23.105 28.2499C23.3635 28.25 23.6176 28.1834 23.8428 28.0563C24.0679 27.9293 24.2564 27.7463 24.39 27.5249C24.5282 27.2919 24.6008 27.0258 24.6 26.7549C24.6009 26.5427 24.5569 26.3327 24.4707 26.1388C24.3845 25.9448 24.2581 25.7714 24.1 25.6299C24.4346 25.0822 24.8728 24.605 25.39 24.2249L25.675 24.7999C25.7162 24.8841 25.7802 24.9549 25.8598 25.0045C25.9394 25.054 26.0312 25.0801 26.125 25.0799C26.1995 25.0795 26.2729 25.0624 26.34 25.0299L30.275 23.1299L29.84 22.2299L26.375 23.8499ZM8.80996 27.1349C8.78341 27.1741 8.7493 27.2076 8.70962 27.2334C8.66994 27.2592 8.6255 27.2769 8.57891 27.2852C8.53232 27.2936 8.48453 27.2926 8.43834 27.2822C8.39215 27.2719 8.3485 27.2524 8.30996 27.2249L8.07496 27.0649C8.03576 27.0384 8.00227 27.0043 7.97646 26.9646C7.95064 26.9249 7.93303 26.8805 7.92464 26.8339C7.91625 26.7873 7.91727 26.7395 7.92763 26.6933C7.93799 26.6471 7.95748 26.6035 7.98496 26.5649L8.71996 25.4999C8.77278 25.4237 8.85371 25.3715 8.94496 25.3549C8.9909 25.347 9.03795 25.3483 9.08342 25.3586C9.12889 25.3689 9.17189 25.388 9.20996 25.4149L9.43996 25.5749C9.47916 25.5995 9.51248 25.6324 9.53754 25.6713C9.5626 25.7101 9.57879 25.7541 9.58496 25.7999C9.59473 25.8455 9.59488 25.8926 9.58541 25.9382C9.57594 25.9839 9.55705 26.027 9.52996 26.0649L8.80996 27.1349ZM10.445 28.2649C10.3921 28.3412 10.3112 28.3933 10.22 28.4099C10.1279 28.4247 10.0335 28.4052 9.95496 28.3549L9.71996 28.1949C9.68076 28.1684 9.64727 28.1343 9.62146 28.0946C9.59564 28.0549 9.57803 28.0105 9.56964 27.9639C9.56125 27.9173 9.56227 27.8695 9.57263 27.8233C9.58299 27.7771 9.60248 27.7335 9.62996 27.6949L10.63 26.2299C10.6555 26.1916 10.6886 26.1589 10.7273 26.134C10.7661 26.109 10.8095 26.0923 10.855 26.0849H10.92C10.9911 26.0847 11.0607 26.1056 11.12 26.1449L11.35 26.3049C11.4269 26.358 11.4806 26.4385 11.5 26.5299C11.5081 26.5759 11.507 26.623 11.4967 26.6685C11.4864 26.714 11.4671 26.757 11.44 26.7949L10.445 28.2649ZM12.365 28.9999C12.3384 29.0391 12.3043 29.0726 12.2646 29.0984C12.2249 29.1242 12.1805 29.1419 12.1339 29.1502C12.0873 29.1586 12.0395 29.1576 11.9933 29.1472C11.9472 29.1369 11.9035 29.1174 11.865 29.0899L11.63 28.9299C11.5549 28.876 11.5031 28.7956 11.485 28.7049C11.4701 28.6128 11.4897 28.5185 11.54 28.4399L12.265 27.3899C12.3187 27.311 12.4015 27.2567 12.4953 27.2389C12.589 27.2211 12.686 27.2412 12.765 27.2949L13 27.4599C13.0391 27.4865 13.0726 27.5206 13.0985 27.5603C13.1243 27.5999 13.1419 27.6444 13.1503 27.691C13.1587 27.7376 13.1576 27.7853 13.1473 27.8315C13.1369 27.8777 13.1174 27.9214 13.09 27.9599L12.365 28.9999ZM14.445 29.4999L14 30.1099C13.9446 30.1869 13.8615 30.2394 13.7682 30.2562C13.6749 30.273 13.5787 30.2528 13.5 30.1999L13.265 30.0399C13.2258 30.0134 13.1923 29.9793 13.1665 29.9396C13.1406 29.8999 13.123 29.8555 13.1146 29.8089C13.1063 29.7623 13.1073 29.7145 13.1176 29.6683C13.128 29.6221 13.1475 29.5785 13.175 29.5399L13.62 28.8949C13.6465 28.8557 13.6806 28.8222 13.7203 28.7964C13.76 28.7706 13.8044 28.753 13.851 28.7446C13.8976 28.7362 13.9454 28.7372 13.9916 28.7476C14.0378 28.758 14.0814 28.7774 14.12 28.8049L14.35 28.9649C14.3895 28.9911 14.4235 29.0249 14.4498 29.0644C14.4761 29.1039 14.4942 29.1482 14.503 29.1949C14.5119 29.2415 14.5113 29.2894 14.5013 29.3358C14.4914 29.3822 14.4722 29.4261 14.445 29.4649V29.4999ZM23.575 26.9999C23.5068 27.112 23.3972 27.1929 23.27 27.2249C23.1426 27.2565 23.0079 27.2368 22.895 27.1699L19.895 25.3749L19.395 26.2299L21.1 27.2299C21.2121 27.2981 21.2929 27.4077 21.325 27.5349C21.3565 27.6623 21.3368 27.797 21.27 27.9099C21.2018 28.022 21.0922 28.1029 20.965 28.1349C20.8376 28.1665 20.7029 28.1468 20.59 28.0799L18.46 26.7949L17.96 27.6499L19.24 28.4199C19.35 28.4904 19.4301 28.599 19.465 28.7249C19.4864 28.8195 19.4798 28.9183 19.4461 29.0092C19.4124 29.1001 19.353 29.1793 19.2751 29.237C19.1972 29.2948 19.1042 29.3286 19.0074 29.3345C18.9106 29.3403 18.8142 29.3179 18.73 29.2699L16.6 27.9849L16.1 28.8399L17.385 29.6199C17.4687 29.6978 17.5232 29.802 17.5394 29.9151C17.5556 30.0283 17.5325 30.1436 17.4741 30.2418C17.4156 30.34 17.3252 30.4152 17.2181 30.4549C17.1109 30.4946 16.9933 30.4964 16.885 30.4599L15.465 29.5999C15.5195 29.4047 15.5314 29.2001 15.5 28.9999C15.4684 28.8252 15.4027 28.6584 15.3066 28.5091C15.2105 28.3599 15.0859 28.231 14.94 28.1299L14.69 27.9999C14.5282 27.889 14.3437 27.8156 14.15 27.7849C14.1599 27.6885 14.1599 27.5913 14.15 27.4949C14.1191 27.3194 14.0532 27.1518 13.9561 27.0023C13.8591 26.8528 13.7328 26.7245 13.585 26.6249L13.355 26.4649C13.0972 26.2884 12.7861 26.2071 12.475 26.2349C12.3855 25.9334 12.1925 25.6731 11.93 25.4999L11.695 25.3399C11.4032 25.1388 11.0436 25.0615 10.695 25.1249C10.5991 25.1442 10.5054 25.1727 10.415 25.2099C10.3147 25.042 10.1801 24.8972 10.02 24.7849L9.78496 24.6249C9.48962 24.4223 9.12606 24.3448 8.77376 24.4095C8.42147 24.4741 8.1091 24.6756 7.90496 24.9699L7.85496 25.0449L6.85496 24.2949L9.94496 18.9449C10.3514 19.2006 10.7859 19.4086 11.24 19.5649C10.7501 20.3004 10.4181 21.1296 10.265 21.9999C10.2775 22.258 10.3782 22.504 10.5501 22.6969C10.7221 22.8898 10.955 23.0179 11.21 23.0599C12.12 23.2999 13.84 22.9349 15.1 21.0599L23.4 26.2649C23.4739 26.3087 23.5352 26.3709 23.5782 26.4453C23.6211 26.5198 23.6441 26.604 23.645 26.6899C23.6449 26.7797 23.6208 26.8677 23.575 26.9449V26.9999ZM23.285 24.9999L19.605 22.6949C20.1464 22.3825 20.607 21.9475 20.95 21.4249L20.08 20.9249C19.7164 21.4418 19.2086 21.84 18.62 22.0699L15.205 19.9299C15.1474 19.894 15.0832 19.8701 15.0161 19.8598C14.9491 19.8495 14.8806 19.8529 14.815 19.8699C14.7502 19.8864 14.6894 19.9157 14.6362 19.956C14.5829 19.9964 14.5383 20.047 14.505 20.1049C13.67 21.5799 12.505 22.1049 11.77 22.1049C11.5931 22.1231 11.4156 22.0769 11.27 21.9749C11.6931 20.3229 12.6666 18.8644 14.03 17.8399C14.567 17.465 15.1926 17.2364 15.8449 17.1768C16.4972 17.1172 17.1538 17.2285 17.75 17.4999C19.8 18.3349 21.425 18.6349 22.59 18.4099L24.965 23.2349C24.291 23.7031 23.7193 24.3036 23.285 24.9999Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/insurance/Hand.tsx",
+                lineNumber: 6,
+                columnNumber: 3
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M26.7 21.715L27.696 21.2255L28.137 22.1225L27.1415 22.6125L26.7 21.715ZM26 13V4.50001C26.0004 4.43421 25.9878 4.36897 25.9629 4.30806C25.938 4.24714 25.9013 4.19173 25.855 4.14501L22.355 0.645008C22.3083 0.598668 22.2529 0.562005 22.192 0.537123C22.131 0.51224 22.0658 0.499628 22 0.500008H7C6.73478 0.500008 6.48043 0.605365 6.29289 0.792902C6.10536 0.980438 6 1.23479 6 1.50001V13.5H7V1.50001H21.5V4.00001C21.5 4.26523 21.6054 4.51958 21.7929 4.70712C21.9804 4.89465 22.2348 5.00001 22.5 5.00001H25V13H26ZM22.5 4.00001V2.20501L24.295 4.00001H22.5Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/insurance/Hand.tsx",
+                lineNumber: 7,
+                columnNumber: 3
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M11 8.5C11 9.48891 11.2932 10.4556 11.8427 11.2779C12.3921 12.1001 13.173 12.741 14.0866 13.1194C15.0002 13.4978 16.0055 13.5969 16.9755 13.4039C17.9454 13.211 18.8363 12.7348 19.5355 12.0355C20.2348 11.3363 20.711 10.4454 20.9039 9.47545C21.0969 8.50555 20.9978 7.50021 20.6194 6.58658C20.241 5.67295 19.6001 4.89206 18.7779 4.34265C17.9556 3.79324 16.9889 3.5 16 3.5C14.6739 3.5 13.4021 4.02678 12.4645 4.96447C11.5268 5.90215 11 7.17392 11 8.5ZM20 8.5C20 9.29113 19.7654 10.0645 19.3259 10.7223C18.8864 11.3801 18.2616 11.8928 17.5307 12.1955C16.7998 12.4983 15.9956 12.5775 15.2196 12.4231C14.4437 12.2688 13.731 11.8878 13.1716 11.3284C12.6122 10.769 12.2312 10.0563 12.0769 9.28036C11.9225 8.50444 12.0017 7.70017 12.3045 6.96927C12.6072 6.23836 13.1199 5.61365 13.7777 5.17412C14.4355 4.7346 15.2089 4.5 16 4.5C17.0609 4.5 18.0783 4.92143 18.8284 5.67157C19.5786 6.42172 20 7.43913 20 8.5Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/insurance/Hand.tsx",
+                lineNumber: 8,
+                columnNumber: 3
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M14.1454 8.425L13.4354 9.135L14.6754 10.37C14.7691 10.4631 14.8958 10.5154 15.0279 10.5154C15.16 10.5154 15.2867 10.4631 15.3804 10.37L18.5654 7.19L17.8554 6.5L15.0304 9.33L14.1454 8.425Z",
+                fill: "white"
+            }, void 0, false, {
+                fileName: "[project]/public/insurance/Hand.tsx",
+                lineNumber: 9,
+                columnNumber: 3
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/public/insurance/Hand.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = Hand;
+var _c;
+__turbopack_context__.k.register(_c, "Hand");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/insurance/Like.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Like)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function Like() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "32",
+        height: "32",
+        viewBox: "0 0 32 32",
+        fill: "none",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M20.0573 24.5904C19.7811 24.5904 19.558 24.3672 19.558 24.091C19.558 23.8147 19.7811 23.5916 20.0573 23.5916H25.4998C25.7761 23.5916 25.9992 23.8147 25.9992 24.091C25.9992 24.3672 25.7761 24.5904 25.4998 24.5904H20.0573ZM4.10547 22.036H5.41484C5.92859 22.036 6.37672 22.3566 6.55422 22.8229V2.96223C6.55422 2.02848 7.31609 1.2666 8.24984 1.2666H27.3605C28.2923 1.2666 29.0542 2.02848 29.0542 2.96223V25.3791C29.0542 26.311 28.2923 27.0729 27.3605 27.0729H16.8686C16.833 27.4947 16.6242 27.8947 16.2823 28.1622C16.8317 29.1847 15.9192 30.4172 14.6805 30.3891L11.1211 30.3079C9.05734 30.2597 9.21297 29.3954 7.42734 29.3547L6.58422 29.3354C6.43359 29.8454 5.96234 30.2104 5.41484 30.2104H4.10547C3.43422 30.2104 2.88672 29.6628 2.88672 28.9916V23.2547C2.88672 22.5835 3.43422 22.036 4.10547 22.036ZM6.63359 23.8466V28.3397C8.04234 28.3716 8.45859 28.3416 9.52672 28.8922C9.91484 29.0922 10.303 29.291 11.1405 29.3104L14.6998 29.3935C15.2511 29.406 15.7805 28.791 15.1711 28.4047C14.7723 28.1529 14.9161 27.5404 15.3798 27.4872C15.9255 27.4254 16.0017 26.7679 15.6986 26.6122C15.3248 26.421 15.3423 25.8879 15.718 25.716C16.1148 25.5354 16.1198 24.9822 15.7411 24.7879C15.3673 24.5985 15.3848 24.0635 15.7605 23.8935V23.8916C16.2586 23.6647 16.1042 22.921 15.5623 22.9085C14.9936 22.896 14.4498 22.9491 13.7942 22.896C12.6248 22.8041 11.5567 22.4179 11.6648 21.066C11.7198 20.3716 11.7661 19.6879 11.5498 19.2572C11.3905 18.9385 11.038 18.7154 10.3436 18.6654C10.3242 19.3104 10.3611 19.966 10.3455 20.6016C10.3048 22.4266 9.88109 23.881 7.09422 23.8316L6.63359 23.8466ZM5.41484 23.0347H4.10547C3.98484 23.0347 3.88609 23.136 3.88609 23.2541V28.991C3.88609 29.1097 3.98547 29.2091 4.10547 29.2091H5.41484C5.53547 29.2091 5.63422 29.1097 5.63422 28.991V23.2541C5.63484 23.136 5.53547 23.0347 5.41484 23.0347ZM7.55484 22.8204C9.50172 22.6591 9.35859 21.1197 9.34797 19.6866C9.33922 19.1622 9.33047 18.6254 9.37297 18.1172H9.37484C9.39422 17.8654 9.60172 17.6653 9.85859 17.6604C11.338 17.6197 12.0786 18.0854 12.4417 18.8104C12.7798 19.4872 12.7286 20.311 12.6611 21.1435C12.6186 21.6804 13.2192 21.8485 13.873 21.8997C14.5105 21.951 15.0248 21.8997 15.5823 21.9122C16.9005 21.9422 17.4692 23.4554 16.7373 24.3679C17.0967 24.871 17.1092 25.5547 16.773 26.0741H27.3605C27.7411 26.0741 28.0548 25.7604 28.0548 25.3797V2.96223C28.0548 2.5816 27.7411 2.26785 27.3605 2.26785H26.4161V8.25035C26.4161 8.69348 25.8617 8.94473 25.5305 8.56723L23.2342 6.1366L20.9167 8.59223C20.6048 8.9216 20.0542 8.69848 20.0542 8.25035H20.0523V2.26785H8.24984C7.86922 2.26785 7.55547 2.5816 7.55547 2.96223V22.8204H7.55484ZM21.0536 2.26785V6.99473L22.8711 5.0691C23.0692 4.86035 23.4011 4.86035 23.5973 5.0691L25.4167 6.99473V2.26785H21.0536ZM19.0761 18.4747H26.4836C26.758 18.4747 26.983 18.6997 26.983 18.9741V22.0622C26.983 22.3366 26.758 22.5616 26.4836 22.5616H19.0761C18.7998 22.5616 18.5748 22.3366 18.5748 22.0622V18.9741C18.5748 18.6997 18.7998 18.4747 19.0761 18.4747ZM25.9817 19.476H19.5755V21.561H25.9817V19.476ZM21.778 9.86785H26.1361C26.2017 9.86777 26.2667 9.88063 26.3273 9.9057C26.3879 9.93076 26.443 9.96754 26.4894 10.0139C26.5358 10.0603 26.5726 10.1154 26.5976 10.176C26.6227 10.2367 26.6356 10.3016 26.6355 10.3672V14.1797C26.6356 14.2453 26.6227 14.3103 26.5976 14.3709C26.5726 14.4316 26.5358 14.4866 26.4894 14.533C26.443 14.5794 26.3879 14.6162 26.3273 14.6413C26.2667 14.6663 26.2017 14.6792 26.1361 14.6791H21.778C21.5036 14.6791 21.2786 14.456 21.2786 14.1797V10.3672C21.2786 10.0916 21.5036 9.86785 21.778 9.86785ZM25.6367 10.8672H22.2792V13.6804H25.6367V10.8672ZM8.87297 17.286C8.59672 17.286 8.37359 17.0629 8.37359 16.7866C8.37359 16.5104 8.59672 16.2872 8.87297 16.2872H26.3767C26.653 16.2872 26.8761 16.5104 26.8761 16.7866C26.8761 17.0629 26.653 17.286 26.3767 17.286H8.87297ZM12.4092 9.91973C12.1898 9.75473 12.1455 9.4416 12.3117 9.2216C12.3917 9.11599 12.5103 9.04641 12.6416 9.02813C12.7728 9.00985 12.9059 9.04437 13.0117 9.1241L13.3786 9.40223L14.1792 8.01348C14.3173 7.77598 14.6223 7.69285 14.8598 7.83098C15.0992 7.96723 15.1805 8.27223 15.0442 8.50973L13.9261 10.441C13.7598 10.6604 13.448 10.7047 13.228 10.5385L12.4092 9.91973ZM13.6605 5.82723C15.4323 5.82723 16.8692 7.2641 16.8692 9.03598C16.8692 10.806 15.4323 12.2429 13.6605 12.2429C11.8905 12.2429 10.4536 10.806 10.4536 9.03598C10.4536 7.26348 11.8905 5.82723 13.6605 5.82723ZM15.2211 7.47473C14.3598 6.61223 12.9623 6.61223 12.1011 7.47473C11.2386 8.33598 11.2386 9.73348 12.1011 10.5947C12.9623 11.4572 14.3598 11.4572 15.2211 10.5947C16.0836 9.73348 16.0836 8.33535 15.2211 7.47473ZM13.428 15.3335C8.49734 12.7735 8.50797 12.2635 8.61422 7.16285C8.62297 6.68785 8.63359 6.17223 8.64109 5.6216C8.64485 5.37535 8.82547 5.1716 9.0611 5.1341C10.6855 4.87535 12.2023 4.07285 13.288 2.8466C13.488 2.6216 13.8392 2.62535 14.0373 2.85035C15.1111 4.0691 16.6486 4.87723 18.2611 5.1341C18.5092 5.17285 18.6861 5.39098 18.6811 5.63723C18.688 6.18098 18.6986 6.69285 18.708 7.16285C18.8142 12.2654 18.8248 12.7735 13.8892 15.3354C13.7398 15.4135 13.568 15.406 13.428 15.3335ZM9.61047 7.18223C9.51859 11.6416 9.50797 12.1572 13.6605 14.3291C17.8148 12.1572 17.8042 11.6416 17.7123 7.1841C17.7055 6.82973 17.6967 6.45223 17.6911 6.0416C16.1673 5.72098 14.768 4.9841 13.6605 3.89973C12.5548 4.9841 11.1555 5.72098 9.63172 6.0416C9.62609 6.45223 9.61734 6.82973 9.61047 7.18223Z",
+            fill: "white"
+        }, void 0, false, {
+            fileName: "[project]/public/insurance/Like.tsx",
+            lineNumber: 6,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/public/insurance/Like.tsx",
+        lineNumber: 5,
+        columnNumber: 5
+    }, this);
+}
+_c = Like;
+var _c;
+__turbopack_context__.k.register(_c, "Like");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/home-sections/Insurance.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Insurance)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$SettingsIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/insurance/SettingsIcon.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$Hand$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/insurance/Hand.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$Like$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/insurance/Like.tsx [app-client] (ecmascript)");
+;
+;
+;
+;
+function Insurance() {
+    const items = [
+        {
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$SettingsIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                lineNumber: 9,
+                columnNumber: 13
+            }, this),
+            title: "Why Join Us",
+            details: "Offer your clients seamless claims assistance and earn their trust."
+        },
+        {
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$Hand$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                lineNumber: 14,
+                columnNumber: 13
+            }, this),
+            title: "Exclusive Broker Benefits",
+            details: "Tools and resources to help you build lasting client relationships."
+        },
+        {
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$Like$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                lineNumber: 19,
+                columnNumber: 13
+            }, this),
+            title: "Referral Rewards",
+            details: "Get rewarded for connecting clients with the expert support they need."
+        }
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: "bg-disabled py-24",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "container mx-auto px-4",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "text-center mb-14",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-primary-color text-base",
+                            children: "For Insurance Brokers"
+                        }, void 0, false, {
+                            fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-3xl sm:text-4xl lg:text-5xl font-semibold leading-normal",
+                            children: [
+                                "Partner with Us to Better Serve ",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                                    lineNumber: 32,
+                                    columnNumber: 45
+                                }, this),
+                                " Your Clients"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                            lineNumber: 31,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                    lineNumber: 29,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex flex-col lg:flex-row justify-center items-center gap-6",
+                    children: items.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "bg-white p-5 rounded-lg w-full sm:w-[80%] lg:w-auto",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "bg-primary-color inline-block p-3 rounded-lg",
+                                    children: item.icon
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                                    lineNumber: 40,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                    className: "mt-6 mb-3 text-base font-semibold text-[#1D1F2C]",
+                                    children: item.title
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                                    lineNumber: 43,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-base font-normal text-text-light",
+                                    children: item.details
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                                    lineNumber: 44,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, index, true, {
+                            fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                            lineNumber: 39,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+                    lineNumber: 37,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+            lineNumber: 27,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/(client)/home-sections/Insurance.tsx",
+        lineNumber: 26,
+        columnNumber: 5
+    }, this);
+}
+_c = Insurance;
+var _c;
+__turbopack_context__.k.register(_c, "Insurance");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/src/redux/features/contact/contactApi.ts [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "contactApi": (()=>contactApi),
+    "useSendContactEmailMutation": (()=>useSendContactEmailMutation)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$api$2f$baseApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/redux/api/baseApi.ts [app-client] (ecmascript)");
+;
+const contactApi = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$api$2f$baseApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["baseApi"].injectEndpoints({
+    endpoints: (builder)=>({
+            sendContactEmail: builder.mutation({
+                query: (contactData)=>({
+                        url: "/send-email",
+                        method: "POST",
+                        body: {
+                            ...contactData,
+                            recipientEmail: "birobe4337@pricegh.com"
+                        }
+                    })
+            })
+        })
+});
+const { useSendContactEmailMutation } = contactApi;
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/home-sections/Contact.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Contact)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$contact$2f$contactApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/redux/features/contact/contactApi.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+// import PhoneIcon from '@/public/Contact/PhoneIcon';
+// import MessageIcon from '@/public/membershipIcons/MessageIcon';
+// import ContactForm from '@/app/_components/reusable/ContactForm';
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/sonner/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/si/index.mjs [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+;
+;
+function Contact() {
+    _s();
+    const [formData, setFormData] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        insurance: ""
+    });
+    const [sendEmail, { isLoading, isSuccess, error }] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$contact$2f$contactApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSendContactEmailMutation"])();
+    const handleChange = (e)=>{
+        const { name, value } = e.target;
+        setFormData((prev)=>({
+                ...prev,
+                [name]: value
+            }));
+    };
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        try {
+            await sendEmail(formData).unwrap();
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success("Message sent successfully!");
+            setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                insurance: ""
+            });
+            console.log("Message sent successfully!", formData);
+        } catch (err) {
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error("Failed to send message. Please try again.");
+            console.error("Failed to send message:", err);
+        }
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: "container mx-auto px-4 py-12",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "flex flex-col lg:flex-row gap-12 justify-between items-start",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex-1",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-primary-color text-base",
+                            children: "Contact Us"
+                        }, void 0, false, {
+                            fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                            lineNumber: 63,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-3xl sm:text-4xl lg:text-5xl font-semibold leading-normal mt-2",
+                            children: [
+                                "We’re Here to Help— ",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                    lineNumber: 65,
+                                    columnNumber: 33
+                                }, this),
+                                " Reach Out Anytime"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                            lineNumber: 64,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: " flex items-center   gap-3 ",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SiGooglemaps"], {
+                                        className: " bg-primary-color text-white p-1.5 rounded-full",
+                                        size: 35
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                        lineNumber: 69,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                    lineNumber: 68,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: " text-lg text-text-light mt-8",
+                                        children: [
+                                            "Office Address: 9375 East Shea Boulevard, ",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 77,
+                                                columnNumber: 59
+                                            }, this),
+                                            " Scottsdale, Arizona 85260, United States"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                        lineNumber: 76,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                    lineNumber: 75,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                            lineNumber: 67,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                    lineNumber: 62,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "bg-primary-color p-6 sm:p-8 w-full max-w-xl rounded-2xl",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                        className: "space-y-5",
+                        onSubmit: handleSubmit,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col sm:flex-row gap-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-full",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "block text-sm mb-1 font-semibold text-white",
+                                                children: "First Name"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 100,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                name: "firstName",
+                                                value: formData.firstName,
+                                                onChange: handleChange,
+                                                placeholder: "Enter your first name",
+                                                className: "w-full p-3 rounded-md border border-[#E9E9EA] bg-transparent text-white placeholder-white",
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 103,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                        lineNumber: 99,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-full",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "block text-sm mb-1 font-semibold text-white",
+                                                children: "Last Name"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 114,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                name: "lastName",
+                                                value: formData.lastName,
+                                                onChange: handleChange,
+                                                placeholder: "Enter your last name",
+                                                className: "w-full p-3 rounded-md border border-[#E9E9EA] bg-transparent text-white placeholder-white",
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 117,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                        lineNumber: 113,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                lineNumber: 98,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-sm mb-1 font-semibold text-white",
+                                        children: "Email"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                        lineNumber: 131,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "email",
+                                        name: "email",
+                                        value: formData.email,
+                                        onChange: handleChange,
+                                        placeholder: "Enter your email",
+                                        className: "w-full p-3 rounded-md border border-[#E9E9EA] bg-transparent text-white placeholder-white",
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                        lineNumber: 134,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                lineNumber: 130,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-sm mb-1 font-semibold text-white",
+                                        children: "Insurance"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                        lineNumber: 147,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        name: "insurance",
+                                        value: formData.insurance,
+                                        onChange: handleChange,
+                                        className: "w-full p-3 rounded-md border border-[#E9E9EA] bg-transparent text-white",
+                                        required: true,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                disabled: true,
+                                                children: "Select type of insurance"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 157,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "health",
+                                                children: "Health Insurance"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 160,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "car",
+                                                children: "Car Insurance"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 161,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "life",
+                                                children: "Life Insurance"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                                lineNumber: 162,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                        lineNumber: 150,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                lineNumber: 146,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                type: "submit",
+                                disabled: isLoading,
+                                className: "w-full bg-white text-[#14b7e2] font-semibold py-3 rounded-md hover:opacity-90 transition disabled:opacity-50",
+                                children: isLoading ? "Sending..." : "Send Message"
+                            }, void 0, false, {
+                                fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                                lineNumber: 167,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                        lineNumber: 96,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+                    lineNumber: 95,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+            lineNumber: 60,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/(client)/home-sections/Contact.tsx",
+        lineNumber: 59,
+        columnNumber: 5
+    }, this);
+} // import React from 'react'
+ // import PhoneIcon from '@/public/Contact/PhoneIcon'
+ // import MessageIcon from '@/public/membershipIcons/MessageIcon'
+ // export default function Contact() {
+ //   return (
+ //     <section className=" container mx-auto py-12">
+ //       <div className=' flex gap-[74px] justify-between  '>
+ //         <div>
+ //           <p className=" text-primary-color text-base">Contact Us</p>
+ //           <h2 className="  text-3xl sm:text-4xl lg:text-5xl font-semibold leading-normal">
+ //             We’re Here to Help— <br /> Reach Out Anytime
+ //           </h2>
+ //           {/* <div className=''>
+ //             <div className=" bg-red-600 inline-block">
+ //               <PhoneIcon />
+ //             </div>
+ //             <div className=" bg-red-600 inline-block">
+ //               <MessageIcon />
+ //             </div>
+ //           </div> */}
+ //         </div>
+ //         <div className=' bg-primary-color p-12  w-[682px] h-[469px] rounded-2xl'  >
+ //         <form className="space-y-5">
+ //         {/* Name Fields */}
+ //         <div className="flex gap-4">
+ //           <div className="w-1/2">
+ //             <label className="block text-sm mb-1 font-semibold text-white">Fast Name</label>
+ //             <input
+ //               type="text"
+ //               placeholder="Enter your fast name"
+ //               className="w-full p-2 rounded-md border border-[#E9E9EA] text-white"
+ //             />
+ //           </div>
+ //           <div className="w-1/2">
+ //             <label className="block text-sm mb-1 font-semibold text-white">Last Name</label>
+ //             <input
+ //               type="text"
+ //               placeholder="Enter your last name"
+ //               className="w-full p-2 rounded-md border border-[#E9E9EA] text-white"
+ //             />
+ //           </div>
+ //         </div>
+ //         {/* Email */}
+ //         <div>
+ //           <label className="block text-sm mb-1 font-semibold text-white">Email</label>
+ //           <input
+ //             type="email"
+ //             placeholder="Enter your email"
+ //             className="w-full p-2 rounded-md border border-[#E9E9EA] text-white"
+ //           />
+ //         </div>
+ //         {/* Insurance Dropdown */}
+ //         <div>
+ //           <label className="block text-sm mb-1 font-semibold text-white">Insurance</label>
+ //           <select
+ //             className="w-full p-2 rounded-md border border-[#E9E9EA] text-white"
+ //             defaultValue=""
+ //           >
+ //             <option value="" disabled>
+ //               Select typeof insurance
+ //             </option>
+ //             <option value="health">Health Insurance</option>
+ //             <option value="car">Car Insurance</option>
+ //             <option value="life">Life Insurance</option>
+ //           </select>
+ //         </div>
+ //         {/* Submit Button */}
+ //         <button
+ //           type="submit"
+ //           className="w-full bg-white text-[#14b7e2] font-semibold py-2 rounded-md hover:opacity-90 transition"
+ //         >
+ //           Send Message
+ //         </button>
+ //       </form>
+ //         </div>
+ //       </div>
+ //     </section>
+ //   );
+ // }
+_s(Contact, "iSwClc3/HMY2PLEqkxR3RbJPLiE=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$contact$2f$contactApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSendContactEmailMutation"]
+    ];
+});
+_c = Contact;
+var _c;
+__turbopack_context__.k.register(_c, "Contact");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/_components/reusable/CustomCard.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+// components/CustomCard.tsx
+__turbopack_context__.s({
+    "default": (()=>CustomCard)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function CustomCard({ title, description, bgColor = "bg-white", textColor = "text-white", bgColor2, children, Component, componentProps = {} }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: `rounded-2xl shadow-md p-6 ${bgColor} ${textColor} rounded-[8px]  p-5 min-h-[240px] `,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: `${bgColor2}  inline-block p-3 rounded-lg`,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Component, {
+                    ...componentProps
+                }, void 0, false, {
+                    fileName: "[project]/app/_components/reusable/CustomCard.tsx",
+                    lineNumber: 30,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/_components/reusable/CustomCard.tsx",
+                lineNumber: 29,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                className: "text-base font-semibold mt-6 mb-3",
+                children: title
+            }, void 0, false, {
+                fileName: "[project]/app/_components/reusable/CustomCard.tsx",
+                lineNumber: 32,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: "text-base",
+                children: description
+            }, void 0, false, {
+                fileName: "[project]/app/_components/reusable/CustomCard.tsx",
+                lineNumber: 33,
+                columnNumber: 7
+            }, this),
+            children
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/_components/reusable/CustomCard.tsx",
+        lineNumber: 26,
+        columnNumber: 5
+    }, this);
+}
+_c = CustomCard;
+var _c;
+__turbopack_context__.k.register(_c, "CustomCard");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/home-sections/Investor.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Investor)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$SettingsIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/insurance/SettingsIcon.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$Hand$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/insurance/Hand.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$Like$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/public/insurance/Like.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$_components$2f$reusable$2f$CustomCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/_components/reusable/CustomCard.tsx [app-client] (ecmascript)");
+;
+;
+;
+;
+;
+function Investor() {
+    const items = [
+        {
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$SettingsIcon$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
+            title: "Why Join Us",
+            details: "Offer your clients seamless claims assistance and earn their trust."
+        },
+        {
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$Hand$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
+            title: "Exclusive Broker Benefits",
+            details: "Tools and resources to help you build lasting client relationships."
+        },
+        {
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$insurance$2f$Like$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
+            title: "Referral Rewards",
+            details: "Get rewarded for connecting clients with the expert support they need."
+        }
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: " py-24",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "container mx-auto px-4",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "text-center mb-14",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-primary-color text-base",
+                            children: "Investor Relation"
+                        }, void 0, false, {
+                            fileName: "[project]/app/(client)/home-sections/Investor.tsx",
+                            lineNumber: 31,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-3xl sm:text-4xl lg:text-5xl font-semibold leading-normal",
+                            children: [
+                                "Partner with Us to Better Serve ",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                    fileName: "[project]/app/(client)/home-sections/Investor.tsx",
+                                    lineNumber: 33,
+                                    columnNumber: 43
+                                }, this),
+                                " Your Clients"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/(client)/home-sections/Investor.tsx",
+                            lineNumber: 32,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/(client)/home-sections/Investor.tsx",
+                    lineNumber: 30,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex flex-col lg:flex-row justify-center items-center gap-6",
+                    children: items.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$_components$2f$reusable$2f$CustomCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            bgColor2: "bg-primary-color",
+                            title: item.title,
+                            Component: item.icon,
+                            description: item.details,
+                            bgColor: "bg-primary-color",
+                            textColor: "text-white"
+                        }, index, false, {
+                            fileName: "[project]/app/(client)/home-sections/Investor.tsx",
+                            lineNumber: 40,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/app/(client)/home-sections/Investor.tsx",
+                    lineNumber: 38,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/(client)/home-sections/Investor.tsx",
+            lineNumber: 28,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/(client)/home-sections/Investor.tsx",
+        lineNumber: 27,
+        columnNumber: 5
+    }, this);
+}
+_c = Investor;
+var _c;
+__turbopack_context__.k.register(_c, "Investor");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/about-qoute.png (static in ecmascript)": ((__turbopack_context__) => {
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.v("/_next/static/media/about-qoute.fdf98a57.png");}}),
+"[project]/public/about-qoute.png.mjs { IMAGE => \"[project]/public/about-qoute.png (static in ecmascript)\" } [app-client] (structured image object, ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$about$2d$qoute$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/public/about-qoute.png (static in ecmascript)");
+;
+const __TURBOPACK__default__export__ = {
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$about$2d$qoute$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 40,
+    height: 40,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAu0lEQVR42nWPPQrCQBSEFyH3srd01cpbCN7Ee9gJEqKFjYIQE9KkCYlJjEYQ8ucmxbiTRhuLxy77vZmdEYZhDKScDC+OazaqrTm241hjKYdkYqxhEEb+u+3wO3yjUNiOa9WqwyGtsEsqnB81NlGJe6WgmSloeSsVplaG5SnH4phjpu9JoUDWL3jPBqNtinVQYL7PsPJeaPQ3/QJt6GDFJXju4gpXrWYOhhXyb8jQZxPBKmzCsN+arkkh2QepH8VofFbHQQAAAABJRU5ErkJggg==",
+    blurWidth: 8,
+    blurHeight: 8
+};
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/profile-1.png (static in ecmascript)": ((__turbopack_context__) => {
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.v("/_next/static/media/profile-1.6f920239.png");}}),
+"[project]/public/profile-1.png.mjs { IMAGE => \"[project]/public/profile-1.png (static in ecmascript)\" } [app-client] (structured image object, ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$1$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/public/profile-1.png (static in ecmascript)");
+;
+const __TURBOPACK__default__export__ = {
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$1$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 64,
+    height: 64,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA+0lEQVR42hWPQUuDAACF/ZldIgiCaAwi6DC6jB3qMmiHImiHINqgMojBOjgid2kzhq4is0VqmFpmFrrM1uHLnd/3Pd4TsskfaZYRfsZowxsGSg/feyEej5lmQvL9Qxh94bgB4k6dvfIqiqZhWBZRnCB4bx+4ryFP94+ozX2OSgXO5C59Y4Tpegh+kAM5FPgBg+MDtleWaPcUpDuDW9tBcHLb8kI0O6J+eMFysURD1mjrJtfPeYMXRHQ1k4qos7h7xVy5QbF6wmarj56LQpJmyEObjdMHZqsdFmoSha1z1uoSfpSPnF5x3hNaasB8rcNMRWS9eYk6ckl/J/wDa2bWbDjc570AAAAASUVORK5CYII=",
+    blurWidth: 8,
+    blurHeight: 8
+};
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/profile-2.png (static in ecmascript)": ((__turbopack_context__) => {
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.v("/_next/static/media/profile-2.827d7d93.png");}}),
+"[project]/public/profile-2.png.mjs { IMAGE => \"[project]/public/profile-2.png (static in ecmascript)\" } [app-client] (structured image object, ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$2$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/public/profile-2.png (static in ecmascript)");
+;
+const __TURBOPACK__default__export__ = {
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$2$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 64,
+    height: 64,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAABB0lEQVR42hXMv0sCcQBA8e/fFA0RQdDY1FpLIEE4WFAEDoVJuJRZU2FEbSVkiGldWSl6R3IImpo/CMwMMclMKtPzHF7n/Hk80e3plKvvSBEZT+AGfyiK+pjh4/MLrddH1Fp1JPmO9a19LNZt7DtHeIMB0skkzWYTIRduuYyesbS8hm1xhbkZEzabg7z6QCmbRigJH6nUFd7DXU43N3CYZ9mzr5IzrjkljIjFPCTkIOETNwdWCy7zNJLbSVG55zkeQVRe8lQqrwRDEUZGJxkankDyX1B6SlIrFxHtTpf6j0Y8W2XetMDU2DiqEqfR1vg1TGh6n0brD9UIfOfXHDtdZApvfHd0BvYPJifJv5gqI/cAAAAASUVORK5CYII=",
+    blurWidth: 8,
+    blurHeight: 8
+};
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/public/profile-3.png (static in ecmascript)": ((__turbopack_context__) => {
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.v("/_next/static/media/profile-3.13024acc.png");}}),
+"[project]/public/profile-3.png.mjs { IMAGE => \"[project]/public/profile-3.png (static in ecmascript)\" } [app-client] (structured image object, ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$3$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/public/profile-3.png (static in ecmascript)");
+;
+const __TURBOPACK__default__export__ = {
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$3$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 64,
+    height: 64,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAABE0lEQVR42gEIAff+APb4+f/Hysv/a3Bx/0NJSv87QkP/Ymhq/8fKzP/2+Pn/AMjLzP9UWVr/UVRS/2VfWP9AOjT/Jywu/05WWv/Gysz/AHh/gf9DS03/e3Zw/8igi/+KX0X/IyAe/yIoLP9gZmv/AFFZXP9CSkv/d3Ju/8ydif+SY07/MScj/xgdIf8sNDn/AFVdYf8/R0n/VVhY/7ebkf+WdGX/My4s/xgeIv8rMjj/AHF3ev9DS07/W2Nn/6yakf+yhGz/m4qB/32Bhf91e3//AMrO0P+fpKf/1tja/+ni3//j08z/5uXn/+vt7//u8PL/APf5+v/z9fb/7/Hy/+/x8//u8PP/8PP1//X3+f/4+vv/vNenbgMUVjsAAAAASUVORK5CYII=",
+    blurWidth: 8,
+    blurHeight: 8
+};
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/_components/reusable/Testimonial.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Testimonial)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/swiper/swiper-react.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/node_modules/swiper/modules/index.mjs [app-client] (ecmascript) <module evaluation>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$pagination$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Pagination$3e$__ = __turbopack_context__.i("[project]/node_modules/swiper/modules/pagination.mjs [app-client] (ecmascript) <export default as Pagination>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$autoplay$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Autoplay$3e$__ = __turbopack_context__.i("[project]/node_modules/swiper/modules/autoplay.mjs [app-client] (ecmascript) <export default as Autoplay>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$about$2d$qoute$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$about$2d$qoute$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/public/about-qoute.png.mjs { IMAGE => "[project]/public/about-qoute.png (static in ecmascript)" } [app-client] (structured image object, ecmascript)');
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$1$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$profile$2d$1$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/public/profile-1.png.mjs { IMAGE => "[project]/public/profile-1.png (static in ecmascript)" } [app-client] (structured image object, ecmascript)');
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$2$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$profile$2d$2$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/public/profile-2.png.mjs { IMAGE => "[project]/public/profile-2.png (static in ecmascript)" } [app-client] (structured image object, ecmascript)');
+var __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$3$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$profile$2d$3$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/public/profile-3.png.mjs { IMAGE => "[project]/public/profile-3.png (static in ecmascript)" } [app-client] (structured image object, ecmascript)');
+"use client";
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const testimonials = [
+    {
+        id: 1,
+        name: "David Reynolds",
+        role: "Insurance Broker",
+        image: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$1$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$profile$2d$1$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+        content: "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!"
+    },
+    {
+        id: 2,
+        name: "David Reynolds",
+        role: "Insurance Broker",
+        image: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$2$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$profile$2d$2$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+        content: "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!"
+    },
+    {
+        id: 3,
+        name: "David Reynolds",
+        role: "Insurance Broker",
+        image: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$3$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$profile$2d$3$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+        content: "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!"
+    },
+    {
+        id: 4,
+        name: "David Reynolds",
+        role: "Insurance Broker",
+        image: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$3$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$profile$2d$3$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+        content: "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!"
+    },
+    {
+        id: 5,
+        name: "David Reynolds",
+        role: "Insurance Broker",
+        image: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$profile$2d$3$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$profile$2d$3$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+        content: "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!"
+    }
+];
+function Testimonial() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: "  bg-disabled  relative z-30 py-24",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "container mx-auto px-4",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "text-center mb-16",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-cyan-500 mb-4",
+                            children: "For Insurance Brokers"
+                        }, void 0, false, {
+                            fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                            lineNumber: 73,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-4xl md:text-5xl font-bold text-gray-900",
+                            children: "See the Difference We've Made"
+                        }, void 0, false, {
+                            fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                            lineNumber: 74,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                    lineNumber: 72,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Swiper"], {
+                    modules: [
+                        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$pagination$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Pagination$3e$__["Pagination"],
+                        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$autoplay$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Autoplay$3e$__["Autoplay"]
+                    ],
+                    spaceBetween: 30,
+                    slidesPerView: 1,
+                    pagination: {
+                        clickable: true,
+                        bulletActiveClass: "swiper-pagination-bullet-active bg-cyan-500"
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 2
+                        },
+                        1024: {
+                            slidesPerView: 3
+                        }
+                    },
+                    className: "testimonials-swiper pt-9",
+                    children: testimonials.map((testimonial, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "relative overflow-hidden",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: " absolute  z-50  left-0 top-0",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                            src: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$about$2d$qoute$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$about$2d$qoute$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+                                            alt: "qoute"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                            lineNumber: 106,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                        lineNumber: 105,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "bg-white p-8 rounded-lg",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "mb-6",
+                                            children: [
+                                                " ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-gray-600 mt-2",
+                                                    children: testimonial.content
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                                    lineNumber: 112,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                            lineNumber: 109,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                        lineNumber: 108,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-4  p-7",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "w-12 h-12 rounded-full overflow-hidden",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                    src: testimonial.image,
+                                                    alt: testimonial.name,
+                                                    width: 48,
+                                                    height: 48,
+                                                    className: "w-full h-full object-cover"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                                    lineNumber: 117,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                                lineNumber: 116,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                        className: "font-semibold text-gray-900",
+                                                        children: testimonial.name
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                                        lineNumber: 126,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-gray-500 text-sm",
+                                                        children: testimonial.role
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                                        lineNumber: 129,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                                lineNumber: 125,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                        lineNumber: 115,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                                lineNumber: 104,
+                                columnNumber: 15
+                            }, this)
+                        }, index, false, {
+                            fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                            lineNumber: 103,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+                    lineNumber: 79,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+            lineNumber: 71,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/_components/reusable/Testimonial.tsx",
+        lineNumber: 70,
+        columnNumber: 5
+    }, this);
+}
+_c = Testimonial;
+var _c;
+__turbopack_context__.k.register(_c, "Testimonial");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/_components/Home.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>Home)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Hero$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/home-sections/Hero.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$_components$2f$reusable$2f$About$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/_components/reusable/About.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$ChooseUs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/home-sections/ChooseUs.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Info$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/home-sections/Info.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Service$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/home-sections/Service.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Membership$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/home-sections/Membership.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Insurance$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/home-sections/Insurance.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Contact$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/home-sections/Contact.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Investor$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/home-sections/Investor.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$_components$2f$reusable$2f$Testimonial$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/_components/reusable/Testimonial.tsx [app-client] (ecmascript)");
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+function Home() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Hero$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 20,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$_components$2f$reusable$2f$About$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 21,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$ChooseUs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 22,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Info$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 23,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Service$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 24,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Membership$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 25,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Insurance$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 26,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Contact$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 27,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$_components$2f$reusable$2f$Testimonial$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 28,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$home$2d$sections$2f$Investor$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/app/(client)/_components/Home.tsx",
+                lineNumber: 29,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true);
+}
+_c = Home;
+var _c;
+__turbopack_context__.k.register(_c, "Home");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/app/(client)/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>page)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$_components$2f$Home$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/(client)/_components/Home.tsx [app-client] (ecmascript)");
+'use client';
+;
+;
+function page() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$client$292f$_components$2f$Home$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+        fileName: "[project]/app/(client)/page.tsx",
+        lineNumber: 10,
+        columnNumber: 7
+    }, this);
+}
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+}]);
+
+//# sourceMappingURL=_51627bdd._.js.map
