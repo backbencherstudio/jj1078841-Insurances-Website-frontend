@@ -16,7 +16,7 @@ export default function ChooseUs() {
         <div className="md:w-1/2">
           <p className="text-[var(--primary-color)] text-sm sm:text-base font-medium mb-1">Why Choose Us</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[var(--gray-black-500)] leading-snug lg:leading-normal">
-            Why Homeowners Trust InsuranceSally
+            Why Homeowners Trust InsurancesAlly
           </h2>
           <p className="text-[var(--gray-black-400)] text-base sm:text-lg font-normal mb-10">
             We’re more than a claims service—we’re your dedicated partner

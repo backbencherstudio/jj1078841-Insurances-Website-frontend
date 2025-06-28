@@ -7,48 +7,49 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import DocumentIcon from "@/public/services/DocumentIcon";
-import HandIcon from "@/public/services/HandIcon";
-import PageIcon from "@/public/services/PageIcon";
-import ReviewIcon from "@/public/services/ReviewIcon";
+import HandIcon from '@/public/services/HandIcon';
+import PageIcon from '@/public/services/PageIcon';
+import ReviewIcon from '@/public/services/ReviewIcon';
+import CustomCard from '../../_components/reusable/CustomCard';
 
 export default function Service() {
   const paginationRef = useRef(null);
 
   const services = [
     {
-      icon: <DocumentIcon />,
+      icon:  DocumentIcon,
       title: "End-to-End Claim Management",
       details:
         "From filing to final settlement, we’ll handle your claim while you focus on what matters.",
     },
     {
-      icon: <HandIcon />,
+      icon: HandIcon,
       title: "Negotiation Experts",
       details:
         "We fight to ensure you receive the fair value for your property damage.",
     },
     {
-      icon: <ReviewIcon />,
+      icon:ReviewIcon,
       title: "Policy Reviews",
       details: "We simplify your policy, so you know exactly what’s covered.",
     },
     {
-      icon: <PageIcon />,
+      icon: PageIcon,
       title: "Professional Damage Documentation",
       details: "Thorough records to strengthen your claim and avoid disputes",
     },
     {
-      icon: <PageIcon />,
+      icon: PageIcon,
       title: "Professional Damage Documentation",
       details: "Thorough records to strengthen your claim and avoid disputes",
     },
     {
-      icon: <PageIcon />,
+      icon: PageIcon,
       title: "Professional Damage Documentation",
       details: "Thorough records to strengthen your claim and avoid disputes",
     },
     {
-      icon: <PageIcon />,
+      icon: PageIcon,
       title: "Professional Damage Documentation",
       details: "Thorough records to strengthen your claim and avoid disputes",
     },
@@ -97,15 +98,7 @@ export default function Service() {
           >
             {services.map((service, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-primary-color rounded-[8px] text-white p-5 min-h-[235px]">
-                  <div className="bg-white inline-block p-3 rounded-lg">
-                    {service.icon}
-                  </div>
-                  <h4 className="text-base font-semibold mt-6 mb-3">
-                    {service.title}
-                  </h4>
-                  <p className="text-base">{service.details}</p>
-                </div>
+               <CustomCard bgColor2="bg-white" title={service.title} description={service.details} bgColor='bg-primary-color' textColor="text-white" Component={service.icon}/>
               </SwiperSlide>
             ))}
           </Swiper>

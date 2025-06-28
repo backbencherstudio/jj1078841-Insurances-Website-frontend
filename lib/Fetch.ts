@@ -1,118 +1,90 @@
-import axios from "axios";
-import { AppConfig } from "../config/app.config";
+import axios from 'axios';
+import { AppConfig } from '../config/app.config';
 
-const config = {
-  headers: {
-    "Content-Type": "application/json",
-  },
-};
+type AdapterOption = 'fetch' | 'axios';
 
-type AdapterOption = "fetch" | "axios";
+interface HeadersConfig {
+  headers?: Record<string, string>;
+}
 
-/**
- * Custom fetch class
- */
 export class Fetch {
   private static _baseUrl = `${AppConfig().app.apiUrl}`;
-  private static _adapter: AdapterOption = "axios";
+  private static _adapter: AdapterOption = 'axios';
 
-  /**
-   * Set adapter.
-   * e.g. `fetch` or `axios`
-   * @param adapter
-   */
   static setAdapter(adapter: AdapterOption) {
     this._adapter = adapter;
   }
 
-  /**
-   * get request
-   * @param url
-   * @param header
-   * @returns
-   */
-  static async get(url: string, header?: any) {
-    if (this._adapter == "axios") {
-      return await axios.get(`${this._baseUrl}${url}`, header);
-    } else {
-      const res = await fetch(`${this._baseUrl}${url}`, header);
-      return await res.json();
-    }
-  }
+  static async get(url: string, config?: HeadersConfig) {
+    const fullUrl = `${this._baseUrl}${url}`;
 
-  /**
-   * post request
-   * @param url
-   * @param data
-   * @param header
-   * @returns
-   */
-  static async post(url: string, data: any, header?: any) {
-    if (this._adapter == "axios") {
-      return await axios.post(`${this._baseUrl}${url}`, data, header);
+    if (this._adapter === 'axios') {
+      return await axios.get(fullUrl, config);
     } else {
-      const res = await fetch(`${this._baseUrl}${url}`, {
-        ...header,
-        method: "POST",
-        body: data,
+      const res = await fetch(fullUrl, {
+        method: 'GET',
+        headers: config?.headers,
       });
       return await res.json();
     }
   }
 
-  /**
-   * put request
-   * @param url
-   * @param data
-   * @param header
-   * @returns
-   */
-  static async put(url: string, data: any, header?: any) {
-    if (this._adapter == "axios") {
-      return await axios.put(`${this._baseUrl}${url}`, data, header);
+  static async post(url: string, data: any, config?: HeadersConfig) {
+    const fullUrl = `${this._baseUrl}${url}`;
+    const isMultipart = config?.headers?.['Content-Type']?.includes('multipart/form-data');
+
+    if (this._adapter === 'axios') {
+      return await axios.post(fullUrl, data, config);
     } else {
-      const res = await fetch(`${this._baseUrl}${url}`, {
-        ...header,
-        method: "PUT",
-        body: data,
+      const res = await fetch(fullUrl, {
+        method: 'POST',
+        headers: isMultipart ? undefined : config?.headers,
+        body: isMultipart ? data : JSON.stringify(data),
       });
       return await res.json();
     }
   }
 
-  /**
-   * patch request
-   * @param url
-   * @param data
-   * @param header
-   * @returns
-   */
-  static async patch(url: string, data: any, header?: any) {
-    if (this._adapter == "axios") {
-      return await axios.patch(`${this._baseUrl}${url}`, data, header);
+  static async put(url: string, data: any, config?: HeadersConfig) {
+    const fullUrl = `${this._baseUrl}${url}`;
+
+    if (this._adapter === 'axios') {
+      return await axios.put(fullUrl, data, config);
     } else {
-      const res = await fetch(`${this._baseUrl}${url}`, {
-        ...header,
-        method: "PATCH",
-        body: data,
+      const res = await fetch(fullUrl, {
+        method: 'PUT',
+        headers: config?.headers,
+        body: JSON.stringify(data),
       });
       return await res.json();
     }
   }
 
-  /**
-   * delete request
-   * @param url
-   * @param header
-   * @returns
-   */
-  static async delete(url: string, header?: any) {
-    if (this._adapter == "axios") {
-      return await axios.delete(`${this._baseUrl}${url}`, header);
+  static async patch(url: string, data: any, config?: HeadersConfig) {
+    const fullUrl = `${this._baseUrl}${url}`;
+    const isMultipart = config?.headers?.['Content-Type']?.includes('multipart/form-data');
+
+    if (this._adapter === 'axios') {
+      return await axios.patch(fullUrl, data, config);
     } else {
-      const res = await fetch(`${this._baseUrl}${url}`, {
-        ...header,
-        method: "DELETE",
+      const res = await fetch(fullUrl, {
+        method: 'PATCH',
+        headers: isMultipart ? undefined : config?.headers,
+        body: isMultipart ? data : JSON.stringify(data),
+      });
+      return await res.json();
+    }
+  }
+
+  static async delete(url: string, config?: HeadersConfig) {
+    const fullUrl = `${this._baseUrl}${url}`;
+
+    if (this._adapter === 'axios') {
+      return await axios.delete(fullUrl, config);
+    } else {
+      const res = await fetch(fullUrl, {
+        method: 'DELETE',
+        headers: config?.headers,
       });
       return await res.json();
     }
