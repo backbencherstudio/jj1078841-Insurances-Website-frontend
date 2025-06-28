@@ -90,36 +90,37 @@ export default function page() {
   }, []);
 
   // Function to redirect to the Stripe URL
-  const handleRedirect = async (plan: string) => {
-    if (!token) {
-      toast.error("Please log in first.");
-      return;
+ const handleRedirect = async (plan: string) => {
+  if (!token) {
+    toast.error("Please log in first.");
+    return;
+  }
+
+  try {
+    // Make the GET request to the backend to fetch the Stripe checkout URL
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/payment/subscribe?plan=${plan}`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`, // Pass the token in the Authorization header
+      },
+    });
+
+    // Check if the response is successful
+    if (!response.ok) {
+      throw new Error("Failed to fetch subscription URL");
     }
 
-    try {
-      // Make the GET request to the backend to fetch the Stripe checkout URL
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/payment/subscribe?plan=monthly`, {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${token}`, // Pass the token in the Authorization header
-        },
-      });
+    // Get the response data
+    const data = await response.json();
 
-      // Check if the response is successful
-      if (!response.ok) {
-        throw new Error("Failed to fetch subscription URL");
-      }
+    // Redirect the user to the Stripe checkout URL
+    window.location.href = data.url;
+  } catch (error) {
+    toast.error("An error occurred while redirecting to Stripe");
+    console.error("Error:", error);
+  }
+};
 
-      // Get the response data
-      const data = await response.json();
-
-      // Redirect the user to the Stripe checkout URL
-      window.location.href = data.url;
-    } catch (error) {
-      toast.error("An error occurred while redirecting to Stripe");
-      console.error("Error:", error);
-    }
-  };
 
   return (
     <section className="min-h-screen">

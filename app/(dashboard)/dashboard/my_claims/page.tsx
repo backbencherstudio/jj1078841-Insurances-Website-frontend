@@ -41,41 +41,42 @@ export default function MyClaims() {
     }
 
     // Fetch claims data
-    const fetchClaims = async () => {
-      try {
-        const response = await fetch('http://localhost:4000/api/dashboard/my-claims', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${storedToken}`,
-          },
-        });
+   const fetchClaims = async () => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/my-claims`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${storedToken}`,
+      },
+    });
 
-        if (!response.ok) {
-          throw new Error(`Error fetching claims: ${response.statusText}`);
-        }
+    if (!response.ok) {
+      throw new Error(`Error fetching claims: ${response.statusText}`);
+    }
 
-        const data = await response.json();
-        // Map data to match ClaimItem structure
-        const mappedClaims = data.map((claim: any) => ({
-          claimId: claim.claimId,
-          policyNumber: claim.policyNumber,
-          typeOfDamage: claim.typeOfDamage,
-          insuranceCompany: claim.insuranceCompany,
-          dateOfLoss: new Date(claim.dateOfLoss).toLocaleDateString(),
-          status: claim.status,
-          statusBgColor: claim.status === 'Active' ? 'bg-[#E8FFE5]' : 'bg-[#FFF3E5]',
-          statusTextColor: claim.status === 'Active' ? 'text-[#4CD440]' : 'text-[#FF9C37]',
-        }));
+    const data = await response.json();
+    // Map data to match ClaimItem structure
+    const mappedClaims = data.map((claim: any) => ({
+      claimId: claim.claimId,
+      policyNumber: claim.policyNumber,
+      typeOfDamage: claim.typeOfDamage,
+      insuranceCompany: claim.insuranceCompany,
+      dateOfLoss: new Date(claim.dateOfLoss).toLocaleDateString(),
+      status: claim.status,
+      statusBgColor: claim.status === 'Active' ? 'bg-[#E8FFE5]' : 'bg-[#FFF3E5]',
+      statusTextColor: claim.status === 'Active' ? 'text-[#4CD440]' : 'text-[#FF9C37]',
+    }));
 
-        setClaims(mappedClaims);
-      } catch (error) {
-        setError('Failed to load claims');
-        console.error('Error fetching claims:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    setClaims(mappedClaims);
+  } catch (error) {
+    setError('Failed to load claims');
+    console.error('Error fetching claims:', error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
     fetchClaims();
   }, []);
