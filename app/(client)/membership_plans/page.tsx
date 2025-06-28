@@ -98,7 +98,7 @@ export default function page() {
 
     try {
       // Make the GET request to the backend to fetch the Stripe checkout URL
-      const response = await fetch(`http://localhost:4000/api/payment/subscribe?plan=monthly`, {
+      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/payment/subscribe?plan=monthly`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // Pass the token in the Authorization header
