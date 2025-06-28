@@ -102,35 +102,36 @@ export default function ProfilePage() {
     }
   }, [token, router]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget as HTMLFormElement);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  const form = new FormData(e.currentTarget as HTMLFormElement);
 
-    try {
-      toast.loading("Updating profile...");
-      // Send the PATCH request to update the profile
-      const response = await fetch('http://localhost:4000/api/dashboard/user-profile', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(Object.fromEntries(form)),
-      });
+  try {
+    toast.loading("Updating profile...");
+    // Use the environment variable for the API URL
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/user-profile`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(Object.fromEntries(form)),
+    });
 
-      if (!response.ok) {
-        throw new Error('Failed to update profile');
-      }
-
-      const result = await response.json();
-      toast.dismiss();
-      toast.success("Profile updated successfully!");
-    } catch (error: any) {
-      toast.dismiss();
-      const message = error?.message || "Update failed";
-      toast.error(message);
+    if (!response.ok) {
+      throw new Error('Failed to update profile');
     }
-  };
+
+    const result = await response.json();
+    toast.dismiss();
+    toast.success("Profile updated successfully!");
+  } catch (error: any) {
+    toast.dismiss();
+    const message = error?.message || "Update failed";
+    toast.error(message);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-slate-50 p-4 sm:p-6 md:p-8">

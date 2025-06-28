@@ -37,7 +37,7 @@ export default function MyClaim() {
 
   // Retrieve token from localStorage
   useEffect(() => {
-    const storedToken = localStorage.getItem("accessToken");
+    const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   }, []);
 
@@ -112,7 +112,7 @@ export default function MyClaim() {
 
     try {
       toast.loading("Submitting claim...");
-      const response = await fetch("http://localhost:4000/api/new-claim-insurance", {
+      const response = await fetch(` ${process.env.NEXT_PUBLIC_API_URL}/api/new-claim-insurance`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,

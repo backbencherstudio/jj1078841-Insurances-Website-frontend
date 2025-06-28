@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoNotificationsOutline } from "react-icons/io5";
@@ -6,8 +8,7 @@ import Image from 'next/image';
 import profile from '@/public/profile-avatar.png';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useAppDispatch, useAppSelector } from '@/src/redux/hooks';
-import { logout as logoutAction } from '@/src/redux/features/auth/authSlice';
+import nookies from 'nookies'; // Import nookies to manage cookies
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -16,17 +17,33 @@ interface HeaderProps {
 export default function Header({ onMenuClick }: HeaderProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const dispatch = useAppDispatch();
   const router = useRouter();
-  const token = useAppSelector((state) => state.auth.token);
 
+  // Check if the user is logged in based on token from cookies
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = nookies.get(null).token; // Get token from cookies
+    if (token) {
+      setIsLoggedIn(true); // If token exists, user is logged in
+    } else {
+      setIsLoggedIn(false); // User is not logged in if no token
+    }
+  }, []); // Only runs once when the component mounts
+
+  // Logout functionality
   const handleLogout = () => {
-    dispatch(logoutAction());
-    localStorage.removeItem("accessToken");
+    // Remove token from both cookies and localStorage
+    nookies.destroy(null, 'token');
+    localStorage.removeItem("token");
+
+    // Redirect to login page after logout
+    setIsLoggedIn(false);
     setIsDropdownOpen(false);
-    router.push("/login");
+    router.push("/login"); // Redirect to login page
   };
 
+  // Close the dropdown if clicked outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -68,11 +85,9 @@ export default function Header({ onMenuClick }: HeaderProps) {
 
             {isDropdownOpen && (
               <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-lg py-2 w-48 z-50">
-               
-                <button
-                  onClick={handleLogout}
-                  className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100"
-                >
+                {/* <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100">Profile</Link> */}
+                {/* <Link href="/settings" className="block px-4 py-2 hover:bg-gray-100">Settings</Link> */}
+                <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100">
                   Logout
                 </button>
               </div>

@@ -81,7 +81,6 @@ export default function Navbar() {
               {isDropdownOpen && (
                 <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-lg py-2 w-48">
                   <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
-                  <Link href="/settings" className="block px-4 py-2 hover:bg-gray-100">Settings</Link>
                   <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100">Logout</button>
                 </div>
               )}

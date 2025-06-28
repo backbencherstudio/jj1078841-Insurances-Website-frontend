@@ -7,7 +7,9 @@ import Image, { StaticImageData } from "next/image";
 import BusinessPlan from "@/public/business_plan.png";
 import VehiclePlan from "@/public/vehicle_plan.png";
 import PropertyPlan from "@/public/property_plan.png";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";  // Import Toaster for toast notifications
+import nookies from 'nookies';  // nookies import for cookie handling
+import { useRouter } from "next/navigation";  // Correct import for useRouter
 
 interface Plan {
   icon: StaticImageData;
@@ -80,47 +82,52 @@ const plans: Plan[] = [
   },
 ];
 
-export default function page() {
+export default function Page() {
   const [token, setToken] = useState<string | null>(null);
+  const [isClient, setIsClient] = useState(false); // Track if it's a client-side render
+  const router = useRouter();  // useRouter hook now correctly imported
 
-  // Retrieve token from localStorage
+  // Retrieve token from cookies using nookies
   useEffect(() => {
-    const storedToken = localStorage.getItem("accessToken");
+    const storedToken = nookies.get(null).token;  // Get the token from cookies
     setToken(storedToken);
+
+    // Set the isClient state to true after the component has mounted on the client side
+    setIsClient(true);
   }, []);
 
-  // Function to redirect to the Stripe URL
- const handleRedirect = async (plan: string) => {
-  if (!token) {
-    toast.error("Please log in first.");
-    return;
-  }
-
-  try {
-    // Make the GET request to the backend to fetch the Stripe checkout URL
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/payment/subscribe?plan=${plan}`, {
-      method: "GET",
-      headers: {
-        "Authorization": `Bearer ${token}`, // Pass the token in the Authorization header
-      },
-    });
-
-    // Check if the response is successful
-    if (!response.ok) {
-      throw new Error("Failed to fetch subscription URL");
+  // Function to handle redirect to Stripe Checkout page
+  const handleRedirect = async (plan: string) => {
+    if (!token) {
+      toast.error("Please login first.");
+      return;  // Do not redirect, just show the toast message
     }
 
-    // Get the response data
-    const data = await response.json();
+    try {
+      // Fetch subscription URL from backend
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/payment/subscribe?plan=monthly`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,  // Pass token in Authorization header
+        },
+      });
 
-    // Redirect the user to the Stripe checkout URL
-    window.location.href = data.url;
-  } catch (error) {
-    toast.error("An error occurred while redirecting to Stripe");
-    console.error("Error:", error);
-  }
-};
+      // If response is not ok, show error
+      if (!response.ok) {
+        throw new Error("Failed to fetch subscription URL");
+      }
 
+      // Get the response data and redirect user to Stripe URL
+      const data = await response.json();
+      window.location.href = data.url;
+    } catch (error) {
+      toast.error("An error occurred while redirecting to Stripe");
+      console.error("Error:", error);
+    }
+  };
+
+  // Check if client-side rendering and render component only if true
+  if (!isClient) return null;
 
   return (
     <section className="min-h-screen">
@@ -173,8 +180,8 @@ export default function page() {
 
                 <div className="border-b border-[#E9E9EA] group-hover:border-white"></div>
 
-                <div className="">
-                  <p className="text-lg font-semibold   group-hover:text-white my-4">
+                <div className="mt-4">
+                  <p className="text-lg font-semibold group-hover:text-white my-4">
                     {plan.achiPrice}
                   </p>
                 </div>
@@ -200,6 +207,9 @@ export default function page() {
           ))}
         </div>
       </div>
+      
+      {/* Toast Notification Container */}
+      <Toaster position="top-right" />  {/* Adding the Toast container here */}
     </section>
   );
 }
