@@ -105,7 +105,7 @@ export default function Page() {
 
     try {
       // Fetch subscription URL from backend
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/payment/subscribe?plan=monthly`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/payment/subscribe?plan=${plan}`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,  // Pass token in Authorization header

@@ -4,6 +4,8 @@ import React from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import nookies from 'nookies'; // Import nookies to manage cookies
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"; // Add the CSS import here
 
 const PlusIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className={className}>
@@ -40,6 +42,7 @@ interface FormFieldProps {
   options?: string[];
   icon?: React.ReactNode;
   containerClassName?: string;
+  component?: React.ReactNode;
 }
 
 const FormField: React.FC<FormFieldProps> = ({
@@ -52,6 +55,7 @@ const FormField: React.FC<FormFieldProps> = ({
   options = [],
   icon,
   containerClassName = "",
+  component,
 }) => {
   return (
     <div className={containerClassName}>
@@ -59,7 +63,7 @@ const FormField: React.FC<FormFieldProps> = ({
         {label}
       </label>
       <div className="relative">
-        {isSelect ? (
+        {component || (isSelect ? (
           <>
             <select
               id={id}
@@ -81,7 +85,7 @@ const FormField: React.FC<FormFieldProps> = ({
             defaultValue={defaultValue}
             className="w-full bg-white border border-slate-300 rounded-md px-3 py-2.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500"
           />
-        )}
+        ))}
         {icon && (
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
             {icon}
@@ -102,36 +106,40 @@ export default function ProfilePage() {
     }
   }, [token, router]);
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  const form = new FormData(e.currentTarget as HTMLFormElement);
+  const [avatarPreview, setAvatarPreview] = React.useState<string | null>(null); // State for image preview
+  const [dateOfBirth, setDateOfBirth] = React.useState<Date>(new Date("1997-02-02")); // State for Date of Birth
 
-  try {
-    toast.loading("Updating profile...");
-    // Use the environment variable for the API URL
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/user-profile`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(Object.fromEntries(form)),
-    });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget as HTMLFormElement);
 
-    if (!response.ok) {
-      throw new Error('Failed to update profile');
+    try {
+      toast.loading("Updating profile...");
+      // Use the environment variable for the API URL
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/user-profile`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(Object.fromEntries(form)),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update profile');
+      }
+
+      const result = await response.json();
+      console.log(result);
+      
+      toast.dismiss();
+      toast.success("Profile updated successfully!");
+    } catch (error: any) {
+      toast.dismiss();
+      const message = error?.message || "Update failed";
+      toast.error(message);
     }
-
-    const result = await response.json();
-    toast.dismiss();
-    toast.success("Profile updated successfully!");
-  } catch (error: any) {
-    toast.dismiss();
-    const message = error?.message || "Update failed";
-    toast.error(message);
-  }
-};
-
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 p-4 sm:p-6 md:p-8">
@@ -143,7 +151,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="flex flex-col items-center sm:items-start mb-8">
               <div className="relative mb-2">
                 <img
-                  src="https://via.placeholder.com/100/E0E7FF/4F46E5?text=User"
+                  src={avatarPreview || "https://via.placeholder.com/100/E0E7FF/4F46E5?text=User"}
                   alt="Profile"
                   className="w-24 h-24 rounded-full object-cover border-2 border-slate-200"
                 />
@@ -151,6 +159,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                   type="file"
                   name="avatar"
                   accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const imageURL = URL.createObjectURL(file);
+                      setAvatarPreview(imageURL); // Set the preview image
+                    }
+                  }}
                   className="absolute -bottom-1 -right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md cursor-pointer opacity-0 w-8 h-8"
                 />
                 <div className="absolute -bottom-1 -right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md pointer-events-none">
@@ -163,7 +178,14 @@ const handleSubmit = async (e: React.FormEvent) => {
               <FormField label="Full Name" id="full_name" defaultValue="Jacob Jones" />
               <FormField label="Email" id="email" type="email" defaultValue="info@insurancesally.com" />
               <FormField label="Phone No" id="phone_number" defaultValue="+012 3456 789" />
-              <FormField label="Date of Birth" id="date_of_birth" defaultValue="1997-02-02" icon={<CalendarIcon className="w-4 h-4 text-slate-400" />} />
+              <FormField label="Date of Birth" id="date_of_birth" component={
+                <ReactDatePicker
+                  selected={dateOfBirth}
+                  onChange={(date: Date) => setDateOfBirth(date)}
+                  dateFormat="yyyy-MM-dd"
+                  className="w-full bg-white border border-slate-300 rounded-md px-3 py-2.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500"
+                />
+              } />
               <FormField label="Country" id="country" isSelect defaultValue="USA" options={["USA", "Canada", "UK"]} />
               <FormField label="State" id="state" isSelect defaultValue="New York" options={["New York", "California", "Texas"]} />
             </div>

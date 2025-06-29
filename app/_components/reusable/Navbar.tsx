@@ -13,18 +13,43 @@ export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isProfileViewActive, setIsProfileViewActive] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [userData, setUserData] = useState<any>(null); // To store user data
   const pathname = usePathname();
   const router = useRouter();
 
+  // Check for the token in cookies and fetch user data
   useEffect(() => {
-    // Check for the token in cookies on component mount
-    const token = nookies.get(null).token; // Get the token from cookies
+    const token = nookies.get(null).token; // Get token from cookies
     if (token) {
       setIsLoggedIn(true); // User is logged in if token exists
+      fetchUserData(token); // Fetch user data if logged in
     } else {
       setIsLoggedIn(false); // User is not logged in if no token
     }
   }, []); // Only runs once when the component mounts
+
+  // Fetch user data from the API using the token
+  const fetchUserData = async (token: string) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.data);
+        
+        setUserData(data.data); // Store user data in state
+      } else {
+        console.error("Failed to fetch user data.");
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
 
   useEffect(() => {
     if (pathname === "/profile") {
@@ -47,7 +72,6 @@ export default function Navbar() {
     // Remove token from localStorage
     localStorage.removeItem("token");
     setIsLoggedIn(false); // Update state to reflect logout
-    setIsMobileMenuOpen(false);
     setIsDropdownOpen(false);
     router.push("/login"); // Redirect to login page
   };
@@ -69,7 +93,7 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden md:flex gap-6 items-center">
-          {isLoggedIn ? (
+          {isLoggedIn && userData ? (
             <div className="relative">
               <button
                 onClick={handleProfileIconClick}
@@ -83,6 +107,10 @@ export default function Navbar() {
                   <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
                   <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100">Logout</button>
                 </div>
+              )}
+              {/* Display email below profile avatar */}
+              {userData.email && (
+                <div className="text-sm text-center mt-2 text-gray-600">{userData.email}</div>
               )}
             </div>
           ) : (

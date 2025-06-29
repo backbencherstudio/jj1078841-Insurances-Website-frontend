@@ -34,14 +34,15 @@ export default function Header({ onMenuClick }: HeaderProps) {
   // Logout functionality
   const handleLogout = () => {
     // Remove token from both cookies and localStorage
-    nookies.destroy(null, 'token');
+    nookies.destroy(null, 'token', { path: '/' });  // Add the path parameter to ensure it removes the correct cookie
     localStorage.removeItem("token");
-
+  
     // Redirect to login page after logout
     setIsLoggedIn(false);
     setIsDropdownOpen(false);
     router.push("/login"); // Redirect to login page
   };
+  
 
   // Close the dropdown if clicked outside
   useEffect(() => {

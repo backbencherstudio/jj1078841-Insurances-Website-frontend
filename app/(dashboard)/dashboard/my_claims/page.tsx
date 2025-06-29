@@ -86,6 +86,8 @@ export default function MyClaims() {
   }
 
   if (error) {
+    console.log(error);
+    
     return <div className="text-red-500">{error}</div>;
   }
 
