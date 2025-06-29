@@ -102,6 +102,8 @@ export default function Page() {
       toast.error("Please login first.");
       return;  // Do not redirect, just show the toast message
     }
+    console.log(plan);
+    
 
     try {
       // Fetch subscription URL from backend
