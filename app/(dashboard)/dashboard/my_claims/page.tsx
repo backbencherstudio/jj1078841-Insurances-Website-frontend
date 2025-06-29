@@ -30,7 +30,7 @@ export default function MyClaims() {
 
   useEffect(() => {
     // Retrieve token from localStorage
-    const storedToken = localStorage.getItem('accessToken');
+    const storedToken = localStorage.getItem('token');
     setToken(storedToken);
 
     // If no token, return early

@@ -87,7 +87,7 @@ export default function MyClaim() {
 
   const handleSubmit = async () => {
     if (!token) {
-      toast.error("No token found. Please log in again.");
+      toast.error("No user found. Please log in again.");
       return;
     }
 
@@ -125,6 +125,8 @@ export default function MyClaim() {
       }
 
       const result = await response.json();
+      console.log(result);
+      
       toast.dismiss();
       toast.success("Claim submitted successfully!");
       setFormData((prev) => ({ ...prev, submitted: true }));

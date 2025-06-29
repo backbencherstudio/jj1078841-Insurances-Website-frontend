@@ -12,8 +12,8 @@ export default function Footer() {
         <div>
           <Image src={logo} alt="logo" width={150} height={50} />
           <p className="text-base text-text-light font-normal mt-5">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout.
+          InsurancesAlly.com is not an insurance company.
+          As a member, you gain access to licensed insurance specialists and public adjusters dedicated to guiding you through every step of your claim.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 {
   "pages": {
-    "/(client)/login/page": [
+    "/(client)/about/page": [
       "static/chunks/node_modules_next_dist_1a6ee436._.js",
       "static/chunks/app_favicon_ico_mjs_659ce808._.js",
       "static/chunks/app_globals_73c37791.css",
@@ -10,9 +10,10 @@
       "static/chunks/node_modules_55ab7dbc._.js",
       "static/chunks/_3937dd73._.js",
       "static/chunks/app_(client)_layout_tsx_d16bd306._.js",
-      "static/chunks/node_modules_08a9877f._.js",
-      "static/chunks/_a96a777c._.js",
-      "static/chunks/app_(client)_login_page_tsx_0ff17b60._.js",
+      "static/chunks/node_modules_328dfad0._.js",
+      "static/chunks/_de7c511f._.js",
+      "static/chunks/node_modules_swiper_b167c7bf._.css",
+      "static/chunks/app_(client)_about_page_tsx_0ff17b60._.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",
@@ -44,13 +45,20 @@
       "static/chunks/_e69f0d32._.js",
       "static/chunks/_93808211._.js"
     ],
-    "/_not-found/page": [
+    "/(client)/privacy-policy/page": [
       "static/chunks/node_modules_next_dist_1a6ee436._.js",
       "static/chunks/app_favicon_ico_mjs_659ce808._.js",
       "static/chunks/app_globals_73c37791.css",
       "static/chunks/node_modules_0a7d88e4._.js",
       "static/chunks/src_redux_095ef980._.js",
       "static/chunks/app_layout_tsx_c0237562._.js",
+      "static/chunks/node_modules_55ab7dbc._.js",
+      "static/chunks/_3937dd73._.js",
+      "static/chunks/app_(client)_layout_tsx_d16bd306._.js",
+      "static/chunks/node_modules_react-icons_fa_index_mjs_d2e2d7f5._.js",
+      "static/chunks/node_modules_react-icons_lib_74ccc930._.js",
+      "static/chunks/_9fffacf4._.js",
+      "static/chunks/app_(client)_privacy-policy_page_tsx_0ff17b60._.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",

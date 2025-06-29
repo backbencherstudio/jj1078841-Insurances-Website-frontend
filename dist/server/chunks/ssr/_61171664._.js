@@ -15,7 +15,7 @@ const AppConfig = ()=>({
         app: {
             // server endpoint
             url: URL,
-            name: "app",
+            name: "Insurances Ally",
             slogan: "app",
             meta: {
                 description: "app",

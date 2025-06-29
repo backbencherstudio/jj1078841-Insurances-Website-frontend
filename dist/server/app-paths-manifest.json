@@ -1,7 +1,6 @@
 {
-  "/(client)/login/page": "app/(client)/login/page.js",
+  "/(client)/about/page": "app/(client)/about/page.js",
   "/(client)/membership_plans/page": "app/(client)/membership_plans/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(client)/privacy-policy/page": "app/(client)/privacy-policy/page.js",
   "/page": "app/page.js"
 }
