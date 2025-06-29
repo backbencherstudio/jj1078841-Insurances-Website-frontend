@@ -48,7 +48,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     // Only runs on client
-    const storedToken = localStorage.getItem("accessToken");
+    const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   }, []);
 
@@ -57,7 +57,7 @@ export default function AdminDashboard() {
 
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/admin/dashboard", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/dashboard`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

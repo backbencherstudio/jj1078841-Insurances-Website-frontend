@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from "react";
 import BreadCrump from "../../_components/reusable/BreadCrump";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { UserService } from "@/service/user/user.service";
-import { CookieHelper } from "@/helper/cookie.helper";  // Import CookieHelper
+import { CookieHelper } from "@/helper/cookie.helper"; // Import CookieHelper
 
 interface LoginFormData {
   email: string;
@@ -49,6 +49,7 @@ export default function LoginPage() {
   const validateForm = (): boolean => {
     const newErrors: ValidationErrors = {};
 
+    // Validate email
     if (!formData.email) {
       newErrors.email = "Email is required";
       toast.error("Email is required");
@@ -57,6 +58,7 @@ export default function LoginPage() {
       toast.error("Invalid email format");
     }
 
+    // Validate password
     if (!formData.password) {
       newErrors.password = "Password is required";
       toast.error("Password is required");
@@ -72,30 +74,30 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-  
+
     try {
       setIsLoading(true);
       toast.loading("Logging in...");
-  
+
       // Step 1: Login to get token
       const res = await UserService.login({
         email: formData.email,
         password: formData.password,
       });
-  
+
       toast.dismiss();
-  
+
       const token = res?.data?.authorization?.token;
-  
+
       if (!token) {
         toast.error(res?.message || "Login failed");
         return;
       }
-  
+
       // Step 2: Save token
       localStorage.setItem("token", token);
       CookieHelper.set({ key: "token", value: token, expires: 30 * 24 * 60 * 60 });
-  
+
       // Step 3: Call /api/auth/me to get fresh user data
       const meResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
         method: "GET",
@@ -103,39 +105,34 @@ export default function LoginPage() {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log('amar data:' ,meResponse);
-      
-  
+
       if (!meResponse.ok) {
         throw new Error("Failed to fetch user data");
       }
-  
+
       const user = await meResponse.json();
-      console.log(user);
-      
-  
+
       // Step 4: Store user in localStorage
       localStorage.setItem("user", JSON.stringify(user));
-  
+
       // Step 5: Handle "Remember Me"
       if (formData.rememberMe) {
         localStorage.setItem("rememberedEmail", formData.email);
       } else {
         localStorage.removeItem("rememberedEmail");
       }
-  
+
       toast.success(res?.message || "Login successful!");
       router.push("/");
-  
+
     } catch (error: any) {
       toast.dismiss();
       const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong!";
-      toast.error(errorMessage);
+      toast.error(errorMessage); // Display error message from catch block
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // Reset loading state after completing the login attempt
     }
   };
-  
 
   return (
     <div className="min-h-screen">
@@ -217,7 +214,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
-
-
- 

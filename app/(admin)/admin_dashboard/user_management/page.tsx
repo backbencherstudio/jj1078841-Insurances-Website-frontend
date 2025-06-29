@@ -41,7 +41,7 @@ export default function UserManagement() {
   const itemsPerPage = 9;
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("accessToken");
+    const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   }, []);
 
@@ -50,7 +50,7 @@ export default function UserManagement() {
 
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/admin/user-management", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/user-management`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -124,7 +124,7 @@ console.log("get data",response);
   const confirmDelete = async () => {
     if (userToDelete) {
       try {
-        const response = await fetch(`http://localhost:4000/api/admin/user-management/${userToDelete.id}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/user-management/${userToDelete.id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

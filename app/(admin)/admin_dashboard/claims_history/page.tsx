@@ -36,7 +36,7 @@ export default function ClaimsHistory() {
   const itemsPerPage = 10;
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("accessToken");
+    const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   }, []);
 
@@ -45,7 +45,7 @@ export default function ClaimsHistory() {
 
     const fetchClaims = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/admin/claims-history", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/claims-history`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

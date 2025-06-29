@@ -248,12 +248,12 @@ __turbopack_context__.s({
     "AppConfig": (()=>AppConfig),
     "URL": (()=>URL)
 });
-const URL = ("TURBOPACK compile-time value", "http://localhost:4000") || "http://127.0.0.1:4000";
+const URL = ("TURBOPACK compile-time value", "https://backend.insurancesally.com") || "http://127.0.0.1:4000";
 const AppConfig = ()=>({
         app: {
             // server endpoint
             url: URL,
-            name: "app",
+            name: "Insurances Ally",
             slogan: "app",
             meta: {
                 description: "app",

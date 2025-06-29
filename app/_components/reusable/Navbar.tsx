@@ -43,6 +43,8 @@ export default function Navbar() {
         console.log(data.data);
         
         setUserData(data.data); // Store user data in state
+        console.log(userData);
+        
       } else {
         console.error("Failed to fetch user data.");
       }
@@ -104,7 +106,13 @@ export default function Navbar() {
               </button>
               {isDropdownOpen && (
                 <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-lg py-2 w-48">
-                  <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
+                { userData.type === "user"
+                ?
+                <Link href="/dashboard" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
+                :
+                <Link href="/admin_dashboard" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
+
+                 }
                   <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100">Logout</button>
                 </div>
               )}
