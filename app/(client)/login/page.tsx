@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import BreadCrump from "../../_components/reusable/BreadCrump";
 import Link from "next/link";
-import toast, { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast"; // Import Toaster for toast notifications
 import { useRouter } from "next/navigation";
 import { UserService } from "@/service/user/user.service";
 import { CookieHelper } from "@/helper/cookie.helper"; // Import CookieHelper
@@ -24,6 +24,7 @@ export default function LoginPage() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<ValidationErrors>({});
+ 
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
@@ -52,19 +53,15 @@ export default function LoginPage() {
     // Validate email
     if (!formData.email) {
       newErrors.email = "Email is required";
-      toast.error("Email is required");
     } else if (!/^[\w.%+-]+@[\w.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
       newErrors.email = "Invalid email format";
-      toast.error("Invalid email format");
     }
 
     // Validate password
     if (!formData.password) {
       newErrors.password = "Password is required";
-      toast.error("Password is required");
     } else if (formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters";
-      toast.error("Password must be at least 8 characters");
     }
 
     setErrors(newErrors);
@@ -90,7 +87,8 @@ export default function LoginPage() {
       const token = res?.data?.authorization?.token;
 
       if (!token) {
-        toast.error(res?.message || "Login failed");
+        // Check if error exists in response and properly extract the message string
+        toast.error(res?.data?.message || "Login failed");  // Only success messages in toast
         return;
       }
 
@@ -122,13 +120,20 @@ export default function LoginPage() {
         localStorage.removeItem("rememberedEmail");
       }
 
-      toast.success(res?.message || "Login successful!");
+      // Step 6: Show success message in toast
+      toast.success(res?.data?.message || "Login successful!");
+
+      // Redirect to home page or any other page after successful login
       router.push("/");
 
     } catch (error: any) {
       toast.dismiss();
-      const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong!";
-      toast.error(errorMessage); // Display error message from catch block
+    
+      console.log(error.response.data.message.message);
+      
+      // const errorMessage = error?.response?.data?.message || error?.message || "Something went wrong!";
+      // toast.error(errorMessage); // Display error message from catch block
+      toast.error(error?.response?.data.message?.message)
     } finally {
       setIsLoading(false); // Reset loading state after completing the login attempt
     }
@@ -157,6 +162,7 @@ export default function LoginPage() {
                   if (errors.email) setErrors({ ...errors, email: undefined });
                 }}
               />
+              {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>} {/* Display error below input */}
             </div>
 
             <div>
@@ -174,6 +180,8 @@ export default function LoginPage() {
                   if (errors.password) setErrors({ ...errors, password: undefined });
                 }}
               />
+              {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>} {/* Display error below input */}
+              
             </div>
 
             <div className="flex items-center justify-between">
@@ -189,7 +197,7 @@ export default function LoginPage() {
                   Remember me
                 </label>
               </div>
-              <Link href="/forgot-password" className="text-sm text-primary-color hover:underline">
+              <Link href="/forgot_password" className="text-sm text-primary-color hover:underline">
                 Forgot Password?
               </Link>
             </div>

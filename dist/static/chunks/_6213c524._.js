@@ -165,7 +165,7 @@ __turbopack_context__.s({
     "URL": (()=>URL)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
-const URL = ("TURBOPACK compile-time value", "https://backend.insurancesally.com") || "http://127.0.0.1:4000";
+const URL = ("TURBOPACK compile-time value", "http://localhost:4000") || "http://127.0.0.1:4000";
 const AppConfig = ()=>({
         app: {
             // server endpoint
@@ -846,25 +846,15 @@ function SignupPage() {
                                                 htmlFor: "terms",
                                                 className: "ml-2 text-sm text-gray-600",
                                                 children: [
-                                                    "I agree to all the ",
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                        href: "/terms",
-                                                        className: "text-primary-color hover:underline",
-                                                        children: "Terms"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/(client)/signUp/page.tsx",
-                                                        lineNumber: 179,
-                                                        columnNumber: 36
-                                                    }, this),
-                                                    " and ",
+                                                    "I agree to all the   ",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                         href: "/privacy-policy",
                                                         className: "text-primary-color hover:underline",
-                                                        children: "Privacy policy"
+                                                        children: "Terms and Privacy policy"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/signUp/page.tsx",
                                                         lineNumber: 179,
-                                                        columnNumber: 120
+                                                        columnNumber: 38
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
@@ -899,14 +889,14 @@ function SignupPage() {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/login",
                                     children: [
-                                        "Don’t have an account? ",
+                                        "Already have an account? ",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: " text-primary-color hover:underline",
                                             children: "Login"
                                         }, void 0, false, {
                                             fileName: "[project]/app/(client)/signUp/page.tsx",
                                             lineNumber: 188,
-                                            columnNumber: 56
+                                            columnNumber: 58
                                         }, this),
                                         " "
                                     ]

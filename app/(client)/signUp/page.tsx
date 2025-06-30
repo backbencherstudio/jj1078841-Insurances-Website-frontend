@@ -176,7 +176,7 @@ export default function SignupPage() {
             <div className="flex items-center">
               <input type="checkbox" name="agreeToTerms" id="terms" className="h-4 w-4 text-primary-color rounded border-gray-300" checked={formData.agreeToTerms} onChange={handleChange} />
               <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
-                I agree to all the <Link href="/terms" className="text-primary-color hover:underline">Terms</Link> and <Link href="/privacy-policy" className="text-primary-color hover:underline">Privacy policy</Link>
+                I agree to all the   <Link href="/privacy-policy" className="text-primary-color hover:underline">Terms and Privacy policy</Link>
               </label>
             </div>
             <button disabled={isLoading} type="submit" className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer">
@@ -185,7 +185,7 @@ export default function SignupPage() {
           </form>
           <div className=" flex justify-center mt-5">
 
-          <Link href='/login'  >Don’t have an account? <span className=" text-primary-color hover:underline">Login</span> </Link>
+          <Link href='/login'  >Already have an account? <span className=" text-primary-color hover:underline">Login</span> </Link>
           </div>
         </div>
       </div>

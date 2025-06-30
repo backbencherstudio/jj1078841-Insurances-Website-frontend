@@ -5,6 +5,7 @@ import Navbar from "../_components/reusable/Navbar";
 import Footer from "../_components/reusable/Footer";
 import { useAppDispatch } from "@/src/redux/hooks";
 import { setToken } from "@/src/redux/features/auth/authSlice";
+import toast, { Toaster } from "react-hot-toast";  // Import Toaster for toast notifications
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const dispatch = useAppDispatch();
@@ -25,6 +26,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <Navbar />
       <main>{children}</main>
       <Footer />
+            {/* Toast Notification Container */}
+            <Toaster position="top-right" />   
     </div>
   );
 }

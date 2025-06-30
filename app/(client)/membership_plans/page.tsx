@@ -84,6 +84,7 @@ const plans: Plan[] = [
 
 export default function Page() {
   const [token, setToken] = useState<string | null>(null);
+  const [userData, setUserData] = useState<any>(null); // Store user data
   const [isClient, setIsClient] = useState(false); // Track if it's a client-side render
   const router = useRouter();  // useRouter hook now correctly imported
 
@@ -92,18 +93,48 @@ export default function Page() {
     const storedToken = nookies.get(null).token;  // Get the token from cookies
     setToken(storedToken);
 
+    // Fetch user data if token exists
+    if (storedToken) {
+      fetchUserData(storedToken);
+    }
+
     // Set the isClient state to true after the component has mounted on the client side
     setIsClient(true);
   }, []);
 
+  // Fetch user data from API
+  const fetchUserData = async (token: string) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,  // Pass token in Authorization header
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+
+      const user = await response.json();
+      setUserData(user);
+
+      // Optionally store user in localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+
+    } catch (error) {
+      toast.error("Failed to fetch user data.");
+      console.error(error);
+    }
+  };
+
   // Function to handle redirect to Stripe Checkout page
   const handleRedirect = async (plan: string) => {
     if (!token) {
-      toast.error("Please login first.");
+      toast.error("Please create an account to subscribe");
+      router.push("/signUp");  // Redirect to login page
       return;  // Do not redirect, just show the toast message
     }
-    console.log(plan);
-    
 
     try {
       // Fetch subscription URL from backend
@@ -114,12 +145,10 @@ export default function Page() {
         },
       });
 
-      // If response is not ok, show error
       if (!response.ok) {
         throw new Error("Failed to fetch subscription URL");
       }
 
-      // Get the response data and redirect user to Stripe URL
       const data = await response.json();
       window.location.href = data.url;
     } catch (error) {
@@ -130,6 +159,9 @@ export default function Page() {
 
   // Check if client-side rendering and render component only if true
   if (!isClient) return null;
+
+  // Disable "Get Started" button if the user has an active subscription
+  const isSubscriptionActive = userData?.data?.subscriptions[0]?.status === "active";
 
   return (
     <section className="min-h-screen">
@@ -198,20 +230,17 @@ export default function Page() {
                 </ul>
               </div>
 
-              {/* Button that triggers the redirect */}
               <button
-                onClick={() => handleRedirect(plan.name.toLowerCase())} // Trigger redirect when the button is clicked
-                className="w-full py-3 rounded-full transition-all duration-300 border bg-[#2EB0E4] text-white hover:bg-white hover:text-[#2EB0E4] hover:border-[#2EB0E4] mt-auto"
+                onClick={() => handleRedirect(plan.name.toLowerCase())}
+                disabled={isSubscriptionActive}  // Disable if subscription is active
+                className={`w-full py-3 rounded-full transition-all duration-300 border ${isSubscriptionActive ? 'bg-gray-400 text-gray-700 cursor-not-allowed' : 'bg-[#2EB0E4] text-white hover:bg-white hover:text-[#2EB0E4] hover:border-[#2EB0E4]'} mt-auto`}
               >
-                Get Started
+                {isSubscriptionActive ? "Already Subscribed" : "Get Started"}
               </button>
             </div>
           ))}
         </div>
       </div>
-      
-      {/* Toast Notification Container */}
-      <Toaster position="top-right" />  {/* Adding the Toast container here */}
     </section>
   );
 }

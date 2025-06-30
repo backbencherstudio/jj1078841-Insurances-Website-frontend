@@ -8,23 +8,58 @@ import { useAppSelector } from "@/src/redux/hooks";
 import { RiDashboardLine, RiUserLine } from "react-icons/ri";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { AiOutlineMessage } from "react-icons/ai";
+import nookies from "nookies"; // Import nookies for cookie handling
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
-  const token = useAppSelector((state) => state.auth.token);
+  const [userType, setUserType] = useState<string | null>(null); // Store user type (e.g., "user", "admin")
   const router = useRouter();
 
   // Auth check
   useEffect(() => {
-    const localToken = localStorage.getItem("token");
-
-    if (!token && !localToken) {
+    const token = nookies.get(null).token || localStorage.getItem("token"); // Get token from cookies or localStorage
+    
+    if (!token) {
+      // If no token, redirect to login page
       router.replace("/login");
-    } else {
-      setIsCheckingAuth(false);
+      return;
     }
-  }, [token, router]);
+
+    // Fetch user data after token is found
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data.");
+        }
+
+        const data = await response.json();
+        const user = data.data; // Assuming the user data is in `data.data`
+        
+        // Set user type
+        setUserType(user.type);
+
+        // Check if the user type is not "user"
+        if (user.type !== "user") {
+          router.replace("/login"); // Redirect to login if not a "user"
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        router.replace("/login"); // Redirect if there's an error
+      } finally {
+        setIsCheckingAuth(false); // Set loading to false once the check is done
+      }
+    };
+
+    fetchUserData();
+  }, [router]);
 
   const menuItems = [
     { title: "Dashboard", icon: RiDashboardLine, href: "/dashboard" },
