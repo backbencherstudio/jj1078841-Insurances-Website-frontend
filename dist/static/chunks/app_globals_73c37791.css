@@ -3498,12 +3498,6 @@
   }
 
   @media (width >= 48rem) {
-    .md\:ml-0 {
-      margin-left: calc(var(--spacing) * 0);
-    }
-  }
-
-  @media (width >= 48rem) {
     .md\:flex {
       display: flex;
     }

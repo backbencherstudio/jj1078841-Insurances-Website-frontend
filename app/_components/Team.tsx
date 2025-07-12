@@ -104,18 +104,7 @@ export default function Team() {
 
                 {/* Social icons (hidden initially) */}
                 <div className="absolute left-4 bottom-2 flex flex-col   opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-[-75%] transition-all duration-500 ease-out">
-                  <button className="bg-white p-2 text-isecondary  hover:bg-blue-600 hover:text-white transition-all duration-300">
-                    <Facebook size={20} />
-                  </button>
-                  <button className="bg-white p-2 text-isecondary  hover:bg-blue-600 hover:text-white transition-all duration-300">
-                    <Twitter size={20} />
-                  </button>
-                  <button className="bg-white p-2 text-isecondary   hover:bg-blue-600 hover:text-white transition-all duration-300">
-                    <Instagram size={20} />
-                  </button>
-                  <button className="bg-white p-2 text-isecondary   hover:bg-blue-600 hover:text-white transition-all duration-300">
-                    <Linkedin size={20} />
-                  </button>
+                  
                 </div>
 
                 {/* Name and role section */}
@@ -127,9 +116,7 @@ export default function Team() {
                   <p>{member.role}</p>
                 </div>
                 <div className=" absolute bottom-20 left-4">
-                <button className="bg-white p-2 text-isecondary   hover:bg-blue-600 hover:text-white transition-all duration-300">
-                    <Share2 size={20} />
-                  </button>
+               
                 </div>
               </div>
 

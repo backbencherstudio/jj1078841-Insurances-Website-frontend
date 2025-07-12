@@ -165,7 +165,7 @@ __turbopack_context__.s({
     "URL": (()=>URL)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
-const URL = ("TURBOPACK compile-time value", "http://localhost:4000") || "http://127.0.0.1:4000";
+const URL = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:4000";
 const AppConfig = ()=>({
         app: {
             // server endpoint
@@ -929,7 +929,7 @@ function SignupPage() {
         columnNumber: 5
     }, this);
 }
-_s(SignupPage, "K+2RtlwvlhLrcgkl5XYEKZb/lvI=", false, function() {
+_s(SignupPage, "Y0aojYSjnkfrZXZiAF5/nIoEjkM=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
