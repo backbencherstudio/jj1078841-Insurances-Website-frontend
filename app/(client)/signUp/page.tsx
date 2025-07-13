@@ -171,7 +171,7 @@ export default function SignupPage() {
                 <input type="checkbox" name="rememberMe" id="remember" className="h-4 w-4 text-primary-color rounded border-gray-300" checked={formData.rememberMe} onChange={handleChange} />
                 <label htmlFor="remember" className="ml-2 text-sm text-gray-600">Remember me</label>
               </div>
-              <Link href="/forgot-password" className="text-sm text-primary-color hover:underline">Forgot Password?</Link>
+              <Link href="/forgot_password" className="text-sm text-primary-color hover:underline">Forgot Password?</Link>
             </div>
             <div className="flex items-center">
               <input type="checkbox" name="agreeToTerms" id="terms" className="h-4 w-4 text-primary-color rounded border-gray-300" checked={formData.agreeToTerms} onChange={handleChange} />

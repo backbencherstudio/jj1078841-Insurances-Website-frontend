@@ -24,7 +24,7 @@ export default function CustomCard({
 }: CustomCardProps) {
   return (
     <div
-      className={`rounded-2xl shadow-md p-6 ${bgColor} ${textColor} rounded-[8px]  p-5 min-h-[240px] `}
+      className={`w-[400px] rounded-2xl shadow-md p-6 ${bgColor} ${textColor} rounded-[8px]  p-5 min-h-[240px] `}
     >
       <div className={`${bgColor2}  inline-block p-3 rounded-lg`}>
         <Component {...componentProps} />

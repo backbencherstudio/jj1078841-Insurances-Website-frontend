@@ -19,16 +19,16 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4">
           <h3 className="text-gray-bold text-lg font-semibold">Quick link</h3>
-          <Link href="#" className="text-text-light text-base">Home</Link>
-          <Link href="#" className="text-text-light text-base">About</Link>
-          <Link href="#" className="text-text-light text-base">Membership</Link>
+          <Link href="/" className="text-text-light text-base">Home</Link>
+          <Link href="/about" className="text-text-light text-base">About</Link>
+          <Link href="/membership_plans" className="text-text-light text-base">Membership</Link>
         </div>
 
         <div className="flex flex-col gap-4">
           <h3 className="text-gray-bold text-lg font-semibold">Support</h3>
-          <Link href="#" className="text-text-light text-base">Contact</Link>
-          <Link href="#" className="text-text-light text-base">Privecy Policy</Link>
-          <Link href="#" className="text-text-light text-base">FAQs</Link>
+          <Link href="/contact" className="text-text-light text-base">Contact</Link>
+          <Link href="/privacy-policy" className="text-text-light text-base">Privecy Policy</Link>
+          <Link href="/faq" className="text-text-light text-base">FAQs</Link>
         </div>
 
         <div className="flex flex-col gap-4">

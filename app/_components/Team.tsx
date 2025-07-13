@@ -15,33 +15,33 @@ import aboutTeam4 from "@/public/about-team4.png"
 
 const teamMembers = [
   {
-    name: "Eleanor Pena",
+    name: "Omor Khoury",
 
-    role: "Ceo Founder",
+    role: "Attorney",
 
     image:aboutTeam1,
   },
 
   {
-    name: "Leslie Alexander",
+    name: "David Kim",
 
-    role: "Ceo Founder",
+    role: "Engineer",
 
     image:aboutTeam2,
   },
 
   {
-    name: "Cameron Williamson",
+    name: "Margaret Lawson",
 
-    role: "Ceo Founder",
+    role: "Adjuster",
 
     image: aboutTeam3,
   },
 
   {
-    name: "Guy Hawkins",
+    name: "Chris Walters",
 
-    role: "Ceo Founder",
+    role: "Appriser",
 
     image: aboutTeam4,
   },
@@ -64,7 +64,7 @@ export default function Team() {
         <div className="text-center mb-16">
           <p className="text-cyan-500 mb-4">Our Expert</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-          Creative Experience Team
+          Strategic Partners
           </h2>
         </div>
         

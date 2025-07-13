@@ -8,18 +8,18 @@ export default function Investor() {
   const items = [
     {
       icon: SettingsIcon,
-      title: "Why Join Us",
-      details: "Offer your clients seamless claims assistance and earn their trust."
+      title: "Why Partner with Us",
+      details: "Capitalize on a Growing Industry"
     },
     {
       icon: Hand,
-      title: "Exclusive Broker Benefits",
-      details: "Tools and resources to help you build lasting client relationships."
+      title: "Strategic Investment Advantage",
+      details: "Expanding partner network "
     },
     {
       icon: Like,
-      title: "Referral Rewards",
-      details: "Get rewarded for connecting clients with the expert support they need."
+      title: "Investor Inccentives",
+      details: "early access to Emerging Markets"
     }
   ]
 
@@ -30,7 +30,7 @@ export default function Investor() {
         <div className='text-center mb-14'>
           <p className='text-primary-color text-base'>Investor Relation</p>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-semibold leading-normal'>
-          Partner with Us to Better Serve <br /> Your Clients
+          Invest in a Smarter,Scalable <br /> Claims Solution
           </h2>
         </div>
 
