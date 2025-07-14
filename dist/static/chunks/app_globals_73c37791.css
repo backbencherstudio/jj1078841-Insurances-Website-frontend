@@ -856,6 +856,10 @@
     max-height: var(--radix-select-content-available-height);
   }
 
+  .min-h-\[2px\] {
+    min-height: 2px;
+  }
+
   .min-h-\[100px\] {
     min-height: 100px;
   }
@@ -936,6 +940,10 @@
     width: calc(var(--spacing) * 64);
   }
 
+  .w-\[0px\] {
+    width: 0;
+  }
+
   .w-\[13\%\] {
     width: 13%;
   }
@@ -962,6 +970,10 @@
 
   .w-\[320px\] {
     width: 320px;
+  }
+
+  .w-\[350px\] {
+    width: 350px;
   }
 
   .w-\[400px\] {

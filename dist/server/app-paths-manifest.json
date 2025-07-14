@@ -1,5 +1,11 @@
 {
   "/(client)/about/page": "app/(client)/about/page.js",
+  "/(client)/contact/page": "app/(client)/contact/page.js",
+  "/(client)/faq/page": "app/(client)/faq/page.js",
+  "/(client)/forgot_password/page": "app/(client)/forgot_password/page.js",
+  "/(client)/login/page": "app/(client)/login/page.js",
+  "/(client)/membership_plans/page": "app/(client)/membership_plans/page.js",
+  "/(client)/privacy-policy/page": "app/(client)/privacy-policy/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js"
