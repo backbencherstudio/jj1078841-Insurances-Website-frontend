@@ -65,7 +65,6 @@ export default function Service() {
             A Comprehensive Claim Handling <br /> for Every Step of Your Claim
           </h2>
         </div>
-
         {/* section main content slider */}
         <div className="w-full flex flex-col items-center my-14 max-w-[400px] md:max-w-[800px] xl:max-w-full">
           <Swiper
