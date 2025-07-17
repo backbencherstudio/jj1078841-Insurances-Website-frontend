@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import aboutImg from "@/public/about-main.png";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -58,9 +59,9 @@ export default function About() {
             </TabsContent>
           </Tabs>
 
-          <Button size="lg" className="bg-[var(--primary-color)] py-4 px-8 sm:px-10">
+          <Link href="/faq" className="bg-[var(--primary-color)] py-4 px-8 sm:px-10">
             Discover More &rarr;
-          </Button>
+          </Link>
         </div>
       </div>
     </section>

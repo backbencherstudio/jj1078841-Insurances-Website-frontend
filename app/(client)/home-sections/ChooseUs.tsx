@@ -11,9 +11,9 @@ export default function ChooseUs() {
 
   return (
     <section className="bg-[#F8FAFB] px-4 sm:px-6 md:px-12 py-16 md:py-24 mb-24">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between gap-8 items-start">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between gap-8 items-start">
         {/* Left Content */}
-        <div className="md:w-1/2">
+        <div className="lg:w-1/2">
           <p className="text-[var(--primary-color)] text-sm sm:text-base font-medium mb-1">Why Choose Us</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[var(--gray-black-500)] leading-snug lg:leading-normal">
             Why Homeowners Trust InsurancesAlly
@@ -25,7 +25,7 @@ export default function ChooseUs() {
         </div>
 
         {/* Right Content */}
-        <div className="flex flex-col sm:flex-row md:w-1/2">
+        <div className="flex flex-col sm:flex-row lg:w-1/2">
           {/* Left Group */}
           <div className="sm:pr-6 md:pr-12 sm:border-r md:border-r border-[var(--primary-color)]  mt-16 ">
             <div className="border-b border-[var(--primary-color)] py-5">

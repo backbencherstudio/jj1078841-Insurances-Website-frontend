@@ -19,7 +19,7 @@ export default function Investor() {
     {
       icon: Like,
       title: "Investor Inccentives",
-      details: "early access to Emerging Markets"
+      details: "Early access to Emerging Markets"
     }
   ]
 

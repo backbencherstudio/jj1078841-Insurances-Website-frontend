@@ -4,9 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import Image, { StaticImageData } from "next/image";
 import aboutQoute from  "../../../public/about-qoute.png";
-import profile1 from "@/public/profile-1.png"
-import profile2 from "@/public/profile-2.png"
-import profile3 from "@/public/profile-3.png"
+import carlosd from "@/public/carlosD.png"
+import tiffanyl from "@/public/tiffanyL.png"
+import sarahm from "@/public/sarahM.png"
+import davidr from "@/public/davidReynolds.png"
+import jeromek from "@/public/jeromeK.png"
 
 // Import Swiper styles
 import "swiper/css";
@@ -23,44 +25,44 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "David Reynolds",
+    name: "Carlos D.",
     role: "Insurance Broker",
-    image:  profile1, // Replace with the actual path to the image
+    image:  carlosd,
 
     content:
-      "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!",
+      "My insurance company gave me the runaround for months. The moment Insurance Ally stpped in, everything changed. I had a fair settlement in just a month.",
   },
   {
     id: 2,
-    name: "David Reynolds",
+    name: "Tiffany L.",
     role: "Insurance Broker",
-    image:  profile2,
+    image:  tiffanyl,
     content:
-      "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!",
+      "They trated me like family, not just another claim. Walked me through every step, answered all my questions, and got my roof fully covered. Zero stress.",
   },
   {
     id: 3,
-    name: "David Reynolds",
+    name: "Sarah M.",
     role: "Insurance Broker",
-    image: profile3,
+    image: sarahm,
     content:
-      "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!",
+      "It took less then 30 minutes to get my claim reviewed and assigned to a rep. They explained everything so clearly, I actually understood my policy for the first time.",
   },
   {
     id: 4,
-    name: "David Reynolds",
+    name: "Jerome K.",
     role: "Insurance Broker",
-    image: profile3,
+    image: jeromek,
     content:
-      "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!",
+      "They helped me fight back against an underpaid roof claim. Within weeks, I had a new check in hand and repairs underway. These guys know insurance inside and out.",
   },
   {
     id: 5,
     name: "David Reynolds",
     role: "Insurance Broker",
-    image: profile3,
+    image: davidr,
     content:
-      "InsurancesAlly has given me an edge in maintaining strong relationships with my clients. Their claim support system ensures that my clients feel taken care of, reducing frustration and improving their overall experience. As a result, I've been able to retain more happy clients, which is crucial in this business!",
+      "Super responsive, professional, and on my side from day one. Insurance Ally got me more than double the original estimate. I didn't even know I had options until they showed me.",
   },
    
 ];

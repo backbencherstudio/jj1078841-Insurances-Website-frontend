@@ -45,16 +45,16 @@ const teamMembers = [
 
     image: aboutTeam4,
   },
-  {
-    name: "John Smith",
-    role: "Ceo Founder",
-    image: aboutTeam1,
-  },
-  {
-    name: "Sarah Johnson",
-    role: "Ceo Founder",
-    image: aboutTeam2,
-  }
+  // {
+  //   name: "John Smith",
+  //   role: "Ceo Founder",
+  //   image: aboutTeam1,
+  // },
+  // {
+  //   name: "Sarah Johnson",
+  //   role: "Ceo Founder",
+  //   image: aboutTeam2,
+  // }
 ];
 
 export default function Team() {

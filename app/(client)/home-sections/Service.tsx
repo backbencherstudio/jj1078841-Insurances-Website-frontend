@@ -56,8 +56,8 @@ export default function Service() {
   ];
 
   return (
-    <section className="bg-disabled py-24">
-      <div className="container mx-auto">
+    <section className="bg-disabled py-24 w-full flex justify-center">
+      <div className="container flex flex-col items-center">
         {/* section header */}
         <div className="text-center">
           <p className="text-primary-color text-base">Our Service</p>
@@ -67,16 +67,17 @@ export default function Service() {
         </div>
 
         {/* section main content slider */}
-        <div className="w-full flex flex-col items-center my-14">
+        <div className="w-full flex flex-col items-center my-14 max-w-[400px] md:max-w-[800px] xl:max-w-full">
           <Swiper
             modules={[Pagination]}
             spaceBetween={20}
             slidesPerView={4}
+            loop={true}
             breakpoints={{
               0: { slidesPerView: 1 }, // phones
-              640: { slidesPerView: 1.5 }, // small tablets
+              640: { slidesPerView: 1 }, // small tablets
               768: { slidesPerView: 2 }, // tablets
-              1024: { slidesPerView: 3 }, // small desktops
+              1024: { slidesPerView: 2 }, // small desktops
               1280: { slidesPerView: 4 }, // large desktops
             }}
             pagination={{

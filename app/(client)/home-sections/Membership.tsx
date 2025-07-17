@@ -6,6 +6,7 @@ import MessageIcon from "@/public/membershipIcons/MessageIcon";
 import ProfileIcon from "@/public/membershipIcons/ProfileIcon";
 import PricingIcon from "@/public/membershipIcons/PricingIcon";
 import FaqIcon from "@/public/membershipIcons/FaqIcon";
+import Link from "next/link";
 
 export default function Membership() {
   const items = [
@@ -74,12 +75,12 @@ export default function Membership() {
 
           {/* button */}
           <div className="mt-10 text-center lg:text-left">
-            <Button
-              size="lg"
+            <Link
+            href="/contact"
               className="bg-[var(--primary-color)] py-4 px-8 sm:px-10"
             >
               Discover More &rarr;
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -85,11 +85,11 @@ export default function Navbar() {
           <Image src={logo} width={150} height={50} alt="logo" />
         </div>
 
-        <ul className="hidden md:flex gap-10">
+        <ul className="hidden md:flex gap-4 lg:gap-5 md:text-[12px] lg:text-base">
           <Link href="/" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/" ? "text-[var(--primary-dark)]" : ""}`}>Home</Link>
           <Link href="/about" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/about" ? "text-[var(--primary-dark)]" : ""}`}>About</Link>
           <Link href="/membership_plans" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/membership_plans" ? "text-[var(--primary-dark)]" : ""}`}>Membership</Link>
-          <Link href="/privacy-policy" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/privacy-policy" ? "text-[var(--primary-dark)]" : ""}`}>Privacy Policy</Link>
+          <Link href="/privacy-policy" className={`hover:text-[var(--primary-dark)] font-medium text-nowrap ${pathname === "/privacy-policy" ? "text-[var(--primary-dark)]" : ""}`}>Privacy Policy</Link>
           <Link href="/faq" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/faq" ? "text-[var(--primary-dark)]" : ""}`}>FAQs</Link>
           <Link href="/contact" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/contact" ? "text-[var(--primary-dark)]" : ""}`}>Contact</Link>
         </ul>
@@ -123,8 +123,8 @@ export default function Navbar() {
             </div>
           ) : (
             <>
-              <Link href="/login" className="py-3.5 px-10 bg-[var(--primary-dark)] text-white rounded-lg hover:bg-transparent hover:text-[var(--primary-dark)] border border-transparent hover:border-[var(--primary-dark)]">Log in</Link>
-              <Link href="/signUp" className="py-3.5 px-10 bg-[var(--primary-dark)] text-white rounded-lg hover:bg-transparent hover:text-[var(--primary-dark)] border border-transparent hover:border-[var(--primary-dark)]">Sign Up</Link>
+              <Link href="/login" className="py-3.5 md:py-2 lg:py-3.5 px-10 lg:px-10 md:px-5 bg-[var(--primary-dark)] text-white rounded-lg hover:bg-transparent hover:text-[var(--primary-dark)] border border-transparent hover:border-[var(--primary-dark)] md:text-[12px]">Log in</Link>
+              <Link href="/signUp" className="py-3.5 md:py-2 lg:py-3.5 px-10 lg:px-10 md:px-5 bg-[var(--primary-dark)] text-white rounded-lg hover:bg-transparent hover:text-[var(--primary-dark)] border border-transparent hover:border-[var(--primary-dark)] md:text-[12px]">Sign Up</Link>
             </>
           )}
         </div>
