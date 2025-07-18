@@ -4,7 +4,40 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useEffect, useState } from 'react';
-import { useUser } from '@/app/_components/reusable/UserProvider';
+import nookies from 'nookies'
+
+type User = {
+  address:string
+  approved_at:string
+  availability:string
+  avatar:string
+  avatar_url:string
+  billing_id:string
+  city:string
+country:string
+created_at:string
+date_of_birth:string
+deleted_at:string
+domain:string,
+email:string,
+email_verified_at:string
+first_name:string
+gender:string
+id:string
+is_two_factor_enabled:string
+last_name:string
+name:string
+password:string
+phone_number:string
+state:string
+status:string
+two_factor_secret:string
+type:string
+updated_at:string
+username:string
+zip_code:string
+}
+
 
 // Define form schema using Zod - no fields are required
 const profileSchema = z.object({
@@ -38,9 +71,10 @@ const PlusIcon = ({ className }: { className?: string }) => (
 type ProfileFormValues = z.infer<typeof profileSchema>;
 
 export default function ProfileForm() {
-  const { user } = useUser();
+  const [user,setUser] = useState<User>();
   const [isInitialized, setIsInitialized] = useState(false);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
+  const [loading,setLoading] = useState(false)
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileSchema),
@@ -59,10 +93,38 @@ export default function ProfileForm() {
     }
   });
 
+
+useEffect(()=>{
+  const initializeAuth = async () => {
+      const token = nookies.get(null).token
+      if (token) {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          
+          if (response.ok) {
+            const data = await response.json()
+            setUser(data.data)
+          }
+        } catch (error) {
+          console.error('Failed to validate token', error)
+        }
+      }
+      setLoading(false)
+    }
+
+    initializeAuth()
+},[])
+
+
   // Initialize form with user data when available
   useEffect(() => {
-    if (user && !isInitialized) {
+    if (user) {
       setAvatarPreview(user.avatar_url || null);
+      console.log(user)
       form.reset({
         fullName: user?.first_name || '',
         phoneNo: user.phone_number || '',
@@ -78,7 +140,7 @@ export default function ProfileForm() {
       });
       setIsInitialized(true);
     }
-  }, [user, form, isInitialized]);
+  }, [user]);
 
   const onSubmit = async (data: ProfileFormValues) => {
     try {
