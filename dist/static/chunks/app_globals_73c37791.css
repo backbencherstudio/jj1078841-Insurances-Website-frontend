@@ -3536,18 +3536,6 @@
   }
 
   @media (width >= 48rem) {
-    .md\:max-w-\[md\] {
-      max-width: md;
-    }
-  }
-
-  @media (width >= 48rem) {
-    .md\:max-w-md {
-      max-width: var(--container-md);
-    }
-  }
-
-  @media (width >= 48rem) {
     .md\:translate-x-0 {
       --tw-translate-x: calc(var(--spacing) * 0);
       translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -3624,12 +3612,6 @@
   @media (width >= 48rem) {
     .md\:py-2 {
       padding-block: calc(var(--spacing) * 2);
-    }
-  }
-
-  @media (width >= 48rem) {
-    .md\:py-3 {
-      padding-block: calc(var(--spacing) * 3);
     }
   }
 
@@ -3760,12 +3742,6 @@
   }
 
   @media (width >= 64rem) {
-    .lg\:gap-10 {
-      gap: calc(var(--spacing) * 10);
-    }
-  }
-
-  @media (width >= 64rem) {
     .lg\:gap-16 {
       gap: calc(var(--spacing) * 16);
     }
@@ -3850,20 +3826,8 @@
   }
 
   @media (width >= 80rem) {
-    .xl\:max-w-\[1200px\] {
-      max-width: 1200px;
-    }
-  }
-
-  @media (width >= 80rem) {
     .xl\:max-w-full {
       max-width: 100%;
-    }
-  }
-
-  @media (width >= 80rem) {
-    .xl\:max-w-screen {
-      max-width: 100vw;
     }
   }
 

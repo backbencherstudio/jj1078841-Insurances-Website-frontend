@@ -110,36 +110,37 @@ export default function ProfilePage() {
   const [dateOfBirth, setDateOfBirth] = React.useState<Date>(new Date("1997-02-02")); // State for Date of Birth
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget as HTMLFormElement);
+  e.preventDefault();
+  const form = e.currentTarget as HTMLFormElement;
+  const formData = new FormData(form);
 
-    try {
-      toast.loading("Updating profile...");
-      // Use the environment variable for the API URL
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/user-profile`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(Object.fromEntries(form)),
-      });
+  try {
+    toast.loading("Updating profile...");
+    
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/user-profile`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        // REMOVE the Content-Type header - let the browser set it automatically
+      },
+      body: formData, // Send FormData directly, don't convert to JSON
+    });
 
-      if (!response.ok) {
-        throw new Error('Failed to update profile');
-      }
-
-      const result = await response.json();
-      console.log(result);
-      
-      toast.dismiss();
-      toast.success("Profile updated successfully!");
-    } catch (error: any) {
-      toast.dismiss();
-      const message = error?.message || "Update failed";
-      toast.error(message);
+    if (!response.ok) {
+      throw new Error('Failed to update profile');
     }
-  };
+
+    const result = await response.json();
+    console.log(result);
+    
+    toast.dismiss();
+    toast.success("Profile updated successfully!");
+  } catch (error: any) {
+    toast.dismiss();
+    const message = error?.message || "Update failed";
+    toast.error(message);
+  }
+};
 
   return (
     <div className="min-h-screen bg-slate-50 p-4 sm:p-6 md:p-8">
