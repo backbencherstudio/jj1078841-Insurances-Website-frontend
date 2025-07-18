@@ -8,10 +8,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import aboutTeam1 from "@/public/about-team1.png"
-import aboutTeam2 from "@/public/about-team2.png"
-import aboutTeam3 from "@/public/about-team3.png"
-import aboutTeam4 from "@/public/about-team4.png"
+import aboutTeam1 from "@/public/omarKhoury.png"
+import aboutTeam2 from "@/public/DavidKim.png"
+import aboutTeam3 from "@/public/margaretLawson.png"
+import aboutTeam4 from "@/public/christineWalters.png"
 
 const teamMembers = [
   {
@@ -41,7 +41,7 @@ const teamMembers = [
   {
     name: "Chris Walters",
 
-    role: "Appriser",
+    role: "Appraiser",
 
     image: aboutTeam4,
   },

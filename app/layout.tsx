@@ -3,6 +3,7 @@ import "./globals.css";
 import { AppConfig } from "@/config/app.config";
 import { ReduxProvider } from "@/src/redux/provider";
 import { Toaster } from "sonner";
+import { UserProvider } from "./_components/reusable/UserProvider";
 
 export const metadata: Metadata = {
   title: AppConfig().app.name,
@@ -17,7 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+          <UserProvider >
+            {children}
+          </UserProvider>
+        </ReduxProvider>
         <Toaster position="top-right" richColors closeButton />
       </body>
     </html>

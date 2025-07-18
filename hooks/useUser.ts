@@ -18,6 +18,7 @@ export function useUser(context = null) {
       userData = null;
     }
     setUser(userData);
+    console.log("Data get : ",userData)
   };
 
   useEffect(() => {

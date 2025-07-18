@@ -165,7 +165,7 @@ __turbopack_context__.s({
     "URL": (()=>URL)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
-const URL = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:4000";
+const URL = ("TURBOPACK compile-time value", "https://backend.insurancesally.com") || "http://127.0.0.1:4000";
 const AppConfig = ()=>({
         app: {
             // server endpoint
@@ -321,16 +321,21 @@ const UserService = {
         });
     },
     // get user details
-    getUserDetails: async ({ token = "", context = null })=>{
-        // const userToken = CookieHelper.get({ key: "token", context });
-        const userToken = token;
+    getUserDetails: async (context = null)=>{
+        const userToken = __TURBOPACK__imported__module__$5b$project$5d2f$helper$2f$cookie$2e$helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CookieHelper"].get({
+            key: "token",
+            context
+        });
+        // const token = nookies.get(null).token;
+        // const userToken = token;
+        console.log("Hello,,,,");
         const _config = {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + userToken
             }
         };
-        return await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$Fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fetch"].get(`auth/me`, _config);
+        return await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$Fetch$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fetch"].get(`/auth/me`, _config);
     },
     findAll: async (context = null)=>{
         const userToken = __TURBOPACK__imported__module__$5b$project$5d2f$helper$2f$cookie$2e$helper$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CookieHelper"].get({
@@ -929,7 +934,7 @@ function SignupPage() {
         columnNumber: 5
     }, this);
 }
-_s(SignupPage, "Y0aojYSjnkfrZXZiAF5/nIoEjkM=", false, function() {
+_s(SignupPage, "K+2RtlwvlhLrcgkl5XYEKZb/lvI=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];

@@ -1,11 +1,33 @@
 'use client';
 
-import React from "react";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import nookies from 'nookies'; // Import nookies to manage cookies
-import ReactDatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"; // Add the CSS import here
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { useEffect, useState } from 'react';
+import { useUser } from '@/app/_components/reusable/UserProvider';
+
+// Define form schema using Zod - no fields are required
+const profileSchema = z.object({
+  fullName: z.string().optional(),
+  phoneNo: z.string().optional(),
+  country: z.string().optional(),
+  city: z.string().optional(),
+  address: z.string().optional(),
+  email: z.string().email('Invalid email address').optional(),
+  dateOfBirth: z.string().optional(),
+  state: z.string().optional(),
+  zipCode: z.string().optional(),
+  password: z.string().min(6, 'Password must be at least 6 characters').optional(),
+  confirmPassword: z.string().optional(),
+}).refine((data) => {
+  if (data.password) {
+    return data.password === data.confirmPassword;
+  }
+  return true;
+}, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
+});
 
 const PlusIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className={className}>
@@ -13,205 +35,265 @@ const PlusIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const CalendarIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5M12 12.75h.008v.008H12v-.008z" />
-  </svg>
-);
+type ProfileFormValues = z.infer<typeof profileSchema>;
 
-const ChevronDownIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={className}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-  </svg>
-);
+export default function ProfileForm() {
+  const { user } = useUser();
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
 
-const EyeIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-  </svg>
-);
-
-interface FormFieldProps {
-  label: string;
-  id: string;
-  type?: string;
-  placeholder?: string;
-  defaultValue?: string;
-  isSelect?: boolean;
-  options?: string[];
-  icon?: React.ReactNode;
-  containerClassName?: string;
-  component?: React.ReactNode;
-}
-
-const FormField: React.FC<FormFieldProps> = ({
-  label,
-  id,
-  type = "text",
-  placeholder,
-  defaultValue,
-  isSelect = false,
-  options = [],
-  icon,
-  containerClassName = "",
-  component,
-}) => {
-  return (
-    <div className={containerClassName}>
-      <label htmlFor={id} className="block text-xs font-medium text-slate-600 mb-1">
-        {label}
-      </label>
-      <div className="relative">
-        {component || (isSelect ? (
-          <>
-            <select
-              id={id}
-              name={id}
-              defaultValue={defaultValue}
-              className="w-full appearance-none bg-white border border-slate-300 rounded-md px-3 py-2.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500"
-            >
-              {placeholder && <option value="" disabled>{placeholder}</option>}
-              {options.map(option => <option key={option} value={option}>{option}</option>)}
-            </select>
-            <ChevronDownIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
-          </>
-        ) : (
-          <input
-            type={type}
-            id={id}
-            name={id}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            className="w-full bg-white border border-slate-300 rounded-md px-3 py-2.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500"
-          />
-        ))}
-        {icon && (
-          <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-            {icon}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default function ProfilePage() {
-  const router = useRouter();
-  const token = nookies.get(null).token; // Get token from cookies
-
-  React.useEffect(() => {
-    if (!token) {
-      router.replace("/login");
+  const form = useForm<ProfileFormValues>({
+    resolver: zodResolver(profileSchema),
+    defaultValues: {
+      fullName: '',
+      phoneNo: '',
+      country: '',
+      city: '',
+      address: '',
+      email: '',
+      dateOfBirth: '',
+      state: '',
+      zipCode: '',
+      password: '',
+      confirmPassword: ''
     }
-  }, [token, router]);
+  });
 
-  const [avatarPreview, setAvatarPreview] = React.useState<string | null>(null); // State for image preview
-  const [dateOfBirth, setDateOfBirth] = React.useState<Date>(new Date("1997-02-02")); // State for Date of Birth
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget as HTMLFormElement);
-
-    try {
-      toast.loading("Updating profile...");
-      // Use the environment variable for the API URL
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/user-profile`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(Object.fromEntries(form)),
+  // Initialize form with user data when available
+  useEffect(() => {
+    if (user && !isInitialized) {
+      setAvatarPreview(user.avatar_url || null);
+      form.reset({
+        fullName: user?.first_name || '',
+        phoneNo: user.phone_number || '',
+        country: user.country || '',
+        city: user.city || '',
+        address: user.address || '',
+        email: user.email || '',
+        dateOfBirth: user.date_of_birth?.split("T")[0] || '',
+        state: user.state || '',
+        zipCode: user.zip_code || '',
+        password: '',
+        confirmPassword: ''
       });
+      setIsInitialized(true);
+    }
+  }, [user, form, isInitialized]);
 
-      if (!response.ok) {
-        throw new Error('Failed to update profile');
-      }
-
-      const result = await response.json();
-      console.log(result);
-      
-      toast.dismiss();
-      toast.success("Profile updated successfully!");
-    } catch (error: any) {
-      toast.dismiss();
-      const message = error?.message || "Update failed";
-      toast.error(message);
+  const onSubmit = async (data: ProfileFormValues) => {
+    try {
+      console.log('Form submitted:', data);
+      // Here you would typically call an API to update the user
+      // await UserService.updateUserDetails(data);
+      // You might want to show a success message or redirect
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      // Handle error (show toast, etc.)
     }
   };
 
+  if (!user) {
+    return <div className="max-w-2xl mx-auto p-6">Loading user data...</div>;
+  }
+
   return (
-    <div className="min-h-screen bg-slate-50 p-4 sm:p-6 md:p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-slate-800 mb-8">Profile</h1>
+    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h1 className="text-2xl font-bold mb-6">Profile</h1>
 
-        <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <div className="flex flex-col items-center sm:items-start mb-8">
-              <div className="relative mb-2">
-                <img
-                  src={avatarPreview || "https://via.placeholder.com/100/E0E7FF/4F46E5?text=User"}
-                  alt="Profile"
-                  className="w-24 h-24 rounded-full object-cover border-2 border-slate-200"
-                />
-                <input
-                  type="file"
-                  name="avatar"
-                  accept="image/*"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) {
-                      const imageURL = URL.createObjectURL(file);
-                      setAvatarPreview(imageURL); // Set the preview image
-                    }
-                  }}
-                  className="absolute -bottom-1 -right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md cursor-pointer opacity-0 w-8 h-8"
-                />
-                <div className="absolute -bottom-1 -right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md pointer-events-none">
-                  <PlusIcon className="w-4 h-4" />
-                </div>
-              </div>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="space-y-4">
+          <div className="relative mb-6 w-fit">
+            <img
+              src={avatarPreview || "https://via.placeholder.com/100/E0E7FF/4F46E5?text=User"}
+              alt="Profile"
+              className="w-24 h-24 rounded-full object-cover border-2 border-slate-200"
+            />
+            <label className="absolute bottom-1 right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md cursor-pointer">
+              <PlusIcon className="w-4 h-4" />
+              <input
+                type="file"
+                name="avatar"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) {
+                    const imageURL = URL.createObjectURL(file);
+                    setAvatarPreview(imageURL);
+                  }
+                }}
+                className="hidden"
+              />
+            </label>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Full Name */}
+            <div>
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                Full Name
+              </label>
+              <input
+                id="fullName"
+                {...form.register('fullName')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your name"
+              />
             </div>
 
-            <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
-              <FormField label="Full Name" id="full_name" defaultValue="Jacob Jones" />
-              <FormField label="Email" id="email" type="email" defaultValue="info@insurancesally.com" />
-              <FormField label="Phone No" id="phone_number" defaultValue="+012 3456 789" />
-              <FormField label="Date of Birth" id="date_of_birth" component={
-                <ReactDatePicker
-                  selected={dateOfBirth}
-                  onChange={(date: Date) => setDateOfBirth(date)}
-                  dateFormat="yyyy-MM-dd"
-                  className="w-full bg-white border border-slate-300 rounded-md px-3 py-2.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500"
-                />
-              } />
-              <FormField label="Country" id="country" isSelect defaultValue="USA" options={["USA", "Canada", "UK"]} />
-              <FormField label="State" id="state" isSelect defaultValue="New York" options={["New York", "California", "Texas"]} />
+            {/* Phone Number */}
+            <div>
+              <label htmlFor="phoneNo" className="block text-sm font-medium text-gray-700 mb-1">
+                Phone Number
+              </label>
+              <input
+                id="phoneNo"
+                {...form.register('phoneNo')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter phone number"
+              />
             </div>
 
-            <div className="grid grid-cols-1 gap-x-6 gap-y-6 mt-6 md:grid-cols-5">
-              <FormField label="City" id="city" isSelect defaultValue="New York" options={["New York City", "Los Angeles", "Chicago"]} containerClassName="md:col-span-1" />
-              <FormField label="Address" id="address" defaultValue="4140 Parker Rd. Allentown, New Mexico" containerClassName="md:col-span-3" />
-              <FormField label="Zip Code" id="zip_code" defaultValue="1234" containerClassName="md:col-span-1" />
+            {/* Country */}
+            <div>
+              <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">
+                Country
+              </label>
+              <input
+                id="country"
+                {...form.register('country')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter country"
+              />
             </div>
 
-            <div className="grid grid-cols-1 gap-x-6 gap-y-6 mt-6 sm:grid-cols-2">
-              <FormField label="Password" id="password" type="password" defaultValue="" icon={<EyeIcon className="w-4 h-4 text-slate-400 hover:text-slate-500" />} />
-              <FormField label="Confirm Password" id="confirm_password" type="password" defaultValue="" icon={<EyeIcon className="w-4 h-4 text-slate-400 hover:text-slate-500" />} />
+            {/* City */}
+            <div>
+              <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+                City
+              </label>
+              <input
+                id="city"
+                {...form.register('city')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter city"
+              />
             </div>
 
-            <div className="mt-8">
-              <button
-                type="submit"
-                className="px-6 py-2.5 bg-sky-500 text-white text-sm font-medium rounded-md shadow-sm hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 transition duration-150"
-              >
-                Save Changes
-              </button>
+            {/* Address */}
+            <div className="md:col-span-2">
+              <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+                Address
+              </label>
+              <input
+                id="address"
+                {...form.register('address')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter address"
+              />
             </div>
-          </form>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                {...form.register('email')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter email"
+              />
+              {form.formState.errors.email && (
+                <p className="mt-1 text-sm text-red-600">{form.formState.errors.email.message}</p>
+              )}
+            </div>
+
+            {/* Date of Birth */}
+            <div>
+              <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700 mb-1">
+                Date of Birth
+              </label>
+              <input
+                id="dateOfBirth"
+                type="date"
+                {...form.register('dateOfBirth')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {/* State */}
+            <div>
+              <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">
+                State
+              </label>
+              <input
+                id="state"
+                {...form.register('state')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter state"
+              />
+            </div>
+
+            {/* Zip Code */}
+            <div>
+              <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">
+                Zip Code
+              </label>
+              <input
+                id="zipCode"
+                {...form.register('zipCode')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter zip code"
+              />
+            </div>
+
+            {/* Password */}
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                New Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                {...form.register('password')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Leave blank to keep current"
+              />
+              {form.formState.errors.password && (
+                <p className="mt-1 text-sm text-red-600">{form.formState.errors.password.message}</p>
+              )}
+            </div>
+
+            {/* Confirm Password */}
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+                Confirm Password
+              </label>
+              <input
+                id="confirmPassword"
+                type="password"
+                {...form.register('confirmPassword')}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Confirm new password"
+              />
+              {form.formState.errors.confirmPassword && (
+                <p className="mt-1 text-sm text-red-600">{form.formState.errors.confirmPassword.message}</p>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div className="flex justify-end">
+          <button
+            type="submit"
+            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? 'Saving...' : 'Save Changes'}
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
