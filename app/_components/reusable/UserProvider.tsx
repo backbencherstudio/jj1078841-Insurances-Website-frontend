@@ -50,6 +50,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
 
+  console.log("Getting user....")
+
   useEffect(() => {
     const initializeAuth = async () => {
       const token = nookies.get(null).token
