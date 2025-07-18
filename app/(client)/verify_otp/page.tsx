@@ -1,133 +1,150 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import BreadCrump from "../../_components/reusable/BreadCrump"; // Assuming you have this component
-import toast, { Toaster } from "react-hot-toast"; // Toast for notifications
-import { useRouter } from "next/navigation"; // Next.js router for redirection
+import BreadCrump from "../../_components/reusable/BreadCrump";
+import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
-export default function ResetPasswordPage() {
-  const [otp, setOtp] = useState<string>(""); // OTP state
-  const [newPassword, setNewPassword] = useState<string>(""); // New password state
-  const [isOtpFilled, setIsOtpFilled] = useState<boolean>(false); // Track OTP field fill status
-  const [isLoading, setIsLoading] = useState<boolean>(false); // Loading state
-  const [userEmail, setUserEmail] = useState<string>(""); // User email state
-  const router = useRouter();
+export default function OTPVerification() {
+    const [otp, setOtp] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [userEmail, setUserEmail] = useState<string>("");
+    const [timeLeft, setTimeLeft] = useState<number>(59);
+    const router = useRouter();
 
-  // Fetch the email of the logged-in user from localStorage (stored when forgot password is initiated)
-  useEffect(() => {
-    const storedEmail = localStorage.getItem("forgotEmail"); // Assuming you stored the email here
-    if (storedEmail) {
-      setUserEmail(storedEmail); // Set user email from localStorage
-    }
-  }, []);
+    useEffect(() => {
+        const storedEmail = localStorage.getItem("forgotEmail");
+        if (storedEmail) {
+            setUserEmail(storedEmail);
+        }
 
-  // Handle OTP input change
-  const handleOtpChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setOtp(value);
-    setIsOtpFilled(value.length === 6); // Enable New Password field if OTP is 6 digits long
-  };
+        const timer = setInterval(() => {
+            setTimeLeft(prev => (prev > 0 ? prev - 1 : 0));
+        }, 1000);
 
-  // Handle New Password input change
-  const handleNewPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewPassword(e.target.value);
-  };
+        return () => clearInterval(timer);
+    }, []);
 
-  // Handle form submission
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!otp || !newPassword) {
-      // Handle error: either OTP or new password is missing
-      toast.error("Please fill in both OTP and New Password.");
-      return;
-    }
+    const handleOtpChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        if (/^\d*$/.test(value) && value.length <= 6) {
+            setOtp(value);
+        }
+    };
 
-    try {
-      setIsLoading(true);
-      // toast.loading("Resetting password...");
+    const handleResendOtp = async () => {
+        try {
+            setIsLoading(true);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/resend-otp`, {
+                method: "POST",
+                body: JSON.stringify({ email: userEmail }),
+                headers: { "Content-Type": "application/json" },
+            });
 
-      // Make API call for resetting the password
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/reset-password`, {
-        method: "POST",
-        body: JSON.stringify({
-          email: userEmail, // Pass email from localStorage
-          token: otp, // OTP entered by the user
-          password: newPassword, // New password entered by the user
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
+            const data = await response.json();
 
-      const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.message || "Failed to resend OTP");
+            }
 
-      if (response.ok) {
-        toast.success(data.message || "Password reset successful!");
+            toast.success("OTP resent successfully!");
+            setTimeLeft(59);
+            setOtp("");
+        } catch (error: any) {
+            toast.error(error.message || "Something went wrong!");
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-        // After successful password reset, remove email from localStorage
-        localStorage.removeItem("forgotEmail");
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
 
-        // Redirect to login page after success
-        router.push("/login");
-      } else {
-        toast.error(data.message || "Failed to reset password.");
-      }
-    } catch (error) {
-      toast.dismiss();
-      toast.error("Something went wrong!");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+        if (otp.length !== 6) {
+            toast.error("Please enter a 6-digit OTP");
+            return;
+        }
 
-  return (
-    <div className="min-h-screen">
-      <Toaster position="top-right" />
-      <BreadCrump title="Reset Password" BreadCrump="Home > Reset Password" />
-      <div className="max-w-[700px] mx-auto px-4 py-16">
-        <h1 className="text-5xl font-semibold text-center mb-8">Reset Password</h1>
-        <div className="border border-[#E9E9EA] rounded-2xl p-10">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="otp" className="block text-base font-medium text-gray-700 mb-1">
-                Enter OTP
-              </label>
-              <input
-                type="text"
-                id="otp"
-                placeholder="Enter 6-digit OTP"
-                maxLength={6}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
-                value={otp}
-                onChange={handleOtpChange}
-                required
-              />
+        try {
+            setIsLoading(true);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/verify-otp`, {
+                method: "POST",
+                body: JSON.stringify({
+                    email: userEmail,
+                    token: otp
+                }),
+                headers: { "Content-Type": "application/json" },
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                throw new Error(data.message || "Invalid OTP");
+            }
+
+            toast.success("OTP verified successfully!");
+            localStorage.removeItem("forgotEmail");
+            router.push("/login");
+        } catch (error: any) {
+            let errorMessage = "Incorrect OTP";
+            toast.error(errorMessage);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    return (
+        <div className="min-h-screen">
+            <Toaster position="top-right" />
+            <BreadCrump title="Verify OTP" BreadCrump="Home > Verify OTP" />
+            <div className="max-w-[700px] mx-auto px-4 py-16">
+                <h1 className="text-5xl font-semibold text-center mb-8">Verify OTP</h1>
+                <div className="border border-[#E9E9EA] rounded-2xl p-10">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div>
+                            <label htmlFor="otp" className="block text-base font-medium text-gray-700 mb-1">
+                                Enter 6-digit OTP sent to {userEmail}
+                            </label>
+
+                            <input
+                                type="text"
+                                inputMode="numeric"
+                                pattern="[0-9]*"
+                                id="otp"
+                                placeholder="Enter 6-digit OTP"
+                                maxLength={6}
+                                className="w-full px-4 py-3 rounded-lg border border-gray-300 outline-none"
+                                value={otp}
+                                onChange={handleOtpChange}
+                                required
+                            />
+
+                            <div className="flex justify-between items-center mt-4">
+                                <span className="text-gray-600">
+                                    {timeLeft > 0 ? `(00:${timeLeft.toString().padStart(2, '0')})` : '(00:00)'}
+                                    <button
+                                        type="button"
+                                        onClick={handleResendOtp}
+                                        disabled={timeLeft > 0 || isLoading}
+                                        className={`ml-2 ${timeLeft > 0 ? 'text-gray-400 cursor-not-allowed' : 'text-primary-color hover:underline'}`}
+                                    >
+                                        Resend OTP
+                                    </button>
+                                </span>
+                                {/* <a href="#" className="text-primary-color hover:underline">Didn't receive code?</a> */}
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={isLoading || otp.length !== 6}
+                            className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer disabled:opacity-50"
+                        >
+                            {isLoading ? "Verifying..." : "Verify OTP"}
+                        </button>
+                    </form>
+                </div>
             </div>
-
-            <div>
-              <label htmlFor="newPassword" className="block text-base font-medium text-gray-700 mb-1">
-                New Password
-              </label>
-              <input
-                type="password"
-                id="newPassword"
-                placeholder="Enter new password"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-color focus:border-transparent"
-                value={newPassword}
-                onChange={handleNewPasswordChange}
-                disabled={!isOtpFilled} // Disable until OTP is filled
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isLoading || !isOtpFilled || !newPassword}
-              className="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-opacity-90 transition-all cursor-pointer disabled:opacity-50"
-            >
-              {isLoading ? "Resetting..." : "Reset Password"}
-            </button>
-          </form>
         </div>
-      </div>
-    </div>
-  );
+    );
 }

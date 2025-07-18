@@ -1,5 +1,6 @@
 import { CookieHelper } from "../../helper/cookie.helper";
 import { Fetch } from "../../lib/Fetch";
+import nookies from "nookies";
 
 const config = {
   headers: {
@@ -43,9 +44,12 @@ register: async ({
     CookieHelper.destroy({ key: "token", context });
   },
   // get user details
-  getUserDetails: async ({ token = "", context = null }) => {
-    // const userToken = CookieHelper.get({ key: "token", context });
-    const userToken = token;
+  getUserDetails: async (context=null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    // const token = nookies.get(null).token;
+    // const userToken = token;
+
+    console.log("Hello,,,,")
 
     const _config = {
       headers: {
@@ -54,7 +58,7 @@ register: async ({
       },
     };
 
-    return await Fetch.get(`auth/me`, _config);
+    return await Fetch.get(`/auth/me`, _config);
   },
 
   findAll: async (context = null) => {

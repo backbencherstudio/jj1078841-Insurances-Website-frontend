@@ -395,16 +395,21 @@ const UserService = {
         });
     },
     // get user details
-    getUserDetails: async ({ token = "", context = null })=>{
-        // const userToken = CookieHelper.get({ key: "token", context });
-        const userToken = token;
+    getUserDetails: async (context = null)=>{
+        const userToken = __TURBOPACK__imported__module__$5b$project$5d2f$helper$2f$cookie$2e$helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CookieHelper"].get({
+            key: "token",
+            context
+        });
+        // const token = nookies.get(null).token;
+        // const userToken = token;
+        console.log("Hello,,,,");
         const _config = {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + userToken
             }
         };
-        return await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$Fetch$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fetch"].get(`auth/me`, _config);
+        return await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$Fetch$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fetch"].get(`/auth/me`, _config);
     },
     findAll: async (context = null)=>{
         const userToken = __TURBOPACK__imported__module__$5b$project$5d2f$helper$2f$cookie$2e$helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CookieHelper"].get({

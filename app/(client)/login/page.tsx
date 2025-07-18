@@ -31,6 +31,8 @@ export default function LoginPage() {
     rememberMe: false,
   });
 
+console.log(  new Date().getMonth())
+
   useEffect(() => {
     const rememberedEmail = localStorage.getItem("rememberedEmail");
     if (rememberedEmail) {
