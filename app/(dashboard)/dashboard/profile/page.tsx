@@ -5,37 +5,38 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useEffect, useState } from 'react';
 import nookies from 'nookies'
+import { UserService } from '@/service/user/user.service';
 
 type User = {
-  address:string
-  approved_at:string
-  availability:string
-  avatar:string
-  avatar_url:string
-  billing_id:string
-  city:string
-country:string
-created_at:string
-date_of_birth:string
-deleted_at:string
-domain:string,
-email:string,
-email_verified_at:string
-first_name:string
-gender:string
-id:string
-is_two_factor_enabled:string
-last_name:string
-name:string
-password:string
-phone_number:string
-state:string
-status:string
-two_factor_secret:string
-type:string
-updated_at:string
-username:string
-zip_code:string
+  address: string
+  approved_at: string
+  availability: string
+  avatar: string
+  avatar_url: string
+  billing_id: string
+  city: string
+  country: string
+  created_at: string
+  date_of_birth: string
+  deleted_at: string
+  domain: string,
+  email: string,
+  email_verified_at: string
+  first_name: string
+  gender: string
+  id: string
+  is_two_factor_enabled: string
+  last_name: string
+  name: string
+  password: string
+  phone_number: string
+  state: string
+  status: string
+  two_factor_secret: string
+  type: string
+  updated_at: string
+  username: string
+  zip_code: string
 }
 
 
@@ -50,7 +51,7 @@ const profileSchema = z.object({
   dateOfBirth: z.string().optional(),
   state: z.string().optional(),
   zipCode: z.string().optional(),
-  password: z.string().min(6, 'Password must be at least 6 characters').optional(),
+  password: z.string().optional(),
   confirmPassword: z.string().optional(),
 }).refine((data) => {
   if (data.password) {
@@ -71,10 +72,11 @@ const PlusIcon = ({ className }: { className?: string }) => (
 type ProfileFormValues = z.infer<typeof profileSchema>;
 
 export default function ProfileForm() {
-  const [user,setUser] = useState<User>();
+  const [user, setUser] = useState<User>();
   const [isInitialized, setIsInitialized] = useState(false);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [avatar, setAvatar] = useState<File | null>();
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileSchema),
@@ -94,8 +96,8 @@ export default function ProfileForm() {
   });
 
 
-useEffect(()=>{
-  const initializeAuth = async () => {
+  useEffect(() => {
+    const initializeAuth = async () => {
       const token = nookies.get(null).token
       if (token) {
         try {
@@ -104,7 +106,7 @@ useEffect(()=>{
               Authorization: `Bearer ${token}`,
             },
           })
-          
+
           if (response.ok) {
             const data = await response.json()
             setUser(data.data)
@@ -117,7 +119,7 @@ useEffect(()=>{
     }
 
     initializeAuth()
-},[])
+  }, [])
 
 
   // Initialize form with user data when available
@@ -142,17 +144,48 @@ useEffect(()=>{
     }
   }, [user]);
 
-  const onSubmit = async (data: ProfileFormValues) => {
-    try {
-      console.log('Form submitted:', data);
-      // Here you would typically call an API to update the user
-      // await UserService.updateUserDetails(data);
-      // You might want to show a success message or redirect
-    } catch (error) {
-      console.error('Error updating profile:', error);
-      // Handle error (show toast, etc.)
+const toBase64 = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = (error) => reject(error);
+  });
+};
+ 
+const onSubmit = async (data: ProfileFormValues) => {
+  try {
+    let avatarString: string | undefined = undefined;
+ 
+    if (avatar) {
+      avatarString = await toBase64(avatar);
     }
-  };
+ 
+    const formData = {
+      ...(data.fullName && { full_name: data.fullName }),
+      ...(data.email && { email: data.email }),
+      ...(data.phoneNo && { phone_number: data.phoneNo }),
+      ...(data.dateOfBirth && { date_of_birth: data.dateOfBirth }),
+      ...(data.country && { country: data.country }),
+      ...(data.state && { state: data.state }),
+      ...(data.city && { city: data.city }),
+      ...(data.address && { address: data.address }),
+      ...(data.zipCode && { zip_code: data.zipCode }),
+      ...(data.password && { password: data.password }),
+      ...(data.confirmPassword && { confirm_password: data.confirmPassword }),
+      ...(avatarString && { avatar: avatarString }),
+    };
+ 
+    const res = await UserService?.updateProfile(formData);
+ 
+    if (res?.data?.data) {
+      console.log('Form submitted:', formData);
+    }
+  } catch (error) {
+    console.error('Error updating profile:', error);
+    // TODO: add toast or user feedback
+  }
+};
 
   if (!user) {
     return <div className="max-w-2xl mx-auto p-6">Loading user data...</div>;
@@ -178,6 +211,7 @@ useEffect(()=>{
                 accept="image/*"
                 onChange={(e) => {
                   const file = e.target.files?.[0];
+                  setAvatar(file)
                   if (file) {
                     const imageURL = URL.createObjectURL(file);
                     setAvatarPreview(imageURL);
