@@ -124,6 +124,7 @@ export default function SignupPage() {
       if (data?.success) {
         toast.success(data.message || "Signup successful!");
         localStorage.setItem("email", formData.email);
+        // const response = await UserService.register(userData);
         router.push("/login");
       } else {
         toast.error(data?.message || "Signup failed");

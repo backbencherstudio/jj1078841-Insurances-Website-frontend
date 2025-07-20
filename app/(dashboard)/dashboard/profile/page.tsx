@@ -144,48 +144,40 @@ export default function ProfileForm() {
     }
   }, [user]);
 
-const toBase64 = (file: File): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = (error) => reject(error);
-  });
-};
- 
-const onSubmit = async (data: ProfileFormValues) => {
-  try {
-    let avatarString: string | undefined = undefined;
- 
-    if (avatar) {
-      avatarString = await toBase64(avatar);
+  const toBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
+  const onSubmit = async (data: ProfileFormValues) => {
+    try {
+      const fd = new FormData();
+
+      // primitive fields
+      if (data.fullName) fd.append('full_name', data.fullName);
+      if (data.email) fd.append('email', data.email);
+      if (data.phoneNo) fd.append('phone_number', data.phoneNo);
+      if (data.dateOfBirth) fd.append('date_of_birth', data.dateOfBirth);
+      if (data.country) fd.append('country', data.country);
+      if (data.state) fd.append('state', data.state);
+      if (data.city) fd.append('city', data.city);
+      if (data.address) fd.append('address', data.address);
+      if (data.zipCode) fd.append('zip_code', data.zipCode);
+      if (data.password) fd.append('password', data.password);
+      if (data.confirmPassword) fd.append('confirm_password', data.confirmPassword);
+
+      // file part
+      if (avatar) fd.append('avatar', avatar);
+
+      await UserService.updateProfile(fd);
+    } catch (err) {
+      console.error('Error updating profile:', err);
     }
- 
-    const formData = {
-      ...(data.fullName && { full_name: data.fullName }),
-      ...(data.email && { email: data.email }),
-      ...(data.phoneNo && { phone_number: data.phoneNo }),
-      ...(data.dateOfBirth && { date_of_birth: data.dateOfBirth }),
-      ...(data.country && { country: data.country }),
-      ...(data.state && { state: data.state }),
-      ...(data.city && { city: data.city }),
-      ...(data.address && { address: data.address }),
-      ...(data.zipCode && { zip_code: data.zipCode }),
-      ...(data.password && { password: data.password }),
-      ...(data.confirmPassword && { confirm_password: data.confirmPassword }),
-      ...(avatarString && { avatar: avatarString }),
-    };
- 
-    const res = await UserService?.updateProfile(formData);
- 
-    if (res?.data?.data) {
-      console.log('Form submitted:', formData);
-    }
-  } catch (error) {
-    console.error('Error updating profile:', error);
-    // TODO: add toast or user feedback
-  }
-};
+  };
 
   if (!user) {
     return <div className="max-w-2xl mx-auto p-6">Loading user data...</div>;
