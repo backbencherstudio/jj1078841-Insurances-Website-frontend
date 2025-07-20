@@ -1,11 +1,12 @@
 'use client'
 
+import { Suspense } from 'react'
 import { UserService } from "@/service/user/user.service";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export default function EmailVerificationPage() {
+function EmailVerificationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
@@ -26,7 +27,7 @@ export default function EmailVerificationPage() {
       try {
         setLoading(true);
         const response = await UserService.verifyEmail({ token, email });
-
+        
         if (!response.data) {
           throw new Error('No response data received');
         }
@@ -34,15 +35,15 @@ export default function EmailVerificationPage() {
         if (response.data.success) {
           toast.success('Email verified successfully!');
           setIsSuccess(true);
-          setTimeout(() => router.push('/login'), 2000);
+          setTimeout(() => router.push('/login'), 3000);
         } else {
           throw new Error(response.data.message || 'Verification failed');
         }
       } catch (error: any) {
         console.error('Verification error:', error);
-        const errorMessage = error.response?.data?.message ||
-          error.message ||
-          'Email verification failed';
+        const errorMessage = error.response?.data?.message || 
+                           error.message || 
+                           'Email verification failed';
         setError(errorMessage);
         toast.error(errorMessage);
       } finally {
@@ -101,4 +102,17 @@ export default function EmailVerificationPage() {
       </div>
     </div>
   );
+}
+
+export default function EmailVerificationPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col items-center justify-center min-h-screen p-4">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4"></div>
+        <p className="text-gray-600">Loading verification...</p>
+      </div>
+    }>
+      <EmailVerificationContent />
+    </Suspense>
+  )
 }
