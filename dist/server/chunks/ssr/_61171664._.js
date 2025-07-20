@@ -8,9 +8,11 @@ var { g: global, __dirname } = __turbopack_context__;
 // server base url
 __turbopack_context__.s({
     "AppConfig": (()=>AppConfig),
-    "URL": (()=>URL)
+    "URL": (()=>URL),
+    "imgURL": (()=>imgURL)
 });
 const URL = ("TURBOPACK compile-time value", "https://backend.insurancesally.com") || "http://127.0.0.1:4000";
+const imgURL = `${URL}/storage`;
 const AppConfig = ()=>({
         app: {
             // server endpoint
