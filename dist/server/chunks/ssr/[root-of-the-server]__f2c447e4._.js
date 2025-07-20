@@ -246,9 +246,11 @@ var { g: global, __dirname } = __turbopack_context__;
 // server base url
 __turbopack_context__.s({
     "AppConfig": (()=>AppConfig),
-    "URL": (()=>URL)
+    "URL": (()=>URL),
+    "imgURL": (()=>imgURL)
 });
 const URL = ("TURBOPACK compile-time value", "https://backend.insurancesally.com") || "http://127.0.0.1:4000";
+const imgURL = `${URL}/storage`;
 const AppConfig = ()=>({
         app: {
             // server endpoint
@@ -418,13 +420,12 @@ const UserService = {
         });
         const _config = {
             headers: {
-                "Content-Type": "multipart/form-data;",
+                // Let Axios/browser set the correct multipart boundary automatically
                 Authorization: "Bearer " + userToken
             }
         };
         return await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$Fetch$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fetch"].patch(`/dashboard/user-profile`, data, _config);
     },
-    sendConfirmationMain: async (email, token, context = null)=>{},
     findAll: async (context = null)=>{
         const userToken = __TURBOPACK__imported__module__$5b$project$5d2f$helper$2f$cookie$2e$helper$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CookieHelper"].get({
             key: "token",

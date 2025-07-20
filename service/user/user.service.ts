@@ -64,8 +64,6 @@ export const UserService = {
     // const token = nookies.get(null).token;
     // const userToken = token;
  
-    console.log("Hello,,,,")
- 
     const _config = {
       headers: {
         "Content-Type": "application/json",
@@ -87,6 +85,17 @@ export const UserService = {
       },
     };
     return await Fetch.patch(`/dashboard/user-profile`, data, _config);
+  },
+
+  verifyEmail: async({token, email},context=null)=>{
+    const userToken = CookieHelper.get({ key: "token", context });
+    const _config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.post("/auth/verify-email", {token:token,email:email}, config);
   },
  
  

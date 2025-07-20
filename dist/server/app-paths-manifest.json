@@ -1,8 +1,12 @@
 {
   "/(client)/about/page": "app/(client)/about/page.js",
   "/(client)/login/page": "app/(client)/login/page.js",
+  "/(client)/signUp/page": "app/(client)/signUp/page.js",
+  "/(client)/verify-email/page": "app/(client)/verify-email/page.js",
+  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
   "/(dashboard)/dashboard/profile/page": "app/(dashboard)/dashboard/profile/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/verify-email/page": "app/verify-email/page.js"
 }
