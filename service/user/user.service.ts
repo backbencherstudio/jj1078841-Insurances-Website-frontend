@@ -8,6 +8,21 @@ const config = {
   },
 };
 
+type profile = {
+  full_name: string
+  email: string
+  phone_number: string
+  date_of_birth: string
+  country: string
+  state: string
+  city: string
+  address: string
+  zip_code: string
+  password: string
+  confirm_password: string
+  avatar: string
+}
+
 export const UserService = {
   login: async ({ email, password }: { email: string; password: string }) => {
     const data = {
@@ -17,34 +32,34 @@ export const UserService = {
     return await Fetch.post("/auth/login", data, config);
   },
 
-register: async ({
-  first_name,
-  last_name,
-  phone_number,
-  email,
-  password,
-}: {
-  first_name: string;
-  last_name: string;
-  phone_number: string;
-  email: string;
-  password: string;
-}) => {
-  const data = {
+  register: async ({
     first_name,
     last_name,
     phone_number,
     email,
     password,
-  };
-  return await Fetch.post("/auth/register", data, config);
-},
+  }: {
+    first_name: string;
+    last_name: string;
+    phone_number: string;
+    email: string;
+    password: string;
+  }) => {
+    const data = {
+      first_name,
+      last_name,
+      phone_number,
+      email,
+      password,
+    };
+    return await Fetch.post("/auth/register", data, config);
+  },
 
   logout: (context = null) => {
     CookieHelper.destroy({ key: "token", context });
   },
   // get user details
-  getUserDetails: async (context=null) => {
+  getUserDetails: async (context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
     // const token = nookies.get(null).token;
     // const userToken = token;
@@ -60,6 +75,32 @@ register: async ({
 
     return await Fetch.get(`/auth/me`, _config);
   },
+
+
+  updateProfile: async (data:profile, context = null)=>{
+    const userToken = CookieHelper.get({ key: "token", context });
+
+    const _config = {
+      headers: {
+        "Content-Type": "multipart/form-data;",
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.patch(`/dashboard/user-profile`, data, _config);
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   findAll: async (context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
