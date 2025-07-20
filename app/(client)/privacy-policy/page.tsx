@@ -149,7 +149,7 @@ export default function TermsAndConditions() {
                 )}
               </div>
             ))}
-            <Link href='/login' className=' bg-primary-color text-white text-lg px-2.5 py-1 rounded-lg '>login</Link>
+            {/* <Link href='/login' className=' bg-primary-color text-white text-lg px-2.5 py-1 rounded-lg '>login</Link> */}
           </div>
         </div>
       </div>
