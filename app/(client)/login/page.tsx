@@ -141,8 +141,6 @@ console.log(  new Date().getMonth())
     }
   };
 
-  const tokenVer = "3261cbe174b261bca953a99d9393e39548755d5983f187b959a9b1f57aa366ef";
-
   return (
     <div className="min-h-screen">
       <Toaster position="top-right" />
@@ -223,9 +221,6 @@ console.log(  new Date().getMonth())
           </form>
         </div>
       </div>
-      <Link href={`/verify-email?token=${tokenVer}&email=mirazh661@gmail.com`}>
-                Verify
-      </Link>
     </div>
   );
 }
