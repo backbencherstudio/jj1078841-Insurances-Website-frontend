@@ -74,7 +74,7 @@ export default function Testimonial() {
     <section className="  bg-disabled  relative z-30 py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <p className="text-cyan-500 mb-4">For Insurance Brokers</p>
+          <p className="text-cyan-500 mb-4">From customers</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             See the Difference We've Made
           </h2>

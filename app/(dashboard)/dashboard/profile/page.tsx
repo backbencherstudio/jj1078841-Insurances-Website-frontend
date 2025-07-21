@@ -6,6 +6,7 @@ import * as z from 'zod';
 import { useEffect, useState } from 'react';
 import nookies from 'nookies'
 import { UserService } from '@/service/user/user.service';
+import Image from 'next/image';
 
 type User = {
   address: string
@@ -183,16 +184,19 @@ export default function ProfileForm() {
     return <div className="max-w-2xl mx-auto p-6">Loading user data...</div>;
   }
 
+  console.log("Avatar preview",avatarPreview)
+//From customers
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-6">Profile</h1>
-
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-4">
           <div className="relative mb-6 w-fit">
-            <img
-              src={avatarPreview || "https://via.placeholder.com/100/E0E7FF/4F46E5?text=User"}
+            <Image
+              src={avatarPreview }
               alt="Profile"
+              width={100}
+              height={100}
               className="w-24 h-24 rounded-full object-cover border-2 border-slate-200"
             />
             <label className="absolute bottom-1 right-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full p-1.5 shadow-md cursor-pointer">

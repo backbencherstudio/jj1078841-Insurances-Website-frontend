@@ -39,7 +39,7 @@ const teamMembers = [
   },
 
   {
-    name: "Chris Walters",
+    name: "Christine Walters",
 
     role: "Appraiser",
 
