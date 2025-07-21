@@ -1,9 +1,28 @@
+'use client'
+
 import React from 'react';
 import heroImg from "../../../public/hero.png";
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect,useState } from 'react';
 
 export default function Hero() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      try {
+        const storedUser = localStorage.getItem("user");
+        setUser(storedUser ? JSON.parse(storedUser) : null);
+      } catch (error) {
+        console.error("Error parsing user data:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  }, []);
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
       {/* Hero Image */}
@@ -34,17 +53,22 @@ export default function Hero() {
  
    
 
+        {user?.data?.is_subscribed ?
+        <Link href='/membership_plans/claim' className=" py-3 px-6 md:py-4 md:px-10 hover:bg-transparent  border border-transparent hover:border-white hover:text-white cursor-pointer bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
+          Claim Support - Start a New Claim
+        </Link>
+        :
         <Link  href='/membership_plans' className=" py-3 px-6 md:py-4 md:px-10 hover:bg-transparent  border border-transparent hover:border-white hover:text-white cursor-pointer bg-white rounded-lg text-[var(--primary-dark)] text-sm md:text-base">
           Become a Member
         </Link >
-         
+        }
   
         
         
 
-        <p className="text-white font-normal mt-4 md:mt-5 text-base md:text-xl lg:text-2xl">
+        {!user?.data?.is_subscribed && <p className="text-white font-normal mt-4 md:mt-5 text-base md:text-xl lg:text-2xl">
           Join a movement to reform insurance
-        </p>
+        </p>}
       </div>
     </section>
   );

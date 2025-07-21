@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/src/redux/hooks";
 import { RiDashboardLine, RiUserLine } from "react-icons/ri";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { FaHandsHelping } from "react-icons/fa";
 import { AiOutlineMessage } from "react-icons/ai";
 import nookies from "nookies"; // Import nookies for cookie handling
 
@@ -66,6 +67,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { title: "My Claims", icon: IoDocumentTextOutline, href: "/dashboard/my_claims" },
     // { title: "Messages", icon: AiOutlineMessage, href: "/dashboard/messages" },
     { title: "Profile", icon: RiUserLine, href: "/dashboard/profile" },
+    // { title: "Claim Support", icon: FaHandsHelping, href: "/dashboard/claim_support" },
   ];
 
   if (isCheckingAuth) return null; // Or add a loader if you prefer
