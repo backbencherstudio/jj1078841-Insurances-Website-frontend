@@ -10,6 +10,42 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import nookies from 'nookies'; // Import nookies to manage cookies
 
+
+
+
+
+type User = {
+  address: string
+  approved_at: string
+  availability: string
+  avatar: string
+  avatar_url: string
+  billing_id: string
+  city: string
+  country: string
+  created_at: string
+  date_of_birth: string
+  deleted_at: string
+  domain: string,
+  email: string,
+  email_verified_at: string
+  first_name: string
+  gender: string
+  id: string
+  is_two_factor_enabled: string
+  last_name: string
+  name: string
+  password: string
+  phone_number: string
+  state: string
+  status: string
+  two_factor_secret: string
+  type: string
+  updated_at: string
+  username: string
+  zip_code: string
+}
+
 interface HeaderProps {
   onMenuClick: () => void;
 }
@@ -18,6 +54,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const [user,setUser] = useState<User>()
 
   // Check if the user is logged in based on token from cookies
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,6 +67,30 @@ export default function Header({ onMenuClick }: HeaderProps) {
       setIsLoggedIn(false); // User is not logged in if no token
     }
   }, []); // Only runs once when the component mounts
+
+  useEffect(() => {
+    const initializeAuth = async () => {
+      const token = nookies.get(null).token
+      if (token) {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+
+          if (response.ok) {
+            const data = await response.json()
+            setUser(data.data)
+          }
+        } catch (error) {
+          console.error('Failed to validate token', error)
+        }
+      }
+    }
+
+    initializeAuth()
+  }, [])
 
   // Logout functionality
   const handleLogout = () => {
@@ -80,7 +141,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <div className="w-8 h-8 flex items-center justify-center">
-                <Image src={profile} alt="profile" className='rounded-full' width={32} height={32} />
+                {user && <Image src={user?.avatar_url || profile} alt="profile" className='rounded-full' width={32} height={32} />}
               </div>
             </div>
 
