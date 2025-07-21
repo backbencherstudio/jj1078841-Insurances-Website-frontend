@@ -71,6 +71,8 @@ export default function Navbar() {
     nookies.destroy(null, "token");
     // Remove token from localStorage
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("rememberedEmail");
     setIsLoggedIn(false); // Update state to reflect logout
     setIsDropdownOpen(false);
     router.push("/login"); // Redirect to login page

@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { Upload, FileImage, FileText } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
+import { FaFileAlt } from "react-icons/fa";
+import Link from "next/link";
 
 interface FormData {
   propertyAddress: string;
@@ -14,6 +16,9 @@ interface FormData {
   insurancePolicy: File[];
   signature: File | null;
   submitted: boolean;
+  fullName: string;
+  dateOfClaim: string;
+  agreeWithPolicy: boolean,
 }
 
 const DAMAGE_TYPES = ["Water Damage", "Fire Damage", "Storm Damage", "Theft", "Other"];
@@ -31,6 +36,9 @@ export default function MyClaim() {
     insurancePolicy: [],
     signature: null,
     submitted: false,
+    fullName: "",
+    dateOfClaim: "",
+    agreeWithPolicy: false
   });
 
   const [token, setToken] = useState<string | null>(null);
@@ -55,7 +63,7 @@ export default function MyClaim() {
       return formData.damagePhotos.length > 0 && formData.insurancePolicy.length > 0;
     }
     if (currentStep === 3) {
-      return formData.signature !== null;
+      return formData.fullName !== null && formData.dateOfClaim !== null && formData.agreeWithPolicy;
     }
     return true;
   };
@@ -75,15 +83,15 @@ export default function MyClaim() {
 
   const handleFileUpload =
     (type: "damagePhotos" | "insurancePolicy" | "signature") =>
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.target.files) {
-        const files = Array.from(e.target.files);
-        setFormData((prev) => ({
-          ...prev,
-          [type]: type === "signature" ? files[0] : files,
-        }));
-      }
-    };
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files) {
+          const files = Array.from(e.target.files);
+          setFormData((prev) => ({
+            ...prev,
+            [type]: type === "signature" ? files[0] : files,
+          }));
+        }
+      };
 
   const handleSubmit = async () => {
     if (!token) {
@@ -92,23 +100,26 @@ export default function MyClaim() {
     }
 
     const form = new FormData();
-    form.append("propertyAddress", formData.propertyAddress);
-    form.append("dateOfLoss", formData.dateOfLoss);
-    form.append("damageType", formData.damageType);
-    form.append("insuranceCompany", formData.insuranceCompany);
-    form.append("policyNumber", formData.policyNumber);
-    
+    form.append("property_address", formData.propertyAddress);
+    form.append("date_of_loss", formData.dateOfLoss);
+    form.append("type_of_damage", formData.damageType);
+    form.append("insurance_company", formData.insuranceCompany);
+    form.append("policy_number", formData.policyNumber);
+    form.append("fullName", formData.fullName);
+    form.append("dateOfClaim", formData.dateOfClaim);
+    form.append("agreeWithPolicy", String(formData.agreeWithPolicy));
+
     formData.damagePhotos.forEach((file) => {
-      form.append("damagePhotos", file);
+      form.append("damage_photos", file);
     });
-    
+
     formData.insurancePolicy.forEach((file) => {
-      form.append("insurancePolicy", file);
+      form.append("policy_docs", file);
     });
-    
-    if (formData.signature) {
-      form.append("signature", formData.signature);
-    }
+
+    // if (formData.signature) {
+    //   form.append("signature", formData.signature);
+    // }
 
     try {
       toast.loading("Submitting claim...");
@@ -126,10 +137,11 @@ export default function MyClaim() {
 
       const result = await response.json();
       console.log(result);
-      
+
       toast.dismiss();
       toast.success("Claim submitted successfully!");
       setFormData((prev) => ({ ...prev, submitted: true }));
+      setCurrentStep((prev) => prev + 1);
     } catch (error: any) {
       toast.dismiss();
       const message = error?.message || "Submission failed";
@@ -152,7 +164,7 @@ export default function MyClaim() {
               {[1, 2, 3, 4].map((step) => (
                 <div key={step} className="flex items-center flex-1">
                   <div
-                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm sm:text-base ${step === currentStep ? "bg-[#2EB0E4] text-white" : "bg-gray-200 text-gray-500"}`}
+                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm sm:text-base ${step <= currentStep ? "bg-[#2EB0E4] text-white" : "bg-gray-200 text-gray-500"}`}
                   >
                     {step}
                   </div>
@@ -172,18 +184,18 @@ export default function MyClaim() {
               </div>
               <h2 className="text-2xl font-semibold mb-2">Claim Submitted Successfully.</h2>
               <p className="text-gray-600 mb-6">A member of our team will contact you shortly.</p>
-              <button
+              <Link
+              href='/'
                 className="px-6 py-2 bg-[#2EB0E4] text-white rounded-lg hover:bg-opacity-90"
-                onClick={() => window.location.reload()}
               >
                 Done
-              </button>
+              </Link>
             </div>
           ) : (
             <div className="bg-white rounded-lg p-4 sm:p-6 lg:p-8 mt-6 sm:mt-10">
               {/* STEP 1 */}
               {currentStep === 1 && (
-                <div className="space-y-5">
+                <div className="space-y-5 outline-none">
                   <InputField
                     label="Property Address"
                     value={formData.propertyAddress}
@@ -240,14 +252,40 @@ export default function MyClaim() {
               {/* STEP 3 */}
               {currentStep === 3 && (
                 <div className="space-y-4">
-                  <FileUpload
-                    label="Embedded E-Signature Tool"
-                    id="signature"
-                    accept=".pdf,image/*"
-                    onChange={handleFileUpload("signature")}
-                    files={formData.signature ? [formData.signature] : []}
+                  <div className="flex items-center gap-1 text-[#B5A3FF]">
+                    <div className="text-[#E7DFF1]">
+                    <FaFileAlt />
+                    </div>
+                    <Link href="/Files/Claim_Authorization.pdf" target="_blank" className="hover:underline">View Full Public Adjuster Authorization Agreement</Link>
+                  </div>
+                  <InputField
+                    label="Full Name"
+                    type="text"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   />
-                  <p className="text-xs text-gray-600 mt-4">I authorize Insurance Ally to act as my Public Adjuster</p>
+                  <InputField
+                    label="Date"
+                    type="date"
+                    value={formData.dateOfClaim}
+                    onChange={(e) => setFormData({ ...formData, dateOfClaim: e.target.value })}
+                  />
+                  <div className="flex items-start">
+                    <div className="flex items-center h-5">
+                      <input
+                        id="agreeWithPolicy"
+                        name="agreeWithPolicy"
+                        type="checkbox"
+                        required
+                        checked={formData.agreeWithPolicy || false}
+                        onChange={(e) => setFormData({ ...formData, agreeWithPolicy: e.currentTarget.checked })}
+                        className="w-4 h-4 border border-gray-300 rounded"
+                      />
+                    </div>
+                    <label htmlFor="agreeWithPolicy" className="ml-2 text-sm font-medium text-gray-900">
+                      I agree to the terms of the Public Adjuster Authorization. By checking this box, I agree this serves as my electronic signature.
+                    </label>
+                  </div>
                 </div>
               )}
 
