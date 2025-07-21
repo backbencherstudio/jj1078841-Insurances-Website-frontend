@@ -8,6 +8,8 @@ import nookies from 'nookies'
 import { UserService } from '@/service/user/user.service';
 import Image from 'next/image';
 import defaultAvatar from "@/public/avatar.png";
+import toast from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 type User = {
   address: string
@@ -40,6 +42,9 @@ type User = {
   username: string
   zip_code: string
 }
+
+
+const MAX_FILE_SIZE = 1 * 1024 * 1024;
 
 
 // Define form schema using Zod - no fields are required
@@ -145,15 +150,6 @@ export default function ProfileForm() {
     }
   }, [user]);
 
-  const toBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-  };
-
   const onSubmit = async (data: ProfileFormValues) => {
     try {
       const fd = new FormData();
@@ -183,9 +179,38 @@ export default function ProfileForm() {
   if (!user) {
     return <div className="max-w-2xl mx-auto p-6">Loading user data...</div>;
   }
-  
+
+
+  const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+
+  const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+
+    if (!file) return;
+
+    // Validate file type
+    if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
+      toast.error('Only JPG, PNG, and WEBP formats are supported');
+      e.target.value = ''; // Clear the input
+      return;
+    }
+
+    // Validate file size (1MB limit)
+    if (file.size > MAX_FILE_SIZE) {
+      toast.error(`File is too large (${(file.size / (1024 * 1024)).toFixed(1)}MB). Max 1MB allowed.`);
+      e.target.value = ''; // Clear the input
+      return;
+    }
+
+    // If validations pass
+    setAvatar(file);
+    const imageURL = URL.createObjectURL(file);
+    setAvatarPreview(imageURL);
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <Toaster position="top-right" />
       <h1 className="text-2xl font-bold mb-6">Profile</h1>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-4">
@@ -203,14 +228,7 @@ export default function ProfileForm() {
                 type="file"
                 name="avatar"
                 accept="image/*"
-                onChange={(e) => {
-                  const file = e.target.files?.[0];
-                  setAvatar(file)
-                  if (file) {
-                    const imageURL = URL.createObjectURL(file);
-                    setAvatarPreview(imageURL);
-                  }
-                }}
+                onChange={(e) => handleAvatarChange(e)}
                 className="hidden"
               />
             </label>
