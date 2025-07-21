@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import nookies from 'nookies'
 import { UserService } from '@/service/user/user.service';
 import Image from 'next/image';
+import defaultAvatar from "@/public/avatar.png";
 
 type User = {
   address: string
@@ -127,7 +128,6 @@ export default function ProfileForm() {
   useEffect(() => {
     if (user) {
       setAvatarPreview(user.avatar_url || null);
-      console.log(user)
       form.reset({
         fullName: user?.first_name || '',
         phoneNo: user.phone_number || '',
@@ -183,9 +183,7 @@ export default function ProfileForm() {
   if (!user) {
     return <div className="max-w-2xl mx-auto p-6">Loading user data...</div>;
   }
-
-  console.log("Avatar preview",avatarPreview)
-//From customers
+  
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-6">Profile</h1>
@@ -193,7 +191,7 @@ export default function ProfileForm() {
         <div className="space-y-4">
           <div className="relative mb-6 w-fit">
             <Image
-              src={avatarPreview }
+              src={avatarPreview || defaultAvatar}
               alt="Profile"
               width={100}
               height={100}

@@ -162,7 +162,7 @@ export default function Page() {
 
   // Disable "Get Started" button if the user has an active subscription
 const isSubscriptionActive = userData?.data?.subscriptions?.[0]?.status === "active";
-  console.log("User data : ",userData?.data)
+
 
   return (
     <section className="min-h-screen">

@@ -40,10 +40,8 @@ export default function Navbar() {
       
       if (response.ok) {
         const data = await response.json();
-        console.log(data.data);
         
-        setUserData(data.data); // Store user data in state
-        console.log(userData);
+        setUserData(data.data);
         
       } else {
         console.error("Failed to fetch user data.");

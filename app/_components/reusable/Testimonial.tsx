@@ -134,7 +134,7 @@ export default function Testimonial() {
                     <div className="flex gap-[2px] text-yellow-300">
                       {
                         [1, 2, 3, 4, 5].map(star => (
-                          <FaStar />
+                          <FaStar key={star}/>
                         ))
                       }
                     </div>
