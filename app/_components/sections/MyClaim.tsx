@@ -26,6 +26,7 @@ const INSURANCE_COMPANIES = ["State Farm", "Allstate", "GEICO", "Progressive", "
 
 export default function MyClaim() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [agreeWithPolicy,setAgreeWithPolicy] = useState<boolean | null>()
   const [formData, setFormData] = useState<FormData>({
     propertyAddress: "",
     dateOfLoss: "",
@@ -106,7 +107,7 @@ export default function MyClaim() {
     form.append("insurance_company", formData.insuranceCompany);
     form.append("policy_number", formData.policyNumber);
     form.append("fullName", formData.fullName);
-    form.append("dateOfClaim", formData.dateOfClaim);
+    form.append("dateOfClaim", new Date().toLocaleDateString());
     form.append("agreeWithPolicy", String(formData.agreeWithPolicy));
 
     formData.damagePhotos.forEach((file) => {
@@ -264,12 +265,10 @@ export default function MyClaim() {
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   />
-                  <InputField
-                    label="Date"
-                    type="date"
-                    value={formData.dateOfClaim}
-                    onChange={(e) => setFormData({ ...formData, dateOfClaim: e.target.value })}
-                  />
+                  <div>
+                    <h3>Date</h3>
+                    <div className="border p-2 rounded-md">{new Date().toLocaleDateString()}</div>
+                  </div>
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
                       <input
@@ -278,7 +277,7 @@ export default function MyClaim() {
                         type="checkbox"
                         required
                         checked={formData.agreeWithPolicy || false}
-                        onChange={(e) => setFormData({ ...formData, agreeWithPolicy: e.currentTarget.checked })}
+                        onChange={(e) => {setFormData({ ...formData, agreeWithPolicy: e.currentTarget.checked });setAgreeWithPolicy(e.currentTarget.checked)}}
                         className="w-4 h-4 border border-gray-300 rounded"
                       />
                     </div>
@@ -292,6 +291,7 @@ export default function MyClaim() {
               {/* Navigation */}
               <div className="flex justify-between mt-8">
                 <button
+                disabled={!agreeWithPolicy}
                   onClick={handleNext}
                   className="w-full px-6 py-2 bg-[#2EB0E4] text-white rounded-lg hover:bg-opacity-90"
                 >
