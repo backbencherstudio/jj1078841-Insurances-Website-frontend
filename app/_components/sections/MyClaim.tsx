@@ -22,11 +22,11 @@ interface FormData {
 }
 
 const DAMAGE_TYPES = ["Water Damage", "Fire Damage", "Storm Damage", "Theft", "Other"];
-const INSURANCE_COMPANIES = ["State Farm", "Allstate", "GEICO", "Progressive", "Liberty Mutual"];
+const INSURANCE_COMPANIES = ["State Farm", "Allstate", "GEICO", "Progressive", "Liberty Mutual","Other"];
 
 export default function MyClaim() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [agreeWithPolicy,setAgreeWithPolicy] = useState<boolean | null>()
+  const [agreeWithPolicy,setAgreeWithPolicy] = useState<boolean | null>(true)
   const [formData, setFormData] = useState<FormData>({
     propertyAddress: "",
     dateOfLoss: "",
@@ -61,6 +61,7 @@ export default function MyClaim() {
       );
     }
     if (currentStep === 2) {
+      setAgreeWithPolicy(false);
       return formData.damagePhotos.length > 0 && formData.insurancePolicy.length > 0;
     }
     if (currentStep === 3) {
@@ -70,12 +71,14 @@ export default function MyClaim() {
   };
 
   const handleNext = () => {
+    console.log("Handle next")
     if (!validateStep()) {
       toast.error("Please complete all required fields before proceeding.");
       return;
     }
 
     if (currentStep < 3) {
+      console.log("Current stage : ",currentStep)
       setCurrentStep((prev) => prev + 1);
     } else {
       handleSubmit();
