@@ -1,3 +1,5 @@
 {
+  "/(client)/membership_plans/claim/page": "app/(client)/membership_plans/claim/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js"
 }
