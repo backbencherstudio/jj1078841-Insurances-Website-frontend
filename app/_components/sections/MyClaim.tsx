@@ -22,11 +22,11 @@ interface FormData {
 }
 
 const DAMAGE_TYPES = ["Water Damage", "Fire Damage", "Storm Damage", "Theft", "Other"];
-const INSURANCE_COMPANIES = ["State Farm", "Allstate", "GEICO", "Progressive", "Liberty Mutual","Other"];
+const INSURANCE_COMPANIES = ["State Farm", "Allstate", "GEICO", "Progressive", "Liberty Mutual", "Other"];
 
 export default function MyClaim() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [agreeWithPolicy,setAgreeWithPolicy] = useState<boolean | null>(true)
+  const [agreeWithPolicy, setAgreeWithPolicy] = useState<boolean | null>(true)
   const [formData, setFormData] = useState<FormData>({
     propertyAddress: "",
     dateOfLoss: "",
@@ -78,7 +78,7 @@ export default function MyClaim() {
     }
 
     if (currentStep < 3) {
-      console.log("Current stage : ",currentStep)
+      console.log("Current stage : ", currentStep)
       setCurrentStep((prev) => prev + 1);
     } else {
       handleSubmit();
@@ -86,17 +86,27 @@ export default function MyClaim() {
   };
 
   const handleFileUpload =
-    (type: "damagePhotos" | "insurancePolicy" | "signature") =>
-      (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files) {
-          const files = Array.from(e.target.files);
-          setFormData((prev) => ({
-            ...prev,
-            [type]: type === "signature" ? files[0] : files,
-          }));
-        }
-      };
-
+  (type: "damagePhotos" | "insurancePolicy" | "signature") =>
+  (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const files = Array.from(e.target.files);
+      
+      // Check if any file exceeds 1MB (1MB = 1,048,576 bytes)
+      const oversizedFiles = files.filter(file => file.size > 1048576);
+      
+      if (oversizedFiles.length > 0) {
+        // Show toast error
+        toast.error("One or more files exceed the 1MB size limit");
+        return; // Exit the function without updating state
+      }
+      
+      // If all files are within size limit, update the state
+      setFormData((prev) => ({
+        ...prev,
+        [type]: type === "signature" ? files[0] : files,
+      }));
+    }
+  };
   const handleSubmit = async () => {
     if (!token) {
       toast.error("No user found. Please log in again.");
@@ -189,7 +199,7 @@ export default function MyClaim() {
               <h2 className="text-2xl font-semibold mb-2">Claim Submitted Successfully.</h2>
               <p className="text-gray-600 mb-6">A member of our team will contact you shortly.</p>
               <Link
-              href='/'
+                href='/'
                 className="px-6 py-2 bg-[#2EB0E4] text-white rounded-lg hover:bg-opacity-90"
               >
                 Done
@@ -258,7 +268,7 @@ export default function MyClaim() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-1 text-[#B5A3FF]">
                     <div className="text-[#E7DFF1]">
-                    <FaFileAlt />
+                      <FaFileAlt />
                     </div>
                     <Link href="/Files/Claim_Authorization.pdf" target="_blank" className="hover:underline">View Full Public Adjuster Authorization Agreement</Link>
                   </div>
@@ -280,7 +290,7 @@ export default function MyClaim() {
                         type="checkbox"
                         required
                         checked={formData.agreeWithPolicy || false}
-                        onChange={(e) => {setFormData({ ...formData, agreeWithPolicy: e.currentTarget.checked });setAgreeWithPolicy(e.currentTarget.checked)}}
+                        onChange={(e) => { setFormData({ ...formData, agreeWithPolicy: e.currentTarget.checked }); setAgreeWithPolicy(e.currentTarget.checked) }}
                         className="w-4 h-4 border border-gray-300 rounded"
                       />
                     </div>
@@ -294,7 +304,7 @@ export default function MyClaim() {
               {/* Navigation */}
               <div className="flex justify-between mt-8">
                 <button
-                disabled={!agreeWithPolicy}
+                  disabled={!agreeWithPolicy}
                   onClick={handleNext}
                   className="w-full px-6 py-2 bg-[#2EB0E4] text-white rounded-lg hover:bg-opacity-90"
                 >
