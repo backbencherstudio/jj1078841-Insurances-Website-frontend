@@ -91,19 +91,11 @@ export default function MyClaim() {
     if (e.target.files) {
       const files = Array.from(e.target.files);
       
-      // Check if any file exceeds 1MB (1MB = 1,048,576 bytes)
-      const oversizedFiles = files.filter(file => file.size > 1048576);
       
-      if (oversizedFiles.length > 0) {
-        // Show toast error
-        toast.error("One or more files exceed the 1MB size limit");
-        return; // Exit the function without updating state
-      }
-      
-      // If all files are within size limit, update the state
+      // If all files are within the size limit, update the state
       setFormData((prev) => ({
         ...prev,
-        [type]: type === "signature" ? files[0] : files,
+        [type]: type === "signature"? files[0] : files,
       }));
     }
   };
