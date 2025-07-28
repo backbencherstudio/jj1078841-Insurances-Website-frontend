@@ -157,7 +157,7 @@ export default function MyClaim() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <Toaster position="top-center" />
+      
       <div className="max-w-[95%] sm:max-w-4/5 border border-[#F1F1F1] mx-auto py-6 sm:py-10 rounded-lg my-12 sm:my-24">
         <div className="max-w-xl sm:max-w-2xl mx-auto px-4 sm:px-0">
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-center mb-8 sm:mb-10">
