@@ -114,11 +114,11 @@ export default function MyClaims() {
   }
 
   return (
-    <div className="">
+    <div className="w-full">
       <h1 className="text-2xl sm:text-3xl md:text-[40px] font-semibold text-primary-dark my-5">My Claims</h1>
-      <div className="bg-white border border-border-light p-4 sm:p-6 rounded-xl w-full max-w-screen overflow-x-auto">
-        <div className="w-full">
-          <table className='w-full table-auto'>
+      <div className="bg-white border border-border-light p-4 sm:p-6 rounded-xl w-full md:w-fit xl:w-full">
+        <div className="w-full overflow-auto max-w-lg lg:max-w-3xl xl:max-w-full">
+          <table className='w-full'>
             <thead className="bg-gray-50 hidden sm:table-header-group">
               <tr>
                 {tableHeaders.map((header) => (
