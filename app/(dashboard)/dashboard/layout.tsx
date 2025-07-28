@@ -82,7 +82,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <div className={`flex-1 flex flex-col min-h-screen transition-all duration-300 ease-in-out`}>
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
-        <main className="flex-1 p-6 overflow-auto max-w-screen">
+        <main className="flex-1 p-6">
           {children}
         </main>
       </div>
