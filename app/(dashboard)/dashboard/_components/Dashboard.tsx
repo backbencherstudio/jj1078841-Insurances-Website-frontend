@@ -1,7 +1,10 @@
-import React from 'react';
+'use client'
+
+import React, { useEffect, useState } from 'react';
 // Removed unused react-icons: FaRegFilePdf, FaRegImage, FaRegPaperPlane
  import PdfIcon from "@/public/dashbordOverview/PdfIcon"
  import ImageIcon from "@/public/dashbordOverview/ImageIcon"
+ import nookies from 'nookies'
 
 // Type for Payment Tracker items
 interface PaymentItem {
@@ -17,8 +20,43 @@ interface TimelineStep {
   // Add 'active' or 'completed' if styling needs to differ based on state
 }
 
-export default function Dashboard() {
+type propType={
+  id?:string;
+}
+
+export default function Dashboard({id="hello"}:propType) {
   // Removed unused constants: primaryHeaderColor, darkBlueButtonColor
+  const [claimid,setClaimid] = useState("");
+
+  useEffect(()=>{
+    if(id){
+      setClaimid(id);
+    }else{
+      setClaimid('CLM-1753680588084')
+    }
+    const initializeAuth = async () => {
+      const token = nookies.get(null).token
+      if (token) {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+
+          if (response.ok) {
+            const data = await response.json()
+            setUser(data.data)
+          }
+        } catch (error) {
+          console.error('Failed to validate token', error)
+        }
+      }
+      setLoading(false)
+    }
+
+    initializeAuth()
+  },[id])
 
   const paymentItems: PaymentItem[] = [
     { statement: 'Statement', status: 'Status', statusPillClasses: 'bg-transparent text-gray-700 font-semibold', isHeader: true },

@@ -1,9 +1,11 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { TfiTrash } from "react-icons/tfi";
 
 interface ClaimData {
+  id:string;
   claimId: string;
   policyNumber: string;
   typeOfDamage: string;
@@ -29,6 +31,7 @@ const tableHeaders: TableHeader[] = [
 ];
 
 export default function ClaimsHistory() {
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [claims, setClaims] = useState<ClaimData[]>([]);
@@ -62,6 +65,7 @@ export default function ClaimsHistory() {
         console.log("Claims History Data ===>", data);
 
         const mappedClaims = data.data.map((claim: any) => ({
+          id: claim.id,
           claimId: claim.claim_number,
           policyNumber: claim.policy_number,
           typeOfDamage: claim.type_of_damage,
@@ -109,6 +113,11 @@ export default function ClaimsHistory() {
     }
   };
 
+  const handleStatusManage=(id:string)=>{
+    console.log(id);
+    router.push(`/admin_dashboard/dashboard/${id}`)
+  }
+
   return (
     <div className="mx-auto w-[95%]">
       {/* title */}
@@ -152,13 +161,14 @@ export default function ClaimsHistory() {
                       <TfiTrash size={18} />
                     </button>
                   ) : header.id === "status" ? (
-                    <span
+                    <div
                       className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(
                         claim.status
                       )}`}
+                      onClick={()=>handleStatusManage(claim.id)}
                     >
                       {claim.status}
-                    </span>
+                    </div>
                   ) : (
                     claim[header.id as keyof ClaimData]
                   )}

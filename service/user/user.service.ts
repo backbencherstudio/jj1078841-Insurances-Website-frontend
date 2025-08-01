@@ -1,13 +1,13 @@
 import { CookieHelper } from "../../helper/cookie.helper";
 import { Fetch } from "../../lib/Fetch";
 import nookies from "nookies";
- 
+
 const config = {
   headers: {
     "Content-Type": "application/json",
   },
 };
- 
+
 type profile = {
   full_name: string
   email: string
@@ -22,7 +22,7 @@ type profile = {
   confirm_password: string
   avatar: string
 }
- 
+
 export const UserService = {
   login: async ({ email, password }: { email: string; password: string }) => {
     const data = {
@@ -31,7 +31,7 @@ export const UserService = {
     };
     return await Fetch.post("/auth/login", data, config);
   },
- 
+
   register: async ({
     first_name,
     last_name,
@@ -54,7 +54,7 @@ export const UserService = {
     };
     return await Fetch.post("/auth/register", data, config);
   },
- 
+
   logout: (context = null) => {
     CookieHelper.destroy({ key: "token", context });
   },
@@ -63,21 +63,21 @@ export const UserService = {
     const userToken = CookieHelper.get({ key: "token", context });
     // const token = nookies.get(null).token;
     // const userToken = token;
- 
+
     const _config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + userToken,
       },
     };
- 
+
     return await Fetch.get(`/auth/me`, _config);
   },
- 
- 
+
+
   updateProfile: async (data: FormData, context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
- 
+
     const _config = {
       headers: {
         // Let Axios/browser set the correct multipart boundary automatically
@@ -87,7 +87,7 @@ export const UserService = {
     return await Fetch.patch(`/dashboard/user-profile`, data, _config);
   },
 
-  verifyEmail: async({token, email},context=null)=>{
+  verifyEmail: async ({ token, email }, context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
     const _config = {
       headers: {
@@ -95,48 +95,57 @@ export const UserService = {
         Authorization: "Bearer " + userToken,
       },
     };
-    return await Fetch.post("/auth/verify-email", {token:token,email:email}, config);
+    return await Fetch.post("/auth/verify-email", { token: token, email: email }, _config);
   },
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+  getSingleClaim: async ({claimid},context = null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    const _config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.get(`/dashboard/claim-summary/${claimid}`,_config)
+  },
+
+
+
+
+
+
+
+
+
+
   findAll: async (context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
- 
+
     const _config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + userToken,
       },
     };
- 
+
     return await Fetch.get(`/user`, _config);
   },
- 
+
   findOne: async (id: number, context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
- 
+
     const _config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + userToken,
       },
     };
- 
+
     return await Fetch.get(`/user/${id}`, _config);
   },
- 
+
   findOneByUsername: async ({
     username,
     token = "",
@@ -148,17 +157,17 @@ export const UserService = {
   }) => {
     // const userToken = CookieHelper.get({ key: "token", context });
     const userToken = token || CookieHelper.get({ key: "token", context });
- 
+
     const _config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + userToken,
       },
     };
- 
+
     return await Fetch.get(`/user/profile/${username}`, _config);
   },
- 
+
   update: async (
     {
       fname,
@@ -192,14 +201,14 @@ export const UserService = {
     context = null
   ) => {
     const userToken = CookieHelper.get({ key: "token", context });
- 
+
     const _config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + userToken,
       },
     };
- 
+
     const data = {
       fname: fname,
       lname: lname,
@@ -215,13 +224,13 @@ export const UserService = {
       recipient_address: recipient_address,
       recipient_phone_number: recipient_phone_number,
     };
- 
+
     return await Fetch.patch(`/user`, data, _config);
   },
- 
+
   updateAvatar: async (data: any, context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
- 
+
     const _config = {
       headers: {
         "Content-Type": "application/json",
@@ -229,10 +238,10 @@ export const UserService = {
         "content-type": "multipart/form-data",
       },
     };
- 
+
     return await Fetch.patch(`/user/avatar`, data, _config);
   },
- 
+
   //
   create: async (
     {
@@ -251,7 +260,7 @@ export const UserService = {
     context: any = null
   ) => {
     const userToken = CookieHelper.get({ key: "token", context });
- 
+
     const _config = {
       headers: {
         "Content-Type": "application/json",
@@ -265,10 +274,10 @@ export const UserService = {
       email: email,
       role_id: role_id,
     };
- 
+
     return await Fetch.post(`/user`, data, _config);
   },
- 
+
   // TODO
   confirm: async (
     {
@@ -280,21 +289,21 @@ export const UserService = {
     context: any = null
   ) => {
     const userToken = CookieHelper.get({ key: "token", context });
- 
+
     const _config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + userToken,
       },
     };
- 
+
     const data = {
       id: id,
       token: token,
       email: email,
       password: password,
     };
- 
+
     return await Fetch.patch(`/user/${id}/password`, data, _config);
   },
 };

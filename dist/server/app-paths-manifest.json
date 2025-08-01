@@ -1,7 +1,11 @@
 {
+  "/(admin)/admin_dashboard/claims_history/page": "app/(admin)/admin_dashboard/claims_history/page.js",
+  "/(admin)/admin_dashboard/dashboard/[id]/page": "app/(admin)/admin_dashboard/dashboard/[id]/page.js",
+  "/(admin)/admin_dashboard/dashboard/page": "app/(admin)/admin_dashboard/dashboard/page.js",
+  "/(admin)/admin_dashboard/membership_plan/page": "app/(admin)/admin_dashboard/membership_plan/page.js",
+  "/(admin)/admin_dashboard/page": "app/(admin)/admin_dashboard/page.js",
+  "/(admin)/admin_dashboard/user_management/page": "app/(admin)/admin_dashboard/user_management/page.js",
   "/(client)/login/page": "app/(client)/login/page.js",
-  "/(client)/membership_plans/claim/page": "app/(client)/membership_plans/claim/page.js",
-  "/(client)/membership_plans/page": "app/(client)/membership_plans/page.js",
   "/(dashboard)/dashboard/my_claims/page": "app/(dashboard)/dashboard/my_claims/page.js",
   "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
   "/(dashboard)/dashboard/profile/page": "app/(dashboard)/dashboard/profile/page.js",
