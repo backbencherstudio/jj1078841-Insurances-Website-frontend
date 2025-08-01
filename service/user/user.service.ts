@@ -100,7 +100,7 @@ export const UserService = {
 
 
 
-  getSingleClaim: async ({claimid},context = null) => {
+  getSingleClaim: async (claimid:string,context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
     const _config = {
       headers: {
@@ -109,6 +109,18 @@ export const UserService = {
       },
     };
     return await Fetch.get(`/dashboard/claim-summary/${claimid}`,_config)
+  },
+
+
+  getAllClaim: async (context = null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    const _config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.get(`/dashboard/my-claims`,_config)
   },
 
 

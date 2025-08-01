@@ -73,7 +73,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   if (isCheckingAuth) return null; // Or add a loader if you prefer
 
   return (
-    <div className="flex h-screen bg-disabled overflow-hidden">
+    <div className="flex h-screen bg-disabled overflow-hidden w-screen">
       <Sidebar 
         isOpen={isSidebarOpen} 
         onClose={() => setIsSidebarOpen(false)} 
@@ -82,7 +82,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <div className={`flex-1 flex flex-col min-h-screen transition-all duration-300 ease-in-out`}>
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
-        <main className="flex-1">
+        <main className="flex-1" style={{maxWidth:'calc(100vw - 167px)'}}>
           {children}
         </main>
       </div>

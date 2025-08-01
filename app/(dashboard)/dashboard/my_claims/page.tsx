@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-
+import { useRouter } from 'next/navigation';
 type ClaimStatus = 'Active' | 'Pending' | 'Closed' | string;
 
 interface ClaimItem {
@@ -38,9 +38,15 @@ const getStatusStyles = (status: ClaimStatus) => {
 };
 
 export default function MyClaims() {
+  const router = useRouter();
   const [claims, setClaims] = useState<ClaimItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+
+  const handleDetailsClick=(id:string)=>{
+    router.push(`/dashboard/${id}`)
+  }
 
   useEffect(() => {
     const fetchClaims = async () => {
@@ -114,10 +120,10 @@ export default function MyClaims() {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full px-6" style={{maxWidth:'calc(100vw - 267px)'}}>
       <h1 className="text-2xl sm:text-3xl md:text-[40px] font-semibold text-primary-dark my-5">My Claims</h1>
-      <div className="bg-white border border-border-light p-4 sm:p-6 rounded-xl w-full md:w-fit xl:w-full">
-        <div className="w-full overflow-auto max-w-lg lg:max-w-3xl xl:max-w-full">
+      <div className="bg-white border border-border-light p-4 sm:p-6 rounded-xl w-full">
+        <div className="w-full overflow-x-auto">
           <table className='w-full'>
             <thead className="bg-gray-50 hidden sm:table-header-group">
               <tr>
@@ -135,7 +141,8 @@ export default function MyClaims() {
               {claims.map((claim, index) => (
                 <tr
                   key={index}
-                  className="hover:bg-gray-50 transition-colors duration-150 block sm:table-row mb-4 sm:mb-0 border border-gray-200 sm:border-none rounded-lg"
+                  className="hover:bg-gray-50 transition-colors duration-150 block sm:table-row mb-4 sm:mb-0 border border-gray-200 sm:border-none rounded-lg cursor-pointer"
+                  onClick={()=>handleDetailsClick(claim.claimId)}
                 >
                   {tableHeaders.map((header, headerIndex) => (
                     <td
@@ -146,7 +153,7 @@ export default function MyClaims() {
                       <div className="flex justify-between sm:block">
                         <span className="font-medium sm:hidden">{header.label}</span>
                         {headerIndex === 5 ? (
-                          <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-md ${claim.statusBgColor} ${claim.statusTextColor}`}>
+                          <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-md cursor-pointer ${claim.statusBgColor} ${claim.statusTextColor}`}>
                             {claim.status}
                           </span>
                         ) : (

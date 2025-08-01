@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { IoMdClose } from "react-icons/io";
