@@ -40,7 +40,6 @@ export default function Sidebar({ isOpen, onClose, menuItems }: SidebarProps) {
           <IoMdClose className="w-6 h-6" />
         </button>
       </div>
-      
       <nav className="p-4 space-y-2">
         {menuItems.map((item, index) => {
           const isActive = pathname === item.href;
