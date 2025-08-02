@@ -124,6 +124,17 @@ export const UserService = {
   },
 
 
+  sendMessage: async ({ message }, context = null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    const _config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.post("/dashboard/sentMessageToAdmin", { message: message }, _config);
+  },
+
 
 
 
