@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
 import { TfiTrash } from "react-icons/tfi";
-import {SquarePen} from "lucide-react"
+import { SquarePen } from "lucide-react"
 import EditMembershipModal from "./_components/EditMembershipModal";
 
 interface MembershipPlan {
@@ -14,8 +14,8 @@ interface MembershipPlan {
 }
 
 export default function MembershipPlan() {
-const [isModalOpen, setIsModalOpen] = useState(false);
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [plans, setPlans] = useState<MembershipPlan[]>([
     {
       plan: "Business",
@@ -69,7 +69,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   };
 
   return (
-    <div className="p-6 bg-[#F8FAFC] min-h-screen">
+    <div className="p-6 bg-[#F8FAFC] overflow-y-auto" style={{maxHeight:'calc(100vh - 90px)'}}>
       <h1 className="text-[32px] font-semibold text-[#0B1C39] mb-8">
         Membership Plan
       </h1>
@@ -79,69 +79,101 @@ const [isModalOpen, setIsModalOpen] = useState(false);
           Membership
         </h2>
 
-        <div className="overflow-x-auto">
-          <div className="min-w-[800px]">
-            {/* Headers */}
-            <div className="grid grid-cols-5 bg-[#e6ecf2] px-6 py-4">
-              <div className="text-xs font-semibold text-[#0B1C39]">Plan</div>
-              <div className="text-xs font-semibold text-[#0B1C39]">Price</div>
-              <div className="text-xs font-semibold text-[#0B1C39]">
-                Duration
-              </div>
-              <div className="text-xs font-semibold text-[#0B1C39]">
-                Features
-              </div>
-              <div className="text-xs font-semibold text-[#0B1C39]">Status</div>
-            </div>
+        <div className="border border-[#E2E8F0] rounded-b-xl overflow-x-auto text-nowrap" style={{maxWidth:'calc(100vw - 260px)'}}>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-[#E2E8F0]">
+              {/* Table Header */}
+              <thead className="bg-[#e6ecf2]">
+                <tr>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-[#0B1C39]">
+                    Plan
+                  </th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-[#0B1C39]">
+                    Price
+                  </th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-[#0B1C39]">
+                    Duration
+                  </th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-[#0B1C39]">
+                    Features
+                  </th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-semibold text-[#0B1C39]">
+                    Status
+                  </th>
+                  <th scope="col" className="px-6 py-4 text-right text-xs font-semibold text-[#0B1C39]">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
 
-            {/* Plan Rows */}
-            <div className="divide-y divide-[#E2E8F0]">
-              {plans.map((plan, index) => (
-                <div
-                  key={index}
-                  className="grid grid-cols-5 px-6 py-4 hover:bg-gray-50 items-center"
-                >
-                  <div className="text-sm text-[#64748B]">{plan.plan}</div>
-                  <div className="text-sm text-[#64748B]">{plan.price}</div>
-                  <div className="text-sm text-[#64748B]">{plan.duration}</div>
-                  <div className="text-sm text-[#64748B]">
-                    <ul className="list-disc pl-4">
-                      {plan.features.map((feature, idx) => (
-                        <li key={idx}>{feature}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(
-                        plan.status
-                      )}`}
-                    >
-                      {plan.status}
-                    </span>
-                    <div className="flex gap-2 justify-between items-center">
-                      <button  onClick={() => setIsModalOpen(true)} className="p-3 rounded-lg    text-primary-dark hover:bg-blue-100 border border-primary-dark">
-                      <SquarePen size={18}/>
-                      </button>
+              {/* Table Body */}
+              <tbody className="bg-white divide-y divide-[#E2E8F0]">
+                {plans.map((plan) => (
+                  <tr key={plan.plan} className="hover:bg-gray-50">
+                    {/* Plan Name */}
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#64748B]">
+                      {plan.plan}
+                    </td>
 
-                      <button
-                        onClick={() => handleDelete(plan.plan)}
-                        className="text-white bg-[#EB3D4D] p-3 rounded-xl"
-                      >
-                        <TfiTrash size={18} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-                <EditMembershipModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onUpdate={handleUpdate}
-        initialData={membership}
-      />
-            </div>
+                    {/* Price */}
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#64748B]">
+                      {plan.price}
+                    </td>
+
+                    {/* Duration */}
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#64748B]">
+                      {plan.duration}
+                    </td>
+
+                    {/* Features */}
+                    <td className="px-6 py-4 text-sm text-[#64748B]">
+                      <ul className="list-disc pl-4">
+                        {plan.features.map((feature, idx) => (
+                          <li key={idx}>{feature}</li>
+                        ))}
+                      </ul>
+                    </td>
+
+                    {/* Status */}
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(plan.status)}`}>
+                        {plan.status}
+                      </span>
+                    </td>
+
+                    {/* Actions */}
+                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <div className="flex items-center justify-end gap-2">
+                        <button
+                          onClick={() => setIsModalOpen(true)}
+                          className="p-3 rounded-lg text-primary-dark hover:bg-blue-100 border border-primary-dark"
+                          aria-label={`Edit ${plan.plan} plan`}
+                        >
+                          <SquarePen size={18} />
+                        </button>
+
+                        <button
+                          onClick={() => handleDelete(plan.plan)}
+                          className="text-white bg-[#EB3D4D] p-3 rounded-xl hover:bg-red-600 transition-colors"
+                          aria-label={`Delete ${plan.plan} plan`}
+                        >
+                          <TfiTrash size={18} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+
+          {/* Modal (positioned outside table but in same component) */}
+          <EditMembershipModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            onUpdate={handleUpdate}
+            initialData={membership}
+          />
         </div>
 
         {plans.length === 0 && (
@@ -151,7 +183,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         )}
       </div>
 
-       
+
     </div>
   );
 }

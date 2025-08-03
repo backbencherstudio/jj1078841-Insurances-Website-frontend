@@ -136,10 +136,62 @@ export const UserService = {
   },
 
 
-
-
-
-
+  updateClaimTimeline: async (data,id:string, context = null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    console.log("From server : ",data)
+    const _config = {
+      headers: {
+        // Let Axios/browser set the correct multipart boundary automatically
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.patch(`/admin/claims-history/${id}/timeline`, data, _config);
+  },
+  
+  
+  getSingleClaimAdmin:async (claimid:string,context = null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    const _config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.get(`/admin/claims-history/${claimid}`,_config)
+  },
+  
+  
+  updatePaymentTracker: async (data,id:string, context = null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    const _config = {
+      headers: {
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.patch(`/admin/claims-history/${id}`, data, _config);
+  },
+  
+  updateClaimSummary: async (data,id:string, context = null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    const _config = {
+      headers: {
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.patch(`/admin/claims-history/${id}`, data, _config);
+  },
+  updateClaimDocuments: async (data,id:string, context = null) => {
+    const userToken = CookieHelper.get({ key: "token", context });
+    const _config = {
+      headers: {
+        Authorization: "Bearer " + userToken,
+      },
+    };
+    return await Fetch.patch(`/admin/claims-history/${id}`, data, _config);
+  },
+  
+  
+  
 
 
 

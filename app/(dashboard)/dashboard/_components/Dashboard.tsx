@@ -44,6 +44,10 @@ export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) 
   const [claimData, setClaimData] = useState<ClaimDataType>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [policyDocs,setPolicyDocs] = useState <File >();
+  const [damagePhotos,setDamagePhotos] = useState<FileList >();
+  const [signedForm,setSignedForm] = useState<File >();
+  const [carrierCorrespondence,setCarrierCorrespondence] = useState<File >();
 
   useEffect(() => {
     const fetchClaims = async () => {
@@ -120,6 +124,20 @@ export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) 
       setIsLoading(false);
     }
   };
+
+
+  const handlePolicyDocs =(data:File)=>{
+    setPolicyDocs(data)
+  }
+  const handleDamagePhotos =(data:FileList)=>{
+    setDamagePhotos(data)
+  }
+  const handleSignedForm =(data:File)=>{
+    setSignedForm(data)
+  }
+  const handleCarrierCorres =(data:File)=>{
+    setCarrierCorrespondence(data)
+  }
 
 
   return (
@@ -315,7 +333,7 @@ export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) 
             {timelineSteps.map((step, index) => (
               <div
                 key={index}
-                className="flex-1 w-full text-nowrap bg-gray-100 p-2.5 rounded-md text-center text-sm text-gray-600 font-medium border border-gray-200"
+                className={`flex-1 w-full text-nowrap p-2.5 rounded-md text-center text-sm font-medium ${parseInt(claimData.claimTimeline) === index+1?"text-white p-4 bg-primary-color":"border border-gray-200 text-gray-600 bg-gray-100"}`}
                 aria-label={`Timeline step: ${step.name}`}
               >
                 {step.name}

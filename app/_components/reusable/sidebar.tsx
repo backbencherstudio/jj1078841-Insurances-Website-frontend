@@ -48,14 +48,14 @@ export default function Sidebar({ isOpen, onClose, menuItems }: SidebarProps) {
               key={index}
               href={item.href}
               className={`
-                flex items-center gap-3 p-3 rounded-lg transition-all duration-200
+                flex items-center text-nowrap gap-3 p-3 rounded-lg transition-all duration-200
                 ${isActive 
                   ? 'bg-[#ebf8fd] text-primary-color' 
                   : 'text-text-light hover:bg-gray-100'}
               `}
             >
               <item.icon className={`w-5 h-5 ${isActive ? 'text-primary-color' : 'text-gray-500'}`} />
-              <span className={`${isActive ? 'font-medium' : ''}`}>{item.title}</span>
+              <span className={`${isActive ? '' : ''}`}>{item.title}</span>
             </Link>
           );
         })}

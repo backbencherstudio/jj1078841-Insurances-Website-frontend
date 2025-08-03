@@ -13,6 +13,8 @@ import {
 import { Line } from "react-chartjs-2";
 import { RevenueChart } from "./reusable/RevenueChart";
 import { useAppSelector } from "@/src/redux/hooks";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Register ChartJS components
 ChartJS.register(
@@ -31,7 +33,21 @@ interface OverviewCard {
   value: string | number;
 }
 
+  const getStatusStyle = (status: ClaimData["status"]) => {
+    switch (status) {
+      case "Pending":
+        return "bg-[#FFF3E5] text-[#FF9C37]";
+      case "New":
+        return "bg-[#E5F5FF] text-[#37A9FF]";
+      case "Completed":
+        return "bg-[#E8FFE5] text-[#4CD440]";
+      default:
+        return "bg-gray-100 text-gray-800";
+    }
+  };
+
 interface ClaimData {
+  id:string;
   claimId: string;
   policyNumber: string;
   typeOfDamage: string;
@@ -41,6 +57,7 @@ interface ClaimData {
 }
 
 export default function AdminDashboard() {
+  const router = useRouter();
   const [token, setToken] = useState<string | null>(null);
   const [overviewData, setOverviewData] = useState<any>(null);
   const [revenueData, setRevenueData] = useState<any>([]);
@@ -117,8 +134,13 @@ export default function AdminDashboard() {
     { id: "status", label: "Status", width: "w-1/6" },
   ];
 
+
+  const handleStatusManage = (id: string) => {
+    router.push(`/admin_dashboard/dashboard/${id}`);
+  };
+
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 p-6 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 90px)' }}>
       {/* Overview Section */}
       <div>
         <h2 className="text-2xl font-semibold text-title-text mt-6 mb-4">Overview</h2>
@@ -136,52 +158,72 @@ export default function AdminDashboard() {
       <RevenueChart revenueData={revenueData} />
 
       {/* Recent Claims */}
-      <div className="bg-white rounded-lg overflow-hidden mt-6 p-4 sm:p-6">
+      <div className="bg-white rounded-lg  mt-6 p-4 sm:p-6">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-semibold text-gray-bold">Recent Claims</h3>
-          <button className="text-gray-bold font-normal text-base hover:text-blue-600">View all</button>
+          <Link href="/admin_dashboard/claims_history" className="text-gray-bold font-normal text-base hover:text-blue-600">View all</Link>
         </div>
 
         {/* Outer container with horizontal scroll for small screens */}
-        <div className="w-full -mx-4 sm:mx-0 overflow-x-auto">
-          {/* Inner container to ensure minimum width */}
-          <div className="min-w-[768px] sm:min-w-full px-4 sm:px-0">
-            {/* Header */}
-            <div className="bg-[#e6ecf2] rounded-t-2xl flex">
-              {tableHeaders.map((header) => (
-                <div
-                  key={header.id}
-                  className={`text-xs font-semibold text-primary-dark p-3 sm:p-4 ${header.width}`}
-                >
-                  {header.label}
-                </div>
-              ))}
-            </div>
+        <div className="w-full overflow-x-auto rounded-t-2xl">
+          <table className="min-w-[768px] sm:min-w-full">
+            {/* Table Header */}
+            <thead className="bg-[#e6ecf2] rounded-t-2xl">
+              <tr>
+                {tableHeaders.map((header) => (
+                  <th
+                    key={header.id}
+                    scope="col"
+                    className={`text-xs font-semibold text-primary-dark p-3 sm:p-4 text-left ${header.width}`}
+                  >
+                    {header.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
 
-            {/* Body */}
-            <div className="bg-white divide-y divide-gray-200">
-              {recentClaims.map((claim, index) => (
-                <div key={index} className="flex hover:bg-gray-50">
-                  <div className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-1/6">{claim.claimId}</div>
-                  <div className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-1/6">{claim.policyNumber}</div>
-                  <div className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-1/6">{claim.typeOfDamage}</div>
-                  <div className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-2/6">{claim.insuranceCompany}</div>
-                  <div className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-1/6">{claim.dateOfLoss}</div>
-                  <div className="p-3 sm:p-4 whitespace-nowrap w-1/6">
-                    <span
-                      className={`px-2 sm:px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-xs ${
-                        claim.status === "Pending"
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-green-100 text-green-800"
-                      }`}
+            {/* Table Body */}
+            <tbody className="bg-white divide-y divide-gray-200">
+              {recentClaims.map((claim) => (
+                <tr key={claim.claimId} className="hover:bg-gray-50">
+                  {/* Claim ID */}
+                  <td className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-1/6">
+                    {claim.claimId}
+                  </td>
+
+                  {/* Policy Number */}
+                  <td className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-1/6">
+                    {claim.policyNumber}
+                  </td>
+
+                  {/* Type of Damage */}
+                  <td className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-1/6">
+                    {claim.typeOfDamage}
+                  </td>
+
+                  {/* Insurance Company */}
+                  <td className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-2/6">
+                    {claim.insuranceCompany}
+                  </td>
+
+                  {/* Date of Loss */}
+                  <td className="p-3 sm:p-4 whitespace-nowrap text-xs font-medium text-gray-bold w-1/6">
+                    {claim.dateOfLoss}
+                  </td>
+
+                  {/* Status */}
+                  <td className="p-3 sm:p-4 whitespace-nowrap w-1/6">
+                    <button
+                      onClick={() => handleStatusManage(claim.id)}
+                      className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(claim.status)} cursor-pointer`}
                     >
                       {claim.status}
-                    </span>
-                  </div>
-                </div>
+                    </button>
+                  </td>
+                </tr>
               ))}
-            </div>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

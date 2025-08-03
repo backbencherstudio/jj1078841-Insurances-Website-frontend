@@ -30,7 +30,7 @@ export interface ClaimDataType {
     claimSummary: ClaimSummary;
     documentHub: DocumentHub;
     paymentTracker: PaymentItem;
-    claimTimeline: string[];
+    claimTimeline: string;
 }
 
 // Type for Timeline items
