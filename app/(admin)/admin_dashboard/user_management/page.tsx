@@ -57,7 +57,7 @@ export default function UserManagement() {
             Authorization: `Bearer ${token}`,
           },
         });
-console.log("get data",response);
+        console.log("get data", response);
 
         if (!response.ok) {
           throw new Error("Authorization failed, status code: " + response.status);
@@ -130,9 +130,9 @@ console.log("get data",response);
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          
+
         });
-console.log("response=============================================>",response);
+        console.log("response=============================================>", response);
 
         if (response.ok) {
           // If deletion is successful, remove the user from local state
@@ -152,7 +152,7 @@ console.log("response=============================================>",response);
   };
 
   return (
-    <div className="max-w-[95%] mx-auto">
+    <div className="mx-auto p-6 w-full overflow-y-auto h-full" style={{maxWidth:'calc(100vw - 212px)', maxHeight:'calc(100vh - 90px)'}}>
       {/* title */}
       <h1 className="text-[40px] font-semibold text-primary-dark my-5">User Management</h1>
 
@@ -181,37 +181,80 @@ console.log("response=============================================>",response);
         </div>
 
         {/* Headers */}
-        <div className="grid grid-cols-6 bg-[#e6ecf2] rounded-t-xl">
-          {tableHeaders.map((header) => (
-            <div key={header.id} className="text-xs font-semibold text-primary-dark p-3 sm:p-4">
-              {header.label}
-            </div>
-          ))}
-        </div>
+        <div className="border border-[#E2E8F0] rounded-xl overflow-x-auto">
+          {/* Table */}
+          <table className="min-w-full divide-y divide-[#E2E8F0] table-auto">
+            {/* Table Header */}
+            <thead className="bg-[#e6ecf2]">
+              <tr>
+                {tableHeaders.map((header) => (
+                  <th
+                    key={header.id}
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-semibold text-primary-dark uppercase tracking-wider"
+                  >
+                    {header.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
 
-        {/* User Rows */}
-        <div className="divide-y divide-[#E2E8F0]">
-          {paginatedUsers.map((user, index) => (
-            <div key={index} className="grid grid-cols-6 px-6 py-4 hover:bg-gray-50 items-center">
-              <div className="flex items-center gap-3">
-                <Image src={user.avatar} alt={user.name} width={32} height={32} className="rounded-full" />
-                <span className="text-sm font-medium text-[#0B1C39]">{user.name}</span>
-              </div>
-              <div className="text-sm font-medium text-[#0B1C39]">{user.email}</div>
-              <div className="text-sm font-medium text-[#0B1C39]">{user.date}</div>
-              <div className="text-sm font-medium text-[#0B1C39]">{user.plan}</div>
-              <div>
-                <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(user.status)}`}>
-                  {user.status}
-                </span>
-              </div>
-              <div>
-                <button className="text-white bg-[#EB3D4D] p-3 rounded-xl" onClick={() => handleDeleteUser(user)}>
-                  <TfiTrash size={18} />
-                </button>
-              </div>
-            </div>
-          ))}
+            {/* Table Body */}
+            <tbody className="bg-white divide-y divide-[#E2E8F0]">
+              {paginatedUsers.map((user) => (
+                <tr key={user.id} className="hover:bg-gray-50">
+                  {/* Name with Avatar */}
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src={user.avatar}
+                        alt={user.name}
+                        width={32}
+                        height={32}
+                        className="rounded-full"
+                      />
+                      <span className="text-sm font-medium text-[#0B1C39]">
+                        {user.name}
+                      </span>
+                    </div>
+                  </td>
+
+                  {/* Email */}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#0B1C39]">
+                    {user.email}
+                  </td>
+
+                  {/* Date */}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#0B1C39]">
+                    {user.date}
+                  </td>
+
+                  {/* Plan */}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#0B1C39]">
+                    {user.plan}
+                  </td>
+
+                  {/* Status */}
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(user.status)}`}>
+                      {user.status}
+                    </span>
+                  </td>
+
+                  {/* Action */}
+                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <button
+                      className="text-white bg-[#EB3D4D] p-3 rounded-xl hover:bg-red-600 transition-colors"
+                      onClick={() => handleDeleteUser(user)}
+                      aria-label={`Delete user ${user.name}`}
+                    >
+                      <TfiTrash size={18} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -229,11 +272,10 @@ console.log("response=============================================>",response);
             <button
               key={number}
               onClick={() => setCurrentPage(number)}
-              className={`text-base font-medium size-12 rounded-md ${
-                currentPage === number
+              className={`text-base font-medium size-12 rounded-md ${currentPage === number
                   ? "bg-primary-dark text-white"
                   : "text-gray-600 hover:bg-gray-100"
-              }`}
+                }`}
             >
               {number}
             </button>
