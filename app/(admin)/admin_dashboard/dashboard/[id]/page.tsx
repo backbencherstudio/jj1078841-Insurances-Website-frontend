@@ -304,7 +304,7 @@ export default function Dashboard({ params }: { params: { id: string } }) {
                     <h3 className="text-center">{item.title}</h3>
                     <Link
                       target='_blank'
-                      href={item.fileUrl}
+                      href={`https://backend.insurancesally.com${item.fileUrl}`}
                       className="min-h-[80px] cursor-pointer text-center border border-dashed bg-white rounded flex items-center justify-center"
                     >
                       {item.icon}
