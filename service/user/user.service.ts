@@ -189,7 +189,7 @@ export const UserService = {
     };
     return await Fetch.patch(`/admin/claims-history/${id}`, data, _config);
   },
-  
+
   
   
 
