@@ -69,7 +69,7 @@ export default function MembershipPlan() {
   };
 
   return (
-    <div className="p-6 bg-[#F8FAFC] overflow-y-auto" style={{maxHeight:'calc(100vh - 90px)'}}>
+    <div className="p-6 bg-[#F8FAFC] overflow-y-auto maxWidth">
       <h1 className="text-[32px] font-semibold text-[#0B1C39] mb-8">
         Membership Plan
       </h1>
@@ -79,7 +79,7 @@ export default function MembershipPlan() {
           Membership
         </h2>
 
-        <div className="border border-[#E2E8F0] rounded-b-xl overflow-x-auto text-nowrap" style={{maxWidth:'calc(100vw - 260px)'}}>
+        <div className="border border-[#E2E8F0] rounded-b-xl overflow-x-auto text-nowrap maxWidth">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-[#E2E8F0]">
               {/* Table Header */}

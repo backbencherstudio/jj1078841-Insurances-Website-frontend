@@ -120,7 +120,7 @@ export default function MyClaims() {
   }
 
   return (
-    <div className="w-full px-6" style={{maxWidth:'calc(100vw - 267px)'}}>
+    <div className="w-full px-6 maxWidth">
       <h1 className="text-2xl sm:text-3xl md:text-[40px] font-semibold text-primary-dark my-5">My Claims</h1>
       <div className="bg-white border border-border-light p-4 sm:p-6 rounded-xl w-full">
         <div className="w-full overflow-x-auto">

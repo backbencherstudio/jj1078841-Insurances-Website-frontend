@@ -146,7 +146,7 @@ export default function ClaimsHistory() {
   };
 
   return (
-    <div className="mx-auto p-6 w-full overflow-y-auto" style={{maxWidth:'calc(100vw - 212px)',maxHeight:'calc(100vh - 90px)'}}>
+    <div className="mx-auto p-6 w-full overflow-y-auto maxWidth" style={{maxHeight:'calc(100vh - 90px)'}}>
       <h1 className="text-[40px] font-semibold text-primary-dark my-5">Claims History</h1>
       
       <div className="p-6 border border-border-light rounded-2xl bg-white">

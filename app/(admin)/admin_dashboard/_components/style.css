@@ -1,0 +1,9 @@
+.maxWidth {
+  max-width: calc(100vw - 212px);
+}
+
+@media (max-width: 770px) {
+  .maxWidth {
+    max-width: 100vw;
+  }
+}
