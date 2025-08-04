@@ -152,7 +152,7 @@ export default function UserManagement() {
   };
 
   return (
-    <div className="mx-auto p-6 w-full overflow-y-auto h-full" style={{maxWidth:'calc(100vw - 212px)', maxHeight:'calc(100vh - 90px)'}}>
+    <div className="mx-auto p-6 w-full overflow-y-auto h-full maxWidth" style={{ maxHeight:'calc(100vh - 90px)'}}>
       {/* title */}
       <h1 className="text-[40px] font-semibold text-primary-dark my-5">User Management</h1>
 
