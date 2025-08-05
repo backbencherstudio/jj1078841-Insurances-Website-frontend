@@ -141,7 +141,7 @@ export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) 
 
 
   return (
-    <div className="h-full space-y-8 p-4 md:p-6 overflow-y-auto maxWidth" suppressHydrationWarning={true}>
+    <div className="h-full space-y-8 p-4 md:p-6 overflow-y-auto maxWidth" style={{height:'calc(100vh - 100px)'}} suppressHydrationWarning={true}>
       {/* Row 1: Claim Summary & Today */}
       <Toaster position='top-right'/>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
