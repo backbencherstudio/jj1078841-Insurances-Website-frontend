@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import toast,{Toaster} from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { UserService } from '@/service/user/user.service';
 
 interface userType {
@@ -46,9 +46,9 @@ interface FormValues {
 }
 
 
-type SummaryFormProps={
+type SummaryFormProps = {
     claimData: ClaimDataType;
-    id:string;
+    id: string;
 }
 
 
@@ -76,43 +76,54 @@ export default function SummaryForm({ claimData, id }: SummaryFormProps) {
     }, [claimData, reset]);
 
     const saveClaimSummary = async (data: FormValues) => {
-        const formData = new FormData();
-        formData.append('fullName', data.fullName);
-        formData.append('claim_number', data.claim_number);
-        formData.append('policy_number', data.policy_number);
-        {data.alternativenumber && formData.append('alternativenumber', data.alternativenumber);}
-        formData.append('address', data.address);
-        formData.append('phone_number', data.phone_number);
-        formData.append('email', data.email);
-        formData.append('insurance_company', data.insurance_company);
-        formData.append('adjuster', data.adjuster);
-
         if (!claimData?.claim_number) {
             toast.error("Missing claim information");
             return;
         }
 
         try {
-            console.log("Form data : ",formData)
+            const formData = new FormData();
+            // Required fields
+            formData.append('fullName', data.fullName);
+            formData.append('claim_number', data.claim_number);
+            formData.append('policy_number', data.policy_number);
+            formData.append('address', data.address);
+            formData.append('phone_number', data.phone_number);
+            formData.append('email', data.email);
+            formData.append('insurance_company', data.insurance_company);
+            formData.append('adjuster', data.adjuster);
+
+            // Optional fields
+            if (data.alternativenumber) {
+                formData.append('alternativenumber', data.alternativenumber);
+            }
+
+            // For debugging - convert FormData to a readable object
+            const formDataObj = Object.fromEntries(formData.entries());
+            console.log("Form data:", formDataObj);
+
             const res = await UserService.updateClaimSummary(formData, id);
 
             if (res?.status >= 200 && res?.status < 300) {
                 toast.success("Claim summary updated successfully");
+                reset();
             } else {
-                toast.error("Failed to update claim summary");
+                toast.error(res?.data?.message || "Failed to update claim summary");
             }
-        } catch (err) {
+        } catch (err: any) {
             console.error('Error updating claim summary:', err);
-            toast.error(
-                err.response?.data?.message ||
-                "An error occurred while updating claim summary"
-            );
+
+            const errorMessage = err?.response?.data?.message
+                || err?.message
+                || "An error occurred while updating claim summary";
+
+            toast.error(errorMessage);
         }
     };
 
     return (
         <div className='w-full h-full px-4 max-h-[435px] overflow-y-auto rounded-b-md'>
-            <Toaster position='top-right'/>
+            <Toaster position='top-right' />
             <form onSubmit={handleSubmit(saveClaimSummary)} className='block p-3 bg-white space-y-2 rounded-b-md'>
                 {/* Homeowner Name */}
                 <div className='flex flex-col space-y-1'>
@@ -163,7 +174,7 @@ export default function SummaryForm({ claimData, id }: SummaryFormProps) {
                         type="text"
                         id="address"
                         className='border-2 rounded-sm outline-none p-2 text-sm'
-                        {...register("phone_number", { required: "Enter Homeowner Address." })}
+                        {...register("address", { required: "Enter Homeowner Address." })}
                     />
                     {errors.address && (
                         <span className="text-red-500 text-xs">{`${errors.address.message}`}</span>
@@ -191,7 +202,7 @@ export default function SummaryForm({ claimData, id }: SummaryFormProps) {
                 </div>
 
                 {/* Alternative Phone */}
-                <div className='flex flex-col space-y-1'>
+                {/* <div className='flex flex-col space-y-1'>
                     <label htmlFor="alternativenumber" className='font-medium'>Alternative Phone Number*</label>
                     <input
                         type="tel"
@@ -208,7 +219,7 @@ export default function SummaryForm({ claimData, id }: SummaryFormProps) {
                     {errors.alternativenumber && (
                         <span className="text-red-500 text-xs">{`${errors.alternativenumber.message}`}</span>
                     )}
-                </div>
+                </div> */}
 
                 {/* Email */}
                 <div className='flex flex-col space-y-1'>
