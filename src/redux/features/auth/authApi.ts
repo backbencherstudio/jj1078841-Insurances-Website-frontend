@@ -8,7 +8,6 @@ export const authApi = baseApi.injectEndpoints({
         url: "/auth/login",
         method: "POST",
         body: credentials,
-        credentials: "include",
       }),
       // transformResponse: (response) => {
       //   const token = response?.authorization?.token;
@@ -27,7 +26,6 @@ export const authApi = baseApi.injectEndpoints({
         url: "/auth/register",
         method: "POST",
         body: userData,
-        credentials: "include"
       }),
       async onQueryStarted(arg, { queryFulfilled }) {
         try {
@@ -48,8 +46,6 @@ export const authApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/auth/me",
         method: "GET",
-        // You can keep this only if your backend also sets HttpOnly cookies (but optional)
-        credentials: "include",
       }),
       providesTags: ["User"],
     }),

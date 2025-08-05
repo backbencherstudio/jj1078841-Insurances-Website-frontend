@@ -6,7 +6,6 @@ export const usersApi = baseApi.injectEndpoints({
       query: () => ({
         url: "/new-claim-insurance",
         method: "POST",
-        credentials: "include",
       }),
       invalidatesTags: ["User"],
     }),
