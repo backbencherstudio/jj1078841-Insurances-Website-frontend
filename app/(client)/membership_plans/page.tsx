@@ -25,7 +25,7 @@ const plans: Plan[] = [
   {
     icon: BusinessPlan,
     name: "Renter",
-    price: "9.99",
+    price: "4.99",
     monthlyPrice: "Monthly",
     achiPrice: "4.99/month with ACH Auto-Pay",
     features: [
@@ -39,7 +39,7 @@ const plans: Plan[] = [
   {
     icon: VehiclePlan,
     name: "Residential",
-    price: "19.99",
+    price: "14.99",
     monthlyPrice: "Monthly",
     achiPrice: "14.99/month with ACH Auto-Pay",
     features: [

@@ -305,7 +305,7 @@ export default function ManageClaims({id}:PageProps) {
             <div className='p-5 flex flex-wrap gap-6 sm:gap-4'>
               {documentItems.map((item, index) => (
                 item.fileUrl ? (
-                  <div key={index} className="bg-[#f9f9f9] p-4 rounded-lg space-y-2">
+                  <div key={index} className="bg-[#f9f9f9] p-4 rounded-lg space-y-2 grow">
                     <h3 className="text-center">{item.title}</h3>
                     <Link
                       target='_blank'

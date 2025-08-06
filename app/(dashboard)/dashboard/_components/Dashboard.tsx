@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import PdfIcon from "@/public/dashbordOverview/PdfIcon"
 import ImageIcon from "@/public/dashbordOverview/ImageIcon"
 import nookies from 'nookies'
@@ -9,20 +9,15 @@ import toast from 'react-hot-toast';
 import { TimelineStep, ClaimDataType, DocumentHubItem } from './types';
 import { useForm } from 'react-hook-form';
 import { Toaster } from 'react-hot-toast';
-
-const documentHubItems: DocumentHubItem[] = [
-  { title: 'Policy Docs', icon: <PdfIcon /> },
-  { title: 'Damage Photos', icon: <ImageIcon /> },
-  { title: 'Signed Forms', icon: <PdfIcon /> },
-  { title: 'Carrier Correspondence', icon: <PdfIcon /> },
-];
+import DocumentCard from './DocumentCard';
+import Link from 'next/link';
 
 const todayTasks = [
-  'Upload Photos of Damage',
-  'Upload Insurance Policy / Declaration Page',
-  'Submit Signed Public Adjuster Agreement',
-  'Schedule Inspection (if needed)',
-  'Await Response from Insurance Ally Team',
+  { title: 'Upload Photos of Damage', status: true },
+  { title: 'Upload Insurance Policy / Declaration Page', status: true },
+  { title: 'Submit Signed Public Adjuster Agreement', status: false },
+  { title: 'Schedule Inspection (if needed)', status: false },
+  { title: 'Await Response from Insurance Ally Team', status: false },
 ];
 
 const timelineSteps: TimelineStep[] = [
@@ -35,19 +30,53 @@ const timelineSteps: TimelineStep[] = [
   { name: 'Construction Complete' },
 ];
 
+interface DocumentItem {
+  title: string;
+  icon: ReactElement;
+  fileUrl?: string;
+  lastUpdate?: string;
+}
+
+
+
 interface DashboardProps {
   id?: string;
 }
 
-export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) {
+export default function Dashboard({ id }: DashboardProps) {
   const { handleSubmit, register, formState: { errors } } = useForm();
   const [claimData, setClaimData] = useState<ClaimDataType>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [policyDocs,setPolicyDocs] = useState <File >();
-  const [damagePhotos,setDamagePhotos] = useState<FileList >();
-  const [signedForm,setSignedForm] = useState<File >();
-  const [carrierCorrespondence,setCarrierCorrespondence] = useState<File >();
+  const [policyDocs, setPolicyDocs] = useState<File>();
+  const [damagePhotos, setDamagePhotos] = useState<FileList>();
+  const [signedForm, setSignedForm] = useState<File>();
+  const [carrierCorrespondence, setCarrierCorrespondence] = useState<File>();
+
+
+  const documentItems: DocumentItem[] = [
+    {
+      title: 'Policy Docs',
+      icon: <PdfIcon />,
+      fileUrl: claimData?.documentHub?.policyDocs
+    },
+    {
+      title: 'Damage Photos',
+      icon: <ImageIcon />,
+      fileUrl: claimData?.documentHub?.damagePhotos?.[0]
+    },
+    {
+      title: 'Signed Forms',
+      icon: <PdfIcon />,
+      fileUrl: claimData?.documentHub?.signedForms
+    },
+    {
+      title: 'Carrier Correspondence',
+      icon: <PdfIcon />,
+      fileUrl: claimData?.documentHub?.carrierCorrespondence
+    },
+  ];
+
 
   useEffect(() => {
     const fetchClaims = async () => {
@@ -126,24 +155,70 @@ export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) 
   };
 
 
-  const handlePolicyDocs =(data:File)=>{
-    setPolicyDocs(data)
-  }
-  const handleDamagePhotos =(data:FileList)=>{
-    setDamagePhotos(data)
-  }
-  const handleSignedForm =(data:File)=>{
-    setSignedForm(data)
-  }
-  const handleCarrierCorres =(data:File)=>{
-    setCarrierCorrespondence(data)
-  }
+  // File upload handlers for each document type
+  const handlePolicyDocsUpload = async (file: File) => {
+    try {
+      const formData = new FormData();
+      formData.append('policy_docs', file);
+      const res = await UserService.updateClaimDocuments(formData, id);
+      // if (res?.status >= 200 && res?.status < 300) {
+      //   toast.success("Policy documents updated successfully");
+      //   // Refresh claim data
+      //   // fetchClaims();
+      // }
+    } catch (err) {
+      toast.error("Failed to upload policy documents");
+    }
+  };
+
+  const handleDamagePhotosUpload = async (file: File) => {
+    try {
+      const formData = new FormData();
+      formData.append('damage_photos', file);
+      const res = await UserService.updateClaimDocuments(formData, id);
+      // if (res?.status >= 200 && res?.status < 300) {
+      //   toast.success("Damage photos updated successfully");
+      //   // fetchClaims();
+      // }
+    } catch (err) {
+      toast.error("Failed to upload damage photos");
+    }
+  };
+
+  const handleSignedFormsUpload = async (file: File) => {
+    try {
+      const formData = new FormData();
+      formData.append('signed_forms', file);
+      console.log("File : ",file);
+      const res = await UserService.updateClaimDocuments(formData, id);
+      // if (res?.status >= 200 && res?.status < 300) {
+      //   toast.success("Signed forms updated successfully");
+      //   // fetchClaims();
+      // }
+    } catch (err) {
+      toast.error("Failed to upload signed forms");
+    }
+  };
+
+  const handleCarrierCorrespondenceUpload = async (file: File) => {
+    try {
+      const formData = new FormData();
+      formData.append('carrier_correspondence', file);
+      const res = await UserService.updateClaimDocuments(formData, id);
+      // if (res) {
+      //   toast.success("Carrier correspondence updated successfully");
+      //   // fetchClaims();
+      // }
+    } catch (err) {
+      toast.error("Failed to upload carrier correspondence");
+    }
+  };
 
 
   return (
-    <div className="h-full space-y-8 p-4 md:p-6 overflow-y-auto maxWidth" style={{height:'calc(100vh - 100px)'}} suppressHydrationWarning={true}>
+    <div className="h-full space-y-8 p-4 md:p-6 overflow-y-auto maxWidth" style={{ height: 'calc(100vh - 100px)' }} suppressHydrationWarning={true}>
       {/* Row 1: Claim Summary & Today */}
-      <Toaster position='top-right'/>
+      <Toaster position='top-right' />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Claim Summary */}
         <div className="rounded-xl bg-white shadow-sm">
@@ -172,16 +247,23 @@ export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) 
         {/* Today */}
         <div className="rounded-xl bg-white shadow-sm">
           <div className="text-white p-4 rounded-t-xl bg-primary-color">
-            <h2 className="text-xl font-semibold">Today</h2>
+            <h2 className="text-xl font-semibold">Task</h2>
           </div>
-          <div className="p-4 space-y-3">
+          <div className="p-4 space-y-3 overflow-x-auto">
             {todayTasks.map((task, index) => (
-              <label key={index} className="flex items-center space-x-2.5 text-sm text-gray-700 cursor-pointer">
-                <input
+              <label key={index} className="flex items-center space-x-2.5 text-sm text-gray-700 cursor-pointer text-nowrap min-w-[400px]">
+                {/* <input
                   type="checkbox"
                   className="form-checkbox h-4 w-4 text-sky-600 border-gray-300 rounded focus:ring-sky-500 focus:ring-offset-0"
-                />
-                <span>{task}</span>
+                /> */}
+                <div className='flex gap-6 justify-between w-full'>
+                  <span>{task?.title}</span>
+                  {task?.status ?
+                    <span className='text-green-500'>Complete</span>
+                    :
+                    <span className='text-[#F00]'>Incomplete</span>
+                  }
+                </div>
               </label>
             ))}
           </div>
@@ -189,23 +271,49 @@ export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) 
       </div>
 
       {/* Row 2: Document Hub */}
-      <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-        <div className="text-white p-4 bg-primary-color">
-          <h2 className="text-xl font-semibold">Document Hub</h2>
+      <div className="rounded-lg overflow-hidden shadow-sm">
+        <div className="text-white p-3 sm:p-4 bg-[#1e90ff]">
+          <h2 className="text-md sm:text-lg font-semibold">Document Hub</h2>
         </div>
-        <div className="p-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {documentHubItems.map((item, index) => (
-            <div key={index} className="space-y-2">
-              <p className="text-base font-medium text-gray-700">{item.title}</p>
-              <div
-                className="bg-gray-50 p-4 rounded-xl flex flex-col items-center justify-center space-y-2 border border-gray-200 min-h-[120px]"
-                aria-label={`${item.title} section`}
-              >
-                {item.icon}
-                <span className="sr-only">{item.title}</span>
-              </div>
+        <div className="p-4">
+          <div className='bg-white rounded-lg'>
+            <div className='p-5 flex flex-wrap gap-6 sm:gap-4'>
+              {documentItems.map((item, index) => (
+                item.fileUrl ? (
+                  <div key={index} className="bg-[#f9f9f9] p-4 rounded-lg space-y-2 grow">
+                    <h3 className="text-center">{item.title}</h3>
+                    <Link
+                      target='_blank'
+                      href={`https://backend.insurancesally.com${item.fileUrl}`}
+                      className="min-h-[80px] cursor-pointer text-center border border-dashed bg-white rounded flex items-center justify-center"
+                    >
+                      {item.icon}
+                    </Link>
+                  </div>
+                ) : (
+                  <DocumentCard
+                    key={index}
+                    title={item.title}
+                    lastUpdate={item.lastUpdate}
+                    icon={item.icon}
+                    handleFileChange={
+                      item.title === 'Policy Docs' ? handlePolicyDocsUpload :
+                        item.title === 'Damage Photos' ? handleDamagePhotosUpload :
+                          item.title === 'Signed Forms' ? handleSignedFormsUpload :
+                            handleCarrierCorrespondenceUpload
+                    }
+                  />
+                )
+              ))}
             </div>
-          ))}
+            {/* <button
+              type="button"
+              className='text-white bg-[#1e90ff] px-4 py-1 text-sm font-medium rounded-sm cursor-pointer mx-4 mb-4'
+              onClick={handleUpdateStatus}
+            >
+              Save
+            </button> */}
+          </div>
         </div>
       </div>
 
@@ -333,7 +441,7 @@ export default function Dashboard({ id = "CLM-1753680588084" }: DashboardProps) 
             {timelineSteps.map((step, index) => (
               <div
                 key={index}
-                className={`flex-1 w-full text-nowrap p-2.5 rounded-md text-center text-sm font-medium ${parseInt(claimData.claimTimeline) === index+1?"text-white p-4 bg-primary-color":"border border-gray-200 text-gray-600 bg-gray-100"}`}
+                className={`flex-1 w-full text-nowrap p-2.5 rounded-md text-center text-sm font-medium ${parseInt(claimData.claimTimeline) === index + 1 ? "text-white p-4 bg-primary-color" : "border border-gray-200 text-gray-600 bg-gray-100"}`}
                 aria-label={`Timeline step: ${step.name}`}
               >
                 {step.name}
