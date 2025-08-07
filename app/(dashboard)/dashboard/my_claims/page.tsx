@@ -13,6 +13,7 @@ interface ClaimItem {
   status: ClaimStatus;
   statusBgColor: string;
   statusTextColor: string;
+  id:string;
 }
 
 const tableHeaders = [
