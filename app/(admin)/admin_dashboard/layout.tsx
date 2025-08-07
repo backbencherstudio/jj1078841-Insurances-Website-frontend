@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { title: "Dashboard", icon: RiDashboardLine, href: "/admin_dashboard" },
     { title: "Claims", icon: IoDocumentTextOutline, href: "/admin_dashboard/claims_history" },
     { title: "User Management", icon: GrDocumentText, href: "/admin_dashboard/user_management" },
-    { title: "Membership Plan", icon: FaUsers, href: "/admin_dashboard/membership_plan" },
+    // { title: "Membership Plan", icon: FaUsers, href: "/admin_dashboard/membership_plan" },
   ];
 
   useEffect(() => {

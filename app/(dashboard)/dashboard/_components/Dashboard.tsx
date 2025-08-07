@@ -13,10 +13,10 @@ import DocumentCard from './DocumentCard';
 import Link from 'next/link';
 
 const todayTasks = [
-  { title: 'Upload Photos of Damage', status: true },
-  { title: 'Upload Insurance Policy / Declaration Page', status: true },
-  { title: 'Submit Signed Public Adjuster Agreement', status: false },
-  { title: 'Schedule Inspection (if needed)', status: false },
+  { title: 'Upload Photos of Damage', status: true,file: 'policyDocs'},
+  { title: 'Upload Insurance Policy / Declaration Page', status: true,file: 'damagePhotos' },
+  { title: 'Submit Signed Public Adjuster Agreement', status: false,file: 'signedForms' },
+  { title: 'Schedule Inspection (if needed)', status: false,file: 'carrierCorrespondence' },
   { title: 'Await Response from Insurance Ally Team', status: false },
 ];
 
@@ -137,7 +137,7 @@ export default function Dashboard({ id }: DashboardProps) {
 
     try {
       setIsLoading(true);
-      const res = await UserService.sendMessage(message);
+      const res = await UserService.sendMessage(message, id);
       console.log(res);
       if (res?.statusText === "Created") {
         toast.success("Message is sent to InsuranceAlly");
@@ -160,12 +160,10 @@ export default function Dashboard({ id }: DashboardProps) {
     try {
       const formData = new FormData();
       formData.append('policy_docs', file);
-      const res = await UserService.updateClaimDocuments(formData, id);
-      // if (res?.status >= 200 && res?.status < 300) {
-      //   toast.success("Policy documents updated successfully");
-      //   // Refresh claim data
-      //   // fetchClaims();
-      // }
+      const res = await UserService.updateClaimDocuments(formData, claimData?.claimSummary?.id);
+      if (res?.statusText === "OK") {
+        toast.success("Policy documents updated successfully");
+      }
     } catch (err) {
       toast.error("Failed to upload policy documents");
     }
@@ -175,11 +173,10 @@ export default function Dashboard({ id }: DashboardProps) {
     try {
       const formData = new FormData();
       formData.append('damage_photos', file);
-      const res = await UserService.updateClaimDocuments(formData, id);
-      // if (res?.status >= 200 && res?.status < 300) {
-      //   toast.success("Damage photos updated successfully");
-      //   // fetchClaims();
-      // }
+      const res = await UserService.updateClaimDocuments(formData, claimData?.claimSummary?.id);
+      if (res?.statusText === "OK") {
+        toast.success("Damage photos updated successfully");
+      }
     } catch (err) {
       toast.error("Failed to upload damage photos");
     }
@@ -189,12 +186,11 @@ export default function Dashboard({ id }: DashboardProps) {
     try {
       const formData = new FormData();
       formData.append('signed_forms', file);
-      console.log("File : ",file);
-      const res = await UserService.updateClaimDocuments(formData, id);
-      // if (res?.status >= 200 && res?.status < 300) {
-      //   toast.success("Signed forms updated successfully");
-      //   // fetchClaims();
-      // }
+      console.log("File : ", file);
+      const res = await UserService.updateClaimDocuments(formData, claimData?.claimSummary?.id);
+      if (res?.statusText === "OK") {
+        toast.success("Signed forms updated successfully");
+      }
     } catch (err) {
       toast.error("Failed to upload signed forms");
     }
@@ -204,15 +200,72 @@ export default function Dashboard({ id }: DashboardProps) {
     try {
       const formData = new FormData();
       formData.append('carrier_correspondence', file);
-      const res = await UserService.updateClaimDocuments(formData, id);
-      // if (res) {
-      //   toast.success("Carrier correspondence updated successfully");
-      //   // fetchClaims();
-      // }
+      const res = await UserService.updateClaimDocuments(formData, claimData?.claimSummary?.id);
+      console.log(res)
+      if (res?.statusText === "OK") {
+        toast.success("Carrier correspondence updated successfully");
+      }
     } catch (err) {
       toast.error("Failed to upload carrier correspondence");
     }
   };
+
+  const handleRequestStatusUpdate = async () => {
+    const message = "What is my current status";
+    console.log(message);
+    const token = nookies.get(null).token;
+    if (!token) {
+      setError('Authentication required');
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      const res = await UserService.sendMessage(message, id);
+      console.log(res);
+      if (res?.statusText === "Created") {
+        toast.success("Message is sent to InsuranceAlly");
+      } else {
+        setError(res?.response?.data?.message || "Failed to send message");
+        toast.error(res?.response?.data?.message || "Failed to send message");
+      }
+    } catch (error) {
+      console.error('Failed to send message', error);
+      setError('Failed to send message');
+      toast.error('Failed to send message');
+    } finally {
+      setIsLoading(false);
+    }
+  }
+  const handleMissingDocAlert = async () => {
+    const message = "I have some missing documents. What to do now can you guide me.";
+    console.log(message);
+    const token = nookies.get(null).token;
+    if (!token) {
+      setError('Authentication required');
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      const res = await UserService.sendMessage(message, id);
+      console.log(res);
+      if (res?.statusText === "Created") {
+        toast.success("Message is sent to InsuranceAlly");
+      } else {
+        setError(res?.response?.data?.message || "Failed to send message");
+        toast.error(res?.response?.data?.message || "Failed to send message");
+      }
+    } catch (error) {
+      console.error('Failed to send message', error);
+      setError('Failed to send message');
+      toast.error('Failed to send message');
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
 
   return (
@@ -258,7 +311,7 @@ export default function Dashboard({ id }: DashboardProps) {
                 /> */}
                 <div className='flex gap-6 justify-between w-full'>
                   <span>{task?.title}</span>
-                  {task?.status ?
+                  {claimData.documentHub[task?.file] ?
                     <span className='text-green-500'>Complete</span>
                     :
                     <span className='text-[#F00]'>Incomplete</span>
@@ -336,12 +389,14 @@ export default function Dashboard({ id }: DashboardProps) {
               <button
                 className="flex-1 bg-primary-color hover:bg-sky-600 text-white text-sm py-2.5 px-4 rounded-md transition duration-150 font-medium"
                 aria-label="Request status update"
+                onClick={handleRequestStatusUpdate}
               >
                 Request Status Update
               </button>
               <button
                 className="flex-1 bg-primary-color hover:bg-sky-600 text-white text-sm py-2.5 px-4 rounded-md transition duration-150 font-medium"
                 aria-label="Send missing document alert"
+                onClick={handleMissingDocAlert}
               >
                 Send Missing Doc Alert
               </button>

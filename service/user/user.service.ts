@@ -124,7 +124,7 @@ export const UserService = {
   },
 
 
-  sendMessage: async ({ message }, context = null) => {
+  sendMessage: async (message:string,id:string , context = null) => {
     const userToken = CookieHelper.get({ key: "token", context });
     const _config = {
       headers: {
@@ -132,7 +132,7 @@ export const UserService = {
         Authorization: "Bearer " + userToken,
       },
     };
-    return await Fetch.post("/dashboard/sentMessageToAdmin", { message: message }, _config);
+    return await Fetch.post("/dashboard/sentMessageToAdmin", { message: message,claimId:id }, _config);
   },
 
 
@@ -189,6 +189,18 @@ export const UserService = {
     };
     return await Fetch.patch(`/admin/claims-history/${id}`, data, _config);
   },
+
+
+  // sendMessage: async ({ message }, context = null) => {
+  //   const userToken = CookieHelper.get({ key: "token", context });
+  //   const _config = {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: "Bearer " + userToken,
+  //     },
+  //   };
+  //   return await Fetch.post("/dashboard/sentMessageToAdmin", { message: message }, _config);
+  // },
 
   
   

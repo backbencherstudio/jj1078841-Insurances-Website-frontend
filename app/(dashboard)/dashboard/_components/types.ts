@@ -12,6 +12,7 @@ export interface ClaimSummary {
     carrier: string;
     adjuster: string;
     lastUpdated: string;
+    id?:string;
 }
 
 export interface DocumentHub {
