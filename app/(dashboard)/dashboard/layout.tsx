@@ -64,8 +64,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [router]);
 
   const menuItems = [
-    // { title: "Dashboard", icon: RiDashboardLine, href: "/dashboard" },
-    { title: "My Claims", icon: IoDocumentTextOutline, href: "/dashboard" },
+    { title: "Dashboard", icon: RiDashboardLine, href: "/dashboard" },
+    { title: "My Claims", icon: IoDocumentTextOutline, href: "/dashboard/my_claims" },
     // { title: "Messages", icon: AiOutlineMessage, href: "/dashboard/messages" },
     { title: "Profile", icon: RiUserLine, href: "/dashboard/profile" },
     // { title: "Claim Support", icon: FaHandsHelping, href: "/dashboard/claim_support" },

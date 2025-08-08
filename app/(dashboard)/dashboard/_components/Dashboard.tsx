@@ -11,6 +11,9 @@ import { useForm } from 'react-hook-form';
 import { Toaster } from 'react-hot-toast';
 import DocumentCard from './DocumentCard';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+
 
 const todayTasks = [
   { title: 'Upload Photos of Damage', status: true,file: 'policyDocs'},
@@ -44,6 +47,7 @@ interface DashboardProps {
 }
 
 export default function Dashboard({ id }: DashboardProps) {
+  const router = useRouter();
   const { handleSubmit, register, formState: { errors } } = useForm();
   const [claimData, setClaimData] = useState<ClaimDataType>();
   const [isLoading, setIsLoading] = useState(true);
@@ -52,6 +56,13 @@ export default function Dashboard({ id }: DashboardProps) {
   const [damagePhotos, setDamagePhotos] = useState<FileList>();
   const [signedForm, setSignedForm] = useState<File>();
   const [carrierCorrespondence, setCarrierCorrespondence] = useState<File>();
+
+
+  useEffect(()=>{
+    if(!id){
+      router.push('/dashboard/my_claims')
+    }
+  },[])
 
 
   const documentItems: DocumentItem[] = [
@@ -106,7 +117,9 @@ export default function Dashboard({ id }: DashboardProps) {
       }
     };
 
-    fetchClaims();
+    if(id){
+      fetchClaims();
+    }
   }, [id]);
 
   if (isLoading) {
