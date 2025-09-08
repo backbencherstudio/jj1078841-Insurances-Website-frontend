@@ -28,9 +28,9 @@ const policyData: PolicySection[] = [
     content: [
       "The Insured agrees to pay a monthly membership fee based on the selected tier:",
       "• Renter: $14.99/month or $9.99/month with ACH Auto-Pay",
-      "• Homeowners: $24.99/month or $19.99/month with ACH",
-      "• Small Commercial Property Owners: $39.99/month or $34.99/month with ACH",
-      "• Apartments, Condos, HOAs, Large Commercial: $59.99/month or $54.99/month with ACH",
+      "• Homeowners: $24.99/month or $19.99/month with ACH Auto-Pay",
+      "• Small Commercial Property Owners: $39.99/month or $34.99/month with ACH Auto-Pay",
+      "• Apartments, Condos, HOAs, Large Commercial: $59.99/month or $54.99/month with ACH Auto-Pay",
       "The selected plan and payment method determine the applicable monthly fee, confirmed at enrollment.",
       "Charges recur monthly on the signup date."
     ]
