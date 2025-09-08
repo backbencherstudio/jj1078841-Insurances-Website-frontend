@@ -227,7 +227,7 @@ export default function PaymentForm() {
               type="submit"
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-[#2EB0E4] hover:bg-primary-color focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2EB0E4] transition-colors"
             >
-              Pay USD 14.99
+              {paymentMethod === "ach"?"Pay USD 9.99":"Pay USD 14.99"}
             </button>
           </div>
         </form>
