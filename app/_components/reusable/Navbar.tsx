@@ -81,9 +81,9 @@ export default function Navbar() {
   return (
     <nav className="bg-white sticky top-0 left-0 z-50 shadow-sm">
       <div className="container flex justify-between items-center py-6 p-5 mx-auto">
-        <div>
+        <Link href='/'>
           <Image src={logo} width={150} height={50} alt="logo" />
-        </div>
+        </Link>
 
         <ul className="hidden md:flex gap-4 lg:gap-5 md:text-[12px] lg:text-base">
           <Link href="/" className={`hover:text-[var(--primary-dark)] font-medium ${pathname === "/" ? "text-[var(--primary-dark)]" : ""}`}>Home</Link>
