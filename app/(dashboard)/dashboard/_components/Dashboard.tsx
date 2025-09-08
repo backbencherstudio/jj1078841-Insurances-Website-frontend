@@ -60,7 +60,7 @@ export default function Dashboard({ id }: DashboardProps) {
 
   useEffect(()=>{
     if(!id){
-      router.push('/dashboard/my_claims')
+      router.replace('/dashboard/my_claims')
     }
   },[])
 

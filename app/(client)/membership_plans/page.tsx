@@ -25,9 +25,9 @@ const plans: Plan[] = [
   {
     icon: BusinessPlan,
     name: "Renter",
-    price: "4.99",
+    price: "14.99",
     monthlyPrice: "Monthly",
-    achiPrice: "4.99/month with ACH Auto-Pay",
+    achiPrice: "9.99/month with ACH Auto-Pay",
     features: [
       "24/7 Support",
       "Online Claim Portals",
@@ -39,9 +39,9 @@ const plans: Plan[] = [
   {
     icon: VehiclePlan,
     name: "Residential",
-    price: "14.99",
+    price: "24.99",
     monthlyPrice: "Monthly",
-    achiPrice: "14.99/month with ACH Auto-Pay",
+    achiPrice: "19.99/month with ACH Auto-Pay",
     features: [
       "24/7 Support",
       "Online Claim Portals",
@@ -53,10 +53,10 @@ const plans: Plan[] = [
   {
     icon: PropertyPlan,
     name: "Commercial",
-    price: "29.99",
+    price: "39.99",
     monthlyPrice: "Monthly",
     description: "Small to Medium-Sized Business Property Owners",
-    achiPrice: "29.99/month with ACH Auto-Pay",
+    achiPrice: "34.99/month with ACH Auto-Pay",
     features: [
       "24/7 Support",
       "Online Claim Portals",
@@ -68,10 +68,10 @@ const plans: Plan[] = [
   {
     icon: PropertyPlan,
     name: "Enterprise",
-    price: "49.99",
+    price: "59.99",
     monthlyPrice: "Monthly",
     description: "Apartments, Condos, HOAs and Large Commercial Buildings",
-    achiPrice: "49.99/month with ACH Auto-Pay",
+    achiPrice: "54.99/month with ACH Auto-Pay",
     features: [
       "24/7 Support",
       "Online Claim Portals",
